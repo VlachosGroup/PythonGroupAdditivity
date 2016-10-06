@@ -1,0 +1,105 @@
+units:
+  molar enthalpy: kcal/mol
+  molar entropy: cal/(mol*K)
+  molar heat capacity: cal/(mol*K)
+  temperature: K
+
+sample_Ts: [
+    100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0, 1000.0,
+    1100.0, 1200.0, 1300.0, 1400.0, 1500.0]
+
+scheme:
+  include:
+    - benson
+
+libraries:
+  - original.yaml
+
+path: extra.yaml
+
+fit_missing_data: true
+
+
+properties:
+  # Data from NIST
+  HCOOCH3:
+    smiles: 'O=COC'
+    thermochem: !ThermochemIncomplete
+      T_ref: 298.0
+      S_ref: 68.1628
+      Cp_data:
+        - [100, 10.53]
+        - [200, 12.95]
+        - [300, 15.44]
+        - [400, 18.54]
+        - [500, 21.58]
+        - [600, 24.276]
+        - [700, 26.592]
+        - [800, 28.568]
+        - [900, 30.261]
+        - [1000, 31.711]
+        - [1100, 32.957]
+        - [1200, 34.03]
+        - [1300, 34.952]
+        - [1400, 35.75]
+        - [1500, 63.444]
+      range: [100.0, 1500.0]
+
+  HCOOCH2CH3:
+    # Data from DIPPR
+    smiles: 'O=COCC'
+    thermochem: !ThermochemIncomplete
+      Cp_data:
+        - [100, 12.93]
+        - [200, 16.39]
+        - [300, 21.47]
+        - [400, 25.84]
+        - [500, 30.02]
+        - [600, 33.98]
+        - [700, 37.53]
+        - [800, 40.56]
+        - [900, 43.09]
+        - [1000, 45.19]
+        - [1100, 46.91]
+        - [1200, 48.34]
+        - [1300, 49.53]
+        - [1400, 50.52]
+        - [1500, 51.35]
+      range: [100.0, 1500.0]
+
+  HCOOCH2CH2CH3:
+    # Data from YAWS
+    smiles: 'O=COCCC'
+    thermochem: !ThermochemIncomplete
+      Cp_data:
+        - [300, 26.38]
+        - [400, 33.45]
+        - [500, 39.24]
+        - [600, 43.98]
+        - [700, 47.92]
+        - [800, 51.24]
+        - [900, 54.1]
+        - [1000, 56.61]
+        - [1100, 58.86]
+        - [1200, 60.89]
+        - [1300, 62.73]
+        - [1400, 64.35]
+        - [1500, 65.69]
+      range: [298.0, 1500.0]
+
+  CH3COOCH3:
+    # Data from YAWS
+    smiles: 'O=C(OC)C'
+    thermochem: !ThermochemIncomplete
+      T_ref: 298.0
+      S_ref: 77.5
+      Cp_data:
+        - [300, 20.68]
+        - [400, 26.29]
+        - [500, 30.81]
+        - [600, 34.47]
+        - [700, 37.45]
+        - [800, 39.93]
+        - [900, 42.06]
+        - [1000, 43.97]
+      range: [298.0, 1000.0]

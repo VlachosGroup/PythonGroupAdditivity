@@ -1,0 +1,17 @@
+# ===============
+# gas_benson.yaml
+# ===============
+#
+# This file contains Benson group data for gas phase compounds.
+# Unlike ``surface_benson.yaml``, this file is *not* automatically generated
+# and is maintained by hand.
+
+
+scheme:
+  include:
+    - benson
+
+include:
+    - gas_benson/original.yaml
+    - gas_benson/extra.yaml
+

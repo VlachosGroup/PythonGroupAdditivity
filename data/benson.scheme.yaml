@@ -1,0 +1,284 @@
+patterns:
+    # Patterns centering on a close shell carbon
+    # First atom assumed to be the center
+-   center_name: 'C'
+    periph_name: 'C'
+    connectivity: 'fragment a{
+    C labeled c1
+    $? labeled a1 single bond to c1
+    $? labeled a2 single bond to c1
+    $? labeled a3 single bond to c1
+    $? labeled a4 single bond to c1}'
+-   center_name: 'C[d]'
+    periph_name: 'C[d]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 double bond to c1
+    $? labeled a2 single bond to c1
+    $? labeled a3 single bond to c1}'
+-   center_name: 'C[a]'
+    periph_name: 'C[a]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 double bond to c1
+    C? labeled c3 double bond to c1}'
+-   center_name: 'CO'
+    periph_name: 'CO'
+    connectivity: 'fragment a{
+    C labeled c1
+    O? labeled o1 double bond to c1
+    $? labeled a2 single bond to c1
+    $? labeled a3 single bond to c1}'
+-   center_name: 'CCO'
+    periph_name: 'CCO'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 double bond to c1
+    O? labeled o1 double bond to c1}'
+-   center_name: 'C[t]'
+    periph_name: 'C[t]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled o1 triple bond to c1
+    $? labeled a2 single bond to c1}'
+-   center_name: 'C[B]'
+    periph_name: 'C[B]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 aromatic bond to c1
+    C? labeled c3 aromatic bond to c1
+    C? labeled c4 aromatic bond to c3
+    C? labeled c5 aromatic bond to c4
+    C? labeled c6 aromatic bond to c5
+    ringbond c6 aromatic bond to c2
+    $? labeled a1 single bond to c1}'
+    #fused to furan ring
+-   center_name: 'C[B]'
+    periph_name: 'C[B]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 aromatic bond to c1
+    C? labeled c3 aromatic bond to c1
+    C? labeled c4 aromatic bond to c3
+    C? labeled c5 aromatic bond to c4
+    C? labeled c6 aromatic bond to c5
+    ringbond c6 aromatic bond to c2
+    O? labeled o1 aromatic bond to c1
+    C? labeled c7 aromatic bond to o1
+    C? labeled c8 aromatic bond to c7
+    ringbond c8 aromatic bond to c3}'
+-   center_name: 'C[BF]'
+    periph_name: 'C[BF]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 aromatic bond to c1
+    C? labeled c3 aromatic bond to c1
+    C? labeled c4 aromatic bond to c1
+    C? labeled c5 aromatic bond to c2
+    C? labeled c6 aromatic bond to c5
+    C? labeled c7 aromatic bond to c6
+    ringbond c7 aromatic bond to c3
+    C? labeled c8 aromatic bond to c3
+    C? labeled c9 aromatic bond to c8
+    C? labeled c10 aromatic bond to c9
+    ringbond c10 aromatic bond to c4}'
+    # furan ring 1
+-   center_name: 'C[d]'
+    periph_name: 'C[d]'
+    connectivity: 'fragment a{
+    C labeled c1
+    O? labeled o1 aromatic bond to c1
+    C? labeled c2 aromatic bond to c1
+    C? labeled c3 aromatic bond to c2
+    C? labeled c4 aromatic bond to c3
+    ringbond c4 aromatic bond to o1
+    $? labeled a1 single bond to c1}'
+    # furan ring 2
+-   center_name: 'C[d]'
+    periph_name: 'C[d]'
+    connectivity: 'fragment a{
+    C labeled c2
+    C? labeled c1 aromatic bond to c2
+    C? labeled c3 aromatic bond to c2
+    C? labeled c4 aromatic bond to c3
+    O? labeled o1 aromatic bond to c4
+    ringbond o1 aromatic bond to c1
+    $? labeled a1 single bond to c2}'
+    
+    # Patterns centering on a open shell carbon
+-   center_name: 'C[.]'
+    periph_name: 'C[.]'
+    connectivity: 'fragment a{
+    C. labeled c1
+    $? labeled a1 single bond to c1
+    $? labeled a2 single bond to c1
+    $? labeled a3 single bond to c1}'
+-   center_name: 'C[d.]'
+    periph_name: 'C[d.]'
+    connectivity: 'fragment a{
+    C. labeled c1
+    C? labeled c2 double bond to c1
+    $? labeled a1 single bond to c1}'
+-   center_name: 'CO[.]'
+    periph_name: 'CO[.]'
+    connectivity: 'fragment a{
+    C. labeled c1
+    O? labeled o1 double bond to c1
+    $? labeled a1 single bond to c1}'
+-   center_name: 'C[t.]'
+    periph_name: 'C[t.]'
+    connectivity: 'fragment a{
+    C. labeled c1
+    C? labeled c1 triple bond to c1}'
+-   center_name: 'C[B.]'
+    periph_name: 'C[B.]'
+    connectivity: 'fragment a{
+    C. labeled c1
+    C? labeled c2 aromatic bond to c1
+    C? labeled c3 aromatic bond to c1
+    C? labeled c4 aromatic bond to c3
+    C? labeled c5 aromatic bond to c4
+    C? labeled c6 aromatic bond to c5
+    ringbond c6 aromatic bond to c2}'
+-   center_name: 'C[:]'
+    periph_name: 'C[:]'
+    connectivity: 'fragment a{
+    C: labeled c1
+    $? labeled a1 single bond to c1
+    $? labeled a2 single bond to c1}'
+-   center_name: 'C[d:]'
+    periph_name: 'C[d:]'
+    connectivity: 'fragment a{
+    C: labeled c1
+    C? labeled c2 double bond to c1}'
+-   center_name: 'C[:.]'
+    periph_name: 'C[:.]'
+    connectivity: 'fragment a{
+    C:. labeled c1
+    $? labeled a1 single bond to c1}'
+    
+    # Patterns centering on a oxygen atom
+-   center_name: 'O'
+    periph_name: 'O'
+    connectivity: 'fragment a{
+    O labeled o1
+    $? labeled a1 single bond to o1
+    $? labeled a2 single bond to o1}'
+    # Furan O
+-   center_name: 'O'
+    periph_name: 'O'
+    connectivity: 'fragment a{
+    O labeled o1
+    C? labeled c1 aromatic bond to o1
+    C? labeled c2 aromatic bond to o1}'
+-   center_name: 'O[.]'
+    periph_name: 'O[.]'
+    connectivity: 'fragment a{
+    O. labeled o1
+    $? labeled a1 single bond to o1}'
+-   center_name: 'none'
+    periph_name: 'none'
+    connectivity: 'fragment a{
+    O labeled o1
+    $? labeled a1 double bond to o1}'
+    
+    # Other patterns
+-   center_name: 'none'
+    periph_name: 'H'
+    connectivity: 'fragment a{
+    H labeled h1 {connected to =0 H}
+    $? labeled a1 single bond to h1}'
+    
+    # Unique carbon group patterns
+-   center_name: 'CO2'
+    periph_name: 'CO2'
+    connectivity: 'fragment a{
+    C labeled c1
+    O? labeled o1 double bond to c1
+    O? labeled o2 double bond to c1}'
+-   center_name: 'CC'
+    periph_name: 'none'
+    connectivity: 'fragment a{
+    C? labeled c1
+    C? labeled c2 quadruple bond to c1}'
+-   center_name: 'CO:'
+    periph_name: 'CO:'
+    connectivity: 'fragment a{
+    C: labeled c1
+    O? labeled o1 double bond to c1}'
+-   center_name: 'H2noremap'
+    periph_name: 'none'
+    connectivity: 'fragment a{
+    H labeled h1
+    H labeled h2 single bond to h1}'
+-   center_name: 'O'
+    periph_name: 'O'
+    connectivity: 'fragment a{
+    O: labeled o1}'
+-   center_name: 'C'
+    periph_name: 'C'
+    connectivity: 'fragment a{
+    C? labeled c1 {has 4 radical electrons}}'
+-   center_name: 'H'
+    periph_name: 'H'
+    connectivity: 'fragment a{
+    H. labeled h1}'
+
+pretreatment_rules: [['rule a{
+    reactant r1{
+        C? labeled c1
+        C? labeled c2 double bond to c1
+        C? labeled c3 single bond to c2
+        C? labeled c4 double bond to c3
+        C? labeled c5 single bond to c4
+        C? labeled c6 double bond to c5
+        ringbond c6 single bond to c1}
+    modify bond(c1,c2,aromatic)
+    modify bond(c2,c3,aromatic)
+    modify bond(c3,c4,aromatic)
+    modify bond(c4,c5,aromatic)
+    modify bond(c5,c6,aromatic)
+    modify bond(c6,c1,aromatic)}']]
+
+remaps:
+    # CH3-type remaps;  all 'C(H)3(*)', where (*) is polyvalent map to 'C(H)3(C)'
+    'C(C[d])(H)3': [[1,'C(C)(H)3']]
+    'C(C[t])(H)3': [[1,'C(C)(H)3']]
+    'C(C[B])(H)3': [[1,'C(C)(H)3']]
+    'C(C[BF])(H)3': [[1,'C(C)(H)3']]
+    'C(CO)(H)3': [[1,'C(C)(H)3']]
+    'C(H)3(N)': [[1,'C(C)(H)3']]
+    'C(H)3(N[I])': [[1,'C(C)(H)3']]
+    'C(H)3(N[A])': [[1,'C(C)(H)3']]
+    'C(H)3(O)': [[1,'C(C)(H)3']]
+    'C(C[.])(H)3': [[1,'C(C)(H)3']]
+
+    # OH-type remaps in Benson (1976).
+    'O(C[d])(H)': [[1,'O(C)(H)']]
+    'O(C[B])(H)': [[1,'O(C)(H)']]
+    'O(C[t])(H)': [[1,'O(C)(H)']]
+
+    # More Oxygenate remaps in Benson (1976).
+    'CO(H)(O)': [[1,'CO(C)(H)']]
+    'CO(C)(C[d])': [[1,'CO(C[B])(O)']]
+    'C[d](O)(H)': [[1,'C[d](C)(H)']]
+    'C[d](C)(O)': [[1,'C[d](C)(C[d])']]
+    'C[d](C[d])(O)': [[1,'C[d](C)(C[d])']]
+
+    # This is not given by Benson (1976) but the entry for the group is left
+    # blank.  The remap _is_ provided in Benson et.al. (1969):
+    'C(CO)(H)2(O)': [[1,'C(C)(H)2(O)']]
+    
+    # Other Remaps
+    'H2noremap': [[0.5,'H2']]
+
+other_descriptors:
+    
+# References:
+#
+# _Thermochemical Kinetics_ 2nd ed.; S.W. Benson; New York: John Wiley & Sons,
+# 1976.
+#
+# "Additivity Rules for the Estimation of Thermochemical Properties"; S.W.
+# Benson, F.R. Cruickshank, D.M. Golden; G.R. Haugen; H.E. O'Neal, A.S.
+# Rodgers, R. Shaw, and R.Walsh; Chem Rev 69 pp. 279-324, 1969.
