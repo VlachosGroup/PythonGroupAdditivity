@@ -16,12 +16,15 @@ RDkit (http://www.rdkit.org/)
 - Gu et al. "Group Additivity for Thermochemical Property Estimation of Lignin Monomers on Pt(111)." J. Phys. Chem. C, 2016, 120 (34), 19234-19241
 
 **Example**  
->>> from VGA.GroupAdd.Library import GroupLibrary
->>> import VGA.ThermoChem
->>> lib = GroupLibrary.Load('benson')
->>> groups = lib.GetGroups('CC')
->>> print groups
->>> thermochem = lib.Estimate(groups,'thermochem')
->>> print thermochem.eval_ND_H(298.15)
+```
+from VGA.GroupAdd.Library import GroupLibrary
+import VGA.ThermoChem
+lib = GroupLibrary.Load('benson')
+groups = lib.GetGroups('CC')
+print groups
+thermochem = lib.Estimate(groups,'thermochem')
+print thermochem.eval_ND_H(298.15)
+
 defaultdict(<type 'int'>, {'C(C)(H)3': 2})
 -34.4280812417
+```
