@@ -1,6 +1,28 @@
 # 2016. Vlachos Group Geun Ho Gu. University of Delaware.
-#from .Group import ReadGroups, sanitize_except_aromatization
-#from .Scheme import Load
+"""
+=============================
+Group-additivity computations
+=============================
 
-#__all__ = ['ReadGroups','sanitize_except_aromatization','Load']
+This module is used for using Group additivity method to compute energies
 
+--------
+Examples
+--------
+
+>>> from VGA.GroupAdd.Library import GroupLibrary
+>>> import VGA.ThermoChem
+>>> lib = GroupLibrary.Load('benson')
+>>> groups = lib.GetGroups('CC')
+>>> print groups
+>>> thermochem = lib.Estimate(groups,'thermochem')
+>>> print thermochem.eval_ND_H(298.15)
+defaultdict(<type 'int'>, {'C(C)(H)3': 2})
+-34.4280812417
+
+"""
+
+from . Library import GroupLibrary
+from . Scheme import GroupAdditivityScheme
+
+__all__ = ['GroupLibrary','GroupAdditivityScheme']

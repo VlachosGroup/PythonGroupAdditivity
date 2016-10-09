@@ -1,7 +1,3 @@
-scheme:
-  include:
-    - benson
-
 include:
   - hydrocarbons.yaml
   - oxygenates.yaml

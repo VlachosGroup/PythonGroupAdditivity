@@ -1,7 +1,7 @@
 """
-=============================================================
-Physical quantities and unit conversion (:mod:`VGA.units`)
-=============================================================
+=======================================
+Physical quantities and unit conversion
+=======================================
 
 This module provides routines for representing and manipulating physical
 quantities with units.  A physical quantity is represented internally by its
@@ -37,7 +37,7 @@ Summary
 Examples
 --------
 
->>> from VGA.units import with_units, in_units, has_units
+>>> from chemtk.units import with_units, in_units, has_units
 >>> g = with_units(9.81, 'm/s^2')
 >>> m = with_units(10.0, 'lb')
 >>> print m*g

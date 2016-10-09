@@ -7,7 +7,7 @@ from rdkit.Chem import rdqueries
 from rdkit import Chem
 """
 Example:
-from msr.RINGParser.Reader import Read
+from VGA.RINGParser.Reader import Read
 from rdkit import Chem 
 s = " \
 fragment a{C labeled C1 \

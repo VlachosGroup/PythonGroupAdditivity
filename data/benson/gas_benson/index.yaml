@@ -13,10 +13,6 @@ units:
     molar heat capacity: cal/(mol*K)
     temperature: K
 
-scheme:
-    include:
-        - benson
-
 include:
     - hydrocarbons.yaml
     - oxygenates.yaml

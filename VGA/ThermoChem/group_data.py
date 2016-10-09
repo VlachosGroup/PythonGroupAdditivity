@@ -1,12 +1,20 @@
-import numpy as np
-
-from .. consts import GAS_CONSTANT as R
-from .. ThermoChem import ThermochemBase
+from .. ThermoChem import ThermochemBase, ThermochemIncomplete
+from .. import yaml_io
 
 from ..GroupAdd.Library import GroupLibrary
 
 
-__all__ = ['ThermochemGroupAdditive', 'ThermochemGroupFittingSet']
+__all__ = ['ThermochemGroup', 'ThermochemGroupAdditive']
+
+
+class ThermochemGroup(ThermochemIncomplete):
+    """
+    Implement thermochemical property correlation for one group's contributions.
+
+    See base class :class:`ThermochemIncomplete` for additional documentation.
+    """
+yaml_io.register_class('ThermochemGroup',
+    yaml_io.parse(ThermochemGroup._yaml_schema), ThermochemGroup)
 
 
 class ThermochemGroupAdditive(ThermochemBase):
@@ -69,5 +77,6 @@ class ThermochemGroupAdditive(ThermochemBase):
 
 
 
+
 GroupLibrary.register_property_set_type(
-    'thermochem', ThermochemGroupAdditive)
+    'thermochem', 'ThermochemGroup', ThermochemGroupAdditive)

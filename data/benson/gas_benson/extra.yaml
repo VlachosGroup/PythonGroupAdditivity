@@ -1,6 +1,3 @@
-scheme:
-    include:
-        - 'benson'
 
 contents:
     'O(C)(CO)':

@@ -4,11 +4,6 @@ units:
   molar heat capacity: cal/(mol*K)
   temperature: K
 
-scheme:
-  include:
-    - benson
-
-
 # The groups below are entered directly from _Thermochemical Kinetics_ 2nd ed.;
 # S.W. Benson; New York: John Wiley & Sons, 1976 pp. 272-273.
 
@@ -420,7 +415,7 @@ contents:
         - [1500, 5.8]
       range: [298, 1500]
 
-  C[B](H):
+  C[B](C[B])2(H):
     thermochem:
       T_ref: 298.0
       H_ref: 3.3
@@ -435,7 +430,7 @@ contents:
         - [1500, 9.73]
       range: [298, 1500]
 
-  C[B](C):
+  C[B](C[B])2(C):
     thermochem:
       T_ref: 298.0
       H_ref: 5.51
@@ -450,7 +445,7 @@ contents:
         - [1500, 5.98]
       range: [298, 1500]
 
-  C[B](C[d]):
+  C[B](C[B])2(C[d]):
     thermochem:
       T_ref: 298.0
       H_ref: 5.68
@@ -465,7 +460,7 @@ contents:
         - [1500, 5.75]
       range: [298, 1500]
 
-  C[B](C[t]):
+  C[B](C[B])2(C[t]):
     thermochem:
       T_ref: 298.0
       H_ref: 5.68
@@ -480,7 +475,7 @@ contents:
         - [1500, 5.75]
       range: [298, 1500]
 
-  C[B](C[B]):
+  C[B](C[B])2(C[B]):
     thermochem:
       T_ref: 298.0
       H_ref: 4.96

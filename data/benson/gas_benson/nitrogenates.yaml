@@ -4,10 +4,6 @@ units:
   molar heat capacity: cal/(mol*K)
   temperature: K
 
-scheme:
-  include:
-    - benson
-
 
 # The groups below are entered directly (excepting changes as noted) from
 # _Thermochemical Kinetics_ 2nd ed.; S.W. Benson; New York: John Wiley & Sons,

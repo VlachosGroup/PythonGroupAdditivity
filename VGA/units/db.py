@@ -1,4 +1,4 @@
-from .. error import UnitsParseError
+from .. Error import UnitsParseError
 
 
 __all__ = ['units_db']

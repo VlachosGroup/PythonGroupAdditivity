@@ -1,5 +1,3 @@
-""" main code for predicting adsorption conformation. RDKIT"""
-
 from rdkit import Chem
 from ..RDkitWrapper.GenRxnNet import GenerateRxnNet
 from ..RINGParser.Reader import Read
@@ -108,23 +106,5 @@ def enumerate_res_struc(mol):
     for i in xrange(len(TotalNumRadicalElectron)-1,-1,-1):
         if TotalNumRadicalElectron[i] > MinTotalNumRadicalElectron:
             del resonance_structures[i]
-            
-#    # Covalent bond rule
-#    ## Find minimum number of covalent
-#    TotalNumCovalentBond = list()
-#    cb = [Chem.rdchem.BondType.AROMATIC,Chem.rdchem.BondType.DOUBLE,\
-#        Chem.rdchem.BondType.TRIPLE, Chem.rdchem.BondType.QUADRUPLE,\
-#        Chem.rdchem.BondType.QUINTUPLE]
-#    for resmol in resonance_structures:
-#        NTCB = 0; # Number of Total Covalent Bond
-#        for bond in resmol.GetBonds():
-#            if bond.GetBondType() in cb:
-#                NTCB += 1
-#        TotalNumCovalentBond.append(NTCB)
-#    MaxTotalNumCovalentBond = max(TotalNumCovalentBond)
-#    ## Remove resonance structure with number of radical electron more than the min
-#    for i in xrange(len(TotalNumCovalentBond)-1,-1,-1):
-#        if TotalNumCovalentBond[i] < MaxTotalNumCovalentBond:
-#            del resonance_structures[i]
-    # return
+
     return resonance_structures

@@ -4,7 +4,7 @@ Parses the RING input string into abstract syntax tree as defined by
 Grammar.py.
 
 Example:
->>>from msr.RINGParser.parser import parse
+>>>from VGA.RINGParser.parser import parse
 >>>parse('\
 >>>fragment C3Chain{\
 >>>   C labeled c1\

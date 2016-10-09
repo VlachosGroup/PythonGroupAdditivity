@@ -14,7 +14,7 @@ Reference
 .. autodoc puts definitions here.
 """
 
-from . units import eval_qty
+from . Units import eval_qty
 
 
 #: Planck's constant

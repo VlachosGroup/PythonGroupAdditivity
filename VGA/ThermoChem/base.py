@@ -2,7 +2,7 @@ import abc
 
 import numpy as np
 
-from ..units import eval_qty
+from ..Units import eval_qty
 from ..Error import OutsideCorrelationError
 
 
@@ -121,6 +121,10 @@ range:
   optional: True
   desc: range of valid temperatures
 """
+
+from .. import yaml_io
+yaml_io.register_class('ThermochemBase',
+    yaml_io.parse(ThermochemBase._yaml_schema), ThermochemBase)
 
 
 __all__ = ['ThermochemBase']

@@ -1,7 +1,7 @@
 import os
 from warnings import warn
 from collections import Mapping
-import yaml
+from .. import yaml_io 
 
 from .. Error import GroupMissingDataError
 from . Group import Group
@@ -92,12 +92,12 @@ class GroupLibrary(Mapping):
         self.contents = dict((group, property_sets)
             for (group, property_sets) in contents)
 
-    def match_groups(self, chem, manual_descriptors={}):
+    def GetGroups(self, mol):
         """Determine groups appearing in chemical structure `chem`.
 
         Parameters
         ----------
-        chem : :class:`chemtk.structure.Structure`
+        mol : :class:`rdkit.mol`
             Specify chemical structure to match groups for.
         manual_descriptors : mapping, optional
             Specify value(s)/degree(s) of influence of additional descriptors
@@ -109,14 +109,14 @@ class GroupLibrary(Mapping):
             Map from :class:`Group` to int or float identifying groups and
             their number of occurence in the structure.
         """
-        return self.scheme.match_groups(chem, manual_descriptors)
+        return self.scheme.GetGroups(mol)
 
-    def estimate(self, groups, property_set_name):
+    def Estimate(self, groups, property_set_name):
         """Estimate set of properties for chemical.
 
         Parameters
         ----------
-        groups : mapping
+        groups : mapping (dictionary)
             Map from :class:`Group` to int or float specifying counts of each
             group in the chemical structure.
         property_set_name : str
@@ -201,30 +201,44 @@ class GroupLibrary(Mapping):
             base_path = os.path.join(os.path.split(os.path.split(os.path.split(__file__)[0])[0])[0],'data')
             base_path = os.path.join(base_path,path)
             path = os.path.join(base_path,'library.yaml')
+            
         else:
             base_path = os.path.split(path)[0]
-
-        return cls._DoLoad(path, base_path)
-
+        scheme = GroupAdditivityScheme.Load(os.path.join(base_path,'scheme.yaml'))
+        return cls._do_load(path, base_path, scheme)
+        
     @classmethod
-    def _DoLoad(cls, path, base_path):
+    def _Load(cls, path, scheme):
+        
+        if '/' not in path and '.' not in path and not os.path.exists(path):
+            # Look for folder with name, benson.
+            base_path = os.path.join(os.path.split(os.path.split(os.path.split(__file__)[0])[0])[0],'data')
+            base_path = os.path.join(base_path,path)
+            path = os.path.join(base_path,'library.yaml')
+        else:
+            base_path = os.path.split(path)[0]
+        return cls._do_load(path, base_path, scheme)
+        
+        
+    @classmethod
+    def _do_load(cls, path, base_path, scheme):
         # Read data from file.
         context = {'base_path': base_path}
-        print path
         with open(path) as f:
-            lib_data = yaml.load(f)
+            lib_data = yaml_io.load(
+                yaml_io.parse(f.read()), context, loader=cls._yaml_loader)
 
-        context['units'] = lib_data.get('units')
-        scheme = lib_data.get('scheme')
-        group_properties = lib_data.get('contents')
+        context['units'] = lib_data.units
+        
+        group_properties = lib_data.contents
 
         if cls._property_set_group_yaml_types:
             # Prepare property_sets loader.
-            property_sets_loader = yaml.load(
+            property_sets_loader = yaml_io.make_object_loader(yaml_io.parse(
                 '\n'.join(('%r:\n    type: %r\n    optional: true'
                         %(str(name),
                             str(cls._property_set_group_yaml_types[name])))
-                    for name in cls._property_set_group_yaml_types))
+                    for name in cls._property_set_group_yaml_types)))
 
             # Read all properties.
             lib_contents = {}
@@ -232,19 +246,19 @@ class GroupLibrary(Mapping):
                 group = Group.parse(scheme, name)
                 if group in lib_contents:
                     raise KeyError('Multiple definitions of group %s'%group)
-                property_sets = yaml.load(
+                property_sets = yaml_io.load(
                     group_properties[name], context,
 	                loader=property_sets_loader)
                 lib_contents[group] = property_sets
         else:
             # No property sets defined.
+            warn('GroupLibrary.load(): No property sets defined.')
             lib_contents = {}
 
         new_lib = cls(scheme, lib_contents, path=path)
         # Update with included content.
-        if lib_data.has_key('include'):
-            for include_path in lib_data.get('include'):
-                new_lib.Update(cls.Load(os.path.join(base_path, include_path)))
+        for include_path in lib_data.include:
+            new_lib.Update(cls._Load(os.path.join(base_path, include_path), scheme))
         return new_lib
         
     def Update(self, lib, overwrite=False):
@@ -257,8 +271,6 @@ class GroupLibrary(Mapping):
         overwrite : bool
             If True, then existing data may be overwritten by data from `lib`.
         """
-        self.scheme = GroupAdditivityScheme(include=[self.scheme, lib.scheme])
-
         for (group, other_property_sets) in lib.items():
             if group not in self.contents:
                 self.contents[group] = {}
@@ -270,3 +282,17 @@ class GroupLibrary(Mapping):
                 else:
                     property_sets[name].update(
                         other_property_sets[name], overwrite)
+    _yaml_loader = yaml_io.make_object_loader(yaml_io.parse("""
+units:
+    type: mapping
+    default: {}
+
+include:
+    type: list
+    item_type: string
+    default: []
+
+contents:
+    type: mapping
+    default: {}
+"""))
