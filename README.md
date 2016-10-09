@@ -1,5 +1,9 @@
 # Group Additivity
 Python package for group additivity scheme use. 
+Currently, Benson's GA scheme is employed.
+
+**Requires**
+RDkit (http://www.rdkit.org/)
 
 **Citations**
 - Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Algorithms of RING", Comput. Chem. Eng. 2014, 64, 124
@@ -12,4 +16,12 @@ Python package for group additivity scheme use.
 - Gu et al. "Group Additivity for Thermochemical Property Estimation of Lignin Monomers on Pt(111)." J. Phys. Chem. C, 2016, 120 (34), 19234-19241
 
 **Example**  
-- To be done
+>>> from VGA.GroupAdd.Library import GroupLibrary
+>>> import VGA.ThermoChem
+>>> lib = GroupLibrary.Load('benson')
+>>> groups = lib.GetGroups('CC')
+>>> print groups
+>>> thermochem = lib.Estimate(groups,'thermochem')
+>>> print thermochem.eval_ND_H(298.15)
+defaultdict(<type 'int'>, {'C(C)(H)3': 2})
+-34.4280812417
