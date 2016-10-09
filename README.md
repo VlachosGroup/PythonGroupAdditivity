@@ -2,8 +2,8 @@
 Python package for group additivity scheme use. 
 Currently, Benson's GA scheme is employed.
 
-**Requires**
-RDkit (http://www.rdkit.org/)
+**Required Packages**
+- RDkit (http://www.rdkit.org/)
 
 **Citations**
 - Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Algorithms of RING", Comput. Chem. Eng. 2014, 64, 124
