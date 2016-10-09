@@ -1,6 +1,6 @@
 import numpy as np
 
-from .. error import UnitsError
+from .. Error import UnitsError
 
 from .utils import is_zero
 from .parser import *

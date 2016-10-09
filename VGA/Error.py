@@ -78,6 +78,7 @@ class RINGError(Exception):
     All other Parser-related exceptions inherit from this.
     """
 
+
 class RINGSyntaxError(RINGError):
     """
     Exception raised due to invalid (but syntactically correct) input.
@@ -149,3 +150,34 @@ class ReactionQueryError(Exception):
     def __repr__(self):
         return '%s(%r, %r)'%(type(self).__name__, self.message)
 __all__ += ['RINGError', 'RINGSyntaxError', 'RINGReaderError', 'MolQueryError', 'ReactionQueryError']
+
+    
+# Units errors.
+class UnitsParseError(Exception):
+    """Error from providing bad input to the units parser."""
+
+class UnitsError(Exception):
+    """Error from operation involving incompatible physical units."""
+
+__all__ += ['UnitsParseError', 'UnitsError']
+
+# Generic errors.
+class OutsideCorrelationError(Exception):
+    """Error from attempt to evaluate correlation outside its valid range."""
+    
+class ReadOnlyDataError(Exception):
+    """Error raised by attempt to modify read-only data."""
+
+class IncompleteDataError(Exception):
+    """Error raised when a computation requires more data than is available."""
+
+class IncompleteDataWarning(Warning):
+    """
+    Warning issued when a computation proceeds using less data than is optimal.
+
+    This is raised when the absence of certain non-required data may lead to
+    pontetially severe assumptions in later computations.
+    """
+
+__all__ += ['OutsideCorrelationError', 'ReadOnlyDataError',
+    'IncompleteDataError', 'IncompleteDataWarning']

@@ -1,7 +1,7 @@
 import re
 from numbers import Real
 
-from ..error import UnitsParseError
+from ..Error import UnitsParseError
 
 from .db import units_db
 

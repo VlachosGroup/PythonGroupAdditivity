@@ -13,7 +13,7 @@ class Scheme(object):
     pass
 
 class GroupAdditivityScheme(Scheme):
-    def __init__(self, path):
+    def __init__(self, patterns=[], pretreatment_rules=[], remaps ={}, other_descriptors=[], include =[]):
         """Load group-additivity scheme from file-system `path` or builtin.
 
         Parameters
@@ -34,28 +34,49 @@ class GroupAdditivityScheme(Scheme):
             If `signature` is specified and does not match the signature of
             the loaded data.
         """
+        self.patterns = patterns
+        self.pretreatment_rules = pretreatment_rules
+        self.remaps = remaps
+        self.other_descriptors = other_descriptors
         
+        for scheme in include:
+            if isinstance(scheme,GroupAdditivityScheme):
+                scheme_object = scheme
+            else:
+                scheme_object = self.Load(scheme['include'][0])
+            self.patterns += scheme_object.patterns
+            self.pretreatment_rules += scheme_object.pretreatment_rules
+            self.remaps.update(scheme_object.remaps)
+            self.other_descriptors += scheme_object.other_descriptors
+            
+    @classmethod
+    def Load(cls, path):
         if(os.path.sep not in path and '.' not in path
                 and not os.path.exists(path)):
             # Look in builtins.
-            base_dir = os.path.join(os.path.split(__file__)[0], 'data')
-            actual_path = os.path.join(base_dir, path + '.scheme.yaml')
+            base_path = os.path.join(os.path.split(os.path.split(os.path.split(__file__)[0])[0])[0],'data')
+            base_path = os.path.join(base_path,path)
+            actual_path = os.path.join(base_path,'scheme.yaml')
         else:
             actual_path = path
         abs_path = os.path.abspath(actual_path)
-        scheme = yaml.load(file(abs_path,'r'))
+        scheme_data = yaml.load(file(abs_path,'r'))
         # change to molquery
-        for i in xrange(0,len(scheme['patterns'])):
-            scheme['patterns'][i]['connectivity'] = \
-                Read(scheme['patterns'][i]['connectivity'])
+        for i in xrange(0,len(scheme_data['patterns'])):
+            scheme_data['patterns'][i]['connectivity'] = \
+                Read(scheme_data['patterns'][i]['connectivity'])
             
-        self.patterns = scheme['patterns']
-        if 'pretreatment_rules' in scheme:
-            self.pretreatment_rules = scheme['pretreatment_rules']
-        if 'remaps' in scheme:
-            self.remaps = scheme['remaps']
-        if 'other_descriptors' in scheme:
-            self.other_descriptors = scheme['other_descriptors']
+        patterns = scheme_data['patterns']
+        pretreatment_rules=[]
+        remaps ={}
+        other_descriptors=[]
+        if 'pretreatment_rules' in scheme_data:
+            pretreatment_rules = scheme_data['pretreatment_rules']
+        if 'remaps' in scheme_data:
+            remaps = scheme_data['remaps']
+        if 'other_descriptors' in scheme_data:
+            other_descriptors = scheme_data['other_descriptors']
+        return cls(patterns, pretreatment_rules, remaps, other_descriptors)
         
     def GetGroups(self, mol, debug=0):
         if isinstance(mol,Chem.Mol):
