@@ -1,5 +1,5 @@
 
-contents:
+groups:
     'O(C)(CO)':
         'thermochem':
             T_ref: 298.15 K

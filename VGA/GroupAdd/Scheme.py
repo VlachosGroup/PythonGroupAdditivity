@@ -75,10 +75,13 @@ class GroupAdditivityScheme(Scheme):
         if 'remaps' in scheme_data:
             remaps = scheme_data['remaps']
         if 'other_descriptors' in scheme_data:
+            for i in xrange(0,len(scheme_data['other_descriptors'])):
+                scheme_data['other_descriptors'][i]['connectivity'] = \
+                    Read(scheme_data['other_descriptors'][i]['connectivity'])
             other_descriptors = scheme_data['other_descriptors']
         return cls(patterns, pretreatment_rules, remaps, other_descriptors)
         
-    def GetGroups(self, mol, debug=0):
+    def GetDescriptors(self, mol, debug=0):
         if isinstance(mol,Chem.Mol):
             
             mol = Chem.AddHs(mol)
@@ -93,18 +96,24 @@ class GroupAdditivityScheme(Scheme):
         #TODO
         #reaction_query = Read(self.pretreatment_rules[0][0])
         #mol = reaction_query.ModifyMolInPlace(mol).
+        # Change unspecified bond to ZERO, or weak bonds.
         for bond in mol.GetBonds():
             if bond.GetBondType().__str__()=='UNSPECIFIED':
                 bond.SetBondType(Chem.BondType.ZERO)
+        # aromatize C6 ring for benson
         _aromatization_Benson(mol)
-        # assign center groups
+        # assign groups
         self._AssignCenterPattern(mol,debug)
         groups = self._AssignGroup(mol)
-        return groups
+        descriptors = self._AssignDescriptor(mol)
+        all_descriptors = groups.copy()
+        all_descriptors.update(descriptors)
+        return all_descriptors
         
     def _AssignCenterPattern(self, mol,debug=0):
         for pattern in self.patterns:
             matches = pattern['connectivity'].GetQueryMatches(mol)
+            # only the first atom is the center atom
             matches = set([match[0] for match in matches])
             for match in matches:
                 atom = mol.GetAtomWithIdx(match)
@@ -163,6 +172,21 @@ class GroupAdditivityScheme(Scheme):
                     n = groups.pop(group)*self.remaps[group][0][0]
                     groups[self.remaps[group][0][1]] += n
         return groups
+        
+    def _AssignDescriptor(self,mol):
+        descriptors = defaultdict(int)
+        for descriptor in self.other_descriptors:
+            matches = descriptor['connectivity'].GetQueryMatches(mol)
+            matches = set([tuple(set(match)) for match in matches])
+            if matches:
+                descriptors[descriptor['name']] += len(matches)
+        # remaps
+        if hasattr(self,'remaps'):
+            for descriptor in descriptors.keys():
+                if descriptor in self.remaps:
+                    n = descriptors.pop(descriptor)*self.remaps[descriptor][0][0]
+                    descriptors[self.remaps[descriptor][0][1]] += n
+        return descriptors
         
         
 def sanitize_except_aromatization(mol):

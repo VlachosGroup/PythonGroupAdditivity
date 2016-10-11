@@ -9,7 +9,7 @@ units:
 # _Thermochemical Kinetics_ 2nd ed.; S.W. Benson; New York: John Wiley & Sons,
 # 1976 pp. 278-279.
 
-contents:
+groups:
   # This group is remapped to C(C)(H)3 according to Benson (1976):
   #
   #C(N)(H)3:

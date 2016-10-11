@@ -4,7 +4,7 @@ from collections import Mapping
 from .. import yaml_io 
 
 from .. Error import GroupMissingDataError
-from . Group import Group
+from . Group import Group, Descriptor
 from . Scheme import GroupAdditivityScheme
 
 class GroupLibrary(Mapping):
@@ -92,7 +92,7 @@ class GroupLibrary(Mapping):
         self.contents = dict((group, property_sets)
             for (group, property_sets) in contents)
 
-    def GetGroups(self, mol):
+    def GetDescriptors(self, mol):
         """Determine groups appearing in chemical structure `chem`.
 
         Parameters
@@ -109,7 +109,7 @@ class GroupLibrary(Mapping):
             Map from :class:`Group` to int or float identifying groups and
             their number of occurence in the structure.
         """
-        return self.scheme.GetGroups(mol)
+        return self.scheme.GetDescriptors(mol)
 
     def Estimate(self, groups, property_set_name):
         """Estimate set of properties for chemical.
@@ -230,7 +230,8 @@ class GroupLibrary(Mapping):
 
         context['units'] = lib_data.units
         
-        group_properties = lib_data.contents
+        group_properties = lib_data.groups
+        other_descriptor_properties = lib_data.other_descriptors
 
         if cls._property_set_group_yaml_types:
             # Prepare property_sets loader.
@@ -250,6 +251,15 @@ class GroupLibrary(Mapping):
                     group_properties[name], context,
 	                loader=property_sets_loader)
                 lib_contents[group] = property_sets
+                
+            for name in other_descriptor_properties:
+                descriptor = Descriptor(scheme, name)
+                if descriptor in lib_contents:
+                    raise KeyError('Multiple definitions of descriptor %s'%descriptor)
+                property_sets = yaml_io.load(
+                    other_descriptor_properties[name], context,
+	                loader=property_sets_loader)
+                lib_contents[descriptor] = property_sets
         else:
             # No property sets defined.
             warn('GroupLibrary.load(): No property sets defined.')
@@ -292,7 +302,11 @@ include:
     item_type: string
     default: []
 
-contents:
+groups:
+    type: mapping
+    default: {}
+    
+other_descriptors:
     type: mapping
     default: {}
 """))

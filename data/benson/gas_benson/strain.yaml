@@ -1,0 +1,49 @@
+units:
+  molar enthalpy: kcal/mol
+  molar entropy: cal/(mol*K)
+  molar heat capacity: cal/(mol*K)
+  temperature: K
+
+# These values are from 1968 paper. Needs to be updated with 1976 paper.
+
+other_descriptors:
+  C1CO1:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 27.6
+      S_ref: 31.4
+      Cp_data:
+        - [300, -2.0]
+        - [400, -2.8]
+        - [500, -3.0]
+        - [600, -2.6]
+        - [800, -2.3]
+        - [1000, -2.3]
+      range: [298, 1000]
+  C1CCO1:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 26.4
+      S_ref: 27.7
+      Cp_data:
+        - [300, -4.6]
+        - [400, -5.0]
+        - [500, -4.2]
+        - [600, -3.5]
+        - [800, -2.6]
+        - [1000, 0.2]
+      range: [298, 1000]
+  C1CCCN1:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 6.8
+      S_ref: 26.7
+      Cp_data:
+        - [300, -6.17]
+        - [400, -5.58]
+        - [500, -4.80]
+        - [600, -4.00]
+        - [800, -2.87]
+        - [1000, -2.17]
+      range: [298, 1000]
+      

@@ -294,6 +294,28 @@ other_descriptors:
     C labeled c4 single bond to c3
     N labeled n1 single bond to c4
     ringbond n1 single bond to c1}'
+    #CM3(CM)(CM)
+-   name: 'CM3CMCM'
+    connectivity: 'fragment CM3CMCM{
+    C labeled c1 {connected to 3 M with single bond}
+    C labeled c2 single bond to c1 {connected to >=1 M with single bond}
+    C labeled c3 single bond to c2 {connected to >=1 M with single bond}}'
+    #CM2(CM)(CM)
+-   name: 'CM2CMCM'
+    connectivity: 'fragment CM2CMCM{
+    C labeled c1 {connected to 2 M with single bond}
+    C labeled c2 single bond to c1 {connected to >=1 M with single bond}
+    C labeled c3 single bond to c2 {connected to >=1 M with single bond}}'
+    #MCCM
+-   name: 'MCCM'
+    connectivity: 'fragment MCCM{
+    C labeled c1 {connected to >=1 M with single bond}
+    C labeled c2 single bond to c1 {connected to >=1 M with single bond}}'
+    #MCOM
+-   name :'MCOM'
+    connectivity: 'fragment MCOM{
+    C labeled c1 {connected to >=1 M with single bond}
+    O labeled o1 single bond to c1 {connected to >=1 M with single bond}}'
 # References:
 #
 # _Thermochemical Kinetics_ 2nd ed.; S.W. Benson; New York: John Wiley & Sons,

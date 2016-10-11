@@ -9,7 +9,7 @@ units:
 # _Thermochemical Kinetics_ 2nd ed.; S.W. Benson; New York: John Wiley & Sons,
 # 1976 pp. 274-275.
 
-contents:
+groups:
   O(H)2:
     thermochem:
       T_ref: 298.0

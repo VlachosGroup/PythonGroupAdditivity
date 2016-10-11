@@ -3,4 +3,5 @@ include:
   - oxygenates.yaml
   - nitrogenates.yaml
   - radicals.yaml
+  - strain.yaml
 

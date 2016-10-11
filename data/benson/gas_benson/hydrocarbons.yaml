@@ -7,7 +7,7 @@ units:
 # The groups below are entered directly from _Thermochemical Kinetics_ 2nd ed.;
 # S.W. Benson; New York: John Wiley & Sons, 1976 pp. 272-273.
 
-contents:
+groups:
   C(C)(H)3:
     thermochem:
       T_ref: 298.0

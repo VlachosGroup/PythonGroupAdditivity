@@ -13,7 +13,7 @@ Examples
 >>> from VGA.GroupAdd.Library import GroupLibrary
 >>> import VGA.ThermoChem
 >>> lib = GroupLibrary.Load('benson')
->>> groups = lib.GetGroups('CC')
+>>> groups = lib.GetDescriptors('CC')
 >>> print groups
 >>> thermochem = lib.Estimate(groups,'thermochem')
 >>> print thermochem.eval_ND_H(298.15)
