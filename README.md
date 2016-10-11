@@ -17,14 +17,15 @@ Currently, Benson's GA scheme is employed.
 
 **Example**  
 ```
+In:
 from VGA.GroupAdd.Library import GroupLibrary
 import VGA.ThermoChem
 lib = GroupLibrary.Load('benson')
-groups = lib.GetGroups('CC')
-print groups
-thermochem = lib.Estimate(groups,'thermochem')
+descriptors = lib.GetDescriptors('C1CO1')
+print descriptors
+thermochem = lib.Estimate(descriptors,'thermochem')
 print thermochem.eval_ND_H(298.15)
-
+Out:
 defaultdict(<type 'int'>, {'C(C)(H)3': 2})
 -34.4280812417
 ```
