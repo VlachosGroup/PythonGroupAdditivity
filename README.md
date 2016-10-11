@@ -16,6 +16,7 @@ Currently, Benson's GA scheme is employed.
 - Gu et al. "Group Additivity for Thermochemical Property Estimation of Lignin Monomers on Pt(111)." J. Phys. Chem. C, 2016, 120 (34), 19234-19241
 
 **Example**  
+Benson's Gas Group Additivity Example:
 ```
 In:
 from VGA.GroupAdd.Library import GroupLibrary
@@ -25,7 +26,23 @@ descriptors = lib.GetDescriptors('C1CO1')
 print descriptors
 thermochem = lib.Estimate(descriptors,'thermochem')
 print thermochem.eval_ND_H(298.15)
+
 Out:
 defaultdict(<type 'int'>, {'C(C)(H)3': 2})
 -34.4280812417
+```
+Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873–1886 Example:
+```
+In:
+from VGA.GroupAdd.Library import GroupLibrary
+import VGA.ThermoChem
+lib = GroupLibrary.Load('Salciccioli2012')
+descriptors = lib.GetDescriptors('C([Pt])C[Pt]')
+print descriptors
+thermochem = lib.Estimate(descriptors,'thermochem')
+print thermochem.eval_ND_H(298.15)
+
+Out:
+defaultdict(<type 'int'>, {'surface-ring strain': 0.217, 'C(C)(H)2(Pt)': 2})
+37.6249461725
 ```
