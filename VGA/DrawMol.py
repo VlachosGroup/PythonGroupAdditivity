@@ -1,3 +1,12 @@
+"""
+=========================================
+Defenition to draw RDKIT mol object (:mod:`VGA.DrawMol`)
+=========================================
+
+Coverts a rdkit mol object to a svg image and display.
+
+"""
+
 from rdkit import Chem
 from rdkit.Chem import rdDepictor
 from rdkit.Chem.Draw import rdMolDraw2D

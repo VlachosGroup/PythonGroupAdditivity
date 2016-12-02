@@ -1,7 +1,7 @@
 """
-===============================================================
-Thermochemical property correlations (:mod:`chemtk.thermochem`)
-===============================================================
+====================================
+Thermochemical property correlations
+====================================
 
 This module provides a variety of different correlations used to represent
 thermochemical properties (in non-dimensional form), i.e. heat capacity

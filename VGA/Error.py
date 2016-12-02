@@ -1,4 +1,12 @@
 # 2016. Vlachos Group Geun Ho Gu. University of Delaware.
+"""
+==========
+Exceptions
+==========
+
+All the exceptions are listed here.
+
+"""
 import re
 from .DrawMol import moltosvg
 __all__ = []

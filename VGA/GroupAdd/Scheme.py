@@ -7,8 +7,7 @@ from .. Error import PatternMatchError
 from . Group import Group
 
 # Scheme contains the group pattern information, and can assign groups based on the smiles.
-# import ruamel.yaml
-# scheme = ruamel.yaml.round_trip_load(file('C:\\Users\\Gu\\Documents\\PythonScripts\\msr\\data\\benson.scheme3.yaml','r'))
+
 class Scheme(object):
     pass
 
@@ -30,7 +29,7 @@ class GroupAdditivityScheme(Scheme):
 
         Raises
         ------
-        msr.error.GroupSchemeError
+        VGA.error.GroupSchemeError
             If `signature` is specified and does not match the signature of
             the loaded data.
         """

@@ -4,7 +4,10 @@ from collections import defaultdict
 import operator as op
 """
 Written by Geun Ho Gu 8/4/2016
-MolQuery class is equipped with enhanced query comparison over RDkit query comparison
+MolQuery class is equipped with enhanced query comparison over RDkit query comparison.
+This module uses a graph description language called R.I.N.G.
+Rangarajan, S., Kaminski, T., Van Wyk, E., Bhan A., and Daoutidis, P., "Language-oriented rule-based reaction network generation and analysis: Algorithms of RING", Computers and Chemical Engineering 64 (2014) 124, 10.1016/j.compchemeng.2014.02.007
+Rangarajan, S., Bhan, A., and Daoutidis, P., "Language-oriented rule-based reaction network generation and analysis: Descrpition of RING", Computers and Chemical Engineering 45 (2012) 114, 10.1016/j.compchemeng.2012.06.008
 """
 ops = {'>': op.gt,
     '<': op.lt,

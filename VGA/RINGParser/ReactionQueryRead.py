@@ -6,6 +6,27 @@ from .MolQueryRead import MolQueryReader
 from rdkit import Chem
 
 class ReactionQueryReader(object):
+    """
+    creates enhanced reaction query that is based on RING language
+    
+    from VGA.RINGParser.Reader import Read
+    from rdkit import Chem 
+    s = "\
+    rule increaseBO{     \
+    reactant r1{     \
+    C labeled c1     \
+    H labeled h1 single bond to c1    \
+    }     \
+    increase number of radical (c1)     \
+    increase number of radical (h1)     \
+    break bond(c1,h1) }"
+    rxnquery = Read(s)
+    mol = Chem.MolFromSmiles('CC')
+    products = rxnquery.RunReactants(mol)
+    for product in products:
+    for p in product:
+        print Chem.MolToSmiles(p)
+    """
     def __init__(self, tree, RINGgroups = None):
         # ast = Abstract Syntax Tree
         self.tree = tree

@@ -1,17 +1,11 @@
 """
-=========================================
-Physical constants (:mod:`chemtk.consts`)
-=========================================
+==================
+Physical constants
+==================
 
 Values of common physical constants are defined here as instances of
-:class:`chemtk.units.Quantity`.
+:class:`VGA.Units.Quantity`.
 
-
----------
-Reference
----------
-
-.. autodoc puts definitions here.
 """
 
 from . Units import eval_qty

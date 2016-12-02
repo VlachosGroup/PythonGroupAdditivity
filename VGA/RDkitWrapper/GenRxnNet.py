@@ -1,4 +1,4 @@
-""" main code for predicting adsorption conformation. RDKIT"""
+""" This is a RDKIT wrapper code that generate reaction network"""
 
 from rdkit import Chem
 from rdkit.Chem.AllChem import ReactionFromSmarts

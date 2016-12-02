@@ -9,7 +9,7 @@ print thermochem.eval_ND_H(298.15)
 from VGA.GroupAdd.Library import GroupLibrary
 import VGA.ThermoChem
 lib = GroupLibrary.Load('Salciccioli2012')
-descriptors = lib.GetDescriptors('C([Pt])C[Pt]')
+descriptors = lib.GetDescriptors('[Pt][H]')
 print descriptors
 thermochem = lib.Estimate(descriptors,'thermochem')
 print thermochem.eval_ND_H(298.15)

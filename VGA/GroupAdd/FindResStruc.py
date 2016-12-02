@@ -86,11 +86,10 @@ def enumerate_res_struc(mol):
     ## run
     resonance_structures = GenerateRxnNet(mol,reaction_rules)
     """
-    Structure must obey:
-    that obey as much as possible the octet rule (8 valence electrons around each atom rather than having deficiencies or surplus)
-    that have a maximum number of covalent bonds
-    that carry a minimum of charged atoms. If unlike charges are present their separation must be least while for like charges the separation must be maximum.
-    with negative charge, if any, on the most electronegative atoms and positive charge, if any, on the most electropositive.
+    Structure must:
+    obey as much as possible the octet rule (8 valence electrons around each atom rather than having deficiencies or surplus)
+    have a maximum number of covalent bonds
+    carry a minimum of charged atoms. If unlike charges are present their separation must be least while for like charges the separation must be maximum.
     """
     # Octet rule
     ## here this is achieved by finding the minimum number of radical electron.

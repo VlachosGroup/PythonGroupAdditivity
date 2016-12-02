@@ -32,11 +32,6 @@ class GroupLibrary(Mapping):
     they contain are defined within compatible schemes.  See
     :meth:`GroupLibrary.update()`.
 
-    In addition to the above methods, the :class:`GroupLibrary()` type may be
-    treated as a mapping from :class:`Group()` to a secondary mapping.  The
-    secondary mapping is from *property set* `name` to an object that defines
-    the contributions of those properties for the group.  The type of this
-    object depends on the particular *property set* requested.
     """
     _property_set_estimator_types = {}
     _property_set_group_yaml_types = {}
