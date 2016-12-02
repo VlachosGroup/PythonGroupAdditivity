@@ -28,8 +28,8 @@ thermochem = lib.Estimate(descriptors,'thermochem')
 print thermochem.eval_ND_H(298.15)
 
 Out:
-defaultdict(<type 'int'>, {'C(C)(H)3': 2})
--34.4280812417
+defaultdict(<type 'int'>, {'O(C)2': 1, 'C(C)(H)2(O)': 2, 'C1CO1': 1})
+-19.9132141547
 ```
 Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873–1886 Example:
 ```
