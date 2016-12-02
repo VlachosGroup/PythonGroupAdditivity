@@ -1,6 +1,6 @@
 # Group Additivity
 Python package for group additivity scheme use. 
-Currently, Benson's GA scheme is employed.
+Currently, Benson's GA scheme and Salciccioli et al 2012 scheme is employed. See Wiki page for more info.
 
 **Required Packages**
 - RDkit (http://www.rdkit.org/)
