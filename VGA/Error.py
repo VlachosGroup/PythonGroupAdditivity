@@ -8,7 +8,10 @@ All the exceptions are listed here.
 
 """
 import re
-from .DrawMol import moltosvg
+drawmolonerror = 0
+if drawmolonerror:
+    from .DrawMol import moltosvg
+    
 __all__ = []
 
 class SemiEmpiricalMethodError(Exception):
@@ -72,7 +75,8 @@ class PatternMatchError(Exception):
         self.visualize()
         
     def visualize(self, *args, **kwargs):
-        moltosvg(self.mol,highlight=[self.atom.GetIdx()],kekulize=False)
+        if drawmolonerror:
+            moltosvg(self.mol,highlight=[self.atom.GetIdx()],kekulize=False)
 
     def __str__(self):
         return '%s at atom number %s'%(self.mesg, self.atom.GetIdx())
