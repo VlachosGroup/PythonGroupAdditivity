@@ -5,7 +5,9 @@ Python package for group additivity scheme use. See Wiki page for more info. Bel
 - Gu et al. (2017) solvated adsorbate on Pt(111) group additivity scheme
 
 **Required Packages**
+- Python 2.7
 - RDkit (http://www.rdkit.org/)
+- Yaml
 
 **Citations**
 - Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Algorithms of RING", Comput. Chem. Eng. 2014, 64, 124
