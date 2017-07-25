@@ -1,6 +1,8 @@
 # Group Additivity
-Python package for group additivity scheme use. 
-Currently, Benson's GA scheme and Salciccioli et al 2012 scheme is employed. See Wiki page for more info.
+Python package for group additivity scheme use. See Wiki page for more info. Below are implemented group additivity scheme:
+- Benson's gas molecule group additivity 
+- Salciccioli et al. (2012) adsorbate on Pt(111) group additivity scheme
+- Gu et al. (2017) solvated adsorbate on Pt(111) group additivity scheme
 
 **Required Packages**
 - RDkit (http://www.rdkit.org/)
@@ -14,6 +16,7 @@ Currently, Benson's GA scheme and Salciccioli et al 2012 scheme is employed. See
 - Vorotnikov et al. "Group Additivity for Estimating Thermochemical Properties of Furanic Compounds on Pd(111)." Ind. Eng. Chem. Res., 2014, 53 (30), 11929-11938
 - Vorotnikov et al. "Group Additivity and Modified Linear Scaling Relations for Estimating Surface Thermochemistry on Transition Metal Surfaces: Application to Furanics." J. Phys. Chem. C, 2015, 119 (19), 10417-10426
 - Gu et al. "Group Additivity for Thermochemical Property Estimation of Lignin Monomers on Pt(111)." J. Phys. Chem. C, 2016, 120 (34), 19234-19241
+- Gu et al. "Group Additivity for Aqueous Phase Thermochemical Properties of Alcohols on Pt(111)." J. Phys. Chem. C, submitted
 
 **Example**  
 Benson's Gas Group Additivity Example:
@@ -21,7 +24,7 @@ Benson's Gas Group Additivity Example:
 In:
 from VGA.GroupAdd.Library import GroupLibrary
 import VGA.ThermoChem
-lib = GroupLibrary.Load('benson')
+lib = GroupLibrary.Load('BensonGA')
 descriptors = lib.GetDescriptors('C1CO1')
 print descriptors
 thermochem = lib.Estimate(descriptors,'thermochem')
@@ -36,7 +39,7 @@ Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873–1886 Example:
 In:
 from VGA.GroupAdd.Library import GroupLibrary
 import VGA.ThermoChem
-lib = GroupLibrary.Load('Salciccioli2012')
+lib = GroupLibrary.Load('SalciccioliGA2012')
 descriptors = lib.GetDescriptors('C([Pt])C[Pt]')
 print descriptors
 thermochem = lib.Estimate(descriptors,'thermochem')
@@ -45,4 +48,19 @@ print thermochem.eval_ND_H(298.15)
 Out:
 defaultdict(<type 'int'>, {'surface-ring strain': 0.217, 'C(C)(H)2(Pt)': 2})
 37.6249461725
+```
+Gu et al. J. Phys. Chem. C, submitted Example:
+```
+In:
+from VGA.GroupAdd.Library import GroupLibrary
+import VGA.ThermoChem
+lib = GroupLibrary.Load('GuSolventGA2017Aq')
+descriptors = lib.GetDescriptors('C(=O)([Pt])O')
+print descriptors
+thermochem = lib.Estimate(descriptors,'thermochem')
+print thermochem.eval_ND_H(500)
+
+Out:
+defaultdict(<type 'int'>, {'CO(O)(Pt)+O(CO)(H)': 1.0})
+-109.862120028
 ```
