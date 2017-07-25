@@ -604,7 +604,7 @@ groups:
   #    Cp_data: []
   #    range: [298, 300]
 
-  C[d](CO)(O):
+  C[d](CO)(C[d])(O):
     thermochem:
       T_ref: 298.0
       H_ref: 11.6
@@ -612,7 +612,7 @@ groups:
       Cp_data: []
       range: [298, 300]
 
-  C[d](CO)(H):
+  C[d](CO)(C[d])(H):
     thermochem:
       T_ref: 298.0
       H_ref: 5.0
@@ -620,7 +620,7 @@ groups:
       Cp_data: []
       range: [298, 300]
 
-  C[d](C)(CO):
+  C[d](C)(CO)(C[d]):
     thermochem:
       T_ref: 298.0
       H_ref: 7.5
@@ -628,7 +628,7 @@ groups:
       Cp_data: []
       range: [298, 300]
 
-  C[B](O):
+  C[B](C[B])2(O):
     thermochem:
       T_ref: 298.0
       H_ref: -0.9
@@ -642,7 +642,7 @@ groups:
         - [1000, 6.9]
       range: [298, 1000]
 
-  C[B](CO):
+  C[B](CO)(C[B])2:
     thermochem:
       T_ref: 298.0
       H_ref: 3.7

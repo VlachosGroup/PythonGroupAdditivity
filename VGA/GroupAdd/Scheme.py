@@ -12,7 +12,7 @@ class Scheme(object):
     pass
 
 class GroupAdditivityScheme(Scheme):
-    def __init__(self, patterns=[], pretreatment_rules=[], remaps ={}, other_descriptors=[], include =[]):
+    def __init__(self, patterns=[], pretreatment_rules=[], remaps ={}, other_descriptors=[],smiles_based_descriptors=[],smarts_based_descriptors=[], include =[]):
         """Load group-additivity scheme from file-system `path` or builtin.
 
         Parameters
@@ -37,7 +37,8 @@ class GroupAdditivityScheme(Scheme):
         self.pretreatment_rules = pretreatment_rules
         self.remaps = remaps
         self.other_descriptors = other_descriptors
-        
+        self.smiles_based_descriptors = smiles_based_descriptors
+        self.smarts_based_descriptors = smarts_based_descriptors
         for scheme in include:
             if isinstance(scheme,GroupAdditivityScheme):
                 scheme_object = scheme
@@ -47,6 +48,8 @@ class GroupAdditivityScheme(Scheme):
             self.pretreatment_rules += scheme_object.pretreatment_rules
             self.remaps.update(scheme_object.remaps)
             self.other_descriptors += scheme_object.other_descriptors
+            self.smiles_based_descriptors = scheme_object.smiles_based_descriptors
+            self.smarts_based_descriptors = scheme_object.smarts_based_descriptors
             
     @classmethod
     def Load(cls, path):
@@ -69,6 +72,8 @@ class GroupAdditivityScheme(Scheme):
         pretreatment_rules=[]
         remaps ={}
         other_descriptors=[]
+        smiles_based_descriptors=[]
+        smarts_based_descriptors=[]
         if 'pretreatment_rules' in scheme_data:
             pretreatment_rules = scheme_data['pretreatment_rules']
         if 'remaps' in scheme_data:
@@ -78,7 +83,17 @@ class GroupAdditivityScheme(Scheme):
                 scheme_data['other_descriptors'][i]['connectivity'] = \
                     Read(scheme_data['other_descriptors'][i]['connectivity'])
             other_descriptors = scheme_data['other_descriptors']
-        return cls(patterns, pretreatment_rules, remaps, other_descriptors)
+        if 'smiles_based_descriptors' in scheme_data:
+            for i in xrange(0,len(scheme_data['smiles_based_descriptors'])):
+                scheme_data['smiles_based_descriptors'][i]['smarts'] = \
+                    Chem.MolFromSmarts(scheme_data['smiles_based_descriptors'][i]['smarts'])
+            smiles_based_descriptors = scheme_data['smiles_based_descriptors']
+        if 'smarts_based_descriptors' in scheme_data:
+            for i in xrange(0,len(scheme_data['smarts_based_descriptors'])):
+                scheme_data['smarts_based_descriptors'][i]['smarts'] = \
+                    Chem.MolFromSmarts(scheme_data['smarts_based_descriptors'][i]['smarts'])
+            smarts_based_descriptors = scheme_data['smarts_based_descriptors']
+        return cls(patterns, pretreatment_rules, remaps, other_descriptors,smiles_based_descriptors,smarts_based_descriptors)
         
     def GetDescriptors(self, mol, debug=0):
         if isinstance(mol,Chem.Mol):
@@ -86,8 +101,15 @@ class GroupAdditivityScheme(Scheme):
             mol = Chem.AddHs(mol)
             Chem.Kekulize(mol)
         elif isinstance(mol,str):
+            clean_mol = Chem.MolFromSmiles(mol)
             # sanitize false is necessary to read adsorbed hydrogen species. (e.g. [Pt][H])
-            mol = Chem.MolFromSmiles(mol,sanitize=False)
+            mol.replace('{','')
+            mol.replace('}','')
+            #mol = Chem.MolFromSmiles(mol,sanitize=False) # Stereochemistry get's erased. :/
+            mol = Chem.MolFromSmiles(mol)
+            if mol is None:
+                print 'Smiles could not be loaded.'
+                raise Exception
             sanitize_except_aromatization(mol)
             mol = Chem.AddHs(mol)
             Chem.Kekulize(mol)
@@ -104,13 +126,15 @@ class GroupAdditivityScheme(Scheme):
         # assign groups
         self._AssignCenterPattern(mol,debug)
         groups = self._AssignGroup(mol)
-        descriptors = self._AssignDescriptor(mol)
+        descriptors = self._AssignDescriptor(mol,clean_mol)
         all_descriptors = groups.copy()
         all_descriptors.update(descriptors)
         return all_descriptors
         
     def _AssignCenterPattern(self, mol,debug=0):
+        
         for pattern in self.patterns:
+            
             matches = pattern['connectivity'].GetQueryMatches(mol)
             # only the first atom is the center atom
             matches = set([match[0] for match in matches])
@@ -168,14 +192,26 @@ class GroupAdditivityScheme(Scheme):
                     atom.SetProp('Group_name',self.remaps[atom.GetProp('Group_name')][0][1])
             for group in groups.keys():
                 if group in self.remaps:
-                    n = groups.pop(group)*self.remaps[group][0][0]
-                    groups[self.remaps[group][0][1]] += n
+                    n = groups.pop(group)
+                    for remap in self.remaps[group]:
+                        nn = n*remap[0]
+                        groups[remap[1]] += nn
         return groups
         
-    def _AssignDescriptor(self,mol):
+    def _AssignDescriptor(self,mol,clean_mol):
         descriptors = defaultdict(int)
         for descriptor in self.other_descriptors:
             matches = descriptor['connectivity'].GetQueryMatches(mol)
+            matches = set([tuple(set(match)) for match in matches])
+            if matches:
+                descriptors[descriptor['name']] += len(matches)
+        for descriptor in self.smiles_based_descriptors:
+            matches = clean_mol.GetSubstructMatches(descriptor['smiles'],useChirality=descriptor['useChirality'])
+            matches = set([tuple(set(match)) for match in matches])
+            if matches:
+                descriptors[descriptor['name']] += len(matches)
+        for descriptor in self.smarts_based_descriptors:
+            matches = mol.GetSubstructMatches(descriptor['smarts'],useChirality=descriptor['useChirality'])
             matches = set([tuple(set(match)) for match in matches])
             if matches:
                 descriptors[descriptor['name']] += len(matches)
@@ -183,8 +219,10 @@ class GroupAdditivityScheme(Scheme):
         if hasattr(self,'remaps'):
             for descriptor in descriptors.keys():
                 if descriptor in self.remaps:
-                    n = descriptors.pop(descriptor)*self.remaps[descriptor][0][0]
-                    descriptors[self.remaps[descriptor][0][1]] += n
+                    n = descriptors.pop(descriptor)
+                    for remap in self.remaps[descriptor]:
+                        nn = n*remap[0]
+                        descriptors[remap[1]] += nn
         return descriptors
         
         

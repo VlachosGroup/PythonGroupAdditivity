@@ -89,7 +89,7 @@ strict_grammar = ('RINGInput', {
 # Enhanced for radical electron related functions
 enhanced_grammar = ('RINGInput', strict_grammar[1].copy())
 enhanced_grammar[1]['BondType'] = Literals(['single','double','triple','quadruple','ring','nonring','aromatic','any','strong','partial'])
-enhanced_grammar[1]['AtomConstraints'] = Either('AtomConstraintConnectivity','AtomConstraintRing','AtomConstraintRadical')
+enhanced_grammar[1]['AtomConstraints'] = Either('AtomConstraintConnectivity','AtomConstraintRing','AtomConstraintRadical','AtomConstraintNRing')
 enhanced_grammar[1]['AtomConstraintRadical'] = All(Optional('Boolean'),Filler('has'), 'ConstraintNumber', Filler('radical electrons'))
 enhanced_grammar[1]['ConnectivityChange'] = Either('BondForm','BondBreak','BondModify','BondDecrease','BondIncrease','AtomTypeModify','RadicalModify','RadicalIncrease','RadicalDecrease','ChargeIncrease','ChargeDecrease')
 enhanced_grammar[1]['RadicalModify'] = All(Filler('modify number of radical'), Filler('('), 'AtomLabel', Filler(','), Number(), Filler(')'))
@@ -99,8 +99,12 @@ enhanced_grammar[1]['ChargeIncrease'] = All(Filler('increase formal charge'), Fi
 enhanced_grammar[1]['ChargeDecrease'] = All(Filler('decrease formal charge'), Filler('('), 'AtomLabel', Filler(')'))
 # For ?, any type of charge, and radicals are accepted.
 enhanced_grammar[1]['AtomSuffix'] = Literals(['+','-','.',':','+.','-.','*','?',':.'])
-
-
+# Stereochemsitry
+enhanced_grammar[1]['AtomChain'] = All(Either('BondedAtom','RingBond','StereoDoubleBond'),Optional('AtomChain'))
+enhanced_grammar[1]['StereoDoubleBond'] = All(Filler('stereo double bond'), 'AtomLabel',Optional('Boolean'), 'DoubleBondStereoType', Filler('to'), 'AtomLabel', Filler('for double bond between'), 'AtomLabel', Filler('and'), 'AtomLabel')
+enhanced_grammar[1]['DoubleBondStereoType'] = Literals(['cis','trans','notspecified'])
+# Number of ring constraint
+enhanced_grammar[1]['AtomConstraintNRing'] = All(Optional('Boolean'), Filler('in'), 'ConstraintNumber', Filler('ring'))
 def update_names(rules):
     for name in rules:
         rules[name].set_name(name)

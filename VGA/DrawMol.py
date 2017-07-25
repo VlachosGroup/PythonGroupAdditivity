@@ -24,27 +24,33 @@ def moltosvg(mol,highlight=[],molSize=(400,400),kekulize=True):
     
     drawer = rdMolDraw2D.MolDraw2DSVG(molSize[0],molSize[1])
     
-    # radicals
+    # Atom Label
     opts = drawer.drawOptions()
+    ## Atom name and index
+    for i in range(mol.GetNumAtoms()):
+        opts.atomLabels[i] = mol.GetAtomWithIdx(i).GetSymbol()+str(i)
+    ## radicals and charges
     for atom in mol.GetAtoms():
         nr = atom.GetNumRadicalElectrons()
         nc = atom.GetFormalCharge()
         if nr > 0:
             string=atom.GetSymbol()+':'*divmod(nr,2)[0]+'.'*divmod(nr,2)[1]
-            opts.atomLabels[atom.GetIdx()] = string       
+            opts.atomLabels[atom.GetIdx()] += string       
         elif nc == 1:
             string=atom.GetSymbol()+'+'
-            opts.atomLabels[atom.GetIdx()] = string
+            opts.atomLabels[atom.GetIdx()] += string
         elif nc > 1:
             string=atom.GetSymbol()+'+' + str(nc)
-            opts.atomLabels[atom.GetIdx()] = string
+            opts.atomLabels[atom.GetIdx()] += string
         elif nc == -1:
             string=atom.GetSymbol()+'-'
-            opts.atomLabels[atom.GetIdx()] = string
+            opts.atomLabels[atom.GetIdx()] += string
         elif nc < -1:
             string=atom.GetSymbol()+'-' + str(nc)
-            opts.atomLabels[atom.GetIdx()] = string
-            
+            opts.atomLabels[atom.GetIdx()] += string
+    
+    
+
     # highlight
     if highlight:
         drawer.DrawMolecule(mc,highlightAtoms=highlight)

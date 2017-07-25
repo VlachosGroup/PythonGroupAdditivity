@@ -120,7 +120,54 @@ class BondQuery(object):
         return '<BondQuery(%s)>'%(self.RINGbondname)
     def __repr__(self):
         return 'BondQuery(%s)'%(self.RINGbondname)
+
+class DoubleBondStereoConstraint(object):
+    def __init__(self,negate,stereobondtype):
+        self.negate = negate
+        self.stereobondtype = stereobondtype
+    def __call__(self, idx1, idx2, idx3, idx4, mol):
+        double_bond = mol.GetBondBetweenAtoms(idx3,idx4)
+        stereo = double_bond.GetStereo()
+        # Chem.rdchem.BondStereo.STEREOZ = cis
+        # Chem.rdchem.BondStereo.STEREOE = trans
+        # Chem.rdchem.BondStereo.STEREONONE = Not specified
+        # non-type check
+        if stereo == Chem.rdchem.BondStereo.STEREONONE:
+            if self.stereobondtype == stereo and not self.negate:
+                return True
+            elif self.stereobondtype != stereo and self.negate:
+                return True
+            else:
+                raise MolQueryError('DoubleBondStereoConstraint: False.')
+        # Cis trans. Here I use a slightly clever algorithm.
+        # I look at the intersectio between the one specified by rdkit.
+        nmatch = len(set(double_bond.GetStereoAtoms()).intersection([idx1,idx2]))
+        if nmatch == 2 or nmatch == 0:
+            
+            if self.stereobondtype == stereo and not self.negate:
+                return True
+            elif self.stereobondtype != stereo and self.negate:
+                return True
+            else:
+                raise MolQueryError('DoubleBondStereoConstraint: False.')
+        elif nmatch == 1:
+            # if there is only one match, stereo is opposite. 
+            if stereo == Chem.rdchem.BondStereo.STEREOZ:
+                stereo = Chem.rdchem.BondStereo.STEREOE
+            elif stereo == Chem.rdchem.BondStereo.STEREOE:
+                stereo = Chem.rdchem.BondStereo.STEREOZ
+            if self.stereobondtype == stereo and not self.negate:
+                return True
+            elif self.stereobondtype != stereo and self.negate:
+                return True
+            else:
+                raise MolQueryError('DoubleBondStereoConstraint: False.')
         
+    def __str__(self):
+        return '<DoubleBondStereoConstraint(%s%s)>'%(self.negate,self.stereobondtype)
+    def __repr__(self):
+        return 'DoubleBondStereoConstraint(%s%s)'%(self.negate,self.stereobondtype)
+
 class AtomConstraint(object):
     pass
 
@@ -194,11 +241,31 @@ class AtomRing(AtomConstraint):
                 rings = atom.GetOwningMol().GetRingInfo().AtomRings()
                 for ring in rings:
                     if atom.GetIdx() in ring:
-                        if not self.ring_sizeCN(len(ring)):
-                            raise MolQueryError('AtomRing: False.')
+                        if self.ring_sizeCN(len(ring)):
+                            return 
+                raise MolQueryError('AtomRing: False.')
     def __repr__(self):
         return 'AtomRing()'
-        
+      
+class AtomNRing(AtomConstraint):
+    def __init__(self, negate, NringCN):
+        self.negate = negate
+        self.NringCN = NringCN
+    def __call__(self, atom):
+        # get number of rings
+        rings = atom.GetOwningMol().GetRingInfo().AtomRings()
+        n=0
+        for ring in rings:
+            for ring_atom_idx in ring:
+                if atom.GetIdx() == ring_atom_idx:
+                    n+=1
+        if self.negate and self.NringCN(n):
+            raise MolQueryError('AtomNRing: False.')
+        elif not self.NringCN(n):
+            raise MolQueryError('AtomNRing: False.')
+                
+    def __repr__(self):
+        return 'AtomNRing()'
         
 class AtomConnectivityAtom(AtomConstraint):
     def __init__(self, negate,CN,connected,bondquery,constraints):
@@ -337,6 +404,7 @@ class MolQuery(object):
         """
         bond_constraints = [[atomqueryidx1,atomqueryidx2,constraint],...]
         """
+        self.double_bond_stereo_constraints = list()
     def __repr__(self):
         s = "%s(" %(self.__class__.__name__)
         if hasattr(self,'name'):
@@ -394,6 +462,54 @@ class MolQuery(object):
         # If empty, initialize
         
         self.bond_constraints.append([idx1,idx2,bondconstraint])
+        
+    def AppendDoubleBondStereoConstraint(self,idx_or_atomname1,idx_or_atomname2,\
+        idx_or_atomname3,idx_or_atomname4, doublebondstereoconstraint):
+        
+        assert isinstance(doublebondstereoconstraint, DoubleBondStereoConstraint)
+        if isinstance(idx_or_atomname1,str):
+            try:
+                idx1 = self.atom_names.index(idx_or_atomname1)
+            except:
+                s = "Undeclared atom name: '" + idx_or_atomname1 + "'"
+                raise MolQueryError(s)
+        elif isinstance(idx_or_atomname1,int):
+            idx1 = idx_or_atomname1
+        else:
+            MolQueryError('Unrecognized atom name instance')
+        if isinstance(idx_or_atomname2,str):
+            try:
+                idx2 = self.atom_names.index(idx_or_atomname2)
+            except:
+                s = "Undeclared atom name: '" + idx_or_atomname2 + "'"
+                raise MolQueryError(s)
+        elif isinstance(idx_or_atomname2,int):
+            idx2 = idx_or_atomname2
+        else:
+            MolQueryError('Unrecognized atom name instance')
+        if isinstance(idx_or_atomname3,str):
+            try:
+                idx3 = self.atom_names.index(idx_or_atomname3)
+            except:
+                s = "Undeclared atom name: '" + idx_or_atomname3 + "'"
+                raise MolQueryError(s)
+        elif isinstance(idx_or_atomname3,int):
+            idx3 = idx_or_atomname3
+        else:
+            MolQueryError('Unrecognized atom name instance')
+        if isinstance(idx_or_atomname4,str):
+            try:
+                idx4 = self.atom_names.index(idx_or_atomname4)
+            except:
+                s = "Undeclared atom name: '" + idx_or_atomname4 + "'"
+                raise MolQueryError(s)
+        elif isinstance(idx_or_atomname4,int):
+            idx4 = idx_or_atomname4
+        else:
+            MolQueryError('Unrecognized atom name instance')
+        # If empty, initialize
+        
+        self.double_bond_stereo_constraints.append([idx1,idx2,idx3,idx4,doublebondstereoconstraint])
     
     def GetQueryMatches(self, mol,debug=0):
         mol = Chem.AddHs(mol)
@@ -435,7 +551,19 @@ class MolQuery(object):
                 matches2.append(match_indice)
             except:
                 continue
-        # return
-        return tuple(matches2)
+        ## Enhanced bond stereo matching
+        matches3 = list()
+        for match_indice in matches2:
+            try:
+                for double_bond_stereo_constraint in self.double_bond_stereo_constraints:
+                    idx1 = match_indice[double_bond_stereo_constraint[0]]
+                    idx2 = match_indice[double_bond_stereo_constraint[1]]
+                    idx3 = match_indice[double_bond_stereo_constraint[2]]
+                    idx4 = match_indice[double_bond_stereo_constraint[3]]
+                    double_bond_stereo_constraint[4](idx1,idx2,idx3,idx4,mol)
+                matches3.append(match_indice)
+            except:
+                continue
+        return tuple(matches3)
 
         

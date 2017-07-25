@@ -1,0 +1,386 @@
+units:
+  molar enthalpy: kcal/mol
+  molar entropy: cal/(mol*K)
+  molar heat capacity: cal/(mol*K)
+  temperature: K
+
+
+other_descriptors:
+  Cyclopropane:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 27.6
+      S_ref: 32.1
+      Cp_data: 
+        - [300, -3.05]
+        - [400, -2.53]
+        - [500, -2.10]
+        - [600, -1.90]
+        - [800, -1.77]
+        - [1000, -1.62]
+        - [1500, -1.52]
+      range: [298, 1500]
+  Methylenecyclopropene:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 40.9
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Cyclopropene:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 53.7
+      S_ref: 33.6
+      Cp_data: []
+      range: [298, 1500]
+  Cyclobutane:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 26.2
+      S_ref: 29.8
+      Cp_data: 
+        - [300, -4.61]
+        - [400, -3.89]
+        - [500, -3.14]
+        - [600, -2.64]
+        - [800, -1.88]
+        - [1000, -1.38]
+        - [1500, -0.67]
+      range: [298, 1500]
+  Cyclobutene:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 29.8
+      S_ref: 29.0
+      Cp_data: 
+        - [300, -2.53]
+        - [400, -2.19]
+        - [500, -1.89]
+        - [600, -1.68]
+        - [800, -1.48]
+        - [1000, -1.33]
+        - [1500, -1.22]
+      range: [298, 1500]
+  Cyclopentane:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 6.3
+      S_ref: 27.3
+      Cp_data: 
+        - [300, -7.50]
+        - [400, -6.49]
+        - [500, -5.40]
+        - [600, -4.37]
+        - [800, -2.93]
+        - [1000, -1.93]
+        - [1500, -0.37]
+      range: [298, 1500]
+  Cyclopentene:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 5.9
+      S_ref: 25.8
+      Cp_data: 
+        - [300, -5.98]
+        - [400, -5.35]
+        - [500, -4.89]
+        - [600, -4.14]
+        - [800, -2.93]
+        - [1000, -2.26]
+        - [1500, -1.08]
+      range: [298, 1500]
+  Cyclopentadiene:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 6.0
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Cyclohexane:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 0.0
+      S_ref: 18.8
+      Cp_data: 
+        - [300, -6.40]
+        - [400, -4.60]
+        - [500, -3.30]
+        - [600, -1.60]
+        - [800, 0.82]
+        - [1000, 1.98]
+        - [1500, 3.19]
+      range: [298, 1500]
+  Cyclohexene:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 1.4
+      S_ref: 21.5
+      Cp_data: 
+        - [300, -4.28]
+        - [400, -3.04]
+        - [500, -1.98]
+        - [600, -1.43]
+        - [800, -0.29]
+        - [1000, 0.08]
+        - [1500, 0.81]
+      range: [298, 1500]
+  Cyclohexadiene-1,3:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 4.8
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Cyclohexadiene-1,4:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 0.5
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Cycloheptane:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 6.4
+      S_ref: 15.9
+      Cp_data: []
+      range: [298, 1000]
+  Cycloheptene:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 5.4
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Cycloheptadiene-1,3:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 6.6
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Cycloheptatriene-1,3,5:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 4.7
+      S_ref: 23.7
+      Cp_data: []
+      range: [298, 1000]
+  Cyclooctane:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 9.9
+      S_ref: 16.5
+      Cp_data: []
+      range: [298, 1000]
+  cis-Cyclooctene:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 6.0
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  trans-Cyclooctene:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 15.3
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Cyclooctatriene-1,3,5:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 8.9
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Cyclooctatetraene:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 17.1
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Cyclononane:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 12.8
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  cis-Cyclononene:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 9.9
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  trans-Cyclononene:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 12.8
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Spiropentane:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 63.5
+      S_ref: 67.6
+      Cp_data: []
+      range: [298, 1000]
+  Bicyclo[1.1.0]butane:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 68.4
+      S_ref: 69.2
+      Cp_data: []
+      range: [298, 1000]
+  Bicyclo[2.1.0]pentane:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 55.3
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Bicyclo[3.1.0]hextane:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 32.7
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Bicyclo[4.1.0]heptane:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 28.9
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Bicyclo[5.1.0]octane:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 29.6
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Bicyclo[6.1.0]nonane:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 31.1
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Oxirane:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 26.9
+      S_ref: 30.5
+      Cp_data: 
+        - [300, -2.0]
+        - [400, -2.8]
+        - [500, -3.0]
+        - [600, -2.6]
+        - [800, -2.3]
+        - [1000, -2.3]
+      range: [298, 1000]
+  Oxetane:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 25.7
+      S_ref: 26.1
+      Cp_data: 
+        - [300, -4.6]
+        - [400, -5.0]
+        - [500, -4.2]
+        - [600, -3.5]
+        - [800, -2.6]
+        - [1000, 0.2]
+      range: [298, 1000]
+  Tetrahydrofuran:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 6.0
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Tetrahydro-2H-pyran:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 1.5
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Dioxane-1,3:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 4.2
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Dioxane-1,4:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 4.0
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Trioxane-1,3,5:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 1.3
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  Furan:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -6.2
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  3,4-dihydro-2H-pyran:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 2.5
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  cyclopentanone:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 6.0
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  cyclohexanone:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 3.4
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  dihydrofuran-2,5-dione:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 1.1
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  dihydro-2H-pyran-2,6(3H)-dione:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 1.4
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+  furan-2,5-dione:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 4.6
+      S_ref: null
+      Cp_data: []
+      range: [298, 1000]
+
+     

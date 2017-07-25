@@ -2,7 +2,8 @@ from .. Error import RINGReaderError
 from .. RDkitWrapper.MolQuery import AtomRing,AtomConnectivityAtom,\
     ConstraintNumber,MolCharge,MolAromatic,MolOlefinic,MolParaffinic,\
     MolCyclic,MolLinear,MolQuery, AtomRadical, BondQuery, BondConstraint, \
-    AtomConnectivityGroup, AtomIsInRing, AtomIsAromatic, AtomIsAllylic
+    AtomConnectivityGroup, AtomIsInRing, AtomIsAromatic, AtomIsAllylic, \
+    DoubleBondStereoConstraint, AtomNRing
 from rdkit.Chem import rdqueries
 from rdkit import Chem
 """
@@ -100,16 +101,33 @@ class MolQueryReader(object):
         assert tree[i][0] == 'ConstraintNumber'
         CN = ConstraintNumber(tree[i][1:])
         return AtomRadical(negate,CN)
+        
+    def ReadAtomConstraintNRing(self, tree):
+        i = 0
+        # Boolean
+        if tree[i][0] == 'Boolean':
+            s = tree[i][1]
+            if s != '!': 
+                raise NotImplementedError("Unsupported Boolean operator: '"+s+"'")
+            i += 1
+            negate = True
+        else:
+            negate = False
+        assert tree[i][0] == 'ConstraintNumber'
+        CN = ConstraintNumber(tree[i][1:])
+        return AtomNRing(negate,CN)
     
     def ReadAtomConstraints(self, tree):
         assert tree[0][0] in ('AtomConstraintConnectivity',\
-            'AtomConstraintRing','AtomConstraintRadical')
+            'AtomConstraintRing','AtomConstraintRadical','AtomConstraintNRing')
         if tree[0][0] == 'AtomConstraintConnectivity':
             return self.ReadAtomConstraintConnectivity(tree[0][1:])
         elif tree[0][0] == 'AtomConstraintRing':
             return self.ReadAtomConstraintRing(tree[0][1:])
         elif tree[0][0] == 'AtomConstraintRadical':
             return self.ReadAtomConstraintRadical(tree[0][1:])
+        elif tree[0][0] == 'AtomConstraintNRing':
+            return self.ReadAtomConstraintNRing(tree[0][1:])
     
     def ReadAtomConstraintChain(self, tree, molquery, idx):
         assert tree[0][0] == 'AtomConstraints'
@@ -311,13 +329,90 @@ class MolQueryReader(object):
             msg = 'Atom Label '+tree[2][1]+' not found'
             raise RINGReaderError(msg)
         self.ReadBondTypeBondedAtom(idx1,idx2,bondtype,molquery)
+        
+    def ReadStereoDoubleBond(self, tree, molquery):
+        i = 0
+        assert tree[i][0] == 'AtomLabel'
+        try:
+            idx1 = molquery.atom_names.index(tree[i][1])
+            i +=1
+        except:
+            msg = 'Atom Label '+tree[i][1]+' not found'
+            raise RINGReaderError(msg)
+        
+        # Boolean
+        if tree[i][0] == 'Boolean':
+            s = tree[i][1]
+            if s != '!': 
+                raise NotImplementedError("Unsupported Boolean operator: '"+s+"'")
+            i += 1
+            negate = True
+        else:
+            negate = False
+            
+        assert tree[i][0] == 'DoubleBondStereoType'
+        if tree[i][1:][0] == 'cis':
+            stereobondtype = Chem.rdchem.BondStereo.STEREOZ
+        elif tree[i][1:][0] == 'trans':
+            stereobondtype = Chem.rdchem.BondStereo.STEREOE
+        elif tree[i][1:][0] == 'notspecified':
+            stereobondtype = Chem.rdchem.BondStereo.STEREONONE
+        else:
+            raise NotImplementedError("Unsupported stereo type: '"+tree[i][1:][0]+"'")
+        i += 1
+        assert tree[i][0] == 'AtomLabel'
+        try:
+            idx2 = molquery.atom_names.index(tree[i][1])
+            i += 1
+        except:
+            msg = 'Atom Label '+tree[i][1]+' not found'
+            raise RINGReaderError(msg)
+        assert tree[i][0] == 'AtomLabel'
+        try:
+            idx3 = molquery.atom_names.index(tree[i][1])
+            i += 1
+        except:
+            msg = 'Atom Label '+tree[i][1]+' not found'
+            raise RINGReaderError(msg)
+        assert tree[i][0] == 'AtomLabel'
+        try:
+            idx4 = molquery.atom_names.index(tree[i][1])
+            i += 1
+        except:
+            msg = 'Atom Label '+tree[i][1]+' not found'
+            raise RINGReaderError(msg)
+        # Error checks double bond check
+        dbond = molquery.mol.GetBondBetweenAtoms(idx3,idx4)
+        if not dbond:
+            msg = 'No bond found between '+tree[i-2][1]+' and '+tree[i-1][1]
+            raise RINGReaderError(msg)
+        elif dbond.GetBondType() != Chem.BondType.DOUBLE:
+            msg = 'Bond between '+tree[i-2][1]+' and '+tree[i-1][1]+' is not double bond'
+            raise RINGReaderError(msg)
+        # Check connectivity
+        bond13 = molquery.mol.GetBondBetweenAtoms(idx1,idx3)
+        bond14 = molquery.mol.GetBondBetweenAtoms(idx1,idx4)
+        bond23 = molquery.mol.GetBondBetweenAtoms(idx2,idx3)
+        bond24 = molquery.mol.GetBondBetweenAtoms(idx2,idx4)
+        if bond13 and bond23 or bond14 and bond24:
+            msg = tree[0][1]+' and '+tree[i-3][1]+' are bond to the same atom (double bond stereo)'
+            raise RINGReaderError(msg)
+        elif not bond13 and not bond14:
+            msg = tree[0][1]+' is not bound to '+tree[i-2][1]+' or '+tree[i-1][1]+'(double bond stereo)'
+            raise RINGReaderError(msg)
+        elif not bond23 and not bond24:
+            msg = tree[i-3][1]+' is not bound to '+tree[i-2][1]+' or '+tree[i-1][1]+'(double bond stereo)'
+            raise RINGReaderError(msg)
+        molquery.AppendDoubleBondStereoConstraint(idx1,idx2,idx3,idx4,DoubleBondStereoConstraint(negate,stereobondtype))
             
     def ReadAtomChain(self, tree, molquery):
-        assert tree[0][0] in ['BondedAtom','RingBond']
+        assert tree[0][0] in ['BondedAtom','RingBond','StereoDoubleBond']
         if tree[0][0] == 'BondedAtom':
             self.ReadBondedAtom(tree[0][1:], molquery)
         elif tree[0][0] == 'RingBond':
             self.ReadRingBond(tree[0][1:], molquery)
+        elif  tree[0][0] == 'StereoDoubleBond':
+            self.ReadStereoDoubleBond(tree[0][1:], molquery)
         
         if len(tree) > 1:
             assert tree[1][0] == 'AtomChain'
@@ -378,5 +473,7 @@ class MolQueryReader(object):
         assert self.tree[2][0] == 'MolQuery'
         self.ReadMolQuery(self.tree[2][1:], molquery)
         # return
+        if not molquery.mol:
+            raise RINGReaderError('Rdkit mol is not created')
         return molquery
 
