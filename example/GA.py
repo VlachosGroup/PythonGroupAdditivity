@@ -5,4 +5,4 @@ descriptors = lib.GetDescriptors('C(=O)([Pt])O')
 #descriptors = lib.GetDescriptors('C=C')
 print descriptors
 thermochem = lib.Estimate(descriptors,'thermochem')
-print thermochem.eval_ND_H(298.15)
+print thermochem.eval_ND_H(500)

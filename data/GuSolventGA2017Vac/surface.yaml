@@ -20,7 +20,8 @@ groups:
                 - [1300 K, 8.72 cal/(mol*K)]
                 - [1400 K, 8.95 cal/(mol*K)]
                 - [1500 K, 9.15 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
+            
     'C(C)(CO)(H)(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -42,7 +43,7 @@ groups:
                 - [1300 K, 10.93 cal/(mol*K)]
                 - [1400 K, 11.10 cal/(mol*K)]
                 - [1500 K, 11.25 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(C)(CO)(H)2':
         'thermochem':
             T_ref: 298 K
@@ -64,7 +65,7 @@ groups:
                 - [1300 K, 12.57 cal/(mol*K)]
                 - [1400 K, 12.97 cal/(mol*K)]
                 - [1500 K, 13.32 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(C)(CO)(O)(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -86,7 +87,7 @@ groups:
                 - [1300 K, 6.12 cal/(mol*K)]
                 - [1400 K, 6.15 cal/(mol*K)]
                 - [1500 K, 6.18 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(C)(CO)(Pt)2':
         'thermochem':
             T_ref: 298 K
@@ -108,7 +109,7 @@ groups:
                 - [1300 K, 6.62 cal/(mol*K)]
                 - [1400 K, 6.65 cal/(mol*K)]
                 - [1500 K, 6.68 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(C)(H)(O)(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -130,7 +131,7 @@ groups:
                 - [1300 K, 11.85 cal/(mol*K)]
                 - [1400 K, 12.05 cal/(mol*K)]
                 - [1500 K, 12.22 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(C)(H)(Pt)2':
         'thermochem':
             T_ref: 298 K
@@ -152,7 +153,7 @@ groups:
                 - [1300 K, 11.73 cal/(mol*K)]
                 - [1400 K, 11.90 cal/(mol*K)]
                 - [1500 K, 12.05 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(C)(H)2(O)':
         'thermochem':
             T_ref: 298 K
@@ -174,7 +175,7 @@ groups:
                 - [1300 K, 11.41 cal/(mol*K)]
                 - [1400 K, 11.80 cal/(mol*K)]
                 - [1500 K, 12.13 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(C)(H)2(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -196,7 +197,7 @@ groups:
                 - [1300 K, 16.23 cal/(mol*K)]
                 - [1400 K, 16.55 cal/(mol*K)]
                 - [1500 K, 16.83 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(C)(H)3':
         'thermochem':
             T_ref: 298 K
@@ -218,7 +219,7 @@ groups:
                 - [1300 K, 15.67 cal/(mol*K)]
                 - [1400 K, 16.18 cal/(mol*K)]
                 - [1500 K, 16.62 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(C)(O)(Pt)2':
         'thermochem':
             T_ref: 298 K
@@ -240,7 +241,7 @@ groups:
                 - [1300 K, 6.72 cal/(mol*K)]
                 - [1400 K, 6.77 cal/(mol*K)]
                 - [1500 K, 6.81 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(C)(Pt)3':
         'thermochem':
             T_ref: 298 K
@@ -262,7 +263,7 @@ groups:
                 - [1300 K, 10.12 cal/(mol*K)]
                 - [1400 K, 10.15 cal/(mol*K)]
                 - [1500 K, 10.17 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(C)2(H)(O)':
         'thermochem':
             T_ref: 298 K
@@ -284,7 +285,7 @@ groups:
                 - [1300 K, 5.99 cal/(mol*K)]
                 - [1400 K, 6.25 cal/(mol*K)]
                 - [1500 K, 6.49 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(C)2(H)(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -306,7 +307,7 @@ groups:
                 - [1300 K, 12.03 cal/(mol*K)]
                 - [1400 K, 12.23 cal/(mol*K)]
                 - [1500 K, 12.39 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(C)2(H)2':
         'thermochem':
             T_ref: 298 K
@@ -328,7 +329,7 @@ groups:
                 - [1300 K, 10.87 cal/(mol*K)]
                 - [1400 K, 11.26 cal/(mol*K)]
                 - [1500 K, 11.60 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(C)2(O)(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -350,7 +351,7 @@ groups:
                 - [1300 K, 8.02 cal/(mol*K)]
                 - [1400 K, 8.07 cal/(mol*K)]
                 - [1500 K, 8.12 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(C)2(Pt)2':
         'thermochem':
             T_ref: 298 K
@@ -372,7 +373,7 @@ groups:
                 - [1300 K, 7.67 cal/(mol*K)]
                 - [1400 K, 7.72 cal/(mol*K)]
                 - [1500 K, 7.76 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(CO)(H)(O)(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -394,7 +395,7 @@ groups:
                 - [1300 K, 7.05 cal/(mol*K)]
                 - [1400 K, 7.22 cal/(mol*K)]
                 - [1500 K, 7.38 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(CO)(H)(Pt)2':
         'thermochem':
             T_ref: 298 K
@@ -416,7 +417,7 @@ groups:
                 - [1300 K, 9.88 cal/(mol*K)]
                 - [1400 K, 10.05 cal/(mol*K)]
                 - [1500 K, 10.19 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(CO)(H)2(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -438,7 +439,7 @@ groups:
                 - [1300 K, 14.87 cal/(mol*K)]
                 - [1400 K, 15.17 cal/(mol*K)]
                 - [1500 K, 15.43 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(CO)(O)(Pt)2':
         'thermochem':
             T_ref: 298 K
@@ -460,7 +461,7 @@ groups:
                 - [1300 K, 2.65 cal/(mol*K)]
                 - [1400 K, 2.68 cal/(mol*K)]
                 - [1500 K, 2.71 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(CO)(Pt)3':
         'thermochem':
             T_ref: 298 K
@@ -482,7 +483,7 @@ groups:
                 - [1300 K, 7.67 cal/(mol*K)]
                 - [1400 K, 7.70 cal/(mol*K)]
                 - [1500 K, 7.72 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(CO)2(H)(O)':
         'thermochem':
             T_ref: 298 K
@@ -504,7 +505,7 @@ groups:
                 - [1300 K, 3.43 cal/(mol*K)]
                 - [1400 K, 3.65 cal/(mol*K)]
                 - [1500 K, 3.85 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(CO)2(H)(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -526,7 +527,7 @@ groups:
                 - [1300 K, 9.74 cal/(mol*K)]
                 - [1400 K, 9.89 cal/(mol*K)]
                 - [1500 K, 10.02 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(CO)2(H)2':
         'thermochem':
             T_ref: 298 K
@@ -548,7 +549,7 @@ groups:
                 - [1300 K, 10.84 cal/(mol*K)]
                 - [1400 K, 11.20 cal/(mol*K)]
                 - [1500 K, 11.50 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(CO)2(O)(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -570,7 +571,7 @@ groups:
                 - [1300 K, 4.57 cal/(mol*K)]
                 - [1400 K, 4.58 cal/(mol*K)]
                 - [1500 K, 4.59 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(CO)2(Pt)2':
         'thermochem':
             T_ref: 298 K
@@ -592,7 +593,7 @@ groups:
                 - [1300 K, 2.39 cal/(mol*K)]
                 - [1400 K, 2.43 cal/(mol*K)]
                 - [1500 K, 2.47 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(C[d])(H)2(O)':
         'thermochem':
             T_ref: 298 K
@@ -614,7 +615,7 @@ groups:
                 - [1300 K, 10.45 cal/(mol*K)]
                 - [1400 K, 10.83 cal/(mol*K)]
                 - [1500 K, 11.16 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(H)(O)(Pt)2':
         'thermochem':
             T_ref: 298 K
@@ -636,7 +637,7 @@ groups:
                 - [1300 K, 11.62 cal/(mol*K)]
                 - [1400 K, 11.81 cal/(mol*K)]
                 - [1500 K, 11.97 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(H)(Pt)3':
         'thermochem':
             T_ref: 298 K
@@ -658,7 +659,7 @@ groups:
                 - [1300 K, 12.36 cal/(mol*K)]
                 - [1400 K, 12.51 cal/(mol*K)]
                 - [1500 K, 12.64 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(H)2(O)(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -680,7 +681,7 @@ groups:
                 - [1300 K, 15.98 cal/(mol*K)]
                 - [1400 K, 16.33 cal/(mol*K)]
                 - [1500 K, 16.63 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(H)2(Pt)2':
         'thermochem':
             T_ref: 298 K
@@ -702,7 +703,7 @@ groups:
                 - [1300 K, 16.83 cal/(mol*K)]
                 - [1400 K, 17.13 cal/(mol*K)]
                 - [1500 K, 17.39 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(H)3(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -724,7 +725,7 @@ groups:
                 - [1300 K, 21.12 cal/(mol*K)]
                 - [1400 K, 21.57 cal/(mol*K)]
                 - [1500 K, 21.97 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(O)(Pt)3':
         'thermochem':
             T_ref: 298 K
@@ -746,7 +747,7 @@ groups:
                 - [1300 K, 7.12 cal/(mol*K)]
                 - [1400 K, 7.15 cal/(mol*K)]
                 - [1500 K, 7.17 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(Pt)4':
         'thermochem':
             T_ref: 298 K
@@ -768,7 +769,7 @@ groups:
                 - [1300 K, 7.75 cal/(mol*K)]
                 - [1400 K, 7.77 cal/(mol*K)]
                 - [1500 K, 7.80 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CO(C)(CO)':
         'thermochem':
             T_ref: 298 K
@@ -790,7 +791,7 @@ groups:
                 - [1300 K, 8.94 cal/(mol*K)]
                 - [1400 K, 9.07 cal/(mol*K)]
                 - [1500 K, 9.19 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CO(C)(H)':
         'thermochem':
             T_ref: 298 K
@@ -812,7 +813,7 @@ groups:
                 - [1300 K, 14.45 cal/(mol*K)]
                 - [1400 K, 14.71 cal/(mol*K)]
                 - [1500 K, 14.94 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CO(C)(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -834,7 +835,7 @@ groups:
                 - [1300 K, 14.62 cal/(mol*K)]
                 - [1400 K, 14.71 cal/(mol*K)]
                 - [1500 K, 14.79 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CO(C)2':
         'thermochem':
             T_ref: 298 K
@@ -856,7 +857,7 @@ groups:
                 - [1300 K, 12.64 cal/(mol*K)]
                 - [1400 K, 12.81 cal/(mol*K)]
                 - [1500 K, 12.96 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CO(CO)(H)':
         'thermochem':
             T_ref: 298 K
@@ -878,7 +879,7 @@ groups:
                 - [1300 K, 12.66 cal/(mol*K)]
                 - [1400 K, 12.92 cal/(mol*K)]
                 - [1500 K, 13.14 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CO(CO)(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -900,7 +901,7 @@ groups:
                 - [1300 K, 14.88 cal/(mol*K)]
                 - [1400 K, 14.96 cal/(mol*K)]
                 - [1500 K, 15.04 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CO(CO)2':
         'thermochem':
             T_ref: 298 K
@@ -922,7 +923,7 @@ groups:
                 - [1300 K, 6.13 cal/(mol*K)]
                 - [1400 K, 6.25 cal/(mol*K)]
                 - [1500 K, 6.36 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CO(H)(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -944,7 +945,7 @@ groups:
                 - [1300 K, 17.84 cal/(mol*K)]
                 - [1400 K, 18.06 cal/(mol*K)]
                 - [1500 K, 18.24 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CO(H)2':
         'thermochem':
             T_ref: 298 K
@@ -966,7 +967,7 @@ groups:
                 - [1300 K, 10.35 cal/(mol*K)]
                 - [1400 K, 10.72 cal/(mol*K)]
                 - [1500 K, 11.04 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CO(Pt)2':
         'thermochem':
             T_ref: 298 K
@@ -988,7 +989,7 @@ groups:
                 - [1300 K, 13.13 cal/(mol*K)]
                 - [1400 K, 13.22 cal/(mol*K)]
                 - [1500 K, 13.29 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C[d](C)(C[d])(H)':
         'thermochem':
             T_ref: 298 K
@@ -1010,7 +1011,7 @@ groups:
                 - [1300 K, 6.54 cal/(mol*K)]
                 - [1400 K, 6.76 cal/(mol*K)]
                 - [1500 K, 6.95 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C[d](C[d])(H)(O)':
         'thermochem':
             T_ref: 298 K
@@ -1032,7 +1033,7 @@ groups:
                 - [1300 K, 4.29 cal/(mol*K)]
                 - [1400 K, 4.49 cal/(mol*K)]
                 - [1500 K, 4.67 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C[d](C[d])(H)2':
         'thermochem':
             T_ref: 298 K
@@ -1054,7 +1055,7 @@ groups:
                 - [1300 K, 9.50 cal/(mol*K)]
                 - [1400 K, 9.83 cal/(mol*K)]
                 - [1500 K, 10.12 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C[t](C[t])(H)':
         'thermochem':
             T_ref: 298 K
@@ -1076,7 +1077,7 @@ groups:
                 - [1300 K, 6.14 cal/(mol*K)]
                 - [1400 K, 6.30 cal/(mol*K)]
                 - [1500 K, 6.44 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'O(C)(H)':
         'thermochem':
             T_ref: 298 K
@@ -1098,7 +1099,7 @@ groups:
                 - [1300 K, 10.71 cal/(mol*K)]
                 - [1400 K, 10.87 cal/(mol*K)]
                 - [1500 K, 11.01 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'O(C)(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -1120,7 +1121,7 @@ groups:
                 - [1300 K, 8.04 cal/(mol*K)]
                 - [1400 K, 8.05 cal/(mol*K)]
                 - [1500 K, 8.05 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'O(CO)(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -1142,7 +1143,7 @@ groups:
                 - [1300 K, 8.87 cal/(mol*K)]
                 - [1400 K, 8.88 cal/(mol*K)]
                 - [1500 K, 8.89 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'O(H)(Pt)':
         'thermochem':
             T_ref: 298 K
@@ -1164,7 +1165,7 @@ groups:
                 - [1300 K, 12.30 cal/(mol*K)]
                 - [1400 K, 12.42 cal/(mol*K)]
                 - [1500 K, 12.54 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'O(H)2':
         'thermochem':
             T_ref: 298 K
@@ -1186,7 +1187,7 @@ groups:
                 - [1300 K, 16.55 cal/(mol*K)]
                 - [1400 K, 16.81 cal/(mol*K)]
                 - [1500 K, 17.05 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'O(Pt)2':
         'thermochem':
             T_ref: 298 K
@@ -1208,7 +1209,7 @@ groups:
                 - [1300 K, 7.86 cal/(mol*K)]
                 - [1400 K, 7.87 cal/(mol*K)]
                 - [1500 K, 7.88 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
 
 
 other_descriptors:
@@ -1233,7 +1234,7 @@ other_descriptors:
                 - [1300 K, 23.27 cal/(mol*K)]
                 - [1400 K, 23.52 cal/(mol*K)]
                 - [1500 K, 23.74 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C[d](CO)(C[d])(H)+CO(C[d])(H)':
         'thermochem':
             T_ref: 298 K
@@ -1255,7 +1256,7 @@ other_descriptors:
                 - [1300 K, 19.01 cal/(mol*K)]
                 - [1400 K, 19.48 cal/(mol*K)]
                 - [1500 K, 19.90 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(H)4g':
         'thermochem':
             T_ref: 298 K
@@ -1277,7 +1278,7 @@ other_descriptors:
                 - [1300 K, 15.15 cal/(mol*K)]
                 - [1400 K, 15.59 cal/(mol*K)]
                 - [1500 K, 15.99 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'C(H)4s':
         'thermochem':
             T_ref: 298 K
@@ -1299,7 +1300,7 @@ other_descriptors:
                 - [1300 K, 25.52 cal/(mol*K)]
                 - [1400 K, 26.12 cal/(mol*K)]
                 - [1500 K, 26.65 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CO2g':
         'thermochem':
             T_ref: 298 K
@@ -1321,7 +1322,7 @@ other_descriptors:
                 - [1300 K, 8.70 cal/(mol*K)]
                 - [1400 K, 8.84 cal/(mol*K)]
                 - [1500 K, 8.96 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CO2s':
         'thermochem':
             T_ref: 298 K
@@ -1343,7 +1344,7 @@ other_descriptors:
                 - [1300 K, 18.58 cal/(mol*K)]
                 - [1400 K, 18.73 cal/(mol*K)]
                 - [1500 K, 18.85 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CC':
         'thermochem':
             T_ref: 298 K
@@ -1365,7 +1366,7 @@ other_descriptors:
                 - [1300 K, 1.60 cal/(mol*K)]
                 - [1400 K, 1.57 cal/(mol*K)]
                 - [1500 K, 1.54 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CCOH':
         'thermochem':
             T_ref: 298 K
@@ -1387,7 +1388,7 @@ other_descriptors:
                 - [1300 K, 0.10 cal/(mol*K)]
                 - [1400 K, 0.11 cal/(mol*K)]
                 - [1500 K, 0.12 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CCPt1':
         'thermochem':
             T_ref: 298 K
@@ -1409,7 +1410,7 @@ other_descriptors:
                 - [1300 K, 1.11 cal/(mol*K)]
                 - [1400 K, 1.10 cal/(mol*K)]
                 - [1500 K, 1.08 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CCPt2':
         'thermochem':
             T_ref: 298 K
@@ -1431,7 +1432,7 @@ other_descriptors:
                 - [1300 K, 1.11 cal/(mol*K)]
                 - [1400 K, 1.08 cal/(mol*K)]
                 - [1500 K, 1.05 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CCPt3':
         'thermochem':
             T_ref: 298 K
@@ -1453,7 +1454,7 @@ other_descriptors:
                 - [1300 K, -0.27 cal/(mol*K)]
                 - [1400 K, -0.30 cal/(mol*K)]
                 - [1500 K, -0.33 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CPt1CPt1':
         'thermochem':
             T_ref: 298 K
@@ -1475,7 +1476,7 @@ other_descriptors:
                 - [1300 K, -0.48 cal/(mol*K)]
                 - [1400 K, -0.47 cal/(mol*K)]
                 - [1500 K, -0.46 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CPt1OPt1':
         'thermochem':
             T_ref: 298 K
@@ -1497,7 +1498,7 @@ other_descriptors:
                 - [1300 K, -0.29 cal/(mol*K)]
                 - [1400 K, -0.28 cal/(mol*K)]
                 - [1500 K, -0.28 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CPt2CPt1':
         'thermochem':
             T_ref: 298 K
@@ -1519,7 +1520,7 @@ other_descriptors:
                 - [1300 K, 0.77 cal/(mol*K)]
                 - [1400 K, 0.78 cal/(mol*K)]
                 - [1500 K, 0.78 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CPt2CPt2':
         'thermochem':
             T_ref: 298 K
@@ -1541,7 +1542,7 @@ other_descriptors:
                 - [1300 K, 0.70 cal/(mol*K)]
                 - [1400 K, 0.71 cal/(mol*K)]
                 - [1500 K, 0.73 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CPt2OPt1':
         'thermochem':
             T_ref: 298 K
@@ -1563,7 +1564,7 @@ other_descriptors:
                 - [1300 K, 1.82 cal/(mol*K)]
                 - [1400 K, 1.83 cal/(mol*K)]
                 - [1500 K, 1.85 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CPt3CPt1':
         'thermochem':
             T_ref: 298 K
@@ -1585,7 +1586,7 @@ other_descriptors:
                 - [1300 K, -0.45 cal/(mol*K)]
                 - [1400 K, -0.44 cal/(mol*K)]
                 - [1500 K, -0.42 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'CPt3CPt2':
         'thermochem':
             T_ref: 298 K
@@ -1607,7 +1608,7 @@ other_descriptors:
                 - [1300 K, 0.32 cal/(mol*K)]
                 - [1400 K, 0.33 cal/(mol*K)]
                 - [1500 K, 0.33 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'H':
         'thermochem':
             T_ref: 298 K
@@ -1629,7 +1630,7 @@ other_descriptors:
                 - [1300 K, 7.57 cal/(mol*K)]
                 - [1400 K, 7.62 cal/(mol*K)]
                 - [1500 K, 7.66 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
     'surface-ring strain':
         'thermochem':
             T_ref: 298 K
@@ -1651,4 +1652,4 @@ other_descriptors:
                 - [1300 K, -6.77 cal/(mol*K)]
                 - [1400 K, -6.77 cal/(mol*K)]
                 - [1500 K, -6.78 cal/(mol*K)]
-           range: [100K, 1500K]
+            range: [100K, 1500K]
