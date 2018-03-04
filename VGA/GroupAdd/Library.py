@@ -2,6 +2,7 @@ import os
 from warnings import warn
 from collections import Mapping
 from .. import yaml_io 
+import numpy as np
 
 from .. Error import GroupMissingDataError
 from . Group import Group, Descriptor
@@ -62,7 +63,7 @@ class GroupLibrary(Mapping):
         cls._property_set_group_yaml_types[name] = group_yaml_type
         cls._property_set_estimator_types[name] = estimator_type
 
-    def __init__(self, scheme, contents={}, path=None):
+    def __init__(self, scheme, contents={}, uq_contents={}, path=None):
         """Initialize library of contributing properties organized by group.
 
         Parameters
@@ -86,6 +87,7 @@ class GroupLibrary(Mapping):
             contents = contents.items()
         self.contents = dict((group, property_sets)
             for (group, property_sets) in contents)
+        self.uq_contents = uq_contents
 
     def GetDescriptors(self, mol):
         """Determine groups appearing in chemical structure `chem`.
@@ -227,7 +229,8 @@ class GroupLibrary(Mapping):
         
         group_properties = lib_data.groups
         other_descriptor_properties = lib_data.other_descriptors
-
+        UQ = lib_data.UQ
+        
         if cls._property_set_group_yaml_types:
             # Prepare property_sets loader.
             property_sets_loader = yaml_io.make_object_loader(yaml_io.parse(
@@ -235,7 +238,6 @@ class GroupLibrary(Mapping):
                         %(str(name),
                             str(cls._property_set_group_yaml_types[name])))
                     for name in cls._property_set_group_yaml_types)))
-
             # Read all properties.
             lib_contents = {}
             for name in group_properties:
@@ -246,7 +248,6 @@ class GroupLibrary(Mapping):
                     group_properties[name], context,
 	                loader=property_sets_loader)
                 lib_contents[group] = property_sets
-                
             for name in other_descriptor_properties:
                 descriptor = Descriptor(scheme, name)
                 if descriptor in lib_contents:
@@ -255,12 +256,25 @@ class GroupLibrary(Mapping):
                     other_descriptor_properties[name], context,
 	                loader=property_sets_loader)
                 lib_contents[descriptor] = property_sets
+                
+            # Read UQ data
+            uq_contents = {}
+            if UQ:
+                uq_contents['RMSE'] = yaml_io.load(
+                    UQ['RMSE'], context,
+	                loader=property_sets_loader)
+                uq_contents['descriptors'] = UQ['InvCovMat']['groups']
+                uq_contents['mat'] = np.array(UQ['InvCovMat']['mat'])
+                uq_contents['dof'] = UQ['DOF']
         else:
             # No property sets defined.
             warn('GroupLibrary.load(): No property sets defined.')
             lib_contents = {}
-
-        new_lib = cls(scheme, lib_contents, path=path)
+            uq_contents = {}
+        
+        
+        
+        new_lib = cls(scheme, lib_contents, uq_contents, path=path)
         # Update with included content.
         for include_path in lib_data.include:
             new_lib.Update(cls._Load(os.path.join(base_path, include_path), scheme))
@@ -287,6 +301,11 @@ class GroupLibrary(Mapping):
                 else:
                     property_sets[name].update(
                         other_property_sets[name], overwrite)
+        # UQ stuff can only be loaded once
+        if self.uq_contents and lib.uq_contents:
+            raise ValueError('More than one uncertainty quantification information provided')
+        if not self.uq_contents:
+            self.uq_contents = lib.uq_contents
     _yaml_loader = yaml_io.make_object_loader(yaml_io.parse("""
 units:
     type: mapping
@@ -302,6 +321,10 @@ groups:
     default: {}
     
 other_descriptors:
+    type: mapping
+    default: {}
+    
+UQ:
     type: mapping
     default: {}
 """))

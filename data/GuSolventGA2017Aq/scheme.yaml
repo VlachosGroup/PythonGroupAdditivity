@@ -9,14 +9,6 @@ patterns:
     $? labeled a2 single bond to c1
     $? labeled a3 single bond to c1
     $? labeled a4 single bond to c1}'
--   center_name: 'Cs'
-    periph_name: 'Cs'
-    connectivity: 'fragment a{
-    C labeled c1 {connected to 1 Pt with partial bond}
-    $? labeled a1 single bond to c1
-    $? labeled a2 single bond to c1
-    $? labeled a3 single bond to c1
-    $? labeled a4 single bond to c1}'
 -   center_name: 'C[d]'
     periph_name: 'C[d]'
     connectivity: 'fragment a{
@@ -273,9 +265,7 @@ remaps:
     
     # Other Remaps
     'H2noremap': [[0.5,'H2']]
-    'Cs(H)4(Pt)': [[1,'C(H)4s']]
     'C(H)4': [[1,'C(H)4g']]
-    'CO2s(Pt)': [[1,'CO2s']]
     
     # linearly dependent group
     'CO(O)(Pt)': [[0.5,'CO(O)(Pt)+O(CO)(H)']]

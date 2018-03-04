@@ -112,6 +112,7 @@ class ThermochemBase(object):
         """Return non-dimensional standard Gibbs energy of formation
         |eq_ND_G_T|."""
         return self.ND_H(T) - self.ND_S(T)
+        
 
     _yaml_schema = """
 range:
