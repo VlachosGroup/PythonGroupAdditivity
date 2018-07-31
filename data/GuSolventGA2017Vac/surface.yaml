@@ -1323,7 +1323,7 @@ other_descriptors:
                 - [1400 K, 8.84 cal/(mol*K)]
                 - [1500 K, 8.96 cal/(mol*K)]
             range: [100K, 1500K]
-    'CO2s':
+    'CO2s(Pt)':
         'thermochem':
             T_ref: 298 K
             H_ref: -98.93 kcal/mol

@@ -15,30 +15,30 @@ class Reader(object):
 
     def ReadRINGInput(self, tree):
         # Check the type of input
-        assert tree[0][0] in ('Fragment','ReactionRule','EnumerationQuery')
+        assert tree[0][0].name in ('Fragment', 'ReactionRule', 'EnumerationQuery')
         # if fragment, molquery is returned
-        if tree[0][0] == 'Fragment':
+        if tree[0][0].name == 'Fragment':
             from . MolQueryRead import MolQueryReader
             self.type = 'MolQuery'
             return MolQueryReader(tree[0][1:]).Read()
         # if reaction rule, reacitonquery is returned
-        elif tree[0][0] == 'ReactionRule':
+        elif tree[0][0].name == 'ReactionRule':
             from . ReactionQueryRead import ReactionQueryReader
             self.type = 'ReactionQuery'
             return ReactionQueryReader(tree[0][1:]).Read()
         #TODO enumeration query
-        elif tree[0][0] == 'EnumerationQuery':
+        elif tree[0][0].name == 'EnumerationQuery':
             raise NotImplementedError('Coming soon')
+
     def Read(self):
         # Root tree reading. Check if the input is RINGinput
-        assert self.ast[0] == 'RINGInput'
+        assert self.ast[0].name == "RINGInput"
         return self.ReadRINGInput(self.ast[1:])
-        
 
 
 def Read(text, strict=False):
     """
-    Return MolQuery, ReactionQuery, or ReactionNetworkEnumerationQuery by 
+    Return MolQuery, ReactionQuery, or ReactionNetworkEnumerationQuery by
     interpretting RING input string.
 
     Parameters
@@ -67,6 +67,5 @@ def Read(text, strict=False):
     from . import Parser
     try:
         return Reader(Parser.parse(text)).Read()
-    except RINGError, exc:
+    except RINGError as exc:
         raise exc
-

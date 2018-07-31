@@ -522,7 +522,7 @@ class MolQuery(object):
         # Match mol substructure matches
         rdkit_matches= mol.GetSubstructMatches(self.mol,uniquify=False)
         if debug:
-            print 'structure matches:'+ str(rdkit_matches)
+            print('structure matches:'+ str(rdkit_matches))
         ## if no rdkit match
         if not rdkit_matches:
             return tuple()

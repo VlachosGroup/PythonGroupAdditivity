@@ -71,7 +71,7 @@ class ListLoader(object):
                 # User provided a constructor.
                 try:
                     return self.object_class.yaml_construct(result, context)
-                except Exception, exc:
+                except Exception as exc:
                     from sys import exc_traceback
                     from traceback import format_tb
                     raise InputDataError(
@@ -99,7 +99,8 @@ class ObjectLoader(object):
         # Convert parameter names to unicode strings.
         renames = []
         for name in members:
-            if not isinstance(name, unicode):
+            if not isinstance(name, str):#      Fix for Python 3.6
+#            if not isinstance(name, unicode):  Fix for Python 3.6
                 old_name = name
                 renames.append((old_name, string(name)))
         for (old_name, new_name) in renames:
@@ -243,7 +244,7 @@ class ObjectLoader(object):
                 params['name'] = name
                 try:
                     return self.object_class.yaml_construct(params, context)
-                except Exception, exc:
+                except Exception as exc:
                     from sys import exc_traceback
                     from traceback import format_tb
                     raise InputDataError(
@@ -291,7 +292,7 @@ class SchemaRepository(object):
             del_key(attrs, key)
         try:
             return loader_class(self, **attrs)
-        except TypeError, exc:
+        except TypeError as exc:
             import sys
             from traceback import extract_tb
             typ, value, tb = sys.exc_info()
