@@ -265,7 +265,7 @@ remaps:
     
     # Other Remaps
     'H2noremap': [[0.5,'H2']]
-    'C(H)4': [[1,'C(H)4s']]
+    'C(H)4': [[1,'C(H)4g']]
     
     # linearly dependent group
     'CO(O)(Pt)': [[0.5,'CO(O)(Pt)+O(CO)(H)']]

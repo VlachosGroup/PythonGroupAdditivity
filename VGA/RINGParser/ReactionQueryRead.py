@@ -226,7 +226,7 @@ class ReactionQueryReader(object):
         return radical, charge, valence
         
     def ReadAtomType(self, tree):
-        assert tree[0][0].name == 'Symbols'
+        assert tree[0][0] == 'Symbols'
         symbol = tree[0][1][0]
         
         if len(tree) > 1:
@@ -246,7 +246,7 @@ class ReactionQueryReader(object):
         return atom_name, idx, reactant_name, idx_in_query, atom
         
     def ReadAtomTypeModify(self, tree, reactionquery):
-        assert tree[0][0].name == 'AtomLabel'
+        assert tree[0][0] == 'AtomLabel'
         _, idx, _, _, atom = self.ReadAtomLabel(tree[0][1:],reactionquery)
         assert tree[1][0] == 'AtomType'
         symbol, radical, charge, valence = self.ReadAtomType(tree[1][1:])
@@ -258,7 +258,7 @@ class ReactionQueryReader(object):
         reactionquery.transformations.append(AtomTypeModify(idx,radical,charge,valence))
             
     def ReadRadicalModify(self, tree, reactionquery):
-        assert tree[0][0].name == 'AtomLabel'
+        assert tree[0][0] == 'AtomLabel'
         _, idx, _, _, atom = self.ReadAtomLabel(tree[0][1:],reactionquery)
         radical = tree[1]
         if radical <0:
@@ -267,57 +267,57 @@ class ReactionQueryReader(object):
         reactionquery.transformations.append(AtomTypeModify(idx,radical,0,0))
         
     def ReadRadicalIncrease(self, tree, reactionquery):
-        assert tree[0][0].name == 'AtomLabel'
+        assert tree[0][0] == 'AtomLabel'
         _, idx, _, _, atom = self.ReadAtomLabel(tree[0][1:],reactionquery)
         
         self.electronbalance[idx] -= 1
         reactionquery.transformations.append(RadicalIncrease(idx))
         
     def ReadRadicalDecrease(self, tree, reactionquery):
-        assert tree[0][0].name == 'AtomLabel'
+        assert tree[0][0] == 'AtomLabel'
         atom_name, idx, _, _, atom = self.ReadAtomLabel(tree[0][1:],reactionquery)
         self.electronbalance[idx] += 1
         reactionquery.transformations.append(RadicalDecrease(idx))
         
     def ReadChargeIncrease(self, tree, reactionquery):
-        assert tree[0][0].name == 'AtomLabel'
+        assert tree[0][0] == 'AtomLabel'
         _, idx, _, _, atom = self.ReadAtomLabel(tree[0][1:],reactionquery)
         
         self.electronbalance[idx] -= 1
         reactionquery.transformations.append(ChargeIncrease(idx))
         
     def ReadChargeDecrease(self, tree, reactionquery):
-        assert tree[0][0].name == 'AtomLabel'
+        assert tree[0][0] == 'AtomLabel'
         atom_name, idx, _, _, atom = self.ReadAtomLabel(tree[0][1:],reactionquery)
         self.electronbalance[idx] += 1
         reactionquery.transformations.append(ChargeDecrease(idx))
         
     def ReadConnectivityChange(self, tree, reactionquery):
-        if tree[0][0].name == 'BondForm':
+        if tree[0][0] == 'BondForm':
             self.ReadBondForm(tree[0][1:],reactionquery)
-        elif tree[0][0].name == 'BondBreak':
+        elif tree[0][0] == 'BondBreak':
             self.ReadBondBreak(tree[0][1:],reactionquery)
-        elif tree[0][0].name == 'BondModify':
+        elif tree[0][0] == 'BondModify':
             self.ReadBondModify(tree[0][1:],reactionquery)
-        elif tree[0][0].name == 'BondIncrease':
+        elif tree[0][0] == 'BondIncrease':
             self.ReadBondIncrease(tree[0][1:],reactionquery)
-        elif tree[0][0].name == 'BondDecrease':
+        elif tree[0][0] == 'BondDecrease':
             self.ReadBondDecrease(tree[0][1:],reactionquery)
-        elif tree[0][0].name == 'AtomTypeModify':
+        elif tree[0][0] == 'AtomTypeModify':
             self.ReadAtomTypeModify(tree[0][1:],reactionquery)
-        elif tree[0][0].name == 'RadicalModify':
+        elif tree[0][0] == 'RadicalModify':
             self.ReadRadicalModify(tree[0][1:],reactionquery)
-        elif tree[0][0].name == 'RadicalIncrease':
+        elif tree[0][0] == 'RadicalIncrease':
             self.ReadRadicalIncrease(tree[0][1:],reactionquery)
-        elif tree[0][0].name == 'RadicalDecrease':
+        elif tree[0][0] == 'RadicalDecrease':
             self.ReadRadicalDecrease(tree[0][1:],reactionquery)
-        elif tree[0][0].name == 'ChargeIncrease':
+        elif tree[0][0] == 'ChargeIncrease':
             self.ReadChargeIncrease(tree[0][1:],reactionquery)
-        elif tree[0][0].name == 'ChargeDecrease':
+        elif tree[0][0] == 'ChargeDecrease':
             self.ReadChargeDecrease(tree[0][1:],reactionquery)
             
     def ReadTransformationChain(self, tree, reactionquery):
-        assert tree[0][0].name =='ConnectivityChange'
+        assert tree[0][0] =='ConnectivityChange'
         self.ReadConnectivityChange(tree[0][1:],reactionquery)
         if 1<len(tree):
             assert tree[1][0] == 'TransformationChain'
@@ -326,7 +326,7 @@ class ReactionQueryReader(object):
     def LabelMapping(self, tree, labelmapping = None):
         if not labelmapping:
             labelmapping = dict()
-        assert tree[0][0].name == 'AtomLabel'
+        assert tree[0][0] == 'AtomLabel'
         assert tree[1][0] == 'AtomLabel'
         labelmapping[tree[0][1]] = tree[1][1]
         if 2<len(tree):
@@ -335,7 +335,7 @@ class ReactionQueryReader(object):
         return labelmapping
         
     def ReadReactantGroup(self, tree, reactionquery):
-        assert tree[0][0].name == 'ReactantName'
+        assert tree[0][0] == 'ReactantName'
         assert tree[1][0] == 'GroupName'
         assert tree[2][0] == 'LabelMapping'
         labelmapping = self.LabelMapping(tree[2][1:])
@@ -362,7 +362,7 @@ class ReactionQueryReader(object):
         self.atom_belonging_mol += [0]*len(reactionquery.reactantquery[tree[0][1]].name)
             
     def ReadDuplicates(self, tree, reactionquery):
-        assert tree[0][0].name == 'ReactantName'
+        assert tree[0][0] == 'ReactantName'
         assert tree[1][0] == 'ReactantName'
         assert tree[2][0] == 'LabelMapping'
         labelmapping = self.LabelMapping(tree[2][1:])
@@ -386,16 +386,16 @@ class ReactionQueryReader(object):
             *len(reactionquery.reactantquery[tree[0][1]].atom_names)
         
     def ReadReactants(self, tree, reactionquery):
-        assert tree[0][0].name in ['ReactantQuery','ReactantGroup','Duplicates']
-        if tree[0][0].name == 'ReactantQuery':
+        assert tree[0][0] in ['ReactantQuery','ReactantGroup','Duplicates']
+        if tree[0][0] == 'ReactantQuery':
             molquery = MolQueryReader(tree[0][1:]).Read()
             reactionquery.AppendReactantQuery(molquery)
             self.atom_names += molquery.atom_names
             self.electronbalance += [0]*len(molquery.atom_names)
             self.atom_belonging_mol += [molquery.name]*len(molquery.atom_names)
-        elif tree[0][0].name == 'ReactantGroup':
+        elif tree[0][0] == 'ReactantGroup':
             self.ReadReactantGroup(tree[1][1:], reactionquery)
-        elif tree[0][0].name == 'Duplicates':
+        elif tree[0][0] == 'Duplicates':
             self.ReadDuplicates(tree[1][1:], reactionquery)
         if len(tree)==2:
             self.ReadReactants(tree[1][1:], reactionquery)

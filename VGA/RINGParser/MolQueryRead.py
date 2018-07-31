@@ -33,7 +33,7 @@ class MolQueryReader(object):
     def ReadAtomConstraintConnectivity(self, tree):
         i = 0
         # Boolean
-        if tree[i][0].name == 'Boolean':
+        if tree[i][0] == 'Boolean':
             s = tree[i][1]
             if s != '!': 
                 raise NotImplementedError("Unsupported Boolean operator: '"+s+"'")
@@ -42,18 +42,18 @@ class MolQueryReader(object):
         else:
             negate = False
         # ConstraintNumber
-        if tree[i][0].name == 'ConstraintNumber':
+        if tree[i][0] == 'ConstraintNumber':
             CN = ConstraintNumber(tree[i][1:])
             i += 1
         else:
             CN = ConstraintNumber('>=1')
         # Connected atom/group
-        if tree[i][0].name == 'AtomType':
+        if tree[i][0] == 'AtomType':
             t = 0
             connected, constraints = self.ReadAtomType(tree[i][1:])
             # rdkit atom object
             i += 1
-        elif tree[i][0].name == 'GroupName':
+        elif tree[i][0] == 'GroupName':
             t = 1
             try:
                 connected = self.RINGgroups[self.ReadGroupName(tree[i][1:])]
@@ -63,7 +63,7 @@ class MolQueryReader(object):
             # string
         # Bond type
         if len(tree) == i+1:
-            assert tree[i][0].name == 'BondType'
+            assert tree[i][0] == 'BondType'
             bondquery = self.ReadBondTypeAtomConstraint(tree[i][1:])
         else:
             bondquery = BondQuery('single')
@@ -75,7 +75,7 @@ class MolQueryReader(object):
     def ReadAtomConstraintRing(self, tree):
         i = 0
         # Boolean
-        if tree[i][0].name == 'Boolean':
+        if tree[i][0] == 'Boolean':
             s = tree[i][1]
             if s != '!': 
                 raise NotImplementedError("Unsupported Boolean operator: '"+s+"'")
@@ -83,15 +83,15 @@ class MolQueryReader(object):
             negate = True
         else:
             negate = False
-        assert tree[i][0].name == 'ConstraintNumber'
+        assert tree[i][0] == 'ConstraintNumber'
         CN = ConstraintNumber(tree[i][1:])
         return AtomRing(negate,CN)
         
     def ReadAtomConstraintRadical(self, tree):
         i = 0
         # Boolean
-        if tree[i][0].name == 'Boolean':
-            s = tree[i][1].name
+        if tree[i][0] == 'Boolean':
+            s = tree[i][1]
             if s != '!': 
                 raise NotImplementedError("Unsupported Boolean operator: '"+s+"'")
             i += 1
@@ -105,37 +105,37 @@ class MolQueryReader(object):
     def ReadAtomConstraintNRing(self, tree):
         i = 0
         # Boolean
-        if tree[i][0].name == 'Boolean':
-            s = tree[i][1].name
+        if tree[i][0] == 'Boolean':
+            s = tree[i][1]
             if s != '!': 
                 raise NotImplementedError("Unsupported Boolean operator: '"+s+"'")
             i += 1
             negate = True
         else:
             negate = False
-        assert tree[i][0].name == 'ConstraintNumber'
-        CN = ConstraintNumber(tree[i][1:].name)
+        assert tree[i][0] == 'ConstraintNumber'
+        CN = ConstraintNumber(tree[i][1:])
         return AtomNRing(negate,CN)
     
     def ReadAtomConstraints(self, tree):
-        assert tree[0][0].name in ('AtomConstraintConnectivity',\
+        assert tree[0][0] in ('AtomConstraintConnectivity',\
             'AtomConstraintRing','AtomConstraintRadical','AtomConstraintNRing')
-        if tree[0][0].name == 'AtomConstraintConnectivity':
+        if tree[0][0] == 'AtomConstraintConnectivity':
             return self.ReadAtomConstraintConnectivity(tree[0][1:])
-        elif tree[0][0].name == 'AtomConstraintRing':
+        elif tree[0][0] == 'AtomConstraintRing':
             return self.ReadAtomConstraintRing(tree[0][1:])
-        elif tree[0][0].name == 'AtomConstraintRadical':
+        elif tree[0][0] == 'AtomConstraintRadical':
             return self.ReadAtomConstraintRadical(tree[0][1:])
-        elif tree[0][0].name == 'AtomConstraintNRing':
+        elif tree[0][0] == 'AtomConstraintNRing':
             return self.ReadAtomConstraintNRing(tree[0][1:])
     
     def ReadAtomConstraintChain(self, tree, molquery, idx):
-        assert tree[0][0].name == 'AtomConstraints'
+        assert tree[0][0] == 'AtomConstraints'
         constraint = self.ReadAtomConstraints(tree[0][1:])
         molquery.AppendAtomConstraint(constraint,idx)
         
         if len(tree) > 1:
-            assert tree[1][0].name == 'AtomConstraintChain'
+            assert tree[1][0] == 'AtomConstraintChain'
             self.ReadAtomConstraintChain(tree[1][1:], molquery, idx)
         
     def ReadAtomSuffix(self, tree, atom):
@@ -169,7 +169,7 @@ class MolQueryReader(object):
         elif tree[0] == '?':
             pass
         else:
-            s = "Unsupported atom suffic: '" + tree[0].name + "'"
+            s = "Unsupported atom suffic: '" + tree[0] + "'"
             raise NotImplementedError(s)
         return constraint
             
@@ -209,25 +209,25 @@ class MolQueryReader(object):
                 raise RINGReaderError(msg)
         return atom
     def ReadAtomPrefix(self, tree):
-        if tree[0].name == 'aromatic':
+        if tree[0] == 'aromatic':
             return AtomIsAromatic(negate=False)
-        elif tree[0].name == 'nonaromatic':
+        elif tree[0] == 'nonaromatic':
             return AtomIsAromatic(negate=True)
-        elif tree[0].name == 'ringatom':
+        elif tree[0] == 'ringatom':
             return AtomIsInRing(negate=False)
-        elif tree[0].name == 'nonringatom':
+        elif tree[0] == 'nonringatom':
             return AtomIsInRing(negate=True)
-        elif tree[0].name == 'allylic':
+        elif tree[0] == 'allylic':
             return AtomIsAllylic(negate=False)
         
     def ReadAtomType(self, tree):
         i=0
         constraints = list()
-        if tree[i][0].name == 'AtomPrefix':
+        if tree[i][0] == 'AtomPrefix':
             constraints.append(self.ReadAtomPrefix(tree[i][1:]))
             i += 1
         
-        assert tree[i][0].name == 'Symbols'
+        assert tree[i][0] == 'Symbols'
         atom = self.ReadSymbols(tree[i][1:])
         i += 1        
         
@@ -245,16 +245,16 @@ class MolQueryReader(object):
         return atom, constraints
     
     def ReadAtom(self, tree, molquery):
-        assert tree[0][0].name == 'AtomType'
+        assert tree[0][0] == 'AtomType'
         atom, constraints = self.ReadAtomType(tree[0][1:])
         idx = molquery.mol.AddAtom(atom)
         if constraints:
             for constraint in constraints:
                 molquery.AppendAtomConstraint(constraint,idx)
-        assert tree[1][0].name == 'AtomLabel'
+        assert tree[1][0] == 'AtomLabel'
         molquery.atom_names.append(tree[1][1])
         if len(tree) > 2:
-            assert tree[2][0].name == 'AtomConstraintChain'
+            assert tree[2][0] == 'AtomConstraintChain'
             self.ReadAtomConstraintChain(tree[2][1:], molquery, idx)
             
     def ReadBondTypeBondedAtom(self,idx,idx_connected,bondtype,molquery):
@@ -287,20 +287,20 @@ class MolQueryReader(object):
             raise NotImplementedError("Unsupported bond type: '"+bondtype+"'")
             
     def ReadBondedAtom(self, tree, molquery):
-        assert tree[0][0].name == 'AtomType'
+        assert tree[0][0] == 'AtomType'
         atom, constraints = self.ReadAtomType(tree[0][1:])
         idx = molquery.mol.AddAtom(atom)
         if constraints:
             for constraint in constraints:
                 molquery.AppendAtomConstraint(constraint,idx)
             
-        assert tree[1][0].name == 'AtomLabel'
-        if tree[1][0].name in molquery.atom_names:
+        assert tree[1][0] == 'AtomLabel'
+        if tree[1][0] in molquery.atom_names:
             raise RINGReaderError('Atom Label '+tree[1][0]+' is alreadyd declared!')
         molquery.atom_names.append(tree[1][1])
-        assert tree[2][0].name == 'BondType'
+        assert tree[2][0] == 'BondType'
         bondtype = tree[2][1:][0]
-        assert tree[3][0].name == 'AtomLabel'
+        assert tree[3][0] == 'AtomLabel'
         try:
             idx_connected = molquery.atom_names.index(tree[3][1])
         except:
@@ -309,11 +309,11 @@ class MolQueryReader(object):
         self.ReadBondTypeBondedAtom(idx,idx_connected,bondtype,molquery)
         
         if len(tree) > 4:
-            assert tree[4][0].name == 'AtomConstraintChain'
+            assert tree[4][0] == 'AtomConstraintChain'
             self.ReadAtomConstraintChain(tree[4][1:], molquery, idx)
             
     def ReadRingBond(self, tree, molquery):
-        assert tree[0][0].name == 'AtomLabel'
+        assert tree[0][0] == 'AtomLabel'
         try:
             idx1 = molquery.atom_names.index(tree[0][1])
         except:
@@ -332,7 +332,7 @@ class MolQueryReader(object):
         
     def ReadStereoDoubleBond(self, tree, molquery):
         i = 0
-        assert tree[i][0].name == 'AtomLabel'
+        assert tree[i][0] == 'AtomLabel'
         try:
             idx1 = molquery.atom_names.index(tree[i][1])
             i +=1
@@ -406,55 +406,55 @@ class MolQueryReader(object):
         molquery.AppendDoubleBondStereoConstraint(idx1,idx2,idx3,idx4,DoubleBondStereoConstraint(negate,stereobondtype))
             
     def ReadAtomChain(self, tree, molquery):
-        assert tree[0][0].name in ['BondedAtom','RingBond','StereoDoubleBond']
+        assert tree[0][0] in ['BondedAtom','RingBond','StereoDoubleBond']
         if tree[0][0] == 'BondedAtom':
             self.ReadBondedAtom(tree[0][1:], molquery)
-        elif tree[0][0].name == 'RingBond':
+        elif tree[0][0] == 'RingBond':
             self.ReadRingBond(tree[0][1:], molquery)
-        elif  tree[0][0].name == 'StereoDoubleBond':
+        elif  tree[0][0] == 'StereoDoubleBond':
             self.ReadStereoDoubleBond(tree[0][1:], molquery)
         
         if len(tree) > 1:
-            assert tree[1][0].name == 'AtomChain'
+            assert tree[1][0] == 'AtomChain'
             self.ReadAtomChain(tree[1][1:], molquery)
         
         
     def ReadMolQuery(self, tree, molquery):
-        assert tree[0][0].name == 'Atom'
+        assert tree[0][0] == 'Atom'
         self.ReadAtom(tree[0][1:], molquery)
         
         if len(tree) > 1:
-            assert tree[1][0].name == 'AtomChain'
+            assert tree[1][0] == 'AtomChain'
             self.ReadAtomChain(tree[1][1:], molquery)
         
         
     def ReadMolQueryPrefix(self,tree,molquery):
         i = 0
-        if tree[i].name == 'positive':
+        if tree[i] == 'positive':
             molquery.AppendMolConstraint(MolCharge(ConstraintNumber('=1')))
             i+=1
-        elif tree[i].name == 'negative':
+        elif tree[i] == 'negative':
             molquery.AppendMolConstraint(MolCharge(ConstraintNumber('=-1')))
             i+=1
-        elif tree[i].name == 'neutral':
+        elif tree[i] == 'neutral':
             molquery.AppendMolConstraint(MolCharge(ConstraintNumber('=0')))
             i+=1
             
         if i<len(tree):
-            if tree[i].name == 'aromatic':
+            if tree[i] == 'aromatic':
                 molquery.AppendMolConstraint(MolAromatic())
                 i+=1
-            elif tree[i].name == 'olefinic':
+            elif tree[i] == 'olefinic':
                 molquery.AppendMolConstraint(MolOlefinic())
                 i+=1
-            elif tree[i].name == 'paraffinic':
+            elif tree[i] == 'paraffinic':
                 molquery.AppendMolConstraint(MolParaffinic())
                 i+=1
                 
         if i<len(tree):
-            if tree[i].name == 'cyclic':
+            if tree[i] == 'cyclic':
                 molquery.AppendMolConstraint(MolCyclic())
-            elif tree[i].name == 'linear':
+            elif tree[i] == 'linear':
                 molquery.AppendMolConstraint(MolLinear())
             else:
                 raise NotImplementedError('Unsupported mol prefix: %s'%tree[0])
@@ -463,14 +463,14 @@ class MolQueryReader(object):
         # initialize Enhanced MolQuery
         molquery = MolQuery()
         # prefix
-        assert self.tree[0][0].name == 'Prefix'
+        assert self.tree[0][0] == 'Prefix'
         if len(self.tree[0]) != 1:
             self.ReadMolQueryPrefix(self.tree[0][1:],molquery)
         # fragment name
-        assert self.tree[1][0].name in ['FragmentName','ReactantName','GroupName']
+        assert self.tree[1][0] in ['FragmentName','ReactantName','GroupName']
         molquery.name = self.tree[1][1]
         # start building molecule
-        assert self.tree[2][0].name == 'MolQuery'
+        assert self.tree[2][0] == 'MolQuery'
         self.ReadMolQuery(self.tree[2][1:], molquery)
         # return
         if not molquery.mol:

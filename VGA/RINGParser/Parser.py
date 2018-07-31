@@ -11,7 +11,7 @@ Example:
 >>>   C labeled c2 single bond to c1\
 >>>   C labeled c3 single bond to c2\
 >>>   }')
-Out:
+Out: 
 [RINGToken('RINGInput'),
  [RINGToken('Fragment'),
   [RINGToken('FragmentName'), 'C3Chain'],
@@ -32,6 +32,8 @@ Out:
       [RINGToken('BondType'), 'single'],
       [RINGToken('AtomLabel'), 'c2']]]]]]]
 """
+
+
 
 
 class RINGToken(object):
@@ -109,13 +111,13 @@ class Digit(Parser):
         if self.n == 1:
             return '<digit>'
         else:
-            return '<%d digits>' % self.n
+            return '<%d digits>'%self.n
 
     def __repr__(self):
         if self.n == 1:
             return 'Digit()'
         else:
-            return 'Digit(%r)' % self.n
+            return 'Digit(%r)'%self.n
 
 
 class Number(Parser):
@@ -137,27 +139,23 @@ class Number(Parser):
     def __repr__(self):
         return 'Number()'
 
-
 string_okay = ['_']
-
-
 class String(Parser):
-    # Read continuous input of alphabet, digit, and any other character in
+    # Read continuous input of alphabet, digit, and any other character in 
     # string_okay
     def __init__(self):
         pass
-
     def __call__(self, stream, output):
-        if not (stream.peek().isalpha() or
-                stream.peek().isdigit() or
-                stream.peek() in string_okay):
+        if not (stream.peek().isalpha() or \
+            stream.peek().isdigit() or \
+            stream.peek() in string_okay):
             stream.error('<string>')
-        nn = 2
+        nn=2
 
-        while (stream.peek(nn)[-1].isalpha() or
-               stream.peek(nn)[-1].isdigit() or
-               stream.peek(nn)[-1] in string_okay):
-            nn += 1
+        while (stream.peek(nn)[-1].isalpha() or \
+            stream.peek(nn)[-1].isdigit() or \
+            stream.peek(nn)[-1] in string_okay):
+            nn+=1
         out = stream.take(n=nn-1)
         output.append(out)
 
@@ -303,7 +301,7 @@ class Literals(Either):
     def __call__(self, stream, output):
         try:
             return Either.__call__(self, stream, output)
-        except RINGSyntaxError as exc:
+        except RINGSyntaxError, exc:
             if hasattr(self, 'name'):
                 stream.error('<' + self.name + '>')
             else:
@@ -399,27 +397,27 @@ class ParseState(object):
             inside_output = output[:]
             what(self, inside_output)
             output[:] = inside_output
-
+            
         # make the what into class, and call the parse on the class
-        elif isinstance(what, str):
+        elif isinstance(what, basestring):
             inside_output = [RINGToken(what)]
             if self.debug:
-                print('%s%r {' % (' '*(self.depth*4), what))
+                print '%s%r {'%(' '*(self.depth*4), what)
                 self.depth += 1
             try:
                 self.parse(self.rules[what], inside_output)
-            except RINGSyntaxError as exc:
+            except RINGSyntaxError, exc:
                 if self.debug:
-                    print('%s%s'%(' '*(self.depth*4), exc))
+                    print '%s%s'%(' '*(self.depth*4), exc)
                 raise
             else:
                 output.append(inside_output)
                 if self.debug:
-                    print('%s%r'%(' '*(self.depth*4), output))
+                    print '%s%r'%(' '*(self.depth*4), output)
             finally:
                 if self.debug:
                     self.depth -= 1
-                    print('%s} %r'%(' '*(self.depth*4), what))
+                    print '%s} %r'%(' '*(self.depth*4), what)
         else:
             raise TypeError("Don't know how to parse type %s"%(what,))
 

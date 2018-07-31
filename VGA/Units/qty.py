@@ -7,7 +7,7 @@ from .parser import *
 
 
 __all__ = [
-    'eval_quantity', 'eval_qty', 'Quantity', 'ArrayQuantity',
+    'eval_quantity', 'eval_qty', 'Quantity', 'ArrayQuantity', 
     'FundamentalUnits']
 
 
@@ -27,12 +27,10 @@ def eval_quantity(expr):
     qty : :class:`Quantity`
         Representation of physical quantity
     """
-    if isinstance(expr, str):
+    if isinstance(expr, basestring):
         return eval_expr(expr)
     else:
         return expr
-
-
 eval_qty = eval_quantity  # Abbreviation for above (gets used a lot).
 
 
@@ -58,7 +56,7 @@ class GenericQuantity(object):
         if not units:
             return value
 
-        if isinstance(value, (float, int)):
+        if isinstance(value, (float, int, long)):
             return Quantity(value, units)
         elif isinstance(value, np.ndarray):
             new_value = value.view(ArrayQuantity)
@@ -66,7 +64,7 @@ class GenericQuantity(object):
             return new_value
         else:
             raise AssertionError(
-                'Unknown value type to GenericQuantity._build(): %r' % value)
+                'Unknown value type to GenericQuantity._build(): %r'%value)
 
     """
     def __new__(cls, value, units):
@@ -203,7 +201,7 @@ class GenericQuantity(object):
                 (not other_units or not self.has_units(other_units))):
             raise UnitsError(
                 'Incompatible units %s vs %s in subtraction'
-                % (self_units, other_units))
+                %(self_units, other_units))
         return self._build(self_value - other_value, self_units)
 
     def __rsub__(self, other):
@@ -213,7 +211,7 @@ class GenericQuantity(object):
                 (not other_units or not self.has_units(other_units))):
             raise UnitsError(
                 'Incompatible units %s vs %s in subtraction'
-                % (self_units, other_units))
+                %(self_units, other_units))
         return self._build(other_value - self_value, self_units)
 
     def __mul__(self, other):
@@ -226,12 +224,6 @@ class GenericQuantity(object):
         (other_value, other_units) = self._unpack_qty(other)
         return self._build(other_value*self_value, other_units*self_units)
 
-    def __truediv__(self, other):
-        (self_value, self_units) = self._unpack_qty(self)
-        (other_value, other_units) = self._unpack_qty(other)
-        return self._build(self_value/other_value, self_units/other_units)
-    __floordiv__ = __truediv__
- 
     def __div__(self, other):
         (self_value, self_units) = self._unpack_qty(self)
         (other_value, other_units) = self._unpack_qty(other)
@@ -313,7 +305,7 @@ class Quantity(GenericQuantity):
 
     def __init__(self, value, units):
         self.value = value
-        if isinstance(units, str):
+        if isinstance(units, basestring):
             units = eval_qty(units).units
         self.units = units
 
@@ -502,9 +494,6 @@ class FundamentalUnits(object):
     def __mul__(self, other):
         return self._build(self.exps + other.exps)
 
-    def __truediv__(self, other):
-        return self._build(self.exps - other.exps)
-
     def __div__(self, other):
         return self._build(self.exps - other.exps)
 
@@ -512,14 +501,10 @@ class FundamentalUnits(object):
         return self._build(other*self.exps)
 
     def __eq__(self, other):
-        print(self.exps, other.exps)
         return (self.exps == other.exps).all()
 
     def __ne__(self, other):
         return not (self == other)
-
-    def __bool__(self):
-        return bool(self.exps.any())
 
     def __nonzero__(self):
         return bool(self.exps.any())
@@ -527,23 +512,22 @@ class FundamentalUnits(object):
     def __str__(self):
         up = []
         dn = []
-        print('here')
         exps = self.exps
-        for i, unit in enumerate(self._primitive_units):
+        for i,unit in enumerate(self._primitive_units):
             if exps[i] == 1:
                 up.append(unit)
             elif exps[i] > 0:
                 if self.are_floats[i]:
-                    up.append('%s^%s' % (unit, exps[i]))
+                    up.append('%s^%s'%(unit, exps[i]))
                 else:
-                    up.append('%s^%s' % (unit, int(exps[i])))
+                    up.append('%s^%s'%(unit, int(exps[i])))
             elif exps[i] == -1:
                 dn.append(unit)
             elif exps[i] < 0:
                 if self.are_floats[i]:
-                    dn.append('%s^(%s)' % (unit, exps[i]))
+                    dn.append('%s^(%s)'%(unit, exps[i]))
                 else:
-                    dn.append('%s^(%s)' % (unit, int(exps[i])))
+                    dn.append('%s^(%s)'%(unit, int(exps[i])))
         if not up:
             s = '1'
         else:

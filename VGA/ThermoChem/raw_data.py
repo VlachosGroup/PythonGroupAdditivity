@@ -1,5 +1,4 @@
 import numpy as np
-import sys
 from scipy.interpolate import InterpolatedUnivariateSpline
 from scipy.integrate import quad as integrate
 
@@ -39,12 +38,8 @@ class ThermochemRawData(ThermochemBase):
              valid.    If specified, this range must contain T_ref and all data
              points in ND_Cp.
         """
-        try:
-            (self.Ts, self.ND_Cps) = zip(*sorted(
-                zip(Ts, ND_Cps), key=lambda (T, ND_Cps): T))  # Python 3.6 fix
-        except SyntaxError:
-            (self.Ts, self.ND_Cps) = zip(*sorted(
-                zip(Ts, ND_Cps), key=lambda T, ND_Cps: T))  # Python 3.6 fix
+        (self.Ts, self.ND_Cps) = zip(*sorted(
+            zip(Ts, ND_Cps), key=lambda (T, ND_Cps):T))
         self.min_T = Ts[0]
         self.max_T = Ts[-1]
 

@@ -32,13 +32,13 @@ class UnitsParser(object):
     # These two are used to output debugging info.
     def enter(self, what):
         if self.debug:
-            print('%s%r {'%(' '*(self.depth*4), what))
+            print '%s%r {'%(' '*(self.depth*4), what)
             self.depth += 1
 
     def leave(self, what):
         if self.debug:
             self.depth -= 1
-            print('%s} %r'%(' '*(self.depth*4), what))
+            print '%s} %r'%(' '*(self.depth*4), what)
 
     def peek(self):
         if self.idx == len(self.tokens):
