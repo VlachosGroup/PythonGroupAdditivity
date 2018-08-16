@@ -6,8 +6,8 @@ from ..Units import eval_qty
 from ..Error import OutsideCorrelationError
 
 
-
-class ThermochemBase(object, metaclass=abc.ABCMeta):
+class ThermochemBase(object):
+    metaclass = abc.ABCMeta
     """Manage thermochemical properties correlation (abstract base class).
 
     This class cannot be instantiated directly; rather, it serves as a
@@ -28,7 +28,7 @@ class ThermochemBase(object, metaclass=abc.ABCMeta):
         Initialize generic thermochemical property correlation.
 
         Parameters
-        ----------        
+        ----------
         range : tuple(float, float), optional
             ``(lb, ub) = range`` where lb and ub are respectively the lower and
              uppers bounds of temperatures [K] for which the correlation is
@@ -66,7 +66,7 @@ class ThermochemBase(object, metaclass=abc.ABCMeta):
             raise OutsideCorrelationError(
                 "In %s().check_range: one or more of the following "
                 "temperatures is outside the valid interval [%r,%r]: %r"
-                %(type(self).__name__, self.range[0], self.range[1], T))
+                % (type(self).__name__, self.range[0], self.range[1], T))
 
     def get_range(self):
         """
