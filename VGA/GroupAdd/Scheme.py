@@ -62,7 +62,7 @@ class GroupAdditivityScheme(Scheme):
         else:
             actual_path = path
         abs_path = os.path.abspath(actual_path)
-        scheme_data = yaml.load(file(abs_path,'r'))
+        scheme_data = yaml.load(open(abs_path,'r'))
         # change to molquery
         for i in range(0,len(scheme_data['patterns'])):
             scheme_data['patterns'][i]['connectivity'] = \
