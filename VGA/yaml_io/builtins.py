@@ -199,7 +199,7 @@ class named_object_loader(object):
         self.loader = repo.make_object_loader(members)
 
     def __call__(self, name, input_value, context):
-        k, v = input_value.items()[0]
+        k, v = list(input_value.items())[0]
         return self.loader(k, v, context)
 
 class named_value_loader(object):
@@ -208,7 +208,7 @@ class named_value_loader(object):
         self.value_loader = repo.make_loader(value_type)
 
     def __call__(self, name, input_value, context):
-        name, value = input_value.items()[0]
+        name, value = list(input_value.items())[0]
         return (self.name_loader(None, name, context),
             self.value_loader(None, value, context))
 

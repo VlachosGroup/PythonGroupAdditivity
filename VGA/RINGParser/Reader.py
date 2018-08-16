@@ -67,6 +67,6 @@ def Read(text, strict=False):
     from . import Parser
     try:
         return Reader(Parser.parse(text)).Read()
-    except RINGError, exc:
+    except RINGError as exc:
         raise exc
 

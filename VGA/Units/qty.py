@@ -27,7 +27,7 @@ def eval_quantity(expr):
     qty : :class:`Quantity`
         Representation of physical quantity
     """
-    if isinstance(expr, basestring):
+    if isinstance(expr, str):
         return eval_expr(expr)
     else:
         return expr
@@ -56,7 +56,7 @@ class GenericQuantity(object):
         if not units:
             return value
 
-        if isinstance(value, (float, int, long)):
+        if isinstance(value, (float, int)):
             return Quantity(value, units)
         elif isinstance(value, np.ndarray):
             new_value = value.view(ArrayQuantity)
@@ -305,7 +305,7 @@ class Quantity(GenericQuantity):
 
     def __init__(self, value, units):
         self.value = value
-        if isinstance(units, basestring):
+        if isinstance(units, str):
             units = eval_qty(units).units
         self.units = units
 
@@ -506,7 +506,7 @@ class FundamentalUnits(object):
     def __ne__(self, other):
         return not (self == other)
 
-    def __nonzero__(self):
+    def __bool__(self):
         return bool(self.exps.any())
 
     def __str__(self):

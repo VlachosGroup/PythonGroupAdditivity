@@ -7,13 +7,12 @@ from ..Error import OutsideCorrelationError
 
 
 
-class ThermochemBase(object):
+class ThermochemBase(object, metaclass=abc.ABCMeta):
     """Manage thermochemical properties correlation (abstract base class).
 
     This class cannot be instantiated directly; rather, it serves as a
     common base for the rest of the correlations.
     """
-    __metaclass__ = abc.ABCMeta
     # Abstract base class
 
     def init_params(self, range=None):

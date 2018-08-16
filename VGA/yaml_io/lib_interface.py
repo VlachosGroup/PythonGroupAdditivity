@@ -48,11 +48,11 @@ class Loader(yaml.CSafeLoader): pass
 #   'tag:yaml.org,2002:int', 'tag:yaml.org,2002:float',
 #   'tag:yaml.org,2002:bool', tag:yaml.org,2002:null',
 #   and 'tag:yaml.org,2002:seq'
-Loader.add_constructor(u'tag:yaml.org,2002:str', _construct_str)
-Loader.add_constructor(u'tag:yaml.org,2002:map', _construct_map)
+Loader.add_constructor('tag:yaml.org,2002:str', _construct_str)
+Loader.add_constructor('tag:yaml.org,2002:map', _construct_map)
 
 # Captures all things with an explicit tag.
-Loader.add_multi_constructor(u'', _construct_tagged)
+Loader.add_multi_constructor('', _construct_tagged)
 
 # Might look into these later?
 #VGToolsLoader.add_multi_constructor('!', VGToolsLoader.constructor)

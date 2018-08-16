@@ -66,8 +66,8 @@ class ThermochemIncomplete(ThermochemBase):
         if not ND_Cp_data:
             return [], []
         else:
-            return zip(*sorted(
-                ND_Cp_data.items(), key=lambda item : item[0]))
+            return list(zip(*sorted(
+                list(ND_Cp_data.items()), key=lambda item : item[0])))
 
     def _setup_correlation(self):
         if hasattr(self, '_correlation'):
@@ -311,15 +311,15 @@ class ThermochemIncomplete(ThermochemBase):
             ND_S_ref = None
 
         if params.get('ND_Cp_data'):
-            (T_data, ND_Cp_data) = zip(*params['ND_Cp_data'])
+            (T_data, ND_Cp_data) = list(zip(*params['ND_Cp_data']))
             Ts = np.array([T.in_units('K') for T in T_data])
             ND_Cps = np.array(ND_Cp_data)
-            ND_Cp_data = dict(zip(Ts, ND_Cps))
+            ND_Cp_data = dict(list(zip(Ts, ND_Cps)))
         elif params.get('Cp_data'):
-            (T_data, Cp_data) = zip(*params['Cp_data'])
+            (T_data, Cp_data) = list(zip(*params['Cp_data']))
             Ts = np.array([T.in_units('K') for T in T_data])
             ND_Cps = np.array([Cp/R for Cp in Cp_data])
-            ND_Cp_data = dict(zip(Ts, ND_Cps))
+            ND_Cp_data = dict(list(zip(Ts, ND_Cps)))
         else:
             ND_Cp_data = {}
 

@@ -64,7 +64,7 @@ class GroupAdditivityScheme(Scheme):
         abs_path = os.path.abspath(actual_path)
         scheme_data = yaml.load(file(abs_path,'r'))
         # change to molquery
-        for i in xrange(0,len(scheme_data['patterns'])):
+        for i in range(0,len(scheme_data['patterns'])):
             scheme_data['patterns'][i]['connectivity'] = \
                 Read(scheme_data['patterns'][i]['connectivity'])
             
@@ -79,17 +79,17 @@ class GroupAdditivityScheme(Scheme):
         if 'remaps' in scheme_data:
             remaps = scheme_data['remaps']
         if 'other_descriptors' in scheme_data:
-            for i in xrange(0,len(scheme_data['other_descriptors'])):
+            for i in range(0,len(scheme_data['other_descriptors'])):
                 scheme_data['other_descriptors'][i]['connectivity'] = \
                     Read(scheme_data['other_descriptors'][i]['connectivity'])
             other_descriptors = scheme_data['other_descriptors']
         if 'smiles_based_descriptors' in scheme_data:
-            for i in xrange(0,len(scheme_data['smiles_based_descriptors'])):
+            for i in range(0,len(scheme_data['smiles_based_descriptors'])):
                 scheme_data['smiles_based_descriptors'][i]['smarts'] = \
                     Chem.MolFromSmarts(scheme_data['smiles_based_descriptors'][i]['smarts'])
             smiles_based_descriptors = scheme_data['smiles_based_descriptors']
         if 'smarts_based_descriptors' in scheme_data:
-            for i in xrange(0,len(scheme_data['smarts_based_descriptors'])):
+            for i in range(0,len(scheme_data['smarts_based_descriptors'])):
                 scheme_data['smarts_based_descriptors'][i]['smarts'] = \
                     Chem.MolFromSmarts(scheme_data['smarts_based_descriptors'][i]['smarts'])
             smarts_based_descriptors = scheme_data['smarts_based_descriptors']
@@ -108,7 +108,7 @@ class GroupAdditivityScheme(Scheme):
             #mol = Chem.MolFromSmiles(mol,sanitize=False) # Stereochemistry get's erased. :/
             mol = Chem.MolFromSmiles(mol)
             if mol is None:
-                print 'Smiles could not be loaded.'
+                print('Smiles could not be loaded.')
                 raise Exception
             sanitize_except_aromatization(mol)
             mol = Chem.AddHs(mol)
@@ -152,7 +152,7 @@ class GroupAdditivityScheme(Scheme):
             if debug:
                 s = '\nPattern: ' + pattern['center_name'] + ',' + pattern['periph_name'] 
                 s += '\nMatches: ' + str(matches)
-                print s
+                print(s)
         # exception spitted if any atoms have no groups assigned
         for atom in mol.GetAtoms():
             if not atom.HasProp('Group_Center_Name'):
@@ -190,7 +190,7 @@ class GroupAdditivityScheme(Scheme):
             for atom in mol.GetAtoms():
                 if atom.GetProp('Group_name') in self.remaps:
                     atom.SetProp('Group_name',self.remaps[atom.GetProp('Group_name')][0][1])
-            for group in groups.keys():
+            for group in list(groups.keys()):
                 if group in self.remaps:
                     n = groups.pop(group)
                     for remap in self.remaps[group]:
@@ -217,7 +217,7 @@ class GroupAdditivityScheme(Scheme):
                 descriptors[descriptor['name']] += len(matches)
         # remaps
         if hasattr(self,'remaps'):
-            for descriptor in descriptors.keys():
+            for descriptor in list(descriptors.keys()):
                 if descriptor in self.remaps:
                     n = descriptors.pop(descriptor)
                     for remap in self.remaps[descriptor]:

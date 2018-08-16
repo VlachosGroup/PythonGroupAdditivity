@@ -44,12 +44,12 @@ def GenerateRxnNet(initial_reactant, reaction_rules):
     if not isinstance(initial_reactant,list):
         initial_reactant = [initial_reactant]
     if isinstance(initial_reactant[0],str):
-        for i in xrange(0,len(initial_reactant)):
+        for i in range(0,len(initial_reactant)):
             initial_reactant[i] = Chem.MolFromSmiles(initial_reactant[i],sanitize=False)
             # sanitize everything except aromatization set
             _sanitize_except_aromatization(initial_reactant[i])
     ## Treatment necessary for radicals (https://github.com/rdkit/rdkit/issues/69)     
-    for i in xrange(0,len(initial_reactant)):
+    for i in range(0,len(initial_reactant)):
         #print Chem.MolToSmiles(initial_reactant[i])
         initial_reactant[i] = Chem.AddHs(initial_reactant[i])
         # sanitize everything except aromatization set
@@ -64,7 +64,7 @@ def GenerateRxnNet(initial_reactant, reaction_rules):
     if not isinstance(reaction_rules,list):
         reaction_rules = [reaction_rules]
     if isinstance(reaction_rules[0],str):
-        for i in xrange(0,len(reaction_rules)):
+        for i in range(0,len(reaction_rules)):
             try:
                 reaction_rules[i]=Read(reaction_rules[i])
             except:
@@ -82,7 +82,7 @@ def GenerateRxnNet(initial_reactant, reaction_rules):
         for reaction_rule in reaction_rules:
             # set up reactant list.
             # Generate combinatorial product list of reactants if reaction requires several reactants
-            reactant_list = itpd([range(1,len(processed))],repeat=reaction_rule.GetNumReactantTemplates()-1)
+            reactant_list = itpd([list(range(1,len(processed)))],repeat=reaction_rule.GetNumReactantTemplates()-1)
             # go through each set of reactants
             for reactant_indexes in reactant_list:
                 # Reaction
@@ -110,15 +110,15 @@ def GenerateRxnNet(initial_reactant, reaction_rules):
                     #Chem.SanitizeMol(mol)
                     #mol = Chem.RemoveHs(mol)
                 ## Remove molecule with atoms with over valence
-                for i in xrange(len(products)-1,-1,-1):
+                for i in range(len(products)-1,-1,-1):
                     for atoms in products[i].GetAtoms():
                         if PeriodicTable.GetDefaultValence(GetPeriodicTable(),atoms.GetAtomicNum()) < atoms.GetTotalValence():
                             del products[i]
                             break
                 ## remove duplicates
                 ### TODO. This removes also species with different charges
-                for i in xrange(len(products)-1,-1,-1):
-                    for j in xrange(0,i):
+                for i in range(len(products)-1,-1,-1):
+                    for j in range(0,i):
                         if products[i].GetNumAtoms() == products[j].GetNumAtoms() and \
                             products[i].GetNumAtoms() == len(products[i].GetSubstructMatch(products[j])):
                             del products[i]
@@ -138,7 +138,7 @@ def GenerateRxnNet(initial_reactant, reaction_rules):
                     if inthelist == 0:
                         unprocessed.insert(0, mol1)
     # Prettify
-    for i in xrange(0,len(processed)):
+    for i in range(0,len(processed)):
         #print Chem.MolToSmiles(processed[i])
         processed[i] = Chem.RemoveHs(processed[i],sanitize=False)
         _sanitize_except_aromatization(processed[i])

@@ -522,7 +522,7 @@ class MolQuery(object):
         # Match mol substructure matches
         rdkit_matches= mol.GetSubstructMatches(self.mol,uniquify=False)
         if debug:
-            print 'structure matches:'+ str(rdkit_matches)
+            print('structure matches:'+ str(rdkit_matches))
         ## if no rdkit match
         if not rdkit_matches:
             return tuple()
@@ -541,8 +541,8 @@ class MolQuery(object):
         matches2 = list()
         for match_indice in matches1:
             try:
-                for i in xrange(0,len(match_indice)):
-                    if self.atom_constraints.has_key(i):
+                for i in range(0,len(match_indice)):
+                    if i in self.atom_constraints:
                         # extract atom
                         # atom_index = match_indice[i]
                         atom = mol.GetAtomWithIdx(match_indice[i])
