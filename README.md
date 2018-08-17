@@ -68,3 +68,18 @@ Out:
 defaultdict(<class 'int'>, {'CO(O)(Pt)+O(CO)(H)': 1.0})
 -109.86212002776878
 ```
+Wittreich
+```
+In:
+from VGA.GroupAdd.Library import GroupLibrary
+import VGA.ThermoChem
+lib = GroupLibrary.Load('GRWSurface2018')
+descriptors = lib.GetDescriptors('[Pt]C([Pt])C([Pt])([Pt])C=O')
+print(descriptors)
+thermochem = lib.Estimate(descriptors,'thermochem')
+print(thermochem.eval_ND_H(750))
+
+Out:
+defaultdict(<class 'int'>, {'C(C)(H)(Pt)2': 1, 'C(C)(CO)(Pt)2': 1, 'CO(C)(H)': 1,
+                            'CPt2CPt2': 1, 'CCPt2': 1, 'surface-ring strain': 0.392})
+-14.018618380328222
