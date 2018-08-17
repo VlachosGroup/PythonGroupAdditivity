@@ -5,7 +5,7 @@ Python package for group additivity scheme use. See Wiki page for more info. Bel
 - Gu et al. (2017) solvated adsorbate on Pt(111) group additivity scheme
 
 **Required Packages**
-- Python 2.7
+- Python 2.7/Python 3.6
 - RDkit (http://www.rdkit.org/)
 - Yaml
 
