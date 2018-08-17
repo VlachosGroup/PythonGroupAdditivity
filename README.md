@@ -68,7 +68,7 @@ Out:
 defaultdict(<class 'int'>, {'CO(O)(Pt)+O(CO)(H)': 1.0})
 -109.86212002776878
 ```
-Wittreich
+Wittreich Example:
 ```
 In:
 from VGA.GroupAdd.Library import GroupLibrary
