@@ -84,7 +84,7 @@ class GroupLibrary(Mapping):
         self.scheme = scheme
         self.path = path
         if isinstance(contents, Mapping):
-            contents = contents.items()
+            contents = list(contents.items())
         self.contents = dict((group, property_sets)
             for (group, property_sets) in contents)
         self.uq_contents = uq_contents
@@ -290,7 +290,7 @@ class GroupLibrary(Mapping):
         overwrite : bool
             If True, then existing data may be overwritten by data from `lib`.
         """
-        for (group, other_property_sets) in lib.items():
+        for (group, other_property_sets) in list(lib.items()):
             if group not in self.contents:
                 self.contents[group] = {}
             property_sets = self.contents[group]

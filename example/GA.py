@@ -3,6 +3,6 @@ import VGA.ThermoChem
 lib = GroupLibrary.Load('GuSolventGA2017Aq')
 descriptors = lib.GetDescriptors('C(=O)([Pt])O')
 #descriptors = lib.GetDescriptors('C=C')
-print descriptors
+print(descriptors)
 thermochem = lib.Estimate(descriptors,'thermochem')
-print thermochem.eval_ND_H(500)
+print((thermochem.eval_ND_H(500)))

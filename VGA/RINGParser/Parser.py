@@ -301,7 +301,7 @@ class Literals(Either):
     def __call__(self, stream, output):
         try:
             return Either.__call__(self, stream, output)
-        except RINGSyntaxError, exc:
+        except RINGSyntaxError as exc:
             if hasattr(self, 'name'):
                 stream.error('<' + self.name + '>')
             else:
@@ -399,25 +399,25 @@ class ParseState(object):
             output[:] = inside_output
             
         # make the what into class, and call the parse on the class
-        elif isinstance(what, basestring):
+        elif isinstance(what, str):
             inside_output = [RINGToken(what)]
             if self.debug:
-                print '%s%r {'%(' '*(self.depth*4), what)
+                print('%s%r {'%(' '*(self.depth*4), what))
                 self.depth += 1
             try:
                 self.parse(self.rules[what], inside_output)
-            except RINGSyntaxError, exc:
+            except RINGSyntaxError as exc:
                 if self.debug:
-                    print '%s%s'%(' '*(self.depth*4), exc)
+                    print('%s%s'%(' '*(self.depth*4), exc))
                 raise
             else:
                 output.append(inside_output)
                 if self.debug:
-                    print '%s%r'%(' '*(self.depth*4), output)
+                    print('%s%r'%(' '*(self.depth*4), output))
             finally:
                 if self.debug:
                     self.depth -= 1
-                    print '%s} %r'%(' '*(self.depth*4), what)
+                    print('%s} %r'%(' '*(self.depth*4), what))
         else:
             raise TypeError("Don't know how to parse type %s"%(what,))
 

@@ -38,8 +38,8 @@ class ThermochemRawData(ThermochemBase):
              valid.    If specified, this range must contain T_ref and all data
              points in ND_Cp.
         """
-        (self.Ts, self.ND_Cps) = zip(*sorted(
-            zip(Ts, ND_Cps), key=lambda (T, ND_Cps):T))
+        (self.Ts, self.ND_Cps) = list(zip(*sorted(
+            zip(Ts, ND_Cps), key=lambda T_ND_Cps:T_ND_Cps[0])))
         self.min_T = Ts[0]
         self.max_T = Ts[-1]
 
@@ -177,11 +177,11 @@ class ThermochemRawData(ThermochemBase):
             ND_S_ref = params['S_ref']/R
 
         if 'ND_Cp_data' in params:
-            T_data, ND_Cp_data = zip(*params['ND_Cp_data'])
+            T_data, ND_Cp_data = list(zip(*params['ND_Cp_data']))
             Ts = np.array([T.in_units('K') for T in T_data])
             ND_Cps = np.array(ND_Cp_data)
         else:
-            T_data, Cp_data = zip(*params['Cp_data'])
+            T_data, Cp_data = list(zip(*params['Cp_data']))
             Ts = np.array([T.in_units('K') for T in T_data])
             ND_Cps = np.array(
                 [Cp for Cp in Cp_data])/R

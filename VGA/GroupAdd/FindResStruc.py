@@ -102,7 +102,7 @@ def enumerate_res_struc(mol):
         TotalNumRadicalElectron.append(NTRE)
     MinTotalNumRadicalElectron = min(TotalNumRadicalElectron)
     ## Remove resonance structure with number of radical electron more than the min
-    for i in xrange(len(TotalNumRadicalElectron)-1,-1,-1):
+    for i in range(len(TotalNumRadicalElectron)-1,-1,-1):
         if TotalNumRadicalElectron[i] > MinTotalNumRadicalElectron:
             del resonance_structures[i]
 

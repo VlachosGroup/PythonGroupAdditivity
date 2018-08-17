@@ -175,7 +175,7 @@ class ReactionQuery(object):
         # Error test
         if len(reactants) != len(self.reactantquery):
             raise ReactionQueryError('Number of reactant mis-match')
-        for i in xrange(0,len(reactants)):
+        for i in range(0,len(reactants)):
             if not isinstance(reactants[i],Chem.Mol):
                 raise ReactionQueryError("Unrecognized instance'"+type(reactants[i])+"'")
             reactants[i] = Chem.AddHs(reactants[i])
@@ -201,14 +201,14 @@ class ReactionQuery(object):
         for match in itpd(*self.match_indexes):
             row = list()
             modifier = 0
-            for i in xrange(0,len(match)):
+            for i in range(0,len(match)):
                 if i != 0:
                     modifier = reactants[i-1].GetNumAtoms()
-                row += map(add,list(match[i]),[modifier]*len(match[i]))
+                row += list(map(add,list(match[i]),[modifier]*len(match[i])))
             self.combined_mol_match_index.append(row)
         # Combine reactants
         self.combined_mol = reactants[0]
-        for i in xrange(1,len(reactants)):
+        for i in range(1,len(reactants)):
             self.combined_mol = Chem.CombineMols(self.combined_mol,reactants[i])
 
         self.combined_mol = Chem.RWMol(self.combined_mol)
@@ -234,7 +234,7 @@ class ReactionQuery(object):
         # Error test
         if len(reactants) != len(self.reactantquery):
             raise ReactionQueryError('Number of reactant mis-match')
-        for i in xrange(0,len(reactants)):
+        for i in range(0,len(reactants)):
             if not isinstance(reactants[i],Chem.Mol):
                 raise ReactionQueryError("Unrecognized instance'"+type(reactants[i])+"'")
             reactants[i] = Chem.AddHs(reactants[i])
@@ -260,14 +260,14 @@ class ReactionQuery(object):
         for match in itpd(*self.match_indexes):
             row = list()
             modifier = 0
-            for i in xrange(0,len(match)):
+            for i in range(0,len(match)):
                 if i != 0:
                     modifier = reactants[i-1].GetNumAtoms()
-                row += map(add,list(match[i]),[modifier]*len(match[i]))
+                row += list(map(add,list(match[i]),[modifier]*len(match[i])))
             self.combined_mol_match_index.append(row)
         # Combine reactants
         self.combined_mol = reactants[0]
-        for i in xrange(1,len(reactants)):
+        for i in range(1,len(reactants)):
             self.combined_mol = Chem.CombineMols(self.combined_mol,reactants[i])
 
         self.combined_mol = Chem.RWMol(self.combined_mol)

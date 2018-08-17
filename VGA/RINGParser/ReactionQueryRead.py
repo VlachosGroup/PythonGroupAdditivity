@@ -339,7 +339,7 @@ class ReactionQueryReader(object):
         assert tree[1][0] == 'GroupName'
         assert tree[2][0] == 'LabelMapping'
         labelmapping = self.LabelMapping(tree[2][1:])
-        if not self.RINGgroups.has_key(tree[1][1]):
+        if tree[1][1] not in self.RINGgroups:
             raise RINGReaderError("ReactantGroup: Unrecognized group name:'"+tree[1][1]+"'")
             
             
@@ -347,7 +347,7 @@ class ReactionQueryReader(object):
             raise RINGReaderError("ReactantGroup: Label mapping length doesn''t match length of atoms in group :'"+tree[1][1]+"'")
         reactionquery.reactantquery[tree[0][1]] = self.RINGgroups[tree[1][1]]
         reactionquery.reactantquery[tree[0][1]].name = tree[0][1]
-        for i in xrange(0,len(reactionquery.reactantquery[tree[0][1]].atom_names)):
+        for i in range(0,len(reactionquery.reactantquery[tree[0][1]].atom_names)):
             try:
                 reactionquery.reactantquery[tree[0][1]].atom_names[i] = \
                 labelmapping[reactionquery.reactantquery[tree[0][1]].atom_names[i]]
@@ -370,7 +370,7 @@ class ReactionQueryReader(object):
             raise RINGReaderError('ReadDuplicates: Labelmapping length doesn''t match length of fragment duplicated')
         reactionquery.reactantquery[tree[0][1]] = reactionquery.reactantquery[tree[1][1]]
         reactionquery.reactantquery[tree[0][1]].name = tree[0][1]
-        for i in xrange(0,len(reactionquery.reactantquery[tree[0][1]].atom_names)):
+        for i in range(0,len(reactionquery.reactantquery[tree[0][1]].atom_names)):
             try:
                 reactionquery.reactantquery[tree[0][1]].atom_names[i] = \
                 labelmapping[reactionquery.reactantquery[tree[0][0]].atom_names[i]]
@@ -421,7 +421,7 @@ class ReactionQueryReader(object):
         self.ReadTransformationChain(self.tree[i][1:], reactionquery)
         # error check
         s = str()
-        for i in xrange(0,len(self.electronbalance)):
+        for i in range(0,len(self.electronbalance)):
             if self.electronbalance[i] != 0:
                 s += "Electron balance mismatch for atom label: '"+\
                     self.atom_names[i]+"' by ("+str(self.electronbalance[i])+")\n"
