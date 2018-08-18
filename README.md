@@ -1,11 +1,13 @@
 # Group Additivity
 Python package for group additivity scheme use. See Wiki page for more info. Below are implemented group additivity scheme:
-- Benson's gas molecule group additivity 
-- Salciccioli et al. (2012) adsorbate on Pt(111) group additivity scheme
-- Gu et al. (2017) solvated adsorbate on Pt(111) group additivity scheme
+- Benson's gas molecule group additivity (BensonGA)
+- Salciccioli et al. (2012) adsorbate on Pt(111) group additivity scheme (SalciccioliGA2012)
+- Gu et al. (2017) solvated adsorbate on Pt(111) group additivity scheme (GuSolventGA2017Aq, GuSolventGA2017Vac)
+- Wittreich (2018) adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values
+  regressed with fGLS/GLS (Maximum Liklihood) and DFT data processed with pyMuTT (GRWSurface2018)
 
 **Required Packages**
-- Python 2.7
+- Python 2.7/Python 3.6
 - RDkit (http://www.rdkit.org/)
 - Yaml
 
@@ -28,13 +30,13 @@ from VGA.GroupAdd.Library import GroupLibrary
 import VGA.ThermoChem
 lib = GroupLibrary.Load('BensonGA')
 descriptors = lib.GetDescriptors('C1CO1')
-print descriptors
+print(descriptors)
 thermochem = lib.Estimate(descriptors,'thermochem')
-print thermochem.eval_ND_H(298.15)
+print(thermochem.eval_ND_H(298.15))
 
 Out:
-defaultdict(<type 'int'>, {'O(C)2': 1, 'C(C)(H)2(O)': 2, 'C1CO1': 1})
--19.9132141547
+defaultdict(int, {'C(C)(H)2(O)': 2, 'O(C)2': 1, 'Oxirane': 1})
+-21.09467743150278
 ```
 Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873–1886 Example:
 ```
@@ -43,13 +45,13 @@ from VGA.GroupAdd.Library import GroupLibrary
 import VGA.ThermoChem
 lib = GroupLibrary.Load('SalciccioliGA2012')
 descriptors = lib.GetDescriptors('C([Pt])C[Pt]')
-print descriptors
+print(descriptors)
 thermochem = lib.Estimate(descriptors,'thermochem')
-print thermochem.eval_ND_H(298.15)
+print(thermochem.eval_ND_H(298.15))
 
 Out:
-defaultdict(<type 'int'>, {'surface-ring strain': 0.217, 'C(C)(H)2(Pt)': 2})
-37.6249461725
+defaultdict(<class 'int'>, {'C(C)(H)2(Pt)': 2, 'surface-ring strain': 0.217})
+37.62494617247582
 ```
 Gu et al. J. Phys. Chem. C, submitted Example:
 ```
@@ -58,11 +60,26 @@ from VGA.GroupAdd.Library import GroupLibrary
 import VGA.ThermoChem
 lib = GroupLibrary.Load('GuSolventGA2017Aq')
 descriptors = lib.GetDescriptors('C(=O)([Pt])O')
-print descriptors
+print(descriptors)
 thermochem = lib.Estimate(descriptors,'thermochem')
-print thermochem.eval_ND_H(500)
+print(thermochem.eval_ND_H(500))
 
 Out:
-defaultdict(<type 'int'>, {'CO(O)(Pt)+O(CO)(H)': 1.0})
--109.862120028
+defaultdict(<class 'int'>, {'CO(O)(Pt)+O(CO)(H)': 1.0})
+-109.86212002776878
 ```
+Wittreich Example:
+```
+In:
+from VGA.GroupAdd.Library import GroupLibrary
+import VGA.ThermoChem
+lib = GroupLibrary.Load('GRWSurface2018')
+descriptors = lib.GetDescriptors('[Pt]C([Pt])C([Pt])([Pt])C=O')
+print(descriptors)
+thermochem = lib.Estimate(descriptors,'thermochem')
+print(thermochem.eval_ND_H(750))
+
+Out:
+defaultdict(<class 'int'>, {'C(C)(H)(Pt)2': 1, 'C(C)(CO)(Pt)2': 1, 'CO(C)(H)': 1,
+                            'CPt2CPt2': 1, 'CCPt2': 1, 'surface-ring strain': 0.392})
+-14.018618380328222
