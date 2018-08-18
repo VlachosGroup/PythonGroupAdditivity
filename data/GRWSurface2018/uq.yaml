@@ -1,25 +1,25 @@
 UQ:
     RMSE:
         'thermochem':
-            T_ref: 298 K
-            H_ref: 4.56427 kcal/mol
-            S_ref: 2.07078 cal/(mol*K)
+            T_ref: 298.15 K
+            H_ref: 4.56360 kcal/mol
+            S_ref: 2.07063 cal/(mol*K)
             Cp_data: 
-                - [100 K, 0.74309 cal/(mol*K)]
-                - [200 K, 0.49854 cal/(mol*K)]
-                - [300 K, 0.35423 cal/(mol*K)]
-                - [400 K, 0.27731 cal/(mol*K)]
-                - [500 K, 0.23375 cal/(mol*K)]
-                - [600 K, 0.20721 cal/(mol*K)]
-                - [700 K, 0.19124 cal/(mol*K)]
-                - [800 K, 0.18142 cal/(mol*K)]
-                - [900 K, 0.17370 cal/(mol*K)]
-                - [1000 K, 0.16634 cal/(mol*K)]
-                - [1100 K, 0.15854 cal/(mol*K)]
-                - [1200 K, 0.15028 cal/(mol*K)]
-                - [1300 K, 0.14191 cal/(mol*K)]
-                - [1400 K, 0.13345 cal/(mol*K)]
-                - [1500 K, 0.12510 cal/(mol*K)]
+                - [100 K, 0.74267 cal/(mol*K)]
+                - [200 K, 0.49804 cal/(mol*K)]
+                - [300 K, 0.35567 cal/(mol*K)]
+                - [400 K, 0.27530 cal/(mol*K)]
+                - [500 K, 0.23314 cal/(mol*K)]
+                - [600 K, 0.20936 cal/(mol*K)]
+                - [700 K, 0.19108 cal/(mol*K)]
+                - [800 K, 0.18063 cal/(mol*K)]
+                - [900 K, 0.17333 cal/(mol*K)]
+                - [1000 K, 0.16676 cal/(mol*K)]
+                - [1100 K, 0.15924 cal/(mol*K)]
+                - [1200 K, 0.15059 cal/(mol*K)]
+                - [1300 K, 0.14136 cal/(mol*K)]
+                - [1400 K, 0.13271 cal/(mol*K)]
+                - [1500 K, 0.12634 cal/(mol*K)]
     DOF:
         98
             
