@@ -80,6 +80,6 @@ thermochem = lib.Estimate(descriptors,'thermochem')
 print(thermochem.eval_ND_H(750))
 
 Out:
-defaultdict(<class 'int'>, {'C(C)(H)(Pt)2': 1, 'C(C)(CO)(Pt)2': 1, 'CO(C)(H)': 1,
-                            'CPt2CPt2': 1, 'CCPt2': 1, 'surface-ring strain': 0.392})
--14.018618380328222
+defaultdict(<class 'int'>, {'C(C)(H)(Pt)2': 1, 'C(C)(CO)(Pt)2': 1, 'CO(C)(H)': 1, 'CPt2CPt2': 1,
+                            'CCPt2': 1, 'surface-ring strain': 0.392})
+-13.42320778481884
