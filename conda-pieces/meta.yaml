@@ -8,16 +8,15 @@ source:
 
 requirements:
   host:
-    - python
+    - python =3.6
     - setuptools
-
   run:
-    - python
-    - rdkit
-    - scipy
-    - numpy
-    - ipython
-    - pyyaml
+    - python =3.6
+    - rdkit >=2008
+    - scipy >=1.1.0
+    - numpy >=1.15.1
+    - ipython >=7.0.0
+    - pyyaml >=3.0
 
 about:
   home: "https://github.com/VlachosGroup/VlachosGroupAdditivity"
