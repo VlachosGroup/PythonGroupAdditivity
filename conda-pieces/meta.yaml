@@ -16,8 +16,8 @@ requirements:
     - rdkit
     - scipy
     - numpy
-    - IPython
-    - PyYAML
+    - ipython
+    - pyyaml
 
 about:
   home: "https://github.com/VlachosGroup/VlachosGroupAdditivity"
