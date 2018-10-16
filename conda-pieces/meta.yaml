@@ -17,6 +17,7 @@ requirements:
     - scipy
     - numpy
     - IPython
+    - PyYAML
 
 about:
   home: "https://github.com/VlachosGroup/VlachosGroupAdditivity"
