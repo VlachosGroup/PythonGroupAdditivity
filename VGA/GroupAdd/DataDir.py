@@ -47,4 +47,4 @@ def get_data_dir():
 #   python DataDir.py
 #
 if __name__ == '__main__':
-    print 'VGA data directory = {0:s}'.format(get_data_dir())
+    sys.stdout.write('VGA data directory = {0:s}'.format(get_data_dir()))
