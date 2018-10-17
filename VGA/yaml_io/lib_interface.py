@@ -12,23 +12,26 @@ class YAMLTaggedValue(object):
         self.value = value
 
     def __str__(self):
-        return '<%s>: %s'%(self.tag, self.value)
+        return '<%s>: %s' % (self.tag, self.value)
 
     def __repr__(self):
-        return 'YAMLTaggedValue(%r, %r)'%(self.tag, self.value)
+        return 'YAMLTaggedValue(%r, %r)' % (self.tag, self.value)
 
 
 def _construct_str(loader, node):
     return string(loader.construct_scalar(node))
 
+
 def _construct_seq(loader, node):
     result = loader.construct_sequence(node)
     return result
+
 
 def _construct_map(loader, node):
     result = dict([(tuple(key), value) if isinstance(key, list) else (key, value)
         for (key, value) in loader.construct_pairs(node, deep=True)])
     return result
+
 
 def _construct_tagged(loader, tag, node):
     if isinstance(node, yaml.MappingNode):
@@ -38,20 +41,18 @@ def _construct_tagged(loader, tag, node):
     elif isinstance(node, yaml.ScalarNode):
         value = loader.construct_scalar(node)
     else:
-        raise TypeError('Unknown node type: %s'%type(node))
+        raise TypeError('Unknown node type: %s' % type(node))
     return YAMLTaggedValue(tag, value)
 
-<<<<<<< HEAD
 
-class Loader(yaml.SafeLoader): pass
-=======
 try:
     # Use the class that's atop libyaml for speed...
-    class Loader(yaml.CSafeLoader): pass
+    class Loader(yaml.CSafeLoader):
+        pass
 except:
     # ...and fall back on the Python implementation otherwise:
-    class Loader(yaml.SafeLoader): pass
->>>>>>> 4e405f7c73cbd0fab9274337cdc90fe2c4479592
+    class Loader(yaml.SafeLoader):
+        pass
 
 # Note: other possible tags:
 #   'tag:yaml.org,2002:int', 'tag:yaml.org,2002:float',
@@ -64,8 +65,8 @@ Loader.add_constructor('tag:yaml.org,2002:map', _construct_map)
 Loader.add_multi_constructor('', _construct_tagged)
 
 # Might look into these later?
-#VGToolsLoader.add_multi_constructor('!', VGToolsLoader.constructor)
-#VGToolsLoader.add_constructor('!!seq', VGToolsLoader.seq_constructor)
+# VGToolsLoader.add_multi_constructor('!', VGToolsLoader.constructor)
+# VGToolsLoader.add_constructor('!!seq', VGToolsLoader.seq_constructor)
 
 
 # We want YAML 1.2 support but the Python YAML library only supports YAML 1.1.
