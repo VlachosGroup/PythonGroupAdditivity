@@ -5,6 +5,7 @@ import yaml
 import os
 from .. Error import PatternMatchError
 from . Group import Group
+from . DataDir import get_data_dir
 
 # Scheme contains the group pattern information, and can assign groups based on the smiles.
 
@@ -50,14 +51,13 @@ class GroupAdditivityScheme(Scheme):
             self.other_descriptors += scheme_object.other_descriptors
             self.smiles_based_descriptors = scheme_object.smiles_based_descriptors
             self.smarts_based_descriptors = scheme_object.smarts_based_descriptors
-            
+
     @classmethod
     def Load(cls, path):
-        if(os.path.sep not in path and '.' not in path
-                and not os.path.exists(path)):
-            # Look in builtins.
-            base_path = os.path.join(os.path.split(os.path.split(os.path.split(__file__)[0])[0])[0],'data')
-            base_path = os.path.join(base_path,path)
+        if os.sep not in path and '.' not in path and not os.path.exists(path):
+            # [JTF] where's our data directory?
+            base_path = os.path.join(get_data_dir(), path)
+            # Load the scheme.yaml file in that directory:
             actual_path = os.path.join(base_path,'scheme.yaml')
         else:
             actual_path = path
@@ -67,7 +67,7 @@ class GroupAdditivityScheme(Scheme):
         for i in range(0,len(scheme_data['patterns'])):
             scheme_data['patterns'][i]['connectivity'] = \
                 Read(scheme_data['patterns'][i]['connectivity'])
-            
+
         patterns = scheme_data['patterns']
         pretreatment_rules=[]
         remaps ={}
@@ -94,10 +94,10 @@ class GroupAdditivityScheme(Scheme):
                     Chem.MolFromSmarts(scheme_data['smarts_based_descriptors'][i]['smarts'])
             smarts_based_descriptors = scheme_data['smarts_based_descriptors']
         return cls(patterns, pretreatment_rules, remaps, other_descriptors,smiles_based_descriptors,smarts_based_descriptors)
-        
+
     def GetDescriptors(self, mol, debug=0):
         if isinstance(mol,Chem.Mol):
-            
+
             mol = Chem.AddHs(mol)
             Chem.Kekulize(mol)
         elif isinstance(mol,str):
@@ -130,11 +130,11 @@ class GroupAdditivityScheme(Scheme):
         all_descriptors = groups.copy()
         all_descriptors.update(descriptors)
         return all_descriptors
-        
+
     def _AssignCenterPattern(self, mol,debug=0):
-        
+
         for pattern in self.patterns:
-            
+
             matches = pattern['connectivity'].GetQueryMatches(mol)
             # only the first atom is the center atom
             matches = set([match[0] for match in matches])
@@ -150,7 +150,7 @@ class GroupAdditivityScheme(Scheme):
                     atom.SetProp('Group_Center_Name',pattern['center_name'])
                     atom.SetProp('Group_Periph_Name',pattern['periph_name'])
             if debug:
-                s = '\nPattern: ' + pattern['center_name'] + ',' + pattern['periph_name'] 
+                s = '\nPattern: ' + pattern['center_name'] + ',' + pattern['periph_name']
                 s += '\nMatches: ' + str(matches)
                 print(s)
         # exception spitted if any atoms have no groups assigned
@@ -169,7 +169,7 @@ class GroupAdditivityScheme(Scheme):
                             bond.GetBondType().__str__()
                 s += '\n Occured '
                 raise PatternMatchError(s,atom)
-                
+
     def _AssignGroup(self,mol):
         groups = defaultdict(int)
         for atom in mol.GetAtoms():
@@ -197,7 +197,7 @@ class GroupAdditivityScheme(Scheme):
                         nn = n*remap[0]
                         groups[remap[1]] += nn
         return groups
-        
+
     def _AssignDescriptor(self,mol,clean_mol):
         descriptors = defaultdict(int)
         for descriptor in self.other_descriptors:
@@ -224,8 +224,8 @@ class GroupAdditivityScheme(Scheme):
                         nn = n*remap[0]
                         descriptors[remap[1]] += nn
         return descriptors
-        
-        
+
+
 def sanitize_except_aromatization(mol):
     Chem.SanitizeMol(mol,sanitizeOps= Chem.rdmolops.SanitizeFlags.SANITIZE_ADJUSTHS)
     Chem.SanitizeMol(mol,sanitizeOps= Chem.rdmolops.SanitizeFlags.SANITIZE_CLEANUP)
@@ -236,7 +236,7 @@ def sanitize_except_aromatization(mol):
     Chem.SanitizeMol(mol,sanitizeOps= Chem.rdmolops.SanitizeFlags.SANITIZE_SETCONJUGATION)
     Chem.SanitizeMol(mol,sanitizeOps= Chem.rdmolops.SanitizeFlags.SANITIZE_SETHYBRIDIZATION)
     Chem.SanitizeMol(mol,sanitizeOps= Chem.rdmolops.SanitizeFlags.SANITIZE_SYMMRINGS)
-    
+
 def _aromatization_Benson(mol):
     # Benson's aromatic bond criteria:
     # C6 ring
@@ -261,7 +261,7 @@ def _aromatization_Benson(mol):
             continue
         if mol.GetAtomWithIdx(rings[i][5]).GetSymbol() != 'C':
             continue
-        
+
         # bond check
         if mol.GetBondBetweenAtoms(rings[i][0],rings[i][1]).GetBondType().__str__() == 'SINGLE':
             if mol.GetBondBetweenAtoms(rings[i][1],rings[i][2]).GetBondType().__str__() == 'DOUBLE':

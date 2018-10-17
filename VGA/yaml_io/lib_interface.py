@@ -41,8 +41,12 @@ def _construct_tagged(loader, tag, node):
         raise TypeError('Unknown node type: %s'%type(node))
     return YAMLTaggedValue(tag, value)
 
-
-class Loader(yaml.CSafeLoader): pass
+try:
+    # Use the class that's atop libyaml for speed...
+    class Loader(yaml.CSafeLoader): pass
+except:
+    # ...and fall back on the Python implementation otherwise:
+    class Loader(yaml.SafeLoader): pass
 
 # Note: other possible tags:
 #   'tag:yaml.org,2002:int', 'tag:yaml.org,2002:float',

@@ -1,12 +1,13 @@
 import os
 from warnings import warn
 from collections import Mapping
-from .. import yaml_io 
+from .. import yaml_io
 import numpy as np
 
 from .. Error import GroupMissingDataError
 from . Group import Group, Descriptor
 from . Scheme import GroupAdditivityScheme
+from . DataDir import get_data_dir
 
 class GroupLibrary(Mapping):
     """Represent library of contributing properties organized by group.
@@ -36,7 +37,7 @@ class GroupLibrary(Mapping):
     """
     _property_set_estimator_types = {}
     _property_set_group_yaml_types = {}
-    
+
     @classmethod
     def register_property_set_type(cls, name, group_yaml_type, estimator_type):
         """(class method) Register new property set type.
@@ -51,7 +52,7 @@ class GroupLibrary(Mapping):
             The provided class is instantiated when an estimate is to be made
             for a particular set of groups.  The constructor should accept the
             following parameters:
-            
+
                 library : :class:`GroupLibrary`
                     library which is to be used to estimate these properties.
                 groups : mapping
@@ -137,7 +138,7 @@ class GroupLibrary(Mapping):
 
     def __contains__(self, group):
         """Test if this library contains contributing properties for `group`.
- 
+
         Parameters
         ----------
         group : :class:`Group`
@@ -193,30 +194,38 @@ class GroupLibrary(Mapping):
         lib : :class:`GroupLibrary`
             Group library containing the loaded data.
         """
-        if '/' not in path and '.' not in path and not os.path.exists(path):
-            # Look for folder with name, benson.
-            base_path = os.path.join(os.path.split(os.path.split(os.path.split(__file__)[0])[0])[0],'data')
-            base_path = os.path.join(base_path,path)
-            path = os.path.join(base_path,'library.yaml')
-            
+        if os.sep not in path and '.' not in path and not os.path.exists(path):
+            # [JTF] where's our data directory?
+            base_path = os.path.join(get_data_dir(), path)
+            # We want to load the library.yaml in that directory:
+            path = os.path.join(base_path, 'library.yaml')
         else:
-            base_path = os.path.split(path)[0]
+            # The base path is the directory containing whatever file/directory
+            # is referenced by path:
+            base_path = os.path.dirname(path)
+
+        # Load the scheme.yaml from the selected data directory:
         scheme = GroupAdditivityScheme.Load(os.path.join(base_path,'scheme.yaml'))
+
+        # Use that scheme to load the rest of the library:
         return cls._do_load(path, base_path, scheme)
-        
+
     @classmethod
     def _Load(cls, path, scheme):
-        
-        if '/' not in path and '.' not in path and not os.path.exists(path):
-            # Look for folder with name, benson.
-            base_path = os.path.join(os.path.split(os.path.split(os.path.split(__file__)[0])[0])[0],'data')
-            base_path = os.path.join(base_path,path)
-            path = os.path.join(base_path,'library.yaml')
+        if os.sep not in path and '.' not in path and not os.path.exists(path):
+            # [JTF] where's our data directory?
+            base_path = os.path.join(get_data_dir(), path)
+            # We want to load the library.yaml in that directory:
+            path = os.path.join(base_path, 'library.yaml')
         else:
-            base_path = os.path.split(path)[0]
+            # The base path is the directory containing whatever file/directory
+            # is referenced by path:
+            base_path = os.path.dirname(path)
+
+        # Use the scheme passed to us to load the rest of the library:
         return cls._do_load(path, base_path, scheme)
-        
-        
+
+
     @classmethod
     def _do_load(cls, path, base_path, scheme):
         # Read data from file.
@@ -226,11 +235,11 @@ class GroupLibrary(Mapping):
                 yaml_io.parse(f.read()), context, loader=cls._yaml_loader)
 
         context['units'] = lib_data.units
-        
+
         group_properties = lib_data.groups
         other_descriptor_properties = lib_data.other_descriptors
         UQ = lib_data.UQ
-        
+
         if cls._property_set_group_yaml_types:
             # Prepare property_sets loader.
             property_sets_loader = yaml_io.make_object_loader(yaml_io.parse(
@@ -256,7 +265,7 @@ class GroupLibrary(Mapping):
                     other_descriptor_properties[name], context,
 	                loader=property_sets_loader)
                 lib_contents[descriptor] = property_sets
-                
+
             # Read UQ data
             uq_contents = {}
             if UQ:
@@ -271,15 +280,15 @@ class GroupLibrary(Mapping):
             warn('GroupLibrary.load(): No property sets defined.')
             lib_contents = {}
             uq_contents = {}
-        
-        
-        
+
+
+
         new_lib = cls(scheme, lib_contents, uq_contents, path=path)
         # Update with included content.
         for include_path in lib_data.include:
             new_lib.Update(cls._Load(os.path.join(base_path, include_path), scheme))
         return new_lib
-        
+
     def Update(self, lib, overwrite=False):
         """Add complete contents of `lib` into this library.
 
@@ -319,11 +328,11 @@ include:
 groups:
     type: mapping
     default: {}
-    
+
 other_descriptors:
     type: mapping
     default: {}
-    
+
 UQ:
     type: mapping
     default: {}
