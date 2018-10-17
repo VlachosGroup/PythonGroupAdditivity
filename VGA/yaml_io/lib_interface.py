@@ -42,7 +42,7 @@ def _construct_tagged(loader, tag, node):
     return YAMLTaggedValue(tag, value)
 
 
-class Loader(yaml.CSafeLoader): pass
+class Loader(yaml.SafeLoader): pass
 
 # Note: other possible tags:
 #   'tag:yaml.org,2002:int', 'tag:yaml.org,2002:float',
