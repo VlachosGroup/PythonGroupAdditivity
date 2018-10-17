@@ -1,0 +1,24 @@
+package:
+  name: vlachos-group-additivity
+  version: "1.0.0"
+
+source:
+  git_rev: "development"
+  git_url: "https://github.com/jtfrey/VlachosGroupAdditivity.git"
+
+requirements:
+  host:
+    - python =3.6
+    - setuptools
+  run:
+    - python =3.6
+    - rdkit >=2008
+    - scipy >=1.1.0
+    - numpy >=1.15.1
+    - ipython >=7.0.0
+    - pyyaml >=3.0
+
+about:
+  home: "https://github.com/VlachosGroup/VlachosGroupAdditivity"
+  license: MIT
+  license_file: LICENSE.md
