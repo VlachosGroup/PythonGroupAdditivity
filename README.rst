@@ -1,6 +1,7 @@
 Vlachos Group Additivity
 ========================
 Python package for group additivity scheme use. See Wiki page for more info. Below are implemented group additivity scheme.
+
 - Benson's gas molecule group additivity (BensonGA)
 - Salciccioli et al. (2012) adsorbate on Pt(111) group additivity scheme (SalciccioliGA2012)
 - Gu et al. (2017) solvated adsorbate on Pt(111) group additivity scheme (GuSolventGA2017Aq, GuSolventGA2017Vac)
