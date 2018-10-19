@@ -38,7 +38,7 @@ Citations
 Examples
 --------
 **Benson's Gas Group Additivity Example:**
-```
+``
 In:
 from VGA.GroupAdd.Library import GroupLibrary
 import VGA.ThermoChem
@@ -51,9 +51,9 @@ print(thermochem.eval_ND_H(298.15))
 Out:
 defaultdict(int, {'C(C)(H)2(O)': 2, 'O(C)2': 1, 'Oxirane': 1})
 -21.09467743150278
-```
+``
 **Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873–1886 Example:**
-```
+``
 In:
 from VGA.GroupAdd.Library import GroupLibrary
 import VGA.ThermoChem
@@ -66,9 +66,9 @@ print(thermochem.eval_ND_H(298.15))
 Out:
 defaultdict(<class 'int'>, {'C(C)(H)2(Pt)': 2, 'surface-ring strain': 0.217})
 37.62494617247582
-```
+``
 **Gu et al. J. Phys. Chem. C, submitted Example:**
-```
+``
 In:
 from VGA.GroupAdd.Library import GroupLibrary
 import VGA.ThermoChem
@@ -81,9 +81,9 @@ print(thermochem.eval_ND_H(500))
 Out:
 defaultdict(<class 'int'>, {'CO(O)(Pt)+O(CO)(H)': 1.0})
 -109.86212002776878
-```
+``
 **Wittreich Example:**
-```
+``
 In:
 from VGA.GroupAdd.Library import GroupLibrary
 import VGA.ThermoChem
@@ -97,7 +97,7 @@ Out:
 defaultdict(<class 'int'>, {'C(C)(H)(Pt)2': 1, 'C(C)(CO)(Pt)2': 1, 'CO(C)(H)': 1, 'CPt2CPt2': 1,
                             'CCPt2': 1, 'surface-ring strain': 0.392})
 -13.42320778481884
-
+''
 .. _scipy: https://www.scipy.org/
 .. _rdkit: https://www.rdkit.org/
 .. _numpy: http://www.numpy.org/
