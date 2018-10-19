@@ -1,22 +1,22 @@
-Group Additivity
-================
+Vlachos Group Additivity
+========================
 Python package for group additivity scheme use. See Wiki page for more info. Below are implemented group additivity scheme:
 - Benson's gas molecule group additivity (BensonGA)
 - Salciccioli et al. (2012) adsorbate on Pt(111) group additivity scheme (SalciccioliGA2012)
 - Gu et al. (2017) solvated adsorbate on Pt(111) group additivity scheme (GuSolventGA2017Aq, GuSolventGA2017Vac)
 - Wittreich (2018) adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values
-  regressed with fGLS/GLS (Maximum Liklihood) and DFT data processed with pyMuTT (GRWSurface2018)
+  regressed with OLS/GLS (Maximum Liklihood) and DFT data processed with pMuTT (GRWSurface2018)
 
 Developers
-==========
-Dr. Geun Ho Gu
+----------
+- Dr. Geun Ho Gu
 
 Maintainers
-===========
-Gerhard R Wittreich, P.E. (wittregr@udel.edu)
+-----------
+- Gerhard R Wittreich, P.E. (wittregr@udel.edu)
 
 Required Packages
-=================
+-----------------
 - Python2/Python3
 - rdkit >= 2018.03.4.0
 - ipython >= 7.0.0
@@ -25,7 +25,7 @@ Required Packages
 - yaml >= 0.1.7
 
 Citations
-=========
+---------
 - Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Algorithms of RING", Comput. Chem. Eng. 2014, 64, 124
 - Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Descrpition of RING", Comput. Chem. Eng. 2012, 45, 114
 - Benson et al. "Additivity rules for the estimation of thermochemical properties." Chem. Rev., 1969, 69 (3), 279-324
@@ -37,7 +37,7 @@ Citations
 - Gu et al. "Group Additivity for Aqueous Phase Thermochemical Properties of Alcohols on Pt(111)." J. Phys. Chem. C, submitted
 
 Examples
-========
+--------
 **Benson's Gas Group Additivity Example:**
 ```
 In:
