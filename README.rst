@@ -4,8 +4,7 @@ Python package for group additivity scheme use. See Wiki page for more info. Bel
 - Benson's gas molecule group additivity (BensonGA)
 - Salciccioli et al. (2012) adsorbate on Pt(111) group additivity scheme (SalciccioliGA2012)
 - Gu et al. (2017) solvated adsorbate on Pt(111) group additivity scheme (GuSolventGA2017Aq, GuSolventGA2017Vac)
-- Wittreich (2018) adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values
-  regressed with OLS/GLS (Maximum Liklihood) and DFT data processed with pMuTT (GRWSurface2018)
+- Wittreich (2018) adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values regressed with OLS/GLS (Maximum Liklihood) and DFT data processed with pMuTT (GRWSurface2018)
 
 Developers
 ----------
