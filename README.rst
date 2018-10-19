@@ -40,6 +40,7 @@ Examples
 --------
 **Benson's Gas Group Additivity Example:**
 ::
+
     In:
     from VGA.GroupAdd.Library import GroupLibrary
     import VGA.ThermoChem
@@ -55,6 +56,7 @@ Examples
 
 **Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873–1886 Example:**
 ::
+
     In:
     from VGA.GroupAdd.Library import GroupLibrary
     import VGA.ThermoChem
@@ -70,6 +72,7 @@ Examples
 
 **Gu et al. J. Phys. Chem. C, submitted Example:**
 ::
+
     In:
     from VGA.GroupAdd.Library import GroupLibrary
     import VGA.ThermoChem
@@ -85,6 +88,7 @@ Examples
 
 **Wittreich Example:**
 ::
+
     In:
     from VGA.GroupAdd.Library import GroupLibrary
     import VGA.ThermoChem
