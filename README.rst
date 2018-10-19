@@ -37,7 +37,8 @@ Citations
 
 Examples
 --------
-**Benson's Gas Group Additivity Example:** ::
+**Benson's Gas Group Additivity Example:**
+::
     In\:
     from VGA.GroupAdd.Library import GroupLibrary
     import VGA.ThermoChem
