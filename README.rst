@@ -37,21 +37,20 @@ Citations
 
 Examples
 --------
-**Benson's Gas Group Additivity Example:**
-::
-In:
-from VGA.GroupAdd.Library import GroupLibrary
-import VGA.ThermoChem
-lib = GroupLibrary.Load('BensonGA')
-descriptors = lib.GetDescriptors('C1CO1')
-print(descriptors)
-thermochem = lib.Estimate(descriptors,'thermochem')
-print(thermochem.eval_ND_H(298.15))
+**Benson's Gas Group Additivity Example:**::
+    In:
+    from VGA.GroupAdd.Library import GroupLibrary
+    import VGA.ThermoChem
+    lib = GroupLibrary.Load('BensonGA')
+    descriptors = lib.GetDescriptors('C1CO1')
+    print(descriptors)
+    thermochem = lib.Estimate(descriptors,'thermochem')
+    print(thermochem.eval_ND_H(298.15))
 
-Out:
-defaultdict(int, {'C(C)(H)2(O)': 2, 'O(C)2': 1, 'Oxirane': 1})
--21.09467743150278
-::
+    Out:
+    defaultdict(int, {'C(C)(H)2(O)': 2, 'O(C)2': 1, 'Oxirane': 1})
+    -21.09467743150278
+
 **Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873–1886 Example:**
 ``
 In:
