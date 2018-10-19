@@ -1,4 +1,5 @@
-# Group Additivity
+Group Additivity
+================
 Python package for group additivity scheme use. See Wiki page for more info. Below are implemented group additivity scheme:
 - Benson's gas molecule group additivity (BensonGA)
 - Salciccioli et al. (2012) adsorbate on Pt(111) group additivity scheme (SalciccioliGA2012)
@@ -6,12 +7,25 @@ Python package for group additivity scheme use. See Wiki page for more info. Bel
 - Wittreich (2018) adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values
   regressed with fGLS/GLS (Maximum Liklihood) and DFT data processed with pyMuTT (GRWSurface2018)
 
-**Required Packages**
-- Python 2.7/Python 3.6
-- RDkit (http://www.rdkit.org/)
-- Yaml
+Developers
+==========
+Dr. Geun Ho Gu
 
-**Citations**
+Maintainers
+===========
+Gerhard R Wittreich, P.E. (wittregr@udel.edu)
+
+Required Packages
+=================
+- Python2/Python3
+- rdkit >= 2018.03.4.0
+- ipython >= 7.0.0
+- numpy >= 1.15.2
+- pyyaml >= 3.13
+- yaml >= 0.1.7
+
+Citations
+=========
 - Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Algorithms of RING", Comput. Chem. Eng. 2014, 64, 124
 - Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Descrpition of RING", Comput. Chem. Eng. 2012, 45, 114
 - Benson et al. "Additivity rules for the estimation of thermochemical properties." Chem. Rev., 1969, 69 (3), 279-324
@@ -22,7 +36,8 @@ Python package for group additivity scheme use. See Wiki page for more info. Bel
 - Gu et al. "Group Additivity for Thermochemical Property Estimation of Lignin Monomers on Pt(111)." J. Phys. Chem. C, 2016, 120 (34), 19234-19241
 - Gu et al. "Group Additivity for Aqueous Phase Thermochemical Properties of Alcohols on Pt(111)." J. Phys. Chem. C, submitted
 
-**Example**  
+Examples
+========
 Benson's Gas Group Additivity Example:
 ```
 In:
