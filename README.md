@@ -99,7 +99,7 @@ defaultdict(<class 'int'>, {'C(C)(H)(Pt)2': 1, 'C(C)(CO)(Pt)2': 1, 'CO(C)(H)': 1
                             'CCPt2': 1, 'surface-ring strain': 0.392})
 -13.42320778481884
 
-.. _scipy: https://www.scipy.org/
-.. _rdkit: https://www.rdkit.org/
-.. _numpy: http://www.numpy.org/
-.. _pyyaml: https://pyyaml.org/
+.. _scipy https://www.scipy.org/
+.. _rdkit https://www.rdkit.org/
+.. _numpy http://www.numpy.org/
+.. _pyyaml https://pyyaml.org/
