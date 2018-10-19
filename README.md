@@ -20,9 +20,9 @@ Required Packages
 - Python2/Python3
 - rdkit >= 2018.03.4.0
 - ipython >= 7.0.0
-- numpy >= 1.15.2
-- pyyaml >= 3.13
-- yaml >= 0.1.7
+- numpy >= 1.15.1
+- pyyaml >= 3.0
+- scipy >= 1.1.0
 
 Citations
 ---------
