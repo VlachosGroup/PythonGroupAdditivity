@@ -9,7 +9,7 @@ Python package for group additivity scheme use. See Wiki page for more info. Bel
 
 Developers
 ----------
-- Dr. Geun Ho Gu
+- Geun Ho Gu
 
 Maintainers
 -----------
