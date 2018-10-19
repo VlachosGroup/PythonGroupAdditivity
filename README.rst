@@ -38,10 +38,10 @@ Citations
 Examples
 --------
 **Benson's Gas Group Additivity Example:** ::
-    In:
-    from VGA.GroupAdd.Library import GroupLibrary
-    import VGA.ThermoChem
-    lib = GroupLibrary.Load('BensonGA')
+    In:::
+    from VGA.GroupAdd.Library import GroupLibrary::
+    import VGA.ThermoChem::
+    lib = GroupLibrary.Load('BensonGA')::
     descriptors = lib.GetDescriptors('C1CO1')
     print(descriptors)
     thermochem = lib.Estimate(descriptors,'thermochem')
