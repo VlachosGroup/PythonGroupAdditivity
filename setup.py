@@ -10,7 +10,7 @@ import setuptools
 
 # Import the lengthy rich-text README as the package's long
 # description:
-with open('README.md', 'r') as fh:
+with open('README.rst', 'r') as fh:
 	long_description = fh.read()
 
 setuptools_info = {
@@ -19,13 +19,13 @@ setuptools_info = {
 	'author': 'Vlachos Research Group',
 	'author_email': 'vlachos@udel.edu',
 	'description': 'Python package for group additivity scheme',
-	'long_description': 'Package implements a first-principals semi-empirical (FPSE) group additivity scheme for estimating thermochemical properties',
+	'long_description': long_description,
 	'zip_safe': False,
 	'url': 'https://github.com/VlachosGroup/VlachosGroupAdditivity',
 	'packages': setuptools.find_packages(),
 	'include_package_data': True,
 	'exclude_package_data': {
-		'': [ 'README.md', 'docs', 'example', 'tests', 'PKG-INFO', 'LICENSE.md' ]
+		'': [ 'README.rst', 'docs', 'example', 'tests', 'PKG-INFO', 'LICENSE.md' ]
 	    },
 	'install_requires': [
 		'scipy>=1.1.0',
