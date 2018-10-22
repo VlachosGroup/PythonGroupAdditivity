@@ -42,67 +42,67 @@ Examples
 Benson's Gas Group Additivity Example
 ::
 
-    In:
-    from VGA.GroupAdd.Library import GroupLibrary
-    import VGA.ThermoChem
-    lib = GroupLibrary.Load('BensonGA')
-    descriptors = lib.GetDescriptors('C1CO1')
-    print(descriptors)
-    thermochem = lib.Estimate(descriptors,'thermochem')
-    print(thermochem.eval_ND_H(298.15))
+   In:
+   from VGA.GroupAdd.Library import GroupLibrary
+   import VGA.ThermoChem
+   lib = GroupLibrary.Load('BensonGA')
+   descriptors = lib.GetDescriptors('C1CO1')
+   print(descriptors)
+   thermochem = lib.Estimate(descriptors,'thermochem')
+   print(thermochem.eval_ND_H(298.15))
 
-    Out:
-    defaultdict(int, {'C(C)(H)2(O)': 2, 'O(C)2': 1, 'Oxirane': 1})
-    -21.09467743150278
+   Out:
+   defaultdict(int, {'C(C)(H)2(O)': 2, 'O(C)2': 1, 'Oxirane': 1})
+   -21.09467743150278
 
 Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873\–1886 Example
 ::
 
-    In:
-    from VGA.GroupAdd.Library import GroupLibrary
-    import VGA.ThermoChem
-    lib = GroupLibrary.Load('SalciccioliGA2012')
-    descriptors = lib.GetDescriptors('C([Pt])C[Pt]')
-    print(descriptors)
-    thermochem = lib.Estimate(descriptors,'thermochem')
-    print(thermochem.eval_ND_H(298.15))
+   In:
+   from VGA.GroupAdd.Library import GroupLibrary
+   import VGA.ThermoChem
+   lib = GroupLibrary.Load('SalciccioliGA2012')
+   descriptors = lib.GetDescriptors('C([Pt])C[Pt]')
+   print(descriptors)
+   thermochem = lib.Estimate(descriptors,'thermochem')
+   print(thermochem.eval_ND_H(298.15))
 
-    Out:
-    defaultdict(<class 'int'>, {'C(C)(H)2(Pt)': 2, 'surface-ring strain': 0.217})
-    37.62494617247582
+   Out:
+   defaultdict(<class 'int'>, {'C(C)(H)2(Pt)': 2, 'surface-ring strain': 0.217})
+   37.62494617247582
 
 Gu et al. J. Phys. Chem. C, submitted Example
 ::
 
-    In:
-    from VGA.GroupAdd.Library import GroupLibrary
-    import VGA.ThermoChem
-    lib = GroupLibrary.Load('GuSolventGA2017Aq')
-    descriptors = lib.GetDescriptors('C(=O)([Pt])O')
-    print(descriptors)
-    thermochem = lib.Estimate(descriptors,'thermochem')
-    print(thermochem.eval_ND_H(500))
+   In:
+   from VGA.GroupAdd.Library import GroupLibrary
+   import VGA.ThermoChem
+   lib = GroupLibrary.Load('GuSolventGA2017Aq')
+   descriptors = lib.GetDescriptors('C(=O)([Pt])O')
+   print(descriptors)
+   thermochem = lib.Estimate(descriptors,'thermochem')
+   print(thermochem.eval_ND_H(500))
 
-    Out:
-    defaultdict(<class 'int'>, {'CO(O)(Pt)+O(CO)(H)': 1.0})
-    -109.86212002776878
+   Out:
+   defaultdict(<class 'int'>, {'CO(O)(Pt)+O(CO)(H)': 1.0})
+   -109.86212002776878
 
 Wittreich Example
 ::
 
-    In:
-    from VGA.GroupAdd.Library import GroupLibrary
-    import VGA.ThermoChem
-    lib = GroupLibrary.Load('GRWSurface2018')
-    descriptors = lib.GetDescriptors('[Pt]C([Pt])C([Pt])([Pt])C=O')
-    print(descriptors)
-    thermochem = lib.Estimate(descriptors,'thermochem')
-    print(thermochem.eval_ND_H(750))
+   In:
+   from VGA.GroupAdd.Library import GroupLibrary
+   import VGA.ThermoChem
+   lib = GroupLibrary.Load('GRWSurface2018')
+   descriptors = lib.GetDescriptors('[Pt]C([Pt])C([Pt])([Pt])C=O')
+   print(descriptors)
+   thermochem = lib.Estimate(descriptors,'thermochem')
+   print(thermochem.eval_ND_H(750))
 
-    Out:
-    defaultdict(<class 'int'>, {'C(C)(H)(Pt)2': 1, 'C(C)(CO)(Pt)2': 1, 'CO(C)(H)': 1,
-                                'CPt2CPt2': 1, 'CCPt2': 1, 'surface-ring strain': 0.392})
-    -13.42320778481884
+   Out:
+   defaultdict(<class 'int'>, {'C(C)(H)(Pt)2': 1, 'C(C)(CO)(Pt)2': 1, 'CO(C)(H)': 1,
+                               'CPt2CPt2': 1, 'CCPt2': 1, 'surface-ring strain': 0.392})
+   -13.42320778481884
 
 
 .. _scipy: https://www.scipy.org/
