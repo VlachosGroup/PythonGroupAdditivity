@@ -103,6 +103,7 @@ Examples
                                 'CCPt2': 1, 'surface-ring strain': 0.392})
     -13.42320778481884
 
+
 .. _scipy: https://www.scipy.org/
 .. _rdkit: https://www.rdkit.org/
 .. _numpy: http://www.numpy.org/
