@@ -5,7 +5,7 @@ Python package for group additivity scheme use. See Wiki page for more info. Bel
 -  Benson's gas molecule group additivity (BensonGA)
 -  Salciccioli et al. (2012) adsorbate on Pt(111) group additivity scheme (SalciccioliGA2012)
 -  Gu et al. (2017) solvated adsorbate on Pt(111) group additivity scheme (GuSolventGA2017Aq, GuSolventGA2017Vac)
--  Wittreich (2018) adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values regressed with OLS/GLS (Maximum Liklihood) and DFT data processed with pMuTT (GRWSurface2018)
+-  Wittreich (2018) adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values regressed with OLS/GLS (Maximum Likelihood) and DFT data processed with pMuTT (GRWSurface2018)
 
 Developers
 ----------
@@ -18,11 +18,11 @@ Maintainers
 Required Packages
 -----------------
 -  Python2/Python3
--  `rdkit`_ >= 2018.03.4.0
--  ipython >= 7.0.0
--  `numpy`_ >= 1.15.1
--  `pyyaml`_ >= 3.0
--  `scipy`_ >= 1.1.0
+-  `rdkit`_ : 2018.03.4.0
+-  ipython : 7.0.0
+-  `numpy`_ : 1.15.1
+-  `pyyaml`_ : 3.0
+-  `scipy`_ : 1.1.0
 
 Citations
 ---------
@@ -40,7 +40,6 @@ Examples
 --------
 
 **Benson's Gas Group Additivity Example**
-
 ::
 
     In:
@@ -56,8 +55,8 @@ Examples
     defaultdict(int, {'C(C)(H)2(O)': 2, 'O(C)2': 1, 'Oxirane': 1})
     -21.09467743150278
 
-**Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873 1886 Example**
 
+**Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873 1886 Example**
 ::
 
     In:
@@ -73,8 +72,8 @@ Examples
     defaultdict(<class 'int'>, {'C(C)(H)2(Pt)': 2, 'surface-ring strain': 0.217})
     37.62494617247582
 
-**Gu et al. J. Phys. Chem. C, submitted Example**
 
+**Gu et al. J. Phys. Chem. C, submitted Example**
 ::
 
     In:
@@ -90,9 +89,9 @@ Examples
     defaultdict(<class 'int'>, {'CO(O)(Pt)+O(CO)(H)': 1.0})
     -109.86212002776878
 
-**Wittreich Example**
 
- ::
+**Wittreich Example**
+::
 
     In:
     from VGA.GroupAdd.Library import GroupLibrary
