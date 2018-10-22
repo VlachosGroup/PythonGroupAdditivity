@@ -40,8 +40,7 @@ Citations
 Examples
 --------
 
-**Benson's Gas Group Additivity Example** 
-::
+**Benson's Gas Group Additivity Example::**
 
     In:
     from VGA.GroupAdd.Library import GroupLibrary
@@ -56,8 +55,7 @@ Examples
     defaultdict(int, {'C(C)(H)2(O)': 2, 'O(C)2': 1, 'Oxirane': 1})
     -21.09467743150278
 
-**Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873\–1886 Example** 
-::
+**Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873–1886 Example::**
 
     In:
     from VGA.GroupAdd.Library import GroupLibrary
