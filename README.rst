@@ -39,6 +39,7 @@ Citations
 Examples
 --------
 **Benson's Gas Group Additivity Example**\
+
 ::
 
     In:
@@ -55,6 +56,7 @@ Examples
     -21.09467743150278
 
 **Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873–1886 Example**\
+
 ::
 
     In:
@@ -71,6 +73,7 @@ Examples
     37.62494617247582
 
 **Gu et al. J. Phys. Chem. C, submitted Example**\
+
 ::
 
     In:
@@ -87,6 +90,7 @@ Examples
     -109.86212002776878
 
 **Wittreich Example**\
+
 ::
 
     In:
