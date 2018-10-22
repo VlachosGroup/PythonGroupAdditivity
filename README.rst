@@ -9,14 +9,17 @@ Python package for group additivity scheme use. See Wiki page for more info. Bel
 
 Developers
 ----------
+
 -  Geun Ho Gu
 
 Maintainers
 -----------
+
 -  Gerhard R Wittreich, P.E. (wittregr@udel.edu)
 
 Required Packages
 -----------------
+
 -  Python2/Python3
 -  `rdkit`_ : 2018.03.4.0
 -  ipython : 7.0.0
@@ -26,6 +29,7 @@ Required Packages
 
 Citations
 ---------
+
 -  Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Algorithms of RING", Comput. Chem. Eng. 2014, 64, 124
 -  Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Descrpition of RING", Comput. Chem. Eng. 2012, 45, 114
 -  Benson et al. "Additivity rules for the estimation of thermochemical properties." Chem. Rev., 1969, 69 (3), 279-324
@@ -39,7 +43,7 @@ Citations
 Examples
 --------
 
-**Benson's Gas Group Additivity Example**
+**Benson's Gas Group Additivity Example:** 
 ::
 
     In:
@@ -56,7 +60,7 @@ Examples
     -21.09467743150278
 
 
-**Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873 1886 Example**
+**Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873 1886 Example:** 
 ::
 
     In:
@@ -73,7 +77,7 @@ Examples
     37.62494617247582
 
 
-**Gu et al. J. Phys. Chem. C, submitted Example**
+**Gu et al. J. Phys. Chem. C, submitted Example:** 
 ::
 
     In:
@@ -90,7 +94,7 @@ Examples
     -109.86212002776878
 
 
-**Wittreich Example**
+**Wittreich Example:** 
 ::
 
     In:
@@ -108,7 +112,7 @@ Examples
     -13.42320778481884
 
 
-.. _scipy: https://www.scipy.org/
-.. _rdkit: https://www.rdkit.org/
-.. _numpy: http://www.numpy.org/
-.. _pyyaml: https://pyyaml.org/
+.. _`scipy`: https://www.scipy.org/
+.. _`rdkit`: https://www.rdkit.org/
+.. _`numpy`: http://www.numpy.org/
+.. _`pyyaml`: https://pyyaml.org/
