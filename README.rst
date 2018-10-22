@@ -43,8 +43,7 @@ Citations
 Examples
 --------
 
-**Benson's Gas Group Additivity Example:** 
-::
+**Benson's Gas Group Additivity Example:** ::
 
     In:
     from VGA.GroupAdd.Library import GroupLibrary
@@ -60,8 +59,7 @@ Examples
     -21.09467743150278
 
 
-**Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873 1886 Example:** 
-::
+**Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873 1886 Example:** ::
 
     In:
     from VGA.GroupAdd.Library import GroupLibrary
@@ -77,8 +75,7 @@ Examples
     37.62494617247582
 
 
-**Gu et al. J. Phys. Chem. C, submitted Example:** 
-::
+**Gu et al. J. Phys. Chem. C, submitted Example:** ::
 
     In:
     from VGA.GroupAdd.Library import GroupLibrary
@@ -94,8 +91,7 @@ Examples
     -109.86212002776878
 
 
-**Wittreich Example:** 
-::
+**Wittreich Example:** ::
 
     In:
     from VGA.GroupAdd.Library import GroupLibrary
@@ -110,7 +106,6 @@ Examples
     defaultdict(<class 'int'>, {'C(C)(H)(Pt)2': 1, 'C(C)(CO)(Pt)2': 1, 'CO(C)(H)': 1,
                                 'CPt2CPt2': 1, 'CCPt2': 1, 'surface-ring strain': 0.392})
     -13.42320778481884
-
 
 .. _`scipy`: https://www.scipy.org/
 .. _`rdkit`: https://www.rdkit.org/
