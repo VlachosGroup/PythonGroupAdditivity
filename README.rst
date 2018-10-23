@@ -28,6 +28,52 @@ Required Packages
 -  `pyyaml`_ >= 3.0
 -  `scipy`_ >= 1.1.0
 
+Getting Started
+---------------
+1. Install using pip
+::
+
+   pip install --user VGA
+   
+2. Run the tests by navigating to the `tests directory`_ in a
+   command-line interface and inputting the following command:
+
+::
+
+   python -m unittest
+
+The expected output is shown below. The number of tests will not
+necessarily be the same.
+
+::
+
+   .........................
+   ----------------------------------------------------------------------
+   Ran 25 tests in 0.020s
+
+   OK
+
+3. Look at examples below
+
+License
+-------
+
+This project is licensed under the MIT License - see the `LICENSE.md`_
+file for details.
+
+Contributing
+------------
+
+If you have a suggestion, please post to our `Issues page`_ with the ``enhancement`` tag. Similarly, if you 
+encounter a bug, please post to our `Issues page`_ with the ``bug`` tag. Finally, if you would like to add 
+to the body of code, please check our documentation to make sure the new code is consistent with the relevant 
+page and submit a `pull request`_.
+
+Questions
+---------
+
+If you are having issues, please post to our `Issues page`_ with the ``help wanted`` or ``question`` tag. We 
+will do our best to assist.
 Citations
 ---------
 
@@ -115,3 +161,6 @@ Examples
 .. _`pyyaml`: https://pyyaml.org/
 .. _`SMILES`: https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system
 .. _`pMuTT`: https://github.com/VlachosGroup/pMuTT
+.. _LICENSE.md: https://github.com/VlachosGroup/VlachosGroupAdditivity/blob/master/LICENSE.md
+.. _`Issues page`: https://github.com/VlachosGroup/VlachosGroupAdditivity/issues
+.. _`pull request`: https://github.com/VlachosGroup/VlachosGroupAdditivity/pulls
