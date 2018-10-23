@@ -58,11 +58,13 @@ class GroupAdditivityScheme(Scheme):
             # [JTF] where's our data directory?
             base_path = os.path.join(get_data_dir(), path)
             # Load the scheme.yaml file in that directory:
-            actual_path = os.path.join(base_path,'scheme.yaml')
+            actual_path = os.path.join(base_path, 'scheme.yaml')
         else:
             actual_path = path
         abs_path = os.path.abspath(actual_path)
-        scheme_data = yaml.load(open(abs_path,'r'))
+        fid = open(abs_path, 'r')
+        scheme_data = yaml.load(fid)
+        fid.close()
         # change to molquery
         for i in range(0,len(scheme_data['patterns'])):
             scheme_data['patterns'][i]['connectivity'] = \

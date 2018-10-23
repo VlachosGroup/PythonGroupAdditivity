@@ -1,32 +1,5 @@
-# -*- coding: utf-8 -*-
-from VGA.RINGParser.Reader import Read
-from rdkit import Chem
-# molquery test
-## Basic connectivity test
-testmol = Chem.MolFromSmiles('CCC')
-s = """
-fragment a{
-    C labeled c1
-    C labeled c2 single bond to c1
-}
-"""
-molquery = Read(s)
-match_index = molquery.GetQueryMatches(testmol)
-assert match_index == ((0, 1), (1, 0), (1, 2), (2, 1))
-## Double bond, triple bond test
-testmol = Chem.MolFromSmiles('C=C-C#C')
-s = """
-fragment a{
-    C labeled c1
-    C labeled c2 double bond to c1
-    C labeled c3 single bond to c2
-    C labeled c4 triple bond to c3
-}
-"""
-molquery = Read(s)
-match_index = molquery.GetQueryMatches(testmol)
-assert match_index == ((0,1,2,3),)
-## aromatic bond test
+
+# aromatic bond test
 testmol = Chem.MolFromSmiles('c1ccccc1')
 s = """
 fragment a{
@@ -37,7 +10,8 @@ fragment a{
 molquery = Read(s)
 match_index = molquery.GetQueryMatches(testmol)
 assert match_index == ((0, 1), (0, 5), (1, 0), (1, 2), (2, 1), (2, 3), (3, 2), (3, 4), (4, 3), (4, 5), (5, 0), (5, 4))
-## ring bond test
+
+# ring bond test
 testmol = Chem.MolFromSmiles('CCC1CCC1')
 s = """
 fragment a{
@@ -62,7 +36,8 @@ fragment a{
 molquery = Read(s)
 match_index = molquery.GetQueryMatches(testmol)
 assert match_index == ((2, 3), (2, 5), (3, 2), (3, 4), (4, 3), (4, 5), (5, 2), (5, 4))
-## non-ring bond test
+
+# non-ring bond test
 testmol = Chem.MolFromSmiles('CCC1CCC1')
 s = """
 fragment a{
@@ -73,7 +48,8 @@ fragment a{
 molquery = Read(s)
 match_index = molquery.GetQueryMatches(testmol)
 assert match_index == ((0, 1), (1, 0), (1, 2), (2, 1))
-## any bond test
+
+# any bond test
 testmol = Chem.MolFromSmiles('CC=CC#C')
 s = """
 fragment a{
@@ -84,7 +60,8 @@ fragment a{
 molquery = Read(s)
 match_index = molquery.GetQueryMatches(testmol)
 assert match_index == ((0, 1), (1, 0), (1, 2), (2, 1), (2, 3), (3, 2), (3, 4), (4, 3))
-## strong bond test
+
+# strong bond test
 testmol = Chem.MolFromSmiles('CC=CC#C')
 s = """
 fragment a{
@@ -95,27 +72,8 @@ fragment a{
 molquery = Read(s)
 match_index = molquery.GetQueryMatches(testmol)
 assert match_index == ((1, 2), (2, 1), (3, 4), (4, 3))
-## fragment prefix test
-testmol = Chem.MolFromSmiles('C[CH2+]')
-s = """
-positive fragment a{
-    C labeled c1
-    C labeled c2 single bond to c1
-}
-"""
-molquery = Read(s)
-match_index = molquery.GetQueryMatches(testmol)
-assert match_index == ((0, 1), (1, 0))
-testmol = Chem.MolFromSmiles('C[CH2-]')
-s = """
-negative fragment a{
-    C labeled c1
-    C labeled c2 single bond to c1
-}
-"""
-molquery = Read(s)
-match_index = molquery.GetQueryMatches(testmol)
-assert match_index == ((0, 1), (1, 0))
+
+
 testmol = Chem.MolFromSmiles('C[CH2-]')
 s = """
 positive fragment a{
@@ -230,22 +188,7 @@ fragment a{
 molquery = Read(s)
 match_index = molquery.GetQueryMatches(testmol)
 assert match_index == ((1, 2),)
-testmol = Chem.MolFromSmiles('[CH][CH][C+][C-][C][CH+][CH-][CH4+]')
-s = """
-fragment a{
-    X. labeled c1
-    X: labeled c2 single bond to c1
-    C+. labeled c3 single bond to c2
-    C-. labeled c4 single bond to c3
-    C: labeled c5 single bond to c4
-    C+ labeled c6 single bond to c5
-    C- labeled c7 single bond to c6
-    C* labeled c8 single bond to c7
-}
-"""
-molquery = Read(s)
-match_index = molquery.GetQueryMatches(testmol)
-assert match_index == ((0, 1, 2, 3, 4, 5, 6, 7),)
+
 # atom constraint test
 testmol = Chem.MolFromSmiles('CCC')
 s = """
@@ -337,6 +280,59 @@ fragment a{
 molquery = Read(s)
 match_index = molquery.GetQueryMatches(testmol)
 assert match_index == ((0, 1),)
+
+
+
+
+
+
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Oct 23 11:22:49 2018
+
+@author: gerha
+"""
+
+## fragment prefix test
+testmol = Chem.MolFromSmiles('C[CH2+]')
+s = """
+positive fragment a{
+    C labeled c1
+    C labeled c2 single bond to c1
+}
+"""
+molquery = Read(s)
+match_index = molquery.GetQueryMatches(testmol)
+assert match_index == ((0, 1), (1, 0))
+
+testmol = Chem.MolFromSmiles('C[CH2-]')
+s = """
+negative fragment a{
+    C labeled c1
+    C labeled c2 single bond to c1
+}
+"""
+molquery = Read(s)
+match_index = molquery.GetQueryMatches(testmol)
+assert match_index == ((0, 1), (1, 0))
+
+testmol = Chem.MolFromSmiles('[CH][CH][C+][C-][C][CH+][CH-][CH4+]')
+s = """
+fragment a{
+    X. labeled c1
+    X: labeled c2 single bond to c1
+    C+. labeled c3 single bond to c2
+    C-. labeled c4 single bond to c3
+    C: labeled c5 single bond to c4
+    C+ labeled c6 single bond to c5
+    C- labeled c7 single bond to c6
+    C* labeled c8 single bond to c7
+}
+"""
+molquery = Read(s)
+match_index = molquery.GetQueryMatches(testmol)
+assert match_index == ((0, 1, 2, 3, 4, 5, 6, 7),)
+
 # Reaction
 ## Break Bond, Form bond, Decrease bond order
 reactants = list()
@@ -360,6 +356,7 @@ reaction_query = Read(s)
 pl = reaction_query.RunReactants(reactants)
 for products in pl:
     assert Chem.MolToSmiles(products[0]) == '[H]C([H])=C([H])[H]'
+
 ## Break Bond, Form bond, Modify Bond
 reactants = list()
 reactants.append(Chem.MolFromSmiles('C#C'))
@@ -382,6 +379,7 @@ reaction_query = Read(s)
 pl = reaction_query.RunReactants(reactants)
 for products in pl:
     assert Chem.MolToSmiles(products[0]) == '[H]C([H])=C([H])[H]'
+
 ## Break Bond, Form bond, Increase bond order
 reactants = list()
 reactants.append(Chem.MolFromSmiles('CC'))
@@ -403,6 +401,7 @@ pl = reaction_query.RunReactants(reactants)
 for products in pl:
     assert Chem.MolToSmiles(products[0]) == '[H]C([H])=C([H])[H]'
     assert Chem.MolToSmiles(products[1]) == '[H][H]'
+
 ## Break Bond, Form bond, Atom Modify
 reactants = list()
 reactants.append(Chem.MolFromSmiles('C#C'))
@@ -420,7 +419,8 @@ reaction_query = Read(s)
 pl = reaction_query.RunReactants(reactants)
 for products in pl:
     assert Chem.MolToSmiles(products[0]) == '[H][C]=[C][H]'
-## Break Bond, Form bond, Increase Radical electrons
+    
+# Break Bond, Form bond, Increase Radical electrons
 reactants = list()
 reactants.append(Chem.MolFromSmiles('C#C'))
 s = """
@@ -437,7 +437,8 @@ reaction_query = Read(s)
 pl = reaction_query.RunReactants(reactants)
 for products in pl:
     assert Chem.MolToSmiles(products[0]) == '[H][C]=[C][H]'
-## Break Bond, Form bond, Increase Radical electrons
+
+# Break Bond, Form bond, Increase Radical electrons
 reactants = list()
 reactants.append(Chem.MolFromSmiles('[CH][CH]'))
 s = """
@@ -454,7 +455,8 @@ reaction_query = Read(s)
 pl = reaction_query.RunReactants(reactants)
 for products in pl:
     assert Chem.MolToSmiles(products[0]) == '[H][C]=[C][H]'
-## Break Bond, Form bond, modify Radical electrons
+
+# Break Bond, Form bond, modify Radical electrons
 reactants = list()
 reactants.append(Chem.MolFromSmiles('[CH][CH]'))
 s = """
