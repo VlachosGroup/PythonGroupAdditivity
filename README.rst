@@ -22,11 +22,11 @@ Required Packages
 -----------------
 
 -  Python2/Python3
--  `rdkit`_ : 2018.03.4.0
--  ipython : 7.0.0
--  `numpy`_ : 1.15.1
--  `pyyaml`_ : 3.0
--  `scipy`_ : 1.1.0
+-  `rdkit`_ >= 2018.03.4.0
+-  ipython >= 7.0.0
+-  `numpy`_ >= 1.15.1
+-  `pyyaml`_ >= 3.0
+-  `scipy`_ >= 1.1.0
 
 Citations
 ---------
