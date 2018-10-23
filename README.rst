@@ -34,7 +34,8 @@ Getting Started
 ::
 
    pip install --user VGA
-   
+
+
 2. Look at examples below
 
 License
