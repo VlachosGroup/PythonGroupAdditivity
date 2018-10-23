@@ -35,7 +35,7 @@ Getting Started
 
     pip install --user VGA
 
-2. Run the unit tests. Navigate to the **tests"" directory, input the command, and look for an ""OK"" response. (**Note:** The number of tests may change with subsequent version)::
+2. Run the unit tests. Navigate to the **tests**\  directory, input the command shown below, and look for an **OK**\  response. (**Note:**\  The number of tests/time may change with subsequent version)::
 
     python -m unittest
     
