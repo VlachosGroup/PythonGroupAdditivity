@@ -106,7 +106,7 @@ Examples
     defaultdict(<class 'int'>, {'C(C)(H)2(Pt)': 2, 'surface-ring strain': 0.217})
     37.62494617247582
 
-**Gu et al. J. Phys. Chem. C, submitted Example**::
+**Gu et al. J. Phys. Chem. C, 2017, 121 pp 21510–21519 Example**::
 
     In:
     from VGA.GroupAdd.Library import GroupLibrary
