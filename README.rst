@@ -35,25 +35,7 @@ Getting Started
 
    pip install --user VGA
    
-2. Run the tests by navigating to the `tests directory`_ in a
-   command-line interface and inputting the following command:
-
-::
-
-   python -m unittest
-
-The expected output is shown below. The number of tests will not
-necessarily be the same.
-
-::
-
-   .........................
-   ----------------------------------------------------------------------
-   Ran 25 tests in 0.020s
-
-   OK
-
-3. Look at examples below
+2. Look at examples below
 
 License
 -------
