@@ -1,6 +1,6 @@
 Vlachos Group Additivity
 ========================
-Python package for group additivity scheme use. See Wiki page for more info. Below are implemented group additivity schemes.
+     Python package implements the Group Additivity (GA) method for estimating thermodynamic properties of molecules. First introduced by Benson etal for gas molecules and was later extended by Kua etal to species adsorbed on catalytic surfaces. GA relies on graph theory defining each molecule as a collection of groups and their frequency of occurrence. The values of GA groups are determined from DFT-calculated thermodynamic properties of a (training) set of molecules by linear regression to minimize the difference of thermodynamic properties of molecules predicted by the GA from those estimated via DFT. This package implements four group additivity schemes (See below) and will convert a molecule entered as a simplified molecular-input line-entry system (SMILES) providing the constituent groups, their frequency of occurance, and estimated thermodynamic properties for that molecule.
 
 -  Benson's gas molecule group additivity (BensonGA)
 -  Salciccioli et al. (2012) adsorbate on Pt(111) group additivity scheme (SalciccioliGA2012)
@@ -34,11 +34,13 @@ Citations
 -  Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Descrpition of RING", Comput. Chem. Eng. 2012, 45, 114
 -  Benson et al. "Additivity rules for the estimation of thermochemical properties." Chem. Rev., 1969, 69 (3), 279-324
 -  Salciccioli et al. "Density Functional Theory-Derived Group Additivity and Linear Scaling Methods for Prediction of Oxygenate Stability on Metal Catalysts: Adsorption of Open-Ring Alcohol and Polyol Dehydrogenation Intermediates on Pt-Based Metals." J. Phys. Chem. C, 2010, 114 (47) 20155-20166
+-  Kua J, Goddard WA (1998) Chemisorption of Organics on Platinum. 2. Chemisorption of C 2 H x and CH x on Pt(111). J Phys Chem B 102:9492–9500
+-  Kua J, Faglioni F, Goddard WA (2000) Thermochemistry for hydrocarbon intermediates chemisorbed on metal surfaces: CH(n-m)(CH3)(m) with n = 1, 2, 3 and m ≤ n on Pt, Ir, Os, Pd, Rh, and Ru. J Am Chem Soc 122:2309–2321
 -  Salciccioli et al. "Adsorption of Acid, Ester, and Ether Functional Groups on Pt: Fast Prediction of Thermochemical Properties of Adsorbed Oxygenates via DFT-Based Group Additivity Methods." J. Phys. Chem. C, 2012, 116(2), 1873-1886
 -  Vorotnikov et al. "Group Additivity for Estimating Thermochemical Properties of Furanic Compounds on Pd(111)." Ind. Eng. Chem. Res., 2014, 53 (30), 11929-11938
 -  Vorotnikov et al. "Group Additivity and Modified Linear Scaling Relations for Estimating Surface Thermochemistry on Transition Metal Surfaces: Application to Furanics." J. Phys. Chem. C, 2015, 119 (19), 10417-10426
 -  Gu et al. "Group Additivity for Thermochemical Property Estimation of Lignin Monomers on Pt(111)." J. Phys. Chem. C, 2016, 120 (34), 19234-19241
--  Gu et al. "Group Additivity for Aqueous Phase Thermochemical Properties of Alcohols on Pt(111)." J. Phys. Chem. C, submitted
+-  Gu GH, Schweitzer B, Michel C, et al (2017) Group additivity for aqueous phase thermochemical properties of alcohols on Pt(111). J Phys Chem C 121:21510–21519
 
 Examples
 --------
