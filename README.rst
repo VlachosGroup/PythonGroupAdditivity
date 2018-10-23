@@ -6,7 +6,7 @@ Python package implements the Group Additivity (GA) method for estimating thermo
 -  Benson's gas molecule group additivity (BensonGA)
 -  Salciccioli et al. (2012) adsorbate on Pt(111) group additivity scheme (SalciccioliGA2012)
 -  Gu et al. (2017) solvated adsorbate on Pt(111) group additivity scheme (GuSolventGA2017Aq, GuSolventGA2017Vac)
--  Wittreich (2018) adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values regressed with OLS/GLS (Maximum Likelihood) and DFT data processed with pMuTT (GRWSurface2018)
+-  Wittreich (2018) adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values regressed with OLS/GLS (Maximum Likelihood) and DFT data processed with `pMuTT`_ (GRWSurface2018)
 
 Developers
 ----------
@@ -114,3 +114,4 @@ Examples
 .. _`numpy`: http://www.numpy.org/
 .. _`pyyaml`: https://pyyaml.org/
 .. _`SMILES`: https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system
+.. _`pMuTT`: https://github.com/VlachosGroup/pMuTT
