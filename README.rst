@@ -30,11 +30,10 @@ Required Packages
 
 Getting Started
 ---------------
-1. Install using pip
-::
+
+1. Install using pip::
 
    pip install --user VGA
-
 
 2. Look at examples below
 
