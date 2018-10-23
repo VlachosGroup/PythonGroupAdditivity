@@ -33,7 +33,7 @@ Getting Started
 
 1. Install using pip::
 
-   pip install --user VGA
+    pip install --user VGA
 
 2. Look at examples below
 
