@@ -15,12 +15,12 @@ with open('README.rst', 'r') as fh:
 
 setuptools_info = {
 	'name': 'VGA',
-	'version': '1.0.32',
+	'version': '1.0.52',
 	'author': 'Vlachos Research Group',
 	'author_email': 'vlachos@udel.edu',
 	'description': 'Python package for group additivity scheme',
 	'long_description': long_description,
-	'zip_safe': True,
+	'zip_safe': False,
 	'url': 'https://github.com/VlachosGroup/VlachosGroupAdditivity',
 	'packages': setuptools.find_packages(),
 	'include_package_data': True,
@@ -49,6 +49,6 @@ if sys.version_info[0] >= 3:
 	#
 	# Augment for Python 3 setuptools:
 	#
-	setuptools_info['long_description_content_type'] = 'text/markdown'
+	setuptools_info['long_description_content_type'] = 'text/x-rst'
 
 setuptools.setup(**setuptools_info)

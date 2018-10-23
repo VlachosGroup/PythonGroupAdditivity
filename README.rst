@@ -1,6 +1,5 @@
 Vlachos Group Additivity
 ========================
-
 Python package for group additivity scheme use. See Wiki page for more info. Below are implemented group additivity schemes.
 
 -  Benson's gas molecule group additivity (BensonGA)
@@ -44,7 +43,7 @@ Citations
 Examples
 --------
 
-**Benson's Gas Group Additivity Example:** ::
+**Benson's Gas Group Additivity Example**::
 
     In:
     from VGA.GroupAdd.Library import GroupLibrary
@@ -60,7 +59,7 @@ Examples
     -21.09467743150278
 
 
-**Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873 1886 Example:** ::
+**Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873-1886 Example**::
 
     In:
     from VGA.GroupAdd.Library import GroupLibrary
@@ -75,8 +74,7 @@ Examples
     defaultdict(<class 'int'>, {'C(C)(H)2(Pt)': 2, 'surface-ring strain': 0.217})
     37.62494617247582
 
-
-**Gu et al. J. Phys. Chem. C, submitted Example:** ::
+**Gu et al. J. Phys. Chem. C, submitted Example**::
 
     In:
     from VGA.GroupAdd.Library import GroupLibrary
@@ -92,7 +90,7 @@ Examples
     -109.86212002776878
 
 
-**Wittreich Example:** ::
+**Wittreich Example**::
 
     In:
     from VGA.GroupAdd.Library import GroupLibrary
