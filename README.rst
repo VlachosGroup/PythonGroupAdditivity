@@ -1,7 +1,7 @@
-==================================================
- **V**\ lachos **G**\ roup **A**\ dditivity (VGA)
-==================================================
-Python package implements the Group Additivity (GA) method for estimating thermodynamic properties of molecules. First introduced by Benson etal for gas molecules and was later extended by Kua etal to species adsorbed on catalytic surfaces. GA relies on graph theory defining each molecule as a collection of groups and their frequency of occurrence. The values of GA groups are determined from DFT-calculated thermodynamic properties of a (training) set of molecules by linear regression to minimize the difference of thermodynamic properties of molecules predicted by the GA from those estimated via DFT. This package implements four group additivity schemes (See below) and will convert a molecule entered as a simplified molecular-input line-entry system (`SMILES`_) providing the constituent groups, their frequency of occurance, and estimated thermodynamic properties for that molecule. VGA also provides a general GA framework for implementing a custom group additivity scheme from your own *ab initio*\  data and regression to groups.
+================================
+ Vlachos Group Additivity (VGA)
+================================
+Python package implements the Group Additivity (GA) method for estimating thermodynamic properties of molecules. First introduced by Benson et al for gas molecules and was later extended by Kua et al to species adsorbed on catalytic surfaces. GA relies on graph theory defining each molecule as a collection of groups and their frequency of occurrence. The values of GA groups are determined from DFT-calculated thermodynamic properties of a (training) set of molecules by linear regression to minimize the difference of thermodynamic properties of molecules predicted by the GA from those estimated via DFT. This package implements four group additivity schemes (See below) and will convert a molecule entered as a simplified molecular-input line-entry system (`SMILES`_) providing the constituent groups, their frequency of occurance, and estimated thermodynamic properties for that molecule. VGA also provides a general GA framework for implementing a custom group additivity scheme from your own *ab initio*\  data and regression to groups.
 
 -  Benson's gas molecule group additivity (BensonGA)
 -  Salciccioli et al. (2012) adsorbate on Pt(111) group additivity scheme (SalciccioliGA2012)
@@ -50,16 +50,12 @@ Getting Started
 License
 -------
 
-This project is licensed under the MIT License - see the `LICENSE.md`_
-file for details.
+This project is licensed under the MIT License - see the `LICENSE`_ file for details.
 
 Contributing
 ------------
 
-If you have a suggestion, please post to our `Issues page`_ with the ``enhancement`` tag. Similarly, if you 
-encounter a bug, please post to our `Issues page`_ with the ``bug`` tag. Finally, if you would like to add 
-to the body of code, please check our documentation to make sure the new code is consistent with the relevant 
-page and submit a `pull request`_.
+If you have a suggestion, please post to our `Issues page`_ with the ``enhancement`` tag. Similarly, if you encounter a bug, please post to our `Issues page`_ with the ``bug`` tag. Finally, if you would like to add to the body of code, please check our documentation to make sure the new code is consistent with the relevant page and submit a `pull request`_.
 
 Questions
 ---------
@@ -154,6 +150,6 @@ Examples
 .. _`pyyaml`: https://pyyaml.org/
 .. _`SMILES`: https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system
 .. _`pMuTT`: https://github.com/VlachosGroup/pMuTT
-.. _LICENSE.md: https://github.com/VlachosGroup/VlachosGroupAdditivity/blob/master/LICENSE.md
+.. _LICENSE: https://github.com/VlachosGroup/VlachosGroupAdditivity/blob/master/LICENSE.md
 .. _`Issues page`: https://github.com/VlachosGroup/VlachosGroupAdditivity/issues
 .. _`pull request`: https://github.com/VlachosGroup/VlachosGroupAdditivity/pulls
