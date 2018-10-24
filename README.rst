@@ -1,7 +1,7 @@
-==========================
- Vlachos Group Additivity
-==========================
-Python package implements the Group Additivity (GA) method for estimating thermodynamic properties of molecules. First introduced by Benson etal for gas molecules and was later extended by Kua etal to species adsorbed on catalytic surfaces. GA relies on graph theory defining each molecule as a collection of groups and their frequency of occurrence. The values of GA groups are determined from DFT-calculated thermodynamic properties of a (training) set of molecules by linear regression to minimize the difference of thermodynamic properties of molecules predicted by the GA from those estimated via DFT. This package implements four group additivity schemes (See below) and will convert a molecule entered as a simplified molecular-input line-entry system (`SMILES`_) providing the constituent groups, their frequency of occurance, and estimated thermodynamic properties for that molecule.
+==================================================
+ **V**\ lachos **G**\ roup **A**\ dditivity (VGA)
+==================================================
+Python package implements the Group Additivity (GA) method for estimating thermodynamic properties of molecules. First introduced by Benson etal for gas molecules and was later extended by Kua etal to species adsorbed on catalytic surfaces. GA relies on graph theory defining each molecule as a collection of groups and their frequency of occurrence. The values of GA groups are determined from DFT-calculated thermodynamic properties of a (training) set of molecules by linear regression to minimize the difference of thermodynamic properties of molecules predicted by the GA from those estimated via DFT. This package implements four group additivity schemes (See below) and will convert a molecule entered as a simplified molecular-input line-entry system (`SMILES`_) providing the constituent groups, their frequency of occurance, and estimated thermodynamic properties for that molecule. VGA also provides a general GA framework for implementing a custom group additivity scheme from your own *ab initio*\  data and regression to groups.
 
 -  Benson's gas molecule group additivity (BensonGA)
 -  Salciccioli et al. (2012) adsorbate on Pt(111) group additivity scheme (SalciccioliGA2012)
