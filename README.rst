@@ -78,6 +78,11 @@ Citations
 -  Gu et al. "Group Additivity for Thermochemical Property Estimation of Lignin Monomers on Pt(111)." J. Phys. Chem. C, 2016, 120 (34), 19234-19241
 -  Gu GH, Schweitzer B, Michel C, et al (2017) Group additivity for aqueous phase thermochemical properties of alcohols on Pt(111). J Phys Chem C 121:21510–21519
 
+Special Thanks
+--------------
+
+-  Dr. Jeffrey Frey (pip and conda compatibility)
+
 Examples
 --------
 
