@@ -63,6 +63,11 @@ Questions
 If you are having issues, please post to our `Issues page`_ with the ``help wanted`` or ``question`` tag. We 
 will do our best to assist.
 
+Special Thanks
+--------------
+
+-  Dr. Jeffrey Frey (pip and conda compatibility)
+
 Citations
 ---------
 
@@ -77,11 +82,6 @@ Citations
 -  Vorotnikov et al. "Group Additivity and Modified Linear Scaling Relations for Estimating Surface Thermochemistry on Transition Metal Surfaces: Application to Furanics." J. Phys. Chem. C, 2015, 119 (19), 10417-10426
 -  Gu et al. "Group Additivity for Thermochemical Property Estimation of Lignin Monomers on Pt(111)." J. Phys. Chem. C, 2016, 120 (34), 19234-19241
 -  Gu GH, Schweitzer B, Michel C, et al (2017) Group additivity for aqueous phase thermochemical properties of alcohols on Pt(111). J Phys Chem C 121:21510–21519
-
-Special Thanks
---------------
-
--  Dr. Jeffrey Frey (pip and conda compatibility)
 
 Examples
 --------
