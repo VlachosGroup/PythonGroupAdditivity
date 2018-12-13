@@ -12,6 +12,7 @@ Developers
 ----------
 
 -  Geun Ho Gu
+-  Gerhard R Wittreich, P.E.
 
 Maintainers
 -----------
