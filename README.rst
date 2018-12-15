@@ -12,6 +12,8 @@ Developers
 ----------
 
 -  Geun Ho Gu
+-  Michael Salciccioli
+-  Stephen M. Edie
 -  Gerhard R Wittreich, P.E.
 
 Maintainers
