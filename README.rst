@@ -7,6 +7,7 @@ Python package implements the Group Additivity (GA) method for estimating thermo
 -  Salciccioli et al. (2012) adsorbate on Pt(111) group additivity scheme (SalciccioliGA2012)
 -  Gu et al. (2017) solvated adsorbate on Pt(111) group additivity scheme (GuSolventGA2017Aq, GuSolventGA2017Vac)
 -  Wittreich (2018) adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values regressed with OLS/GLS (Maximum Likelihood) and DFT data processed with `pMuTT`_ (GRWSurface2018)
+-  Wittreich (2018) solvated adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values regressed with OLS/GLS (Maximum Likelihood) and DFT data processed with `pMuTT`_ (GRWAqueous2018)
 
 Developers
 ----------
@@ -136,7 +137,7 @@ Examples
     -109.86212002776878
 
 
-**Wittreich Example**::
+**Wittreich Surface Example**::
 
     In:
     from VGA.GroupAdd.Library import GroupLibrary
@@ -151,6 +152,21 @@ Examples
     defaultdict(<class 'int'>, {'C(C)(H)(Pt)2': 1, 'C(C)(CO)(Pt)2': 1, 'CO(C)(H)': 1,
                                 'CPt2CPt2': 1, 'CCPt2': 1, 'surface-ring strain': 0.392})
     -13.42320778481884
+
+**Wittreich Solvated Surface Example**::
+
+    In:
+    from VGA.GroupAdd.Library import GroupLibrary
+    import VGA.ThermoChem
+    lib = GroupLibrary.Load('GRWAqueous2018')
+    descriptors = lib.GetDescriptors('C(=O)([Pt])O')
+    print(descriptors)
+    thermochem = lib.Estimate(descriptors,'thermochem')
+    print(thermochem.eval_ND_H(500))
+
+    Out:
+    defaultdict(<class 'int'>, {'CO(O)(Pt)+O(CO)(H)': 1.0})
+    -107.57909464133714
 
 .. _`scipy`: https://www.scipy.org/
 .. _`rdkit`: https://www.rdkit.org/
