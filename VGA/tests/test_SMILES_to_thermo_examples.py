@@ -38,7 +38,7 @@ class TestExamples(unittest.TestCase):
         self.assertAlmostEqual(HoRT, -109.86212002776878)
         self.assertEqual(descriptors, GroupDict)
 
-    def test_Wittreich(self):
+    def test_Wittreich_Surface(self):
         lib = GroupLibrary.Load('GRWSurface2018')
         descriptors = lib.GetDescriptors('[Pt]C([Pt])C([Pt])([Pt])C=O')
         thermochem = lib.Estimate(descriptors, 'thermochem')
@@ -48,6 +48,14 @@ class TestExamples(unittest.TestCase):
         self.assertAlmostEqual(HoRT, -13.42320778481884)
         self.assertEqual(descriptors, GroupDict)
 
+    def test_Wittreich_Aqueous(self):
+        lib = GroupLibrary.Load('GRWAqueous2018')
+        descriptors = lib.GetDescriptors('C(=O)([Pt])O')
+        thermochem = lib.Estimate(descriptors, 'thermochem')
+        GroupDict = {'CO(O)(Pt)+O(CO)(H)': 1.0}
+        HoRT = thermochem.eval_ND_H(500)
+        self.assertAlmostEqual(HoRT, -107.57909464133714)
+        self.assertEqual(descriptors, GroupDict)
 
 if __name__ == '__main__':
     unittest.main()
