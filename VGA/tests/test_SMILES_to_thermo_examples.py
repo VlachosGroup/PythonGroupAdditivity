@@ -45,7 +45,7 @@ class TestExamples(unittest.TestCase):
         GroupDict = {'C(C)(H)(Pt)2': 1, 'C(C)(CO)(Pt)2': 1, 'CO(C)(H)': 1,
                      'CPt2CPt2': 1, 'CCPt2': 1, 'surface-ring strain': 0.392}
         HoRT = thermochem.eval_ND_H(750)
-        self.assertAlmostEqual(HoRT, -13.42320778481884)
+        self.assertAlmostEqual(HoRT, -13.423119203382337)
         self.assertEqual(descriptors, GroupDict)
 
     def test_Wittreich_Aqueous(self):
