@@ -81,10 +81,10 @@ class BondConstraint(object):
 class BondQuery(object):
     def __init__(self, RINGbondname):
         if RINGbondname not in ['single', 'double', 'triple',
-                                'quadruple', 'ring', 'nonring'
+                                'quadruple', 'ring', 'nonring',
                                 'aromatic', 'any', 'strong', 'partial']:
             raise NotImplementedError("Unsupported bond type '"
-                                      + RINGbondname+"'")
+                                      + RINGbondname + "'")
         self.RINGbondname = RINGbondname
 
     def __call__(self, rdkitbond):
