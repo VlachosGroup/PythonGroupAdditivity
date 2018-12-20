@@ -32,4 +32,3 @@ __all__ = sum((getattr(globals()[module], '__all__') for module in [
     'base', 'raw_data', 'incomplete', 'group_data']), [])
 
 del base, raw_data, incomplete, group_data
-

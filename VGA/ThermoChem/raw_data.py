@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.interpolate import InterpolatedUnivariateSpline
 from scipy.integrate import quad as integrate
-
+from .. import yaml_io
 from ..Consts import GAS_CONSTANT as R
 from .base import ThermochemBase
 
@@ -14,7 +14,7 @@ class ThermochemRawData(ThermochemBase):
     :ref:`correlations documentation <correlations>`.
     """
     def __init__(self, ND_H_ref, ND_S_ref, Ts, ND_Cps, T_ref=298.15,
-            range=None):
+                 range=None):
         """
         Initialize a thermochemical property correlation from raw data.
 
@@ -39,7 +39,7 @@ class ThermochemRawData(ThermochemBase):
              points in ND_Cp.
         """
         (self.Ts, self.ND_Cps) = list(zip(*sorted(
-            zip(Ts, ND_Cps), key=lambda T_ND_Cps:T_ND_Cps[0])))
+            zip(Ts, ND_Cps), key=lambda T_ND_Cps: T_ND_Cps[0])))
         self.min_T = Ts[0]
         self.max_T = Ts[-1]
 
@@ -49,11 +49,11 @@ class ThermochemRawData(ThermochemBase):
             if self.min_T < range[0] or self.max_T > range[1]:
                 raise ValueError(
                     'Heat capacity data points %g or %g lie outside of range'
-                    ' [%g,%g].'%(self.min_T, self.max_T, range[0], range[1]))
+                    ' [%g,%g].' % (self.min_T, self.max_T, range[0], range[1]))
         if T_ref < range[0] or T_ref > range[1]:
             raise ValueError(
                 'T_ref=%g is outside the valid correlation range [%g,%g].'
-                %(T_ref, range[0], range[1]))
+                % (T_ref, range[0], range[1]))
 
         ThermochemBase.__init__(self, range)
 
@@ -83,7 +83,7 @@ class ThermochemRawData(ThermochemBase):
             return self.max_ND_Cp
 
         # Work-around for SciPy bug (?):
-        #return self.spline(T)
+        # return self.spline(T)
         return float(self.spline(T))
 
     def _eval_ND_Cp_ar(self, T):
@@ -128,7 +128,7 @@ class ThermochemRawData(ThermochemBase):
 
         # The easiest, albeit not necessarily the best thing to do here is to
         # use numerical integration, so that's what we do.
-        return ND_S + integrate(lambda t : self.spline(t)/t, T_a, T_b)[0]
+        return ND_S + integrate(lambda t: self.spline(t)/t, T_a, T_b)[0]
 
     def eval_ND_H(self, T):
         """Return non-dimensional standard heat of formation |eq_ND_H_T|."""
@@ -254,10 +254,10 @@ S_ref:
   desc: reference entropy
 """
 
-from .. import yaml_io
 
 yaml_io.register_class('ThermochemRawData',
-    yaml_io.parse(ThermochemRawData._yaml_schema), ThermochemRawData)
+                       yaml_io.parse(ThermochemRawData._yaml_schema),
+                       ThermochemRawData)
 
 
 class ConstantSpline(object):

@@ -16,7 +16,8 @@ __all__ = ['ThermochemIncomplete']
 
 class ThermochemIncomplete(ThermochemBase):
     """
-    Implement thermochemical property correlation for data missing heat capacity.
+    Implement thermochemical property correlation for data missing
+    heat capacity.
 
     Attempts to evaluate |eq_ND_H_T| or |eq_ND_S_T| will fail by raising
     :exc:`chemtk.error.IncompleteDataError` if `ND_H_ref` or `ND_S_ref`
@@ -32,7 +33,7 @@ class ThermochemIncomplete(ThermochemBase):
     :class:`chemtk.thermochem.ThermochemRawData` correlation.
     """
     def __init__(self, ND_H_ref=None, ND_S_ref=None, ND_Cp_data={},
-        T_ref=298.15, range=None):
+                 T_ref=298.15, range=None):
         """
         Initialize thermochemical property correlation for incomplete data.
 
@@ -67,7 +68,7 @@ class ThermochemIncomplete(ThermochemBase):
             return [], []
         else:
             return list(zip(*sorted(
-                list(ND_Cp_data.items()), key=lambda item : item[0])))
+                list(ND_Cp_data.items()), key=lambda item: item[0])))
 
     def _setup_correlation(self):
         if hasattr(self, '_correlation'):
@@ -134,7 +135,8 @@ class ThermochemIncomplete(ThermochemBase):
                 return self._correlation.eval_ND_Cp(T)
             except OutsideCorrelationError:
                 raise IncompleteDataError(
-                    "Cannot evaluate ND_Cp: no heat capacity data for T=%g"%T)
+                    "Cannot evaluate ND_Cp: no heat capacity data for T=%g"
+                    % T)
 
     eval_ND_Cp.__doc__ = ThermochemBase.eval_ND_Cp.__doc__
 
@@ -147,7 +149,7 @@ class ThermochemIncomplete(ThermochemBase):
                 warn(
                     "Evaluation of ND_H_ref with (T=%g <=> T_ref=%g) will not"
                     " be corrected because heat capacity data is not"
-                    " available."%(T, self.T_ref),
+                    " available." % (T, self.T_ref),
                     IncompleteDataWarning)
             return self.ND_H_ref
         else:
@@ -155,7 +157,8 @@ class ThermochemIncomplete(ThermochemBase):
                 return self._correlation.eval_ND_H(T)
             except OutsideCorrelationError:
                 raise IncompleteDataError(
-                    "Cannot evaluate ND_H: no heat capacity data for T=%g"%T)
+                    "Cannot evaluate ND_H: no heat capacity data for T=%g"
+                    % T)
     eval_ND_H.__doc__ = ThermochemBase.eval_ND_H.__doc__
 
     def eval_ND_S(self, T):
@@ -167,7 +170,7 @@ class ThermochemIncomplete(ThermochemBase):
                 warn(
                     "Evaluation of ND_S_ref with (T=%g <=> T_ref=%g) will not"
                     " be corrected because heat capacity data is not"
-                    " available."%(T, self.T_ref),
+                    " available." % (T, self.T_ref),
                     IncompleteDataWarning)
             return self.ND_S_ref
         else:
@@ -175,7 +178,8 @@ class ThermochemIncomplete(ThermochemBase):
                 return self._correlation.eval_ND_S(T)
             except OutsideCorrelationError:
                 raise IncompleteDataError(
-                    "Cannot evaluate ND_S: no heat capacity data for T=%g"%T)
+                    "Cannot evaluate ND_S: no heat capacity data for T=%g"
+                    % T)
     eval_ND_S.__doc__ = ThermochemBase.eval_ND_S.__doc__
 
     def copy(self):
@@ -208,8 +212,8 @@ class ThermochemIncomplete(ThermochemBase):
             this correlation and `overwrite` is False.
         """
         if not isinstance(correlation, type(self)):
-            raise TypeError("In ThermochemIncomplete.update():"
-                " argument not instance of ThermochemIncomplete.")
+            raise TypeError("In ThermochemIncomplete.update():",
+                            " argument not instance of ThermochemIncomplete.")
 
         # Copy existing data first.
         data_range = self.get_range()
@@ -233,13 +237,13 @@ class ThermochemIncomplete(ThermochemBase):
         if correlation.has_ND_Cp():
             other_ND_Cp_data = correlation.ND_Cp_data
             for T in other_ND_Cp_data:
-                if(     not overwrite
-                        and T in self.ND_Cp_data
-                        and other_ND_Cp_data[T] != ND_Cp_data[T]):
+                if(not overwrite
+                   and T in self.ND_Cp_data
+                   and other_ND_Cp_data[T] != ND_Cp_data[T]):
                     raise ReadOnlyDataError(
                         "In ThermochemIncomplete.update():"
                         " property ND_Cp(T=%g) already exists and differs from"
-                        " new value."%T)
+                        " new value." % T)
                 ND_Cp_data[T] = other_ND_Cp_data[T]
             (Ts, ND_Cps) = self._expand_ND_Cp_data(ND_Cp_data)
 
@@ -264,9 +268,9 @@ class ThermochemIncomplete(ThermochemBase):
             # Update ND_H_ref.
             if correlation.has_ND_H():
                 new_ND_H_ref = test_correlation.eval_ND_H(T_ref)
-                if(     not overwrite
-                        and ND_H_ref is not None
-                        and new_ND_H_ref != ND_H_ref):
+                if(not overwrite
+                   and ND_H_ref is not None
+                   and new_ND_H_ref != ND_H_ref):
                     raise ReadOnlyDataError(
                         "In ThermochemIncomplete.update():"
                         " property ND_H_ref already exists and differs from"
@@ -276,9 +280,9 @@ class ThermochemIncomplete(ThermochemBase):
             # Update ND_S_ref.
             if correlation.has_ND_S():
                 new_ND_S_ref = test_correlation.eval_ND_S(T_ref)
-                if(     not overwrite
-                        and ND_S_ref is not None
-                        and new_ND_S_ref != ND_S_ref):
+                if(not overwrite
+                   and ND_S_ref is not None
+                   and new_ND_S_ref != ND_S_ref):
                     raise ReadOnlyDataError(
                         "In ThermochemIncomplete.update():"
                         " property ND_S_ref already exists and differs from"
@@ -343,7 +347,7 @@ class ThermochemIncomplete(ThermochemBase):
                 :``molar heat capacity``: units to use for heat capacity values
                 :``temperature``: units to use for temperature values
 
-            If any of ``molar enthalpy``, ``molar entropy``, or 
+            If any of ``molar enthalpy``, ``molar entropy``, or
             ``molar heat capacity`` is unspecified or None, then write these as
             dimensionless values.  If ``temperature`` is unspecified, then
             write temperatures in [K].
@@ -351,42 +355,43 @@ class ThermochemIncomplete(ThermochemBase):
         lines = []
         T_ref = with_units(self.T_ref, 'K')
         T_units = units.get('temperature', 'K')
-        lines.append('T_ref: %s'%T_ref.fmt_in_units(T_units))
+        lines.append('T_ref: %s' % T_ref.fmt_in_units(T_units))
 
         if self.has_ND_H():
             H_units = units.get('molar enthalpy')
             if H_units:
                 lines.append(
-                    'H_ref: %s'%(R*T_ref*self.ND_H_ref).fmt_in_units(H_units))
+                    'H_ref: %s' % (R*T_ref *
+                                   self.ND_H_ref).fmt_in_units(H_units))
             else:
-                lines.append('ND_H_ref: %r'%self.ND_H_ref)
+                lines.append('ND_H_ref: %r' % self.ND_H_ref)
 
         if self.has_ND_S():
             S_units = units.get('molar entropy')
             if S_units:
                 lines.append(
-                    'S_ref: %s'%(R*self.ND_S_ref).fmt_in_units(S_units))
+                    'S_ref: %s' % (R*self.ND_S_ref).fmt_in_units(S_units))
             else:
-                lines.append('ND_S_ref: %r'%self.ND_S_ref)
+                lines.append('ND_S_ref: %r' % self.ND_S_ref)
 
         if self.has_ND_Cp():
             Cp_units = units.get('molar heat capacity')
             if Cp_units:
                 lines.append('Cp_data:')
                 for T in sorted(self.ND_Cp_data):
-                    lines.append('    - [%s, %s]'%(
+                    lines.append('    - [%s, %s]' % (
                         with_units(T, 'K').fmt_in_units(T_units),
                         (R*self.ND_Cp_data[T]).fmt_in_units(Cp_units)))
             else:
                 lines.append('ND_Cp_data:')
                 for T in sorted(self.ND_Cp_data):
-                    lines.append('    - [%s, %r]'%(
+                    lines.append('    - [%s, %r]' % (
                         with_units(T, 'K').fmt_in_units(T_units),
                         self.ND_Cp_data[T]))
 
         range = self.get_range()
         if range is not None:
-            lines.append('range: [%s, %s]'%(
+            lines.append('range: [%s, %s]' % (
                 with_units(range[0], 'K').fmt_in_units(T_units),
                 with_units(range[1], 'K').fmt_in_units(T_units)))
         return '\n'.join(lines)
@@ -448,5 +453,7 @@ S_ref:
   desc: reference entropy
 """
 
+
 yaml_io.register_class('ThermochemIncomplete',
-    yaml_io.parse(ThermochemIncomplete._yaml_schema), ThermochemIncomplete)
+                       yaml_io.parse(ThermochemIncomplete._yaml_schema),
+                       ThermochemIncomplete)

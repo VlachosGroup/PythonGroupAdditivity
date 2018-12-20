@@ -8,12 +8,16 @@ __all__ = ['ThermochemGroup', 'ThermochemGroupAdditive']
 
 class ThermochemGroup(ThermochemIncomplete):
     """
-    Implement thermochemical property correlation for one group's contributions.
+    Implement thermochemical property correlation for
+    one group's contributions.
 
     See base class :class:`ThermochemIncomplete` for additional documentation.
     """
+
+
 yaml_io.register_class('ThermochemGroup',
-    yaml_io.parse(ThermochemGroup._yaml_schema), ThermochemGroup)
+                       yaml_io.parse(ThermochemGroup._yaml_schema),
+                       ThermochemGroup)
 
 
 class ThermochemGroupAdditive(ThermochemBase):
@@ -55,12 +59,13 @@ class ThermochemGroupAdditive(ThermochemBase):
                     common_max = min(common_max, data_range[1])
         if lib.uq_contents:
             self.RMSE = lib.uq_contents['RMSE'].thermochem
-            xp = np.zeros((len(lib.uq_contents['descriptors']),1))
+            xp = np.zeros((len(lib.uq_contents['descriptors']), 1))
             for group in groups:
                 count = groups[group]
                 i = lib.uq_contents['descriptors'].index(group)
                 xp[i] = count
-            self.Xp_invXX_Xp = np.dot(np.dot(np.transpose(xp),lib.uq_contents['mat']),xp)
+            self.Xp_invXX_Xp = np.dot(np.dot(np.transpose(xp),
+                                             lib.uq_contents['mat']), xp)
             self.dof = lib.uq_contents['dof']
         if common_min is not None:
             ThermochemBase.__init__(self, range=(common_min, common_max))
@@ -69,28 +74,30 @@ class ThermochemGroupAdditive(ThermochemBase):
 
     def eval_ND_Cp(self, T):
         return sum((count*correlation.eval_ND_Cp(T)
-            for (correlation,count) in self.correlations))
+                    for (correlation, count) in self.correlations))
     eval_ND_Cp.__doc__ = ThermochemBase.eval_ND_Cp.__doc__
 
     def eval_ND_H(self, T):
         return sum((count*correlation.eval_ND_H(T)
-            for (correlation,count) in self.correlations))
+                    for (correlation, count) in self.correlations))
     eval_ND_H.__doc__ = ThermochemBase.eval_ND_H.__doc__
 
     def eval_ND_S(self, T):
         return sum((count*correlation.eval_ND_S(T)
-            for (correlation,count) in self.correlations))
+                    for (correlation, count) in self.correlations))
     eval_ND_S.__doc__ = ThermochemBase.eval_ND_S.__doc__
-    
-    def eval_ND_Cp_SE(self, T):
-        return float(np.sqrt(np.square(self.RMSE.eval_ND_Cp(T))*self.Xp_invXX_Xp))
-            
-    def eval_ND_H_SE(self, T):
-        return float(np.sqrt(np.square(self.RMSE.eval_ND_H(T))*self.Xp_invXX_Xp))
-    
-    def eval_ND_S_SE(self, ):
-        return float(np.sqrt(np.square(self.RMSE.eval_ND_S(T))*self.Xp_invXX_Xp))
 
+    def eval_ND_Cp_SE(self, T):
+        return float(np.sqrt(np.square(self.RMSE.eval_ND_Cp(T)) *
+                             self.Xp_invXX_Xp))
+
+    def eval_ND_H_SE(self, T):
+        return float(np.sqrt(np.square(self.RMSE.eval_ND_H(T)) *
+                             self.Xp_invXX_Xp))
+
+    def eval_ND_S_SE(self, T):
+        return float(np.sqrt(np.square(self.RMSE.eval_ND_S(T)) *
+                             self.Xp_invXX_Xp))
 
 
 GroupLibrary.register_property_set_type(

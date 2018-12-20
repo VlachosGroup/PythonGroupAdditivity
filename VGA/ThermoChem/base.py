@@ -4,6 +4,7 @@ import numpy as np
 
 from ..Units import eval_qty
 from ..Error import OutsideCorrelationError
+from .. import yaml_io
 
 
 class ThermochemBase(object):
@@ -122,7 +123,6 @@ range:
 """
 
 
-from .. import yaml_io
 yaml_io.register_class('ThermochemBase',
                        yaml_io.parse(ThermochemBase._yaml_schema),
                        ThermochemBase)
