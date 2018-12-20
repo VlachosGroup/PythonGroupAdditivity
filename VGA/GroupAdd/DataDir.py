@@ -8,6 +8,7 @@ _data_dir_envvar = 'VGA_DATA_DIR'
 # We'll cache the located data directory root in this variable:
 _data_dir_cached = False
 
+
 def get_data_dir():
     """Returns the directory containing the VGA data library.
 
@@ -31,13 +32,16 @@ def get_data_dir():
         base_path = os.getenv(_data_dir_envvar, False)
         if not base_path:
             base_path = os.path.abspath(os.path.dirname(__file__))
-            while base_path != os.sep and not base_path.endswith(os.sep + 'VGA'):
+            while base_path != os.sep and not base_path.endswith(os.sep +
+                                                                 'VGA'):
                 base_path = os.path.dirname(base_path)
             if base_path == os.sep:
-                raise RuntimeError('DataDir.get_data_dir: unable to locate bundled data directory')
+                raise RuntimeError('DataDir.get_data_dir: unable to locate',
+                                   'bundled data directory')
             base_path = os.path.join(base_path, 'data')
         if not os.path.isdir(base_path):
-            raise RuntimeError('DataDir.get_data_dir: directory does not exist: ' + base_path)
+            raise RuntimeError('DataDir.get_data_dir: directory does not',
+                               'exist: ' + base_path)
         _data_dir_cached = base_path
     return _data_dir_cached
 
@@ -46,5 +50,7 @@ def get_data_dir():
 #
 #   python DataDir.py
 #
+
+
 if __name__ == '__main__':
     sys.stdout.write('VGA data directory = {0:s}'.format(get_data_dir()))

@@ -25,4 +25,4 @@ defaultdict(<type 'int'>, {'C(C)(H)3': 2})
 from . Library import GroupLibrary
 from . Scheme import GroupAdditivityScheme
 
-__all__ = ['GroupLibrary','GroupAdditivityScheme']
+__all__ = ['GroupLibrary', 'GroupAdditivityScheme']

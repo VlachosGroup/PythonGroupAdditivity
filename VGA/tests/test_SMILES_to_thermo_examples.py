@@ -57,5 +57,6 @@ class TestExamples(unittest.TestCase):
         self.assertAlmostEqual(HoRT, -107.57909464133714)
         self.assertEqual(descriptors, GroupDict)
 
+
 if __name__ == '__main__':
     unittest.main()

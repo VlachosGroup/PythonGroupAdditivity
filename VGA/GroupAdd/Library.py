@@ -9,6 +9,7 @@ from . Group import Group, Descriptor
 from . Scheme import GroupAdditivityScheme
 from . DataDir import get_data_dir
 
+
 class GroupLibrary(Mapping):
     """Represent library of contributing properties organized by group.
 
@@ -60,7 +61,7 @@ class GroupLibrary(Mapping):
                     of each group in the chemical structure.
         """
         if name in cls._property_set_group_yaml_types:
-            raise KeyError('Property set %r already registered.'%name)
+            raise KeyError('Property set %r already registered.' % name)
         cls._property_set_group_yaml_types[name] = group_yaml_type
         cls._property_set_estimator_types[name] = estimator_type
 
@@ -87,7 +88,7 @@ class GroupLibrary(Mapping):
         if isinstance(contents, Mapping):
             contents = list(contents.items())
         self.contents = dict((group, property_sets)
-            for (group, property_sets) in contents)
+                             for (group, property_sets) in contents)
         self.uq_contents = uq_contents
 
     def GetDescriptors(self, mol):
@@ -127,10 +128,10 @@ class GroupLibrary(Mapping):
             particular property set.
         """
         if property_set_name not in self._property_set_estimator_types:
-            raise KeyError('Invalid property_set name: %r'%property_set_name)
+            raise KeyError('Invalid property_set name: %r' % property_set_name)
         # Verify groups present.
         missing_groups = [group for group in groups
-            if property_set_name not in self[group]]
+                          if property_set_name not in self[group]]
         if missing_groups:
             raise GroupMissingDataError(missing_groups, property_set_name)
         estimator_type = self._property_set_estimator_types[property_set_name]
@@ -180,7 +181,8 @@ class GroupLibrary(Mapping):
 
     @classmethod
     def Load(cls, path):
-        """(class method) Load group-additivity library from file-system `path` or builtin.
+        """(class method) Load group-additivity library from file-system
+        `path` or builtin.
 
         Parameters
         ----------
@@ -205,7 +207,8 @@ class GroupLibrary(Mapping):
             base_path = os.path.dirname(path)
 
         # Load the scheme.yaml from the selected data directory:
-        scheme = GroupAdditivityScheme.Load(os.path.join(base_path,'scheme.yaml'))
+        scheme = GroupAdditivityScheme.Load(os.path.join(base_path,
+                                                         'scheme.yaml'))
 
         # Use that scheme to load the rest of the library:
         return cls._do_load(path, base_path, scheme)
@@ -225,7 +228,6 @@ class GroupLibrary(Mapping):
         # Use the scheme passed to us to load the rest of the library:
         return cls._do_load(path, base_path, scheme)
 
-
     @classmethod
     def _do_load(cls, path, base_path, scheme):
         # Read data from file.
@@ -244,26 +246,27 @@ class GroupLibrary(Mapping):
             # Prepare property_sets loader.
             property_sets_loader = yaml_io.make_object_loader(yaml_io.parse(
                 '\n'.join(('%r:\n    type: %r\n    optional: true'
-                        %(str(name),
-                            str(cls._property_set_group_yaml_types[name])))
-                    for name in cls._property_set_group_yaml_types)))
+                          % (str(name),
+                             str(cls._property_set_group_yaml_types[name])))
+                          for name in cls._property_set_group_yaml_types)))
             # Read all properties.
             lib_contents = {}
             for name in group_properties:
                 group = Group.parse(scheme, name)
                 if group in lib_contents:
-                    raise KeyError('Multiple definitions of group %s'%group)
+                    raise KeyError('Multiple definitions of group %s' % group)
                 property_sets = yaml_io.load(
                     group_properties[name], context,
-	                loader=property_sets_loader)
+                    loader=property_sets_loader)
                 lib_contents[group] = property_sets
             for name in other_descriptor_properties:
                 descriptor = Descriptor(scheme, name)
                 if descriptor in lib_contents:
-                    raise KeyError('Multiple definitions of descriptor %s'%descriptor)
+                    raise KeyError('Multiple definitions of descriptor %s' %
+                                   descriptor)
                 property_sets = yaml_io.load(
                     other_descriptor_properties[name], context,
-	                loader=property_sets_loader)
+                    loader=property_sets_loader)
                 lib_contents[descriptor] = property_sets
 
             # Read UQ data
@@ -271,7 +274,7 @@ class GroupLibrary(Mapping):
             if UQ:
                 uq_contents['RMSE'] = yaml_io.load(
                     UQ['RMSE'], context,
-	                loader=property_sets_loader)
+                    loader=property_sets_loader)
                 uq_contents['descriptors'] = UQ['InvCovMat']['groups']
                 uq_contents['mat'] = np.array(UQ['InvCovMat']['mat'])
                 uq_contents['dof'] = UQ['DOF']
@@ -281,12 +284,11 @@ class GroupLibrary(Mapping):
             lib_contents = {}
             uq_contents = {}
 
-
-
         new_lib = cls(scheme, lib_contents, uq_contents, path=path)
         # Update with included content.
         for include_path in lib_data.include:
-            new_lib.Update(cls._Load(os.path.join(base_path, include_path), scheme))
+            new_lib.Update(cls._Load(os.path.join(base_path,
+                                                  include_path), scheme))
         return new_lib
 
     def Update(self, lib, overwrite=False):
@@ -312,7 +314,8 @@ class GroupLibrary(Mapping):
                         other_property_sets[name], overwrite)
         # UQ stuff can only be loaded once
         if self.uq_contents and lib.uq_contents:
-            raise ValueError('More than one uncertainty quantification information provided')
+            raise ValueError('More than one uncertainty quantification',
+                             'information provided')
         if not self.uq_contents:
             self.uq_contents = lib.uq_contents
     _yaml_loader = yaml_io.make_object_loader(yaml_io.parse("""

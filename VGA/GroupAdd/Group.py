@@ -8,7 +8,8 @@ from .. Error import GroupSyntaxError
 # inherit Group() from.
 class Descriptor(object):
     """
-    Represent a chemical descriptor upon which properties may linearly depend on.
+    Represent a chemical descriptor upon which properties may
+    linearly depend on.
     """
     def __init__(self, scheme, name):
         """Initialize a chemical descriptor with given string name.
@@ -39,7 +40,7 @@ class Descriptor(object):
         return self.name
 
     def __repr__(self):
-        return '<%s: %s>'%(type(self).__name__, str(self))
+        return '<%s: %s>' % (type(self).__name__, str(self))
 
 
 class Group(Descriptor):
@@ -95,8 +96,8 @@ class Group(Descriptor):
                 continue
             if part.isdigit():
                 if next_psg is None:
-                    raise GroupSyntaxError('Expected base atom for Benson'
-                        ' group got number instead.')
+                    raise GroupSyntaxError('Expected base atom for Benson',
+                                           'group got number instead.')
                 append_to_psgs(int(part), next_psg)
                 next_psg = None
             else:
@@ -146,8 +147,8 @@ class Group(Descriptor):
             if psg_counts[name] == 1:
                 canon_name += '(' + name + ')'
             else:
-                canon_name += '(' + name + ')' + '%d'%psg_counts[name]
+                canon_name += '(' + name + ')' + '%d' % psg_counts[name]
         return canon_name
 
     def __repr__(self):
-        return '%s(%r, %r)'%(type(self).__name__, self.csg, self.psgs)
+        return '%s(%r, %r)' % (type(self).__name__, self.csg, self.psgs)
