@@ -97,7 +97,7 @@ class GenericQuantity(object):
         value = self/eval_qty(units)
         if isinstance(value, GenericQuantity):
             raise UnitsError("Units of '%s' are incompatible with '%s'"
-                %(self, units))
+                             % (self, units))
         return value
 
     def has_units(self, units):
@@ -124,7 +124,7 @@ class GenericQuantity(object):
         (self_value, self_units) = self._unpack_qty(self)
         (other_value, other_units) = self._unpack_qty(other)
         if not is_zero(other) and (not other_units or
-                not self.has_units(other_units)):
+                                   not self.has_units(other_units)):
             return False
         return self_value == other_value
 
@@ -132,19 +132,19 @@ class GenericQuantity(object):
         (self_value, self_units) = self._unpack_qty(self)
         (other_value, other_units) = self._unpack_qty(other)
         if not is_zero(other) and (not other_units or
-                not self.has_units(other_units)):
+                                   not self.has_units(other_units)):
             return True
         return self_value != other_value
 
-    def __lt__(self, other):
-        (self_value, self_units) = self._unpack_qty(self)
-        (other_value, other_units) = self._unpack_qty(other)
-        if (not is_zero(other_value) and
-                (not other_units or not self.has_units(other_units))):
-            raise UnitsError(
-                'Incompatible units %s vs %s in comparison'
-                %(self_units, other_units))
-        return self_value < other_value
+#    def __lt__(self, other):
+#        (self_value, self_units) = self._unpack_qty(self)
+#        (other_value, other_units) = self._unpack_qty(other)
+#        if (not is_zero(other_value) and
+#                (not other_units or not self.has_units(other_units))):
+#            raise UnitsError(
+#                'Incompatible units %s vs %s in comparison'
+#                % (self_units, other_units))
+#        return self_value < other_value
 
     def __lt__(self, other):
         (self_value, self_units) = self._unpack_qty(self)
@@ -153,7 +153,7 @@ class GenericQuantity(object):
                 (not other_units or not self.has_units(other_units))):
             raise UnitsError(
                 'Incompatible units %s vs %s in comparison'
-                %(self_units, other_units))
+                % (self_units, other_units))
         return self_value > other_value
 
     def __ge__(self, other):
@@ -163,7 +163,7 @@ class GenericQuantity(object):
                 (not other_units or not self.has_units(other_units))):
             raise UnitsError(
                 'Incompatible units %s vs %s in comparison'
-                %(self_units, other_units))
+                % (self_units, other_units))
         return self_value >= other_value
 
     def __le__(self, other):
@@ -173,7 +173,7 @@ class GenericQuantity(object):
                 (not other_units or not self.has_units(other_units))):
             raise UnitsError(
                 'Incompatible units %s vs %s in comparison'
-                %(self_units, other_units))
+                % (self_units, other_units))
         return self_value <= other_value
 
     def __add__(self, other):
@@ -183,7 +183,7 @@ class GenericQuantity(object):
                 (not other_units or not self.has_units(other_units))):
             raise UnitsError(
                 'Incompatible units %s vs %s in addition'
-                %(self_units, other_units))
+                % (self_units, other_units))
         return self._build(self_value + other_value, self_units)
 
     def __radd__(self, other):
@@ -193,7 +193,7 @@ class GenericQuantity(object):
                 (not other_units or not self.has_units(other_units))):
             raise UnitsError(
                 'Incompatible units %s vs %s in addition'
-                %(self_units, other_units))
+                % (self_units, other_units))
         return self._build(other_value + self_value, self_units)
 
     def __sub__(self, other):
@@ -231,7 +231,7 @@ class GenericQuantity(object):
         (other_value, other_units) = self._unpack_qty(other)
         return self._build(self_value/other_value, self_units/other_units)
     __floordiv__ = __truediv__
- 
+
     def __div__(self, other):
         (self_value, self_units) = self._unpack_qty(self)
         (other_value, other_units) = self._unpack_qty(other)
@@ -269,7 +269,7 @@ class GenericQuantity(object):
 
     def __repr__(self):
         (value, units) = self._unpack_qty(self)
-        return '%s(%r, %r)'%(type(self).__name__, value, units)
+        return '%s(%r, %r)' % (type(self).__name__, value, units)
 
 
 class Quantity(GenericQuantity):
@@ -348,7 +348,7 @@ class Quantity(GenericQuantity):
         UnitsError
             If `units` are incompatible with the units of this quantity.
         """
-        return '%g %s'%(self.in_units(units), units)
+        return '%g %s' % (self.in_units(units), units)
 
 
 class ArrayQuantity(GenericQuantity, np.ndarray):
@@ -358,7 +358,7 @@ class ArrayQuantity(GenericQuantity, np.ndarray):
             units = eval_qty(units).units
         if(hasattr(data, '__iter__')
                 and all((isinstance(datum, GenericQuantity) or datum == 0)
-                    for datum in data)):
+                        for datum in data)):
             # Bundled together quantities.
             values = []
             use_units = None
@@ -433,7 +433,7 @@ class ArrayQuantity(GenericQuantity, np.ndarray):
         UnitsError
             If `units` are incompatible with the units of this quantity.
         """
-        return '%s %s'%(self.in_units(units), units)
+        return '%s %s' % (self.in_units(units), units)
 
 
 class FundamentalUnits(object):
@@ -472,7 +472,7 @@ class FundamentalUnits(object):
     THRESHOLD_INTEGER = 1e-7
     _primitive_units = ['m', 'kg', 's', 'A', 'K', 'mol', 'cd']
     _primitive_units_index = dict((unit, i)
-        for (i, unit) in enumerate(_primitive_units))
+                                  for (i, unit) in enumerate(_primitive_units))
 
     @classmethod
     def new(cls, name):
@@ -556,4 +556,4 @@ class FundamentalUnits(object):
             return s + '/(' + '*'.join(dn) + ')'
 
     def __repr__(self):
-        return "<%s: '%s'>"%(type(self).__name__, str(self))
+        return "<%s: '%s'>" % (type(self).__name__, str(self))

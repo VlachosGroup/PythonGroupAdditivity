@@ -42,10 +42,12 @@ class UnitsDB(object):
         if name[2:] in self.db and name[:2] in self.prefixes:
             return self.prefixes[name[1:]]*self.db[name[2:]]
         # Raise error.
-        raise UnitsParseError('Unknown units: %r'%name)
+        raise UnitsParseError('Unknown units: %r' % name)
 
     def add(self, name, val):
         self.db[name] = val
 
 # Define global units database.
+
+
 units_db = UnitsDB()

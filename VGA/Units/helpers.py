@@ -1,5 +1,5 @@
 from .utils import is_zero
-from .qty import *
+from .qty import eval_qty
 
 
 __all__ = ['with_units', 'in_units', 'has_units', 'to_SI_from', 'from_SI_to']
@@ -67,6 +67,7 @@ def in_units(qty, units):
         return None
     return qty.in_units(units)
 
+
 def has_units(qty, units):
     """
     Test quantity (`qty`) for compatibility with given `units`.
@@ -91,6 +92,7 @@ def has_units(qty, units):
     """
     return qty.has_units(units)
 
+
 def to_SI_from(value, units):
     """
     Convert `value` having specified `units` to the equivalent SI units.
@@ -109,6 +111,7 @@ def to_SI_from(value, units):
     """
     return value*eval_qty(units).value
 
+
 def from_SI_to(value, units):
     """
     Convert `value` in SI units to specified compatible `units`.
@@ -126,4 +129,3 @@ def from_SI_to(value, units):
         Numerical value of converted quantity.
     """
     return value/eval_qty(units).value
-

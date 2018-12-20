@@ -1,8 +1,5 @@
 import re
-from numbers import Real
-
 from ..Error import UnitsParseError
-
 from .db import units_db
 
 
@@ -16,8 +13,8 @@ class UnitsParser(object):
 
     def __init__(self, expr, debug=False):
         self.tokens = [tok for tok in re.findall(self.tokenize_re, expr)
-            if not tok.isspace()]
-        #print 'tokens:', self.tokens
+                       if not tok.isspace()]
+        # print 'tokens:', self.tokens
         self.idx = 0
         self.depth = 0
         self.debug = debug
@@ -32,13 +29,13 @@ class UnitsParser(object):
     # These two are used to output debugging info.
     def enter(self, what):
         if self.debug:
-            print('%s%r {'%(' '*(self.depth*4), what))
+            print('%s%r {' % (' '*(self.depth*4), what))
             self.depth += 1
 
     def leave(self, what):
         if self.debug:
             self.depth -= 1
-            print('%s} %r'%(' '*(self.depth*4), what))
+            print('%s} %r' % (' '*(self.depth*4), what))
 
     def peek(self):
         if self.idx == len(self.tokens):
@@ -62,10 +59,10 @@ class UnitsParser(object):
         result = None
         try:
             result = self.parse_expr()
-            next = self.peek() 
+            next = self.peek()
             if next is not None:
                 result = None
-                raise UnitsParseError("Unexpected token '%s'\n"%next)
+                raise UnitsParseError("Unexpected token '%s'\n" % next)
         finally:
             self.leave(result)
         return result
@@ -77,8 +74,8 @@ class UnitsParser(object):
             result = ('expr', self.parse_factor())
             next = self.peek()
             while True:
-                if next == None:
-                    #result = None
+                if next is None:
+                    # result = None
                     break
                 elif next in '*/':
                     self.take()
@@ -126,7 +123,8 @@ class UnitsParser(object):
                 expr = self.parse_expr()
                 if self.take() != ')':
                     raise UnitsParseError(
-                        "Expected closing parenthesis, got '%s' instead"%next)
+                        "Expected closing parenthesis, got '%s' instead"
+                        % next)
                 result = ('base', expr)
             elif self.isnumber(next):
                 result = ('base', self.parse_number())
@@ -147,7 +145,7 @@ class UnitsParser(object):
                     "Expected name instead of end of input")
             if not next.isalpha():
                 raise UnitsParseError(
-                    "Expected name, got '%s' instead"%next)
+                    "Expected name, got '%s' instead" % next)
             result = ('name', next)
 
         finally:
@@ -164,12 +162,10 @@ class UnitsParser(object):
                 closing = self.take()
                 if closing != ')':
                     raise UnitsParseError("Expected closing parenthesis, "
-                        "got '%s' instead"%closing)
+                                          "got '%s' instead" % closing)
             if next is None:
                 raise UnitsParseError(
                     "Expected number instead of end of input")
-            #if(((next[0] == '+' or next[0] == '-') and next[1:].isdigit())
-            #        or next.isdigit()):
             if self.isnumber(next):
                 if '.' in next:
                     result = ('number', float(next))
@@ -177,11 +173,12 @@ class UnitsParser(object):
                     result = ('number', int(next))
             else:
                 raise UnitsParseError(
-                    "Expected number, got '%s' instead"%next)
+                    "Expected number, got '%s' instead" % next)
 
         finally:
             self.leave(result)
         return result
+
 
 def parse(expr, *args, **kwargs):
     """Parse units expression (expr) and return abstract syntax tree."""
@@ -227,6 +224,7 @@ def eval_subtree(tree):
 
     # This shouldn't happen...
     assert False
+
 
 def eval_expr(expr):
     """
