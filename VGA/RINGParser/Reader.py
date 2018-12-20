@@ -1,10 +1,11 @@
 from .. Error import RINGError
 
+
 class Reader(object):
     """
-    Reader reads the parsed RING input, and returns the RDkit wrapper objects 
-    in VGA.RDkitWrapper. 
-    
+    Reader reads the parsed RING input, and returns the RDkit wrapper objects
+    in VGA.RDkitWrapper.
+
     Attributes
     ----------
     ast : abstract syntax tree obtrained from parser
@@ -15,7 +16,9 @@ class Reader(object):
 
     def ReadRINGInput(self, tree):
         # Check the type of input
-        assert tree[0][0].name in ('Fragment','ReactionRule','EnumerationQuery')
+        assert tree[0][0].name in ('Fragment',
+                                   'ReactionRule',
+                                   'EnumerationQuery')
         # if fragment, molquery is returned
         if tree[0][0].name == 'Fragment':
             from . MolQueryRead import MolQueryReader
@@ -26,19 +29,19 @@ class Reader(object):
             from . ReactionQueryRead import ReactionQueryReader
             self.type = 'ReactionQuery'
             return ReactionQueryReader(tree[0][1:]).Read()
-        #TODO enumeration query
+        # TODO enumeration query
         elif tree[0][0].name == 'EnumerationQuery':
             raise NotImplementedError('Coming soon')
+
     def Read(self):
         # Root tree reading. Check if the input is RINGinput
         assert self.ast[0].name == "RINGInput"
         return self.ReadRINGInput(self.ast[1:])
-        
 
 
 def Read(text, strict=False):
     """
-    Return MolQuery, ReactionQuery, or ReactionNetworkEnumerationQuery by 
+    Return MolQuery, ReactionQuery, or ReactionNetworkEnumerationQuery by
     interpretting RING input string.
 
     Parameters
@@ -69,4 +72,3 @@ def Read(text, strict=False):
         return Reader(Parser.parse(text)).Read()
     except RINGError as exc:
         raise exc
-

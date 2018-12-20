@@ -11,7 +11,7 @@ Example:
 >>>   C labeled c2 single bond to c1\
 >>>   C labeled c3 single bond to c2\
 >>>   }')
-Out: 
+Out:
 [RINGToken('RINGInput'),
  [RINGToken('Fragment'),
   [RINGToken('FragmentName'), 'C3Chain'],
@@ -34,8 +34,6 @@ Out:
 """
 
 
-
-
 class RINGToken(object):
     # Each node is converted to RINGToken
     def __init__(self, name):
@@ -51,7 +49,8 @@ class RINGToken(object):
         return self.name
 
     def __repr__(self):
-        return "RINGToken('%s')"%self.name
+        return "RINGToken('%s')" % self.name
+
 
 class Parser(object):
     # Parser is a parent class for various type of syntax
@@ -59,25 +58,32 @@ class Parser(object):
     # EOS               : end of the line identifier
     # Digit             : 1 digit class
     # Number            : mutiple digit class
-    # String            : string class. (when to stop interpret is defined by string_stop
-    # Literal           : Has to match the specified symbol to be identified as a class
-    # Filler            : Looks for the match, but the information is not stored. 
+    # String            : string class. (when to stop interpret is defined
+    #                     by string_stop
+    # Literal           : Has to match the specified symbol to be identified
+    #                     as a class
+    # Filler            : Looks for the match, but the information is
+    #                     not stored.
     # DeprecatedLiteral : similar to Literal, but warning is raised.
-    # Optional          : Indiciates that child class of this class is not necessary
-    # All               : Interpreter goes through all the child classes of this class 
-    # Either            : At least one of the child class has to be in the stream
+    # Optional          : Indiciates that child class of this class is
+    #                     not necessary
+    # All               : Interpreter goes through all the child classes
+    #                     of this class
+    # Either            : At least one of the child class has to be in
+    #                     the stream
     # ZeroOrMore        : Similar to Optional but can take multiple input
-    # Literals          : Has to match one of the strings in this class. Equal to 
-    #                   Either(Literal('something'),Literal('Something'),...)
+    # Literals          : Has to match one of the strings in this class.
+    #                     Equal to Either(Literal('something'),
+    #                     Literal('Something'),...)
     #
     # Notes:
-    # The code compares the stream with given syntax tree in the grammar. so 
+    # The code compares the stream with given syntax tree in the grammar. so
     # ParseState.parse() stacks with the number of child class. When the errors
     # occur, the parser undo each parse loop by using 'try'. Eventually,
     # The error is given at the user's calling function.
-    # For classes like Either and Optional, the algorithm still uses errors when
-    # there is no match, but the error is suppressed using 'with' function,
-    # A lot of valuable coding is in this work.
+    # For classes like Either and Optional, the algorithm still uses errors
+    # when there is no match, but the error is suppressed using 'with'
+    # function, A lot of valuable coding is in this work.
     def set_name(self, name):
         self.name = name
 
@@ -111,13 +117,13 @@ class Digit(Parser):
         if self.n == 1:
             return '<digit>'
         else:
-            return '<%d digits>'%self.n
+            return '<%d digits>' % self.n
 
     def __repr__(self):
         if self.n == 1:
             return 'Digit()'
         else:
-            return 'Digit(%r)'%self.n
+            return 'Digit(%r)' % self.n
 
 
 class Number(Parser):
@@ -139,23 +145,27 @@ class Number(Parser):
     def __repr__(self):
         return 'Number()'
 
+
 string_okay = ['_']
+
+
 class String(Parser):
-    # Read continuous input of alphabet, digit, and any other character in 
+    # Read continuous input of alphabet, digit, and any other character in
     # string_okay
     def __init__(self):
         pass
-    def __call__(self, stream, output):
-        if not (stream.peek().isalpha() or \
-            stream.peek().isdigit() or \
-            stream.peek() in string_okay):
-            stream.error('<string>')
-        nn=2
 
-        while (stream.peek(nn)[-1].isalpha() or \
-            stream.peek(nn)[-1].isdigit() or \
-            stream.peek(nn)[-1] in string_okay):
-            nn+=1
+    def __call__(self, stream, output):
+        if not (stream.peek().isalpha() or
+                stream.peek().isdigit() or
+                stream.peek() in string_okay):
+                stream.error('<string>')
+        nn = 2
+
+        while (stream.peek(nn)[-1].isalpha() or
+               stream.peek(nn)[-1].isdigit() or
+               stream.peek(nn)[-1] in string_okay):
+            nn += 1
         out = stream.take(n=nn-1)
         output.append(out)
 
@@ -164,6 +174,7 @@ class String(Parser):
 
     def __repr__(self):
         return 'String()'
+
 
 class Literal(Parser):
     def __init__(self, tok, no_error=False):
@@ -177,16 +188,17 @@ class Literal(Parser):
                 # up the stack).
                 stream.error(None)
             else:
-                stream.error("%r"%self.tok)
+                stream.error("%r" % self.tok)
         else:
             stream.take(len(self.tok))
             output.append(self.tok)
 
     def __str__(self):
-        return "%r"%self.tok
+        return "%r" % self.tok
 
     def __repr__(self):
-        return "Literal(%r)"%self.tok
+        return "Literal(%r)" % self.tok
+
 
 class Filler(Parser):
     def __init__(self, tok, no_error=False):
@@ -196,30 +208,32 @@ class Filler(Parser):
     def __call__(self, stream, output):
         if stream.peek(len(self.tok)) != self.tok:
             if self.no_error:
-                # Suppress error message.  (It's handled by RINGError in error.py)
+                # Suppress error message.
+                # (It's handled by RINGError in error.py)
                 stream.error(None)
             else:
-                stream.error("%r"%self.tok)
+                stream.error("%r" % self.tok)
         else:
             stream.take(len(self.tok))
 
     def __str__(self):
-        return "%r"%self.tok
+        return "%r" % self.tok
 
     def __repr__(self):
-        return "Literal(%r)"%self.tok
+        return "Literal(%r)" % self.tok
+
 
 class DeprecatedLiteral(Literal):
     def __call__(self, stream, output):
         import warnings
         Literal.__call__(self, stream, output)
-        warnings.warn("Use of '%s' is deprecated in RING inputs"%self.tok)
+        warnings.warn("Use of '%s' is deprecated in RING inputs" % self.tok)
 
     def __str__(self):
-        return "'%s' (deprecated)"%self.tok
+        return "'%s' (deprecated)" % self.tok
 
     def __repr__(self):
-        return "DeprecatedLiteral(%r)"%self.tok
+        return "DeprecatedLiteral(%r)" % self.tok
 
 
 class Optional(Parser):
@@ -231,10 +245,10 @@ class Optional(Parser):
             stream.parse(self.opt, output)
 
     def __str__(self):
-        return "%s (optional)"%self.opt
+        return "%s (optional)" % self.opt
 
     def __repr__(self):
-        return "Optional(%r)"%self.opt
+        return "Optional(%r)" % self.opt
 
 
 class All(Parser):
@@ -246,10 +260,10 @@ class All(Parser):
             stream.parse(req, output)
 
     def __str__(self):
-        return '<%s>'%' '.join('%s'%req for req in self.reqs)
+        return '<%s>' % ' '.join('%s' % req for req in self.reqs)
 
     def __repr__(self):
-        return 'All(%s)'%', '.join('%r'%req for req in self.reqs)
+        return 'All(%s)' % ', '.join('%r' % req for req in self.reqs)
 
 
 class Either(Parser):
@@ -264,10 +278,10 @@ class Either(Parser):
         raise stream.current_error
 
     def __str__(self):
-        return '<%s>'%' | '.join('%s'%(alt,) for alt in self.alts)
+        return '<%s>' % ' | '.join('%s' % (alt,) for alt in self.alts)
 
     def __repr__(self):
-        return 'Either(%s)'%', '.join("%r"%(alt,) for alt in self.alts)
+        return 'Either(%s)' % ', '.join("%r" % (alt,) for alt in self.alts)
 
 
 class ZeroOrMore(Parser):
@@ -282,10 +296,10 @@ class ZeroOrMore(Parser):
                 stream.parse(self.what, output)
 
     def __str__(self):
-        return '%s (zero or more)'%self.what
+        return '%s (zero or more)' % self.what
 
     def __repr__(self):
-        return 'ZeroOrMore(%r)'%self.what
+        return 'ZeroOrMore(%r)' % self.what
 
 
 class Literals(Either):
@@ -294,9 +308,9 @@ class Literals(Either):
         # i.e.:  'Cl' should match chlorine and not carbon (with an 'l' left
         # over)
         sorted_strings = sorted(
-            literal_strings, key=lambda s:len(s), reverse=True)
+            literal_strings, key=lambda s: len(s), reverse=True)
         Either.__init__(self, *(Literal(s, no_error=True)
-            for s in sorted_strings))
+                        for s in sorted_strings))
 
     def __call__(self, stream, output):
         try:
@@ -307,8 +321,13 @@ class Literals(Either):
             else:
                 raise
 
-# filler is used in parserstate.take() which will move pointers beyond the following symbols.
+# filler is used in parserstate.take() which will move pointers
+# beyond the following symbols.
+
+
 filler = [' ', '\n', '\t']
+
+
 class ParseState(object):
     """Parse provided stream into an Abstract Syntax Tree."""
     def __init__(self, grammar, stream, debug=False):
@@ -320,9 +339,9 @@ class ParseState(object):
         self.stack = []
         self.has_error = False
         self.current_error = None
-        self.sidx = 0 # position in the actual string.
-        self.lineno = 1 # Human readable pointer for line number
-        self.colno = 1 # Human readable pointer for column number
+        self.sidx = 0    # position in the actual string.
+        self.lineno = 1  # Human readable pointer for line number
+        self.colno = 1   # Human readable pointer for column number
         self.skip_filler()
         if self.debug:
             self.depth = 0
@@ -346,7 +365,7 @@ class ParseState(object):
         # Move pointer to after the space.
         s = self.stream[self.sidx:self.sidx + n]
         for chr in s:
-            if chr == '\n': # if string contains enter, move to next line.
+            if chr == '\n':  # if string contains enter, move to next line.
                 self.lineno += 1
                 self.colno = 1
             else:
@@ -354,11 +373,11 @@ class ParseState(object):
         self.sidx += n
         # skip '\n' and  ' '
         self.skip_filler()
-                    
+
         return s
-    
+
     def skip_filler(self):
-        while self.peek() in filler :
+        while self.peek() in filler:
             if self.peek() == '\n':
                 self.lineno += 1
                 self.colno = 1
@@ -366,7 +385,7 @@ class ParseState(object):
             else:
                 self.colno += 1
                 self.sidx += 1
-                
+
     def __enter__(self):
         self.stack.append((self.sidx, self.lineno, self.colno))
         return self
@@ -397,32 +416,32 @@ class ParseState(object):
             inside_output = output[:]
             what(self, inside_output)
             output[:] = inside_output
-            
+
         # make the what into class, and call the parse on the class
         elif isinstance(what, str):
             inside_output = [RINGToken(what)]
             if self.debug:
-                print('%s%r {'%(' '*(self.depth*4), what))
+                print('%s%r {' % (' '*(self.depth*4), what))
                 self.depth += 1
             try:
                 self.parse(self.rules[what], inside_output)
             except RINGSyntaxError as exc:
                 if self.debug:
-                    print('%s%s'%(' '*(self.depth*4), exc))
+                    print('%s%s' % (' '*(self.depth*4), exc))
                 raise
             else:
                 output.append(inside_output)
                 if self.debug:
-                    print('%s%r'%(' '*(self.depth*4), output))
+                    print('%s%r' % (' '*(self.depth*4), output))
             finally:
                 if self.debug:
                     self.depth -= 1
-                    print('%s} %r'%(' '*(self.depth*4), what))
+                    print('%s} %r' % (' '*(self.depth*4), what))
         else:
-            raise TypeError("Don't know how to parse type %s"%(what,))
+            raise TypeError("Don't know how to parse type %s" % (what,))
 
 
-def parse(stream, strict = False):
+def parse(stream, strict=False):
     if strict:
         from .Grammar import strict_grammar as grammar
     else:
