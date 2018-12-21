@@ -1,17 +1,17 @@
 from .db import units_db
-from .qty import *
+from .qty import Quantity, FundamentalUnits, eval_qty
 
 
 # Define base SI units.
 base_SI_units = [
   # (<base name>, <multiple>, <primitive name>)
-    ('m', 1.0, 'm'),
-    ('g', 0.001, 'kg'),
-    ('s', 1.0, 's'),
-    ('A', 1.0, 'A'),
-    ('K', 1.0, 'K'),
-    ('mol', 1.0, 'mol'),
-    ('cd', 1.0, 'cd')
+  ('m', 1.0, 'm'),
+  ('g', 0.001, 'kg'),
+  ('s', 1.0, 's'),
+  ('A', 1.0, 'A'),
+  ('K', 1.0, 'K'),
+  ('mol', 1.0, 'mol'),
+  ('cd', 1.0, 'cd')
 ]
 for base, mult, prim in base_SI_units:
     units_db.add(base, Quantity(mult, FundamentalUnits.new(prim)))

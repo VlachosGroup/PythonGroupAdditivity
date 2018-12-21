@@ -9,9 +9,16 @@ if sys.version_info[0] >= 3:
     string = str
 else:
     string = str
-    #string = unicode
+    # string = unicode
 
 
-class SchemaDefinitionError(Exception): pass
-class InputDataError(Exception): pass
-class InputDataWarning(Warning): pass
+class SchemaDefinitionError(Exception):
+    pass
+
+
+class InputDataError(Exception):
+    pass
+
+
+class InputDataWarning(Warning):
+    pass

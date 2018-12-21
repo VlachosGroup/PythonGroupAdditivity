@@ -3,7 +3,7 @@ import numpy as np
 from .. Error import UnitsError
 
 from .utils import is_zero
-from .parser import *
+from .parser import eval_expr
 
 
 __all__ = [
@@ -390,7 +390,7 @@ class ArrayQuantity(GenericQuantity, np.ndarray):
         if units:
             arrqty._units = units
         elif hasattr(arrqty, '_units'):
-            arrqty._units = arr._units
+            arrqty._units = arrqty._units
         else:
             raise TypeError(
                 'Units must be specified when initializing ArrayQuantity.')

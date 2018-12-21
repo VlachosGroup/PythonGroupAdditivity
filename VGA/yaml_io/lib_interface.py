@@ -1,6 +1,6 @@
 import yaml
 
-from .common import *
+from .common import string
 
 
 __all__ = ['parse', 'YAMLTaggedValue']
@@ -28,8 +28,9 @@ def _construct_seq(loader, node):
 
 
 def _construct_map(loader, node):
-    result = dict([(tuple(key), value) if isinstance(key, list) else (key, value)
-        for (key, value) in loader.construct_pairs(node, deep=True)])
+    result = dict([(tuple(key), value) if isinstance(key, list)
+                  else (key, value)
+                  for (key, value) in loader.construct_pairs(node, deep=True)])
     return result
 
 

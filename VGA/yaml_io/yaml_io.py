@@ -1,10 +1,10 @@
-from .lib_interface import *
-from .schema import *
-from .common import *
+from .lib_interface import YAMLTaggedValue, parse
+from .schema import SchemaRepository
+# from .common import *
 
 
 __all__ = ['Error', 'load', 'make_loader', 'make_object_loader',
-    'register_class', 'register_list_type', 'register_type', 'parse']
+           'register_class', 'register_list_type', 'register_type', 'parse']
 
 
 class Error(Exception):
@@ -20,18 +20,19 @@ def load(data, context=None, name=None, tag=None, loader=None):
     if tag is not None:
         if loader is not None:
             raise Error("Specification of keyword argument 'tag' conflicts "
-                "with specification of 'loader' in yaml_io.load()")
+                        "with specification of 'loader' in yaml_io.load()")
         return _repository.load_tagged(name, data, context, tag)
     elif loader is not None:
         if isinstance(data, YAMLTaggedValue):
             raise Error("Object %r with tag %r cannot be loaded with "
-                "loader %r in yaml_io.load().", loader)
+                        "loader %r in yaml_io.load().", loader)
         return loader(name, data, context)
     elif not isinstance(data, YAMLTaggedValue):
         raise Error("Cannot load untagged object %r; no tag or loader "
-            "specified to yaml_io.load()."%data)
+                    "specified to yaml_io.load()." % data)
     else:
         return _repository.load_tagged(name, data.value, context, data.tag)
+
 
 _repository = SchemaRepository()
 

@@ -1,7 +1,8 @@
 from collections import Mapping, Sequence
 from warnings import warn
 
-from .common import *
+from .common import string, SchemaDefinitionError, InputDataError,\
+    InputDataWarning
 from .lib_interface import YAMLTaggedValue
 
 
@@ -31,11 +32,12 @@ def _get_type_and_attrs(schema_def):
         attrs = schema_def.copy()
         if 'type' not in attrs:
             raise SchemaDefinitionError("missing 'type' attribute in "
-                "schema definition %r"%schema_def)
+                                        "schema definition %r" % schema_def)
         del attrs['type']
         return (schema_def['type'], attrs)
     else:
-        raise SchemaDefinitionError("invalid schema definition %r"%schema_def)
+        raise SchemaDefinitionError("invalid schema definition %r"
+                                    % schema_def)
 
 
 class ListLoader(object):
@@ -45,7 +47,7 @@ class ListLoader(object):
         self.item_loader = repo.make_loader(item_type)
 
     def __call__(self, name, data, context):
-        params = {}
+        # params = {}
         if isinstance(data, YAMLTaggedValue):
             # Check proper subclass ...
             tag = data.tag
@@ -57,9 +59,9 @@ class ListLoader(object):
                 else:
                     raise InputDataError(
                         "Expected %r object (or sub type), "
-                        "got %r object"%(self.tag, tag))
+                        "got %r object" % (self.tag, tag))
         elif not isinstance(data, Sequence):
-            raise InputDataError('Input data is not sequence type: %r'%data)
+            raise InputDataError('Input data is not sequence type: %r' % data)
 
         # Load parameters with multiple alternatives.
         result = [self.item_loader(name, item, context) for item in data]
@@ -76,7 +78,8 @@ class ListLoader(object):
                     from traceback import format_tb
                     raise InputDataError(
                         '%s.yaml_construct() reported error '
-                        '"%s" with traceback:\n%s'%(self.object_class.__name__, exc,
+                        '"%s" with traceback:\n%s'
+                        % (self.object_class.__name__, exc,
                             ''.join(format_tb(exc_traceback))))
             else:
                 return result
@@ -89,7 +92,8 @@ class ObjectLoader(object):
             self, repo, members, object_class=None, tag=None,
             has_open_namespace=False):
         if not isinstance(members, Mapping):
-            raise InputDataError('Provided members %r is not a mapping type'%members)
+            raise InputDataError('Provided members %r is not a mapping type'
+                                 % members)
 
         self.object_class = object_class
         self.tag = tag
@@ -108,7 +112,7 @@ class ObjectLoader(object):
             members[new_name] = entry
 
         # Validate schema attributes and collect conflicts and alternatives.
-        #conflicts = {}  -- TODO
+        # conflicts = {}  -- TODO
         self.loaders = {}
         self.descs = {}
         self.requireds = set()
@@ -128,34 +132,39 @@ class ObjectLoader(object):
             # Look for special attributes: optional, default, or alts:
             if attrs.get('optional'):
                 if 'default' in attrs or attrs.get('alts'):
-                    raise SchemaDefinitionError("use of 'default' or 'alts' "
-                        "attributes conflict with use of 'optional' in %r"
-                        %schema_def)
+                    raise SchemaDefinitionError("use of 'default' or 'alts'",
+                                                "attributes conflict with use",
+                                                "of 'optional' in %r"
+                                                % schema_def)
                 self.optionals.add(name)
             elif 'default' in attrs:
-                if attrs.get('optional') or  attrs.get('alts'):
-                    raise SchemaDefinitionError("use of 'optional' or 'alts' "
-                        "attributes conflicts with use of 'optional' in %r"
-                        %schema_def)
+                if attrs.get('optional') or attrs.get('alts'):
+                    raise SchemaDefinitionError("use of 'optional' or 'alts'",
+                                                "attributes conflicts with",
+                                                "use of 'optional' in %r"
+                                                % schema_def)
                 self.defaults[name] = attrs['default']
             elif 'alts' in attrs:
                 if attrs.get('optional') or 'default' in attrs:
-                    raise SchemaDefinitionError("use of 'optional' or "
-                        "'default' attributes conflicts with use of 'alts' "
-                        "in %r"%schema_def)
+                    raise SchemaDefinitionError("use of 'optional' or",
+                                                "'default' attributes",
+                                                "conflicts with use of 'alts'",
+                                                "in %r" % schema_def)
 
                 # Get list of alternative parameter names:
                 alts = attrs['alts']
                 if isinstance(alts, str):
                     alts = [alts]
                 if not isinstance(alts, Sequence):
-                    raise SchemaDefinitionError("'alts' attribute must be a "
-                        "sequence instead of %r."%alts)
+                    raise SchemaDefinitionError("'alts' attribute must be a",
+                                                "sequence instead of %r."
+                                                % alts)
 
                 # Compute the complete set of alternatives.
                 class hashable_set(set):
                     def __hash__(self):
                         return id(self)
+
                     def __eq__(self, other):
                         return id(self) == id(other)
 
@@ -191,26 +200,26 @@ class ObjectLoader(object):
                 else:
                     raise InputDataError(
                         "Expected %r object (or sub type), "
-                        "got %r object"%(self.tag, tag))
-        #elif data is None:
+                        "got %r object" % (self.tag, tag))
+        # elif data is None:
         #    return None
         elif not isinstance(data, Mapping):
-            raise InputDataError('Input data for %r is not mapping type: %r'%
-                (name, data))
+            raise InputDataError('Input data for %r is not mapping type: %r'
+                                 % (name, data))
 
         # Check for parameters not defined in schema.
         for name in data:
             if name not in self.loaders and not self.has_open_namespace:
-                warn('Invalid parameter %r specified in YAML input'%name,
-                    InputDataWarning, 3)
-                #raise InputDataError('Invalid parameter %r specified in %r'
+                warn('Invalid parameter %r specified in YAML input'
+                     % name, InputDataWarning, 3)
+                # raise InputDataError('Invalid parameter %r specified in %r'
                 #    %(name, data))
 
         # Load required parameters.
         for name in self.requireds:
             if name not in data:
                 raise InputDataError('Missing required parameter %r in %r'
-                    %(name, data))
+                                     % (name, data))
             params[name] = self.loaders[name](name, data[name], context)
 
         # Load optional parameters.
@@ -230,8 +239,8 @@ class ObjectLoader(object):
         for alt_set in self.alt_sets:
             alt_names = [name for name in alt_set if name in data]
             if len(alt_names) != 1:
-                raise InputDataError("Number of alternatives %r specified in %r does "
-                    "not equal 1"%(alt_set, data))
+                raise InputDataError("Number of alternatives %r specified in",
+                                     "%r does not equal 1" % (alt_set, data))
             name = alt_names[0]
             params[name] = self.loaders[name](name, data[name], context)
 
@@ -247,8 +256,9 @@ class ObjectLoader(object):
                     from sys import exc_traceback
                     from traceback import format_tb
                     raise InputDataError(
-                        '%s.yaml_construct() reported error '
-                        '"%s" with traceback:\n%s'%(self.object_class.__name__, exc,
+                        '%s.yaml_construct() reported error',
+                        '"%s" with traceback:\n%s'
+                        % (self.object_class.__name__, exc,
                             ''.join(format_tb(exc_traceback))))
             else:
                 # Default constructor.
@@ -283,7 +293,8 @@ class SchemaRepository(object):
         type_name, attrs = _get_type_and_attrs(schema_def)
         loader_class = self._loaders.get(type_name)
         if loader_class is None:
-            raise SchemaDefinitionError('undefined data type %r'%type_name)
+            raise SchemaDefinitionError('undefined data type %r' % type_name)
+
         def del_key(attrs, key):
             if key in attrs:
                 del attrs[key]
@@ -291,7 +302,7 @@ class SchemaRepository(object):
             del_key(attrs, key)
         try:
             return loader_class(self, **attrs)
-        except TypeError as exc:
+        except TypeError:
             import sys
             from traceback import extract_tb
             typ, value, tb = sys.exc_info()
@@ -299,7 +310,7 @@ class SchemaRepository(object):
             if(mod_name == __file__
                     and func_name == sys._getframe().f_code.co_name):
                 raise SchemaDefinitionError(
-                    'Invalid attributes to type %r: %r'%(type_name, attrs))
+                    'Invalid attributes to type %r: %r' % (type_name, attrs))
             else:
                 raise
 
@@ -311,7 +322,7 @@ class SchemaRepository(object):
 
         def __call__(self, repo, **attrs):
             return ObjectLoader(repo, self.members, self.object_class,
-                self.tag, **attrs)
+                                self.tag, **attrs)
 
     class ListLoaderFactory(object):
         def __init__(self, item_type, object_class=None, tag=None):
@@ -321,28 +332,28 @@ class SchemaRepository(object):
 
         def __call__(self, repo, **attrs):
             return ListLoader(repo, self.item_type, self.object_class,
-                self.tag, **attrs)
+                              self.tag, **attrs)
 
     def load_tagged(self, name, data, context, tag):
         loader = self._loaders.get(tag[1:])
         if loader is None:
-            raise InputDataError('Unknown tag: %r'%tag)
+            raise InputDataError('Unknown tag: %r' % tag)
         return loader(self)(name, data, context)
 
     def is_tag_sub_type(self, tag, base_tag):
         loader = self._loaders.get(tag[1:])
         base_loader = self._loaders.get(base_tag[1:])
         if loader is None:
-            raise InputDataError('Invalid tag: %r'%tag)
+            raise InputDataError('Invalid tag: %r' % tag)
         if base_loader is None:
-            raise InputDataError('Invalid tag: %r'%base_tag)
+            raise InputDataError('Invalid tag: %r' % base_tag)
         object_class = loader.object_class
         base_object_class = base_loader.object_class
         if object_class is not None and base_object_class is not None:
             return issubclass(object_class, base_object_class)
 
-    def make_object_loader(
-        self, members, object_class=None, open_namespace=False):
+    def make_object_loader(self, members, object_class=None,
+                           open_namespace=False):
         """Return a function that accepts an abstract tree conforming to a
         schema for an object whose `members` are defined by a yaml mapping.
         """
@@ -354,7 +365,8 @@ class SchemaRepository(object):
         specified YAML tag (`name`) with provided schema definition.
         """
         self.register_type(name,
-            self.ObjectLoaderFactory(schema_def, class_, tag='!' + name))
+                           self.ObjectLoaderFactory(schema_def, class_,
+                                                    tag='!' + name))
 
     def register_list_type(self, name, item_type, class_):
         """Register a Python class to be used to construct objects having
@@ -362,8 +374,8 @@ class SchemaRepository(object):
         containing items of specified `item_type`.
         """
         self.register_type(name,
-            self.ListLoaderFactory(item_type,
-                class_, tag='!' + name))
+                           self.ListLoaderFactory(item_type,
+                                                  class_, tag='!' + name))
 
     def register_type(self, name, loader):
         """Register a function to be called (`loader`) to construct new
