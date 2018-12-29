@@ -1,4 +1,6 @@
 from ..Error import RINGSyntaxError
+from operator import eq
+
 """
 Parses the RING input string into abstract syntax tree as defined by
 Grammar.py.
@@ -39,11 +41,13 @@ class RINGToken(object):
     def __init__(self, name):
         self.name = name
 
+# TODO: Resolve unknown name 'cmp'
+
     def __cmp__(self, other):
         if isinstance(other, RINGToken):
-            return cmp(self.name, other.name)
+            return eq(self.name, other.name)
         else:
-            return cmp(self.name, other)
+            return eq(self.name, other)
 
     def __str__(self):
         return self.name
@@ -315,7 +319,7 @@ class Literals(Either):
     def __call__(self, stream, output):
         try:
             return Either.__call__(self, stream, output)
-        except RINGSyntaxError as exc:
+        except RINGSyntaxError:
             if hasattr(self, 'name'):
                 stream.error('<' + self.name + '>')
             else:

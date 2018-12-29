@@ -19,7 +19,7 @@ def moltosvg(mol, highlight=[], molSize=(400, 400), kekulize=True):
     if kekulize:
         try:
             Chem.Kekulize(mc)
-        except:
+        except Exception:
             mc = Chem.Mol(mol.ToBinary())
     if not mc.GetNumConformers():
         rdDepictor.Compute2DCoords(mc)

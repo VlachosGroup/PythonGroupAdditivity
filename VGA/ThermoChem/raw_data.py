@@ -4,6 +4,7 @@ from scipy.integrate import quad as integrate
 from .. import yaml_io
 from ..Consts import GAS_CONSTANT as R
 from .base import ThermochemBase
+from ..Units import eval_qty
 
 
 class ThermochemRawData(ThermochemBase):

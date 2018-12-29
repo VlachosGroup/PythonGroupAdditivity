@@ -50,7 +50,7 @@ try:
     # Use the class that's atop libyaml for speed...
     class Loader(yaml.CSafeLoader):
         pass
-except:
+except AttributeError:
     # ...and fall back on the Python implementation otherwise:
     class Loader(yaml.SafeLoader):
         pass

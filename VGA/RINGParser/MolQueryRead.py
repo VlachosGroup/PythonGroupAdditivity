@@ -318,7 +318,7 @@ class MolQueryReader(object):
         assert tree[3][0].name == 'AtomLabel'
         try:
             idx_connected = molquery.atom_names.index(tree[3][1])
-        except:
+        except Exception:
             msg = 'Atom Label '+tree[3][1]+' not found'
             raise RINGReaderError(msg)
         self.ReadBondTypeBondedAtom(idx, idx_connected,
@@ -332,7 +332,7 @@ class MolQueryReader(object):
         assert tree[0][0].name == 'AtomLabel'
         try:
             idx1 = molquery.atom_names.index(tree[0][1])
-        except:
+        except Exception:
             msg = 'Atom Label '+tree[0][1]+' not found'
             raise RINGReaderError(msg)
 
@@ -341,7 +341,7 @@ class MolQueryReader(object):
         assert tree[2][0].name == 'AtomLabel'
         try:
             idx2 = molquery.atom_names.index(tree[2][1])
-        except:
+        except Exception:
             msg = 'Atom Label '+tree[2][1]+' not found'
             raise RINGReaderError(msg)
         self.ReadBondTypeBondedAtom(idx1, idx2, bondtype, molquery)
@@ -352,7 +352,7 @@ class MolQueryReader(object):
         try:
             idx1 = molquery.atom_names.index(tree[i][1])
             i += 1
-        except:
+        except Exception:
             msg = 'Atom Label '+tree[i][1]+' not found'
             raise RINGReaderError(msg)
 
@@ -382,21 +382,21 @@ class MolQueryReader(object):
         try:
             idx2 = molquery.atom_names.index(tree[i][1])
             i += 1
-        except:
+        except Exception:
             msg = 'Atom Label ' + tree[i][1] + ' not found'
             raise RINGReaderError(msg)
         assert tree[i][0].name == 'AtomLabel'
         try:
             idx3 = molquery.atom_names.index(tree[i][1])
             i += 1
-        except:
+        except Exception:
             msg = 'Atom Label '+tree[i][1]+' not found'
             raise RINGReaderError(msg)
         assert tree[i][0].name == 'AtomLabel'
         try:
             idx4 = molquery.atom_names.index(tree[i][1])
             i += 1
-        except:
+        except Exception:
             msg = 'Atom Label '+tree[i][1]+' not found'
             raise RINGReaderError(msg)
         # Error checks double bond check

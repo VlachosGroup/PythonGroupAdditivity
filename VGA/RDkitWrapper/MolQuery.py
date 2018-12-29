@@ -63,7 +63,7 @@ class BondConstraint(object):
     def __call__(self, idx1, idx2, mol):
         try:
             bond = mol.GetBondBetweenAtoms(idx1, idx2)
-        except:
+        except Exception:
             raise MolQueryError('There is no bond between atom'
                                 + idx1+' and atom'+idx2)
         return self.bondquery(bond)
@@ -342,13 +342,13 @@ class AtomConnectivityAtom(AtomConstraint):
             try:
                 for constraint in self.constraints:
                     constraint(connected_atom)
-            except:
+            except Exception:
                 continue
             # bond check
             try:
                 if self.bondquery(bond):
                     count += 1
-            except:
+            except Exception:
                 continue
         if self.negate:
             if self.ConstraintNumber(count):
@@ -385,7 +385,7 @@ class AtomConnectivityGroup(AtomConstraint):
             try:
                 if bond and self.bondquery(bond):
                     count += 1
-            except:
+            except Exception:
                 continue
         if self.negate:
             if self.ConstraintNumber(count):
@@ -508,7 +508,7 @@ class MolQuery(object):
         if isinstance(idx_or_atomname, str):
             try:
                 idx = self.atom_names.index(idx_or_atomname)
-            except:
+            except Exception:
                 s = "Undeclared atom name: '" + idx_or_atomname + "'"
                 raise MolQueryError(s)
         elif isinstance(idx_or_atomname, int):
@@ -527,7 +527,7 @@ class MolQuery(object):
         if isinstance(idx_or_atomname1, str):
             try:
                 idx1 = self.atom_names.index(idx_or_atomname1)
-            except:
+            except Exception:
                 s = "Undeclared atom name: '" + idx_or_atomname1 + "'"
                 raise MolQueryError(s)
         elif isinstance(idx_or_atomname1, int):
@@ -537,7 +537,7 @@ class MolQuery(object):
         if isinstance(idx_or_atomname2, str):
             try:
                 idx2 = self.atom_names.index(idx_or_atomname2)
-            except:
+            except Exception:
                 s = "Undeclared atom name: '" + idx_or_atomname2 + "'"
                 raise MolQueryError(s)
         elif isinstance(idx_or_atomname2, int):
@@ -560,7 +560,7 @@ class MolQuery(object):
         if isinstance(idx_or_atomname1, str):
             try:
                 idx1 = self.atom_names.index(idx_or_atomname1)
-            except:
+            except Exception:
                 s = "Undeclared atom name: '" + idx_or_atomname1 + "'"
                 raise MolQueryError(s)
         elif isinstance(idx_or_atomname1, int):
@@ -570,7 +570,7 @@ class MolQuery(object):
         if isinstance(idx_or_atomname2, str):
             try:
                 idx2 = self.atom_names.index(idx_or_atomname2)
-            except:
+            except Exception:
                 s = "Undeclared atom name: '" + idx_or_atomname2 + "'"
                 raise MolQueryError(s)
         elif isinstance(idx_or_atomname2, int):
@@ -580,7 +580,7 @@ class MolQuery(object):
         if isinstance(idx_or_atomname3, str):
             try:
                 idx3 = self.atom_names.index(idx_or_atomname3)
-            except:
+            except Exception:
                 s = "Undeclared atom name: '" + idx_or_atomname3 + "'"
                 raise MolQueryError(s)
         elif isinstance(idx_or_atomname3, int):
@@ -590,7 +590,7 @@ class MolQuery(object):
         if isinstance(idx_or_atomname4, str):
             try:
                 idx4 = self.atom_names.index(idx_or_atomname4)
-            except:
+            except Exception:
                 s = "Undeclared atom name: '" + idx_or_atomname4 + "'"
                 raise MolQueryError(s)
         elif isinstance(idx_or_atomname4, int):
@@ -609,7 +609,7 @@ class MolQuery(object):
         for mol_constraint in self.mol_constraints:
             try:
                 mol_constraint(mol)
-            except:
+            except Exception:
                 return tuple()
         # Match mol substructure matches
         rdkit_matches = mol.GetSubstructMatches(self.mol, uniquify=False)
@@ -627,7 +627,7 @@ class MolQuery(object):
                     idx2 = match_indice[bond_constraint[1]]
                     bond_constraint[2](idx1, idx2, mol)
                 matches1.append(match_indice)
-            except:
+            except Exception:
                 continue
         # Enhanced atom matching
         matches2 = list()
@@ -641,7 +641,7 @@ class MolQuery(object):
                         for atom_constraint in self.atom_constraints[i]:
                             atom_constraint(atom)
                 matches2.append(match_indice)
-            except:
+            except Exception:
                 continue
         # Enhanced bond stereo matching
         matches3 = list()
@@ -656,6 +656,6 @@ class MolQuery(object):
                     double_bond_stereo_constraint[4](idx1, idx2,
                                                      idx3, idx4, mol)
                 matches3.append(match_indice)
-            except:
+            except Exception:
                 continue
         return tuple(matches3)

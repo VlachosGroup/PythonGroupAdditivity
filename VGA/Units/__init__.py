@@ -52,7 +52,7 @@ Examples
 True
 >>> print m.has_units('J s')
 False
->>> 
+>>>
 
 
 ---------

@@ -72,12 +72,12 @@ class ReactionQueryReader(object):
         try:
             idx1 = self.atom_names.index(tree[i][1])
             i += 1
-        except:
+        except Exception:
             raise RINGReaderError("BondForm: Unrecognized atom label: '"
                                   + tree[i][1] + "'")
         try:
             idx2 = self.atom_names.index(tree[i][1])
-        except:
+        except Exception:
             raise RINGReaderError("BondForm: Unrecognized atom label: '"
                                   + tree[i][1] + "'")
         self.electronbalance[idx1] += -balance
@@ -100,7 +100,7 @@ class ReactionQueryReader(object):
             idx1_in_query = reactionquery.reactantquery[reactant_name1].\
                 atom_names.index(atom_name1)
             i += 1
-        except:
+        except Exception:
             raise RINGReaderError("BondBreak: Unrecognized atom label: '"
                                   + tree[i][1] + "'")
         try:
@@ -109,7 +109,7 @@ class ReactionQueryReader(object):
             reactant_name2 = self.atom_belonging_mol[idx2]
             idx2_in_query = reactionquery.reactantquery[reactant_name2].\
                 atom_names.index(atom_name2)
-        except:
+        except Exception:
             raise RINGReaderError("BondBreak: Unrecognized atom label: '"
                                   + tree[i][1] + "'")
         if reactant_name1 != reactant_name2:
@@ -141,7 +141,7 @@ class ReactionQueryReader(object):
             reactant_name1 = self.atom_belonging_mol[idx1]
             idx1_in_query = reactionquery.reactantquery[reactant_name1].\
                 atom_names.index(atom_name1)
-        except:
+        except Exception:
             raise RINGReaderError("BondModify: Unrecognized atom label: '"
                                   + tree[0][1] + "'")
         try:
@@ -150,7 +150,7 @@ class ReactionQueryReader(object):
             reactant_name2 = self.atom_belonging_mol[idx2]
             idx2_in_query = reactionquery.reactantquery[reactant_name2].\
                 atom_names.index(atom_name2)
-        except:
+        except Exception:
             raise RINGReaderError("BondModify: Unrecognized atom label: '"
                                   + tree[1][1] + "'")
         if reactant_name1 != reactant_name2:
@@ -188,12 +188,12 @@ class ReactionQueryReader(object):
     def ReadBondIncrease(self, tree, reactionquery):
         try:
             idx1 = self.atom_names.index(tree[0][1])
-        except:
+        except Exception:
             raise RINGReaderError("BondIncrease: Unrecognized atom label: '"
                                   + tree[0][1] + "'")
         try:
             idx2 = self.atom_names.index(tree[1][1])
-        except:
+        except Exception:
             raise RINGReaderError("BondIncrease: Unrecognized atom label: '"
                                   + tree[1][1] + "'")
 
@@ -204,12 +204,12 @@ class ReactionQueryReader(object):
     def ReadBondDecrease(self, tree, reactionquery):
         try:
             idx1 = self.atom_names.index(tree[0][1])
-        except:
+        except Exception:
             raise RINGReaderError("BondDecrease: Unrecognized atom label: '"
                                   + tree[0][1] + "'")
         try:
             idx2 = self.atom_names.index(tree[1][1])
-        except:
+        except Exception:
             raise RINGReaderError("BondDecrease: Unrecognized atom label: '"
                                   + tree[1][1] + "'")
 
@@ -270,7 +270,7 @@ class ReactionQueryReader(object):
                 atom_names.index(atom_name)
             atom = reactionquery.reactantquery[reactant_name].\
                 mol.GetAtomWithIdx(idx_in_query)
-        except:
+        except Exception:
             raise RINGReaderError("AtomLabel: Unrecognized atom label: '"
                                   + tree[0] + "'")
         return atom_name, idx, reactant_name, idx_in_query, atom

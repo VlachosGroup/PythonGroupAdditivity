@@ -95,14 +95,14 @@ class GroupAdditivityScheme(Scheme):
         if 'smiles_based_descriptors' in scheme_data:
             for i in range(0, len(scheme_data['smiles_based_descriptors'])):
                 scheme_data['smiles_based_descriptors'][i]['smarts'] = \
-                    Chem.MolFromSmarts(scheme_data['smiles_based_descriptors'][i]
-                                       ['smarts'])
+                    Chem.MolFromSmarts(scheme_data['smiles_based_descriptors']
+                                       [i]['smarts'])
             smiles_based_descriptors = scheme_data['smiles_based_descriptors']
         if 'smarts_based_descriptors' in scheme_data:
             for i in range(0, len(scheme_data['smarts_based_descriptors'])):
                 scheme_data['smarts_based_descriptors'][i]['smarts'] = \
-                    Chem.MolFromSmarts(scheme_data['smarts_based_descriptors'][i]\
-                                       ['smarts'])
+                    Chem.MolFromSmarts(scheme_data['smarts_based_descriptors']
+                                       [i]['smarts'])
             smarts_based_descriptors = scheme_data['smarts_based_descriptors']
         return cls(patterns, pretreatment_rules, remaps, other_descriptors,
                    smiles_based_descriptors, smarts_based_descriptors)
@@ -223,15 +223,15 @@ class GroupAdditivityScheme(Scheme):
                 descriptors[descriptor['name']] += len(matches)
         for descriptor in self.smiles_based_descriptors:
             matches = clean_mol.GetSubstructMatches(descriptor['smiles'],
-                                                    useChirality=
-                                                    descriptor['useChirality'])
+                                                    useChirality=descriptor
+                                                    ['useChirality'])
             matches = set([tuple(set(match)) for match in matches])
             if matches:
                 descriptors[descriptor['name']] += len(matches)
         for descriptor in self.smarts_based_descriptors:
             matches = mol.GetSubstructMatches(descriptor['smarts'],
-                                              useChirality=
-                                              descriptor['useChirality'])
+                                              useChirality=descriptor
+                                              ['useChirality'])
             matches = set([tuple(set(match)) for match in matches])
             if matches:
                 descriptors[descriptor['name']] += len(matches)

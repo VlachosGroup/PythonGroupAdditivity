@@ -72,7 +72,7 @@ def GenerateRxnNet(initial_reactant, reaction_rules):
         for i in range(0, len(reaction_rules)):
             try:
                 reaction_rules[i] = Read(reaction_rules[i])
-            except:
+            except Exception:
                 reaction_rules[i] = ReactionFromSmarts(reaction_rules[i])
 
     # generator main algorithm
@@ -165,7 +165,7 @@ def GenerateRxnNet(initial_reactant, reaction_rules):
 def _sanitize_except_aromatization(mol):
     try:
         Chem.SanitizeMol(mol)
-    except:
+    except Exception:
         Chem.SanitizeMol(mol, sanitizeOps=Chem.rdmolops.SanitizeFlags.
                          SANITIZE_ADJUSTHS)
         Chem.SanitizeMol(mol, sanitizeOps=Chem.rdmolops.SanitizeFlags.
@@ -177,7 +177,7 @@ def _sanitize_except_aromatization(mol):
         try:
             Chem.SanitizeMol(mol, sanitizeOps=Chem.rdmolops.SanitizeFlags.
                              SANITIZE_KEKULIZE)
-        except:
+        except Exception:
             pass
         Chem.SanitizeMol(mol, sanitizeOps=Chem.rdmolops.SanitizeFlags.
                          SANITIZE_PROPERTIES)

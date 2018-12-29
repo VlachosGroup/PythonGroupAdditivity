@@ -161,7 +161,7 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((1,2),(2,1)))
+        self.assertEqual(match_index, ((1, 2), (2, 1)))
 
     def test_other_bond4(self):
         testmol = Chem.MolFromSmiles('C=CC')
@@ -240,7 +240,8 @@ class TestRINGParser(unittest.TestCase):
                                        (2, 9), (2, 10), (3, 0), (4, 0),
                                        (5, 0), (6, 1), (7, 1), (8, 2), (9, 2),
                                        (10, 2)))
-    def test_other_bond8(self):
+
+    def test_other_bond9(self):
         testmol = Chem.MolFromSmiles('CCO')
         s = """
         fragment a{
@@ -320,7 +321,7 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0,),(2,)))
+        self.assertEqual(match_index, ((0, ), (2, )))
 
     def test_atom_constraint6(self):
         testmol = Chem.MolFromSmiles('CC1CCC1')
