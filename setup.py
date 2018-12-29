@@ -15,12 +15,12 @@ with open('README.rst', 'r') as fh:
 
 setuptools_info = {
 	'name': 'VGA',
-	'version': '1.2.0',
+	'version': '1.2.2',
 	'author': 'Vlachos Research Group',
 	'author_email': 'vlachos@udel.edu',
 	'description': 'Python package implements the Group Additivity (GA) method for estimating thermodynamic properties',
 	'long_description': long_description,
-	'zip_safe': False,
+	'zip_safe': True,
 	'url': 'https://github.com/VlachosGroup/VlachosGroupAdditivity',
 	'packages': setuptools.find_packages(),
 	'include_package_data': True,
