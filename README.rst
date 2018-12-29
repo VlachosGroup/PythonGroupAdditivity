@@ -1,6 +1,5 @@
  Vlachos Group Additivity (VGA)
 ================================
-
 Python package implements the **F**\ irst-**P**\ rinciples **S**\ emi-**E**\ mperical (FPSE) **G**\ roup **A**\ dditivity (GA) method for estimating thermodynamic properties of molecules. First introduced by Benson et al. for gas molecules and was later extended by Kua et al. to species adsorbed on catalytic surfaces. GA relies on graph theory defining each molecule as a collection of groups and their frequency of occurrence. The values of GA groups are determined from DFT-calculated thermodynamic properties of a (training) set of molecules by linear regression to minimize the difference of thermodynamic properties of molecules predicted by the GA from those estimated via DFT. This package implements four group additivity schemes in six databases (See below) and will convert a molecule entered as a **S**\ implified **M**\ olecular-**I**\ nput **L**\ ine-**E**\ ntry **S**\ ystem (`SMILES`_) providing the constituent groups, their frequency of occurrence, and estimated thermodynamic properties for that molecule. VGA also provides a general GA framework for implementing a custom group additivity scheme from your *ab initio*\  data and regression to groups.
 
 -  Benson's gas molecule group additivity (BensonGA)
