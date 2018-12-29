@@ -1,4 +1,5 @@
 #
+#
 # setup.py
 #
 # Installation script to get setuptools to install VGA into
@@ -15,7 +16,7 @@ with open('README.rst', 'r') as fh:
 
 setuptools_info = {
 	'name': 'VGA',
-	'version': '1.2.2',
+	'version': '1.2.3',
 	'author': 'Vlachos Research Group',
 	'author_email': 'vlachos@udel.edu',
 	'description': 'Python package implements the Group Additivity (GA) method for estimating thermodynamic properties',
