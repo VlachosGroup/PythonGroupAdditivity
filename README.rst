@@ -1,6 +1,6 @@
 Vlachos Group Additivity (VGA)
 ===============================
-
+  
 Python package implements the **F**\ irst-**P**\ rinciples **S**\ emi-**E**\ mperical (FPSE) **G**\ roup **A**\ dditivity
 (GA) method for estimating thermodynamic properties of molecules. First introduced by Benson et al. for gas molecules and
 was later extended by Kua et al. to species adsorbed on catalytic surfaces. GA relies on graph theory defining each molecule
@@ -52,11 +52,11 @@ Getting Started
 
     python -m unittest
     
-.................................
-----------------------------------------------------------------------
-Ran 33 tests in 3.157s
-
-OK
+    .................................
+    ----------------------------------------------------------------------
+    Ran 33 tests in 3.157s
+    
+    OK
 
 3. Look at examples below
 
@@ -183,6 +183,6 @@ Examples
 .. _`pyyaml`: https://pyyaml.org/
 .. _`SMILES`: https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system
 .. _`pMuTT`: https://github.com/VlachosGroup/pMuTT
-.. _LICENSE: https://github.com/VlachosGroup/VlachosGroupAdditivity/blob/master/LICENSE.md
+.. _`LICENSE`: https://github.com/VlachosGroup/VlachosGroupAdditivity/blob/master/LICENSE.md
 .. _`Issues page`: https://github.com/VlachosGroup/VlachosGroupAdditivity/issues
 .. _`pull request`: https://github.com/VlachosGroup/VlachosGroupAdditivity/pulls
