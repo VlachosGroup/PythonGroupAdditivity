@@ -38,7 +38,7 @@ class TestExamples(unittest.TestCase):
         self.assertAlmostEqual(HoRT, -109.86212002776878)
         self.assertEqual(descriptors, GroupDict)
 
-    def test_Wittreich_Surface(self):
+    def test_Wittreich_Surface_ND(self):
         lib = GroupLibrary.Load('GRWSurface2018')
         descriptors = lib.GetDescriptors('[Pt]C([Pt])C([Pt])([Pt])C=O')
         thermochem = lib.Estimate(descriptors, 'thermochem')
@@ -48,13 +48,32 @@ class TestExamples(unittest.TestCase):
         self.assertAlmostEqual(HoRT, -13.423119203382337)
         self.assertEqual(descriptors, GroupDict)
 
-    def test_Wittreich_Aqueous(self):
+    def test_Wittreich_Surface_Dim(self):
+        lib = GroupLibrary.Load('GRWSurface2018')
+        descriptors = lib.GetDescriptors('[Pt]C([Pt])C([Pt])([Pt])C=O')
+        thermochem = lib.Estimate(descriptors, 'thermochem')
+        GroupDict = {'C(C)(H)(Pt)2': 1, 'C(C)(CO)(Pt)2': 1, 'CO(C)(H)': 1,
+                     'CPt2CPt2': 1, 'CCPt2': 1, 'surface-ring strain': 0.392}
+        H = thermochem.get_H(750, 'kcal/mol')
+        self.assertAlmostEqual(H, -20.005853103142883)
+        self.assertEqual(descriptors, GroupDict)
+
+    def test_Wittreich_Aqueous_ND(self):
         lib = GroupLibrary.Load('GRWAqueous2018')
         descriptors = lib.GetDescriptors('C(=O)([Pt])O')
         thermochem = lib.Estimate(descriptors, 'thermochem')
         GroupDict = {'CO(O)(Pt)+O(CO)(H)': 1.0}
         HoRT = thermochem.get_HoRT(500)
         self.assertAlmostEqual(HoRT, -107.57909464133714)
+        self.assertEqual(descriptors, GroupDict)
+
+    def test_Wittreich_Aqueous_Dim(self):
+        lib = GroupLibrary.Load('GRWAqueous2018')
+        descriptors = lib.GetDescriptors('C(=O)([Pt])O')
+        thermochem = lib.Estimate(descriptors, 'thermochem')
+        GroupDict = {'CO(O)(Pt)+O(CO)(H)': 1.0}
+        H = thermochem.get_H(500, 'kJ/mol')
+        self.assertAlmostEqual(H, -447.23102885789655)
         self.assertEqual(descriptors, GroupDict)
 
 
