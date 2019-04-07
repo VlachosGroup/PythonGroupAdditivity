@@ -35,6 +35,7 @@ Required Packages
 -----------------
 
 -  Python2/Python3
+-  `pMuTT`  >= 1.25
 -  `rdkit`_ >= 2018.03.4.0
 -  ipython >= 7.0.0
 -  `numpy`_ >= 1.15.1
@@ -181,6 +182,7 @@ Examples
     -107.57909464133714 [Dimensionless]
     -447.23102885789655 [kJ/mol]
 
+.. _`pMuTT`: https://www.pypi.org/pmutt
 .. _`scipy`: https://www.scipy.org/
 .. _`rdkit`: https://www.rdkit.org/
 .. _`numpy`: http://www.numpy.org/
