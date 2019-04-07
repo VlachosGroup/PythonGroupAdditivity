@@ -35,7 +35,7 @@ Required Packages
 -----------------
 
 -  Python2/Python3
--  `pMuTT`  >= 1.25
+-  `pMuTT`_ >= 1.2.5
 -  `rdkit`_ >= 2018.03.4.0
 -  ipython >= 7.0.0
 -  `numpy`_ >= 1.15.1
