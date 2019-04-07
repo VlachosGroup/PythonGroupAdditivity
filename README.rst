@@ -182,7 +182,6 @@ Examples
     -107.57909464133714 [Dimensionless]
     -447.23102885789655 [kJ/mol]
 
-.. _`pMuTT`: https://www.pypi.org/pmutt/
 .. _`scipy`: https://www.scipy.org/
 .. _`rdkit`: https://www.rdkit.org/
 .. _`numpy`: http://www.numpy.org/
