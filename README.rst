@@ -108,7 +108,7 @@ Examples
     descriptors = lib.GetDescriptors('C1CO1')
     print(descriptors)
     thermochem = lib.Estimate(descriptors,'thermochem')
-    print(thermochem.eval_ND_H(298.15))
+    print(thermochem.get_HoRT(298.15))
 
     Out:
     defaultdict(int, {'C(C)(H)2(O)': 2, 'O(C)2': 1, 'Oxirane': 1})
@@ -124,7 +124,7 @@ Examples
     descriptors = lib.GetDescriptors('C([Pt])C[Pt]')
     print(descriptors)
     thermochem = lib.Estimate(descriptors,'thermochem')
-    print(thermochem.eval_ND_H(298.15))
+    print(thermochem.get_HoRT(298.15))
 
     Out:
     defaultdict(<class 'int'>, {'C(C)(H)2(Pt)': 2, 'surface-ring strain': 0.217})
@@ -139,7 +139,7 @@ Examples
     descriptors = lib.GetDescriptors('C(=O)([Pt])O')
     print(descriptors)
     thermochem = lib.Estimate(descriptors,'thermochem')
-    print(thermochem.eval_ND_H(500))
+    print(thermochem.get_HoRT(500))
 
     Out:
     defaultdict(<class 'int'>, {'CO(O)(Pt)+O(CO)(H)': 1.0})
@@ -155,7 +155,7 @@ Examples
     descriptors = lib.GetDescriptors('[Pt]C([Pt])C([Pt])([Pt])C=O')
     print(descriptors)
     thermochem = lib.Estimate(descriptors,'thermochem')
-    print(thermochem.eval_ND_H(750))
+    print(thermochem.get_HoRT(750))
 
     Out:
     defaultdict(<class 'int'>, {'C(C)(H)(Pt)2': 1, 'C(C)(CO)(Pt)2': 1, 'CO(C)(H)': 1,
@@ -171,7 +171,7 @@ Examples
     descriptors = lib.GetDescriptors('C(=O)([Pt])O')
     print(descriptors)
     thermochem = lib.Estimate(descriptors,'thermochem')
-    print(thermochem.eval_ND_H(500))
+    print(thermochem.get_HoRT(500))
 
     Out:
     defaultdict(<class 'int'>, {'CO(O)(Pt)+O(CO)(H)': 1.0})

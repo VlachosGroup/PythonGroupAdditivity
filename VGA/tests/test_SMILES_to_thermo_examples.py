@@ -16,7 +16,7 @@ class TestExamples(unittest.TestCase):
         descriptors = lib.GetDescriptors('C1CO1')
         thermochem = lib.Estimate(descriptors, 'thermochem')
         GroupDict = {'C(C)(H)2(O)': 2, 'O(C)2': 1, 'Oxirane': 1}
-        HoRT = thermochem.eval_ND_H(298.15)
+        HoRT = thermochem.get_HoRT(298.15)
         self.assertAlmostEqual(HoRT, -21.09467743150278)
         self.assertEqual(descriptors, GroupDict)
 
@@ -25,7 +25,7 @@ class TestExamples(unittest.TestCase):
         descriptors = lib.GetDescriptors('C([Pt])C[Pt]')
         thermochem = lib.Estimate(descriptors, 'thermochem')
         GroupDict = {'C(C)(H)2(Pt)': 2, 'surface-ring strain': 0.217}
-        HoRT = thermochem.eval_ND_H(298.15)
+        HoRT = thermochem.get_HoRT(298.15)
         self.assertAlmostEqual(HoRT, 37.62494617247582)
         self.assertEqual(descriptors, GroupDict)
 
@@ -34,7 +34,7 @@ class TestExamples(unittest.TestCase):
         descriptors = lib.GetDescriptors('C(=O)([Pt])O')
         thermochem = lib.Estimate(descriptors, 'thermochem')
         GroupDict = {'CO(O)(Pt)+O(CO)(H)': 1.0}
-        HoRT = thermochem.eval_ND_H(500)
+        HoRT = thermochem.get_HoRT(500)
         self.assertAlmostEqual(HoRT, -109.86212002776878)
         self.assertEqual(descriptors, GroupDict)
 
@@ -44,7 +44,7 @@ class TestExamples(unittest.TestCase):
         thermochem = lib.Estimate(descriptors, 'thermochem')
         GroupDict = {'C(C)(H)(Pt)2': 1, 'C(C)(CO)(Pt)2': 1, 'CO(C)(H)': 1,
                      'CPt2CPt2': 1, 'CCPt2': 1, 'surface-ring strain': 0.392}
-        HoRT = thermochem.eval_ND_H(750)
+        HoRT = thermochem.get_HoRT(750)
         self.assertAlmostEqual(HoRT, -13.423119203382337)
         self.assertEqual(descriptors, GroupDict)
 
@@ -53,7 +53,7 @@ class TestExamples(unittest.TestCase):
         descriptors = lib.GetDescriptors('C(=O)([Pt])O')
         thermochem = lib.Estimate(descriptors, 'thermochem')
         GroupDict = {'CO(O)(Pt)+O(CO)(H)': 1.0}
-        HoRT = thermochem.eval_ND_H(500)
+        HoRT = thermochem.get_HoRT(500)
         self.assertAlmostEqual(HoRT, -107.57909464133714)
         self.assertEqual(descriptors, GroupDict)
 

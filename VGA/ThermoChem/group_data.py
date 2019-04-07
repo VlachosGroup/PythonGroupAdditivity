@@ -72,31 +72,31 @@ class ThermochemGroupAdditive(ThermochemBase):
         else:
             ThermochemBase.__init__(self, range=None)
 
-    def eval_ND_Cp(self, T):
-        return sum((count*correlation.eval_ND_Cp(T)
+    def get_CpoR(self, T):
+        return sum((count*correlation.get_CpoR(T)
                     for (correlation, count) in self.correlations))
-    eval_ND_Cp.__doc__ = ThermochemBase.eval_ND_Cp.__doc__
+    get_CpoR.__doc__ = ThermochemBase.get_CpoR.__doc__
 
-    def eval_ND_H(self, T):
-        return sum((count*correlation.eval_ND_H(T)
+    def get_HoRT(self, T):
+        return sum((count*correlation.get_HoRT(T)
                     for (correlation, count) in self.correlations))
-    eval_ND_H.__doc__ = ThermochemBase.eval_ND_H.__doc__
+    get_HoRT.__doc__ = ThermochemBase.get_HoRT.__doc__
 
-    def eval_ND_S(self, T):
-        return sum((count*correlation.eval_ND_S(T)
+    def get_SoR(self, T):
+        return sum((count*correlation.get_SoR(T)
                     for (correlation, count) in self.correlations))
-    eval_ND_S.__doc__ = ThermochemBase.eval_ND_S.__doc__
+    get_SoR.__doc__ = ThermochemBase.get_SoR.__doc__
 
-    def eval_ND_Cp_SE(self, T):
-        return float(np.sqrt(np.square(self.RMSE.eval_ND_Cp(T)) *
+    def get_CpoR_SE(self, T):
+        return float(np.sqrt(np.square(self.RMSE.get_CpoR(T)) *
                              self.Xp_invXX_Xp))
 
-    def eval_ND_H_SE(self, T):
-        return float(np.sqrt(np.square(self.RMSE.eval_ND_H(T)) *
+    def get_HoRT_SE(self, T):
+        return float(np.sqrt(np.square(self.RMSE.get_HoRT(T)) *
                              self.Xp_invXX_Xp))
 
-    def eval_ND_S_SE(self, T):
-        return float(np.sqrt(np.square(self.RMSE.eval_ND_S(T)) *
+    def get_SoR_SE(self, T):
+        return float(np.sqrt(np.square(self.RMSE.get_SoR(T)) *
                              self.Xp_invXX_Xp))
 
 

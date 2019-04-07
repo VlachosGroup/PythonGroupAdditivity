@@ -72,11 +72,11 @@ class ThermochemRawData(ThermochemBase):
             self.spline = InterpolatedUnivariateSpline(
                 self.Ts, self.ND_Cps, k=(3 if N > 3 else N - 1))
 
-    def eval_ND_Cp(self, T):
+    def get_CpoR(self, T):
         """Return non-dimensional standard state heat capacity |eq_ND_Cp_T|."""
         self.check_range(T)
         if not np.isscalar(T):
-            return self._eval_ND_Cp_ar(T)
+            return self._get_CpoR_ar(T)
 
         if T < self.min_T:
             return self.min_ND_Cp
@@ -87,7 +87,7 @@ class ThermochemRawData(ThermochemBase):
         # return self.spline(T)
         return float(self.spline(T))
 
-    def _eval_ND_Cp_ar(self, T):
+    def _get_CpoR_ar(self, T):
         ND_Cp = np.empty(T.shape)
         T_below = T < self.min_T
         T_above = T > self.max_T
@@ -99,7 +99,7 @@ class ThermochemRawData(ThermochemBase):
 
         return ND_Cp
 
-    def eval_ND_S(self, T):
+    def get_SoR(self, T):
         """Return non-dimensional standard state entropy |eq_ND_S_T|."""
         self.check_range(T)
         T_a = self.T_ref
@@ -131,7 +131,7 @@ class ThermochemRawData(ThermochemBase):
         # use numerical integration, so that's what we do.
         return ND_S + integrate(lambda t: self.spline(t)/t, T_a, T_b)[0]
 
-    def eval_ND_H(self, T):
+    def get_HoRT(self, T):
         """Return non-dimensional standard heat of formation |eq_ND_H_T|."""
         self.check_range(T)
         T_a = self.T_ref

@@ -70,7 +70,7 @@ class GroupAdditivityScheme(Scheme):
             actual_path = path
         abs_path = os.path.abspath(actual_path)
         fid = open(abs_path, 'r')
-        scheme_data = yaml.load(fid)
+        scheme_data = yaml.load(fid, Loader=yaml.SafeLoader)
         fid.close()
         # change to molquery
         for i in range(0, len(scheme_data['patterns'])):

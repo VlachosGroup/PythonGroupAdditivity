@@ -126,21 +126,21 @@ class ThermochemIncomplete(ThermochemBase):
         """Delete |eq_ND_S_ref| data."""
         self.ND_S_ref = None
 
-    def eval_ND_Cp(self, T):
+    def get_CpoR(self, T):
         if not self.ND_Cp_data:
             raise IncompleteDataError(
                 "Cannot evaluate ND_Cp: no heat capacity data is available")
         else:
             try:
-                return self._correlation.eval_ND_Cp(T)
+                return self._correlation.get_CpoR(T)
             except OutsideCorrelationError:
                 raise IncompleteDataError(
                     "Cannot evaluate ND_Cp: no heat capacity data for T=%g"
                     % T)
 
-    eval_ND_Cp.__doc__ = ThermochemBase.eval_ND_Cp.__doc__
+    get_CpoR.__doc__ = ThermochemBase.get_CpoR.__doc__
 
-    def eval_ND_H(self, T):
+    def get_HoRT(self, T):
         if self.ND_H_ref is None:
             raise IncompleteDataError(
                 "Cannot evaluate ND_H: no enthalpy data is available")
@@ -154,14 +154,14 @@ class ThermochemIncomplete(ThermochemBase):
             return self.ND_H_ref
         else:
             try:
-                return self._correlation.eval_ND_H(T)
+                return self._correlation.get_HoRT(T)
             except OutsideCorrelationError:
                 raise IncompleteDataError(
                     "Cannot evaluate ND_H: no heat capacity data for T=%g"
                     % T)
-    eval_ND_H.__doc__ = ThermochemBase.eval_ND_H.__doc__
+    get_HoRT.__doc__ = ThermochemBase.get_HoRT.__doc__
 
-    def eval_ND_S(self, T):
+    def get_SoR(self, T):
         if self.ND_S_ref is None:
             raise IncompleteDataError(
                 "Cannot evaluate ND_S: no entropy data is available")
@@ -175,12 +175,12 @@ class ThermochemIncomplete(ThermochemBase):
             return self.ND_S_ref
         else:
             try:
-                return self._correlation.eval_ND_S(T)
+                return self._correlation.get_SoR(T)
             except OutsideCorrelationError:
                 raise IncompleteDataError(
                     "Cannot evaluate ND_S: no heat capacity data for T=%g"
                     % T)
-    eval_ND_S.__doc__ = ThermochemBase.eval_ND_S.__doc__
+    get_SoR.__doc__ = ThermochemBase.get_SoR.__doc__
 
     def copy(self):
         """Return a copy of this correlation.
@@ -267,7 +267,7 @@ class ThermochemIncomplete(ThermochemBase):
 
             # Update ND_H_ref.
             if correlation.has_ND_H():
-                new_ND_H_ref = test_correlation.eval_ND_H(T_ref)
+                new_ND_H_ref = test_correlation.get_HoRT(T_ref)
                 if(not overwrite
                    and ND_H_ref is not None
                    and new_ND_H_ref != ND_H_ref):
@@ -279,7 +279,7 @@ class ThermochemIncomplete(ThermochemBase):
 
             # Update ND_S_ref.
             if correlation.has_ND_S():
-                new_ND_S_ref = test_correlation.eval_ND_S(T_ref)
+                new_ND_S_ref = test_correlation.get_SoR(T_ref)
                 if(not overwrite
                    and ND_S_ref is not None
                    and new_ND_S_ref != ND_S_ref):

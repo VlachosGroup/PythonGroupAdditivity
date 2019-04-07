@@ -16,7 +16,7 @@ Examples
 >>> groups = lib.GetDescriptors('CC')
 >>> print groups
 >>> thermochem = lib.Estimate(groups,'thermochem')
->>> print thermochem.eval_ND_H(298.15)
+>>> print thermochem.get_HoRT(298.15)
 defaultdict(<type 'int'>, {'C(C)(H)3': 2})
 -34.4280812417
 

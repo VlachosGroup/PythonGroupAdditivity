@@ -1,6 +1,7 @@
 import abc
 
 import numpy as np
+from pMuTT import constants as c
 
 from ..Units import eval_qty
 from ..Error import OutsideCorrelationError
@@ -16,7 +17,7 @@ class ThermochemBase(object):
     """
     # Abstract base class
 
-    def init_params(self, range=None):
+    def init_params(self, range=None, units=None):
         if range is not None:
             self.range = (
                 eval_qty(range[0], 'K').in_units('K'),
@@ -24,7 +25,7 @@ class ThermochemBase(object):
         else:
             self.range = None
 
-    def __init__(self, range=None):
+    def __init__(self, range=None, units=None):
         """
         Initialize generic thermochemical property correlation.
 
@@ -97,21 +98,47 @@ class ThermochemBase(object):
         self.range = range
 
     @abc.abstractmethod
-    def eval_ND_Cp(self, T):
+    def get_CpoR(self, T):
         """Return non-dimensional standard state heat capacity |eq_ND_Cp_T|."""
 
     @abc.abstractmethod
-    def eval_ND_S(self, T):
+    def get_SoR(self, T):
         """Return non-dimensional standard state entropy |eq_ND_S_T|."""
 
     @abc.abstractmethod
-    def eval_ND_H(self, T):
+    def get_HoRT(self, T):
         """Return non-dimensional standard heat of formation |eq_ND_H_T|."""
 
-    def eval_ND_G(self, T):
-        """Return non-dimensional standard Gibbs energy of formation
-        |eq_ND_G_T|."""
-        return self.eval_ND_H(T) - self.eval_ND_S(T)
+    def get_GoRT(self, T):
+        """
+        Return non-dimensional standard Gibbs energy of formation |eq_ND_G_T|.
+        """
+        return self.get_HoRT(T) - self.get_SoR(T)
+
+    def get_H(self, T, units):
+        """
+        Return dimensional enthalpy at T with units specified by 'units'
+        """
+        return self.get_HoRT(T)*T*c.R('{}/K'.format(units))
+
+    def get_G(self, T, units):
+        """
+        Return dimensional Gibbs free energy at T with units
+        specified by 'units'
+        """
+        return self.get_GoRT(T)*T*c.R('{}/K'.format(units))
+
+    def get_S(self, T, units):
+        """
+        Return dimensional entropy with units specified by 'units'
+        """
+        return self.get_SoR(T)*c.R(units)
+
+    def get_Cp(self, T, units):
+        """
+        Return dimensional heat capacity with units specified by 'units'
+        """
+        return self.get_CpoR(T)*c.R(units)
 
     _yaml_schema = """
 range:
