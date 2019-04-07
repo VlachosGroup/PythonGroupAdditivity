@@ -155,12 +155,14 @@ Examples
     descriptors = lib.GetDescriptors('[Pt]C([Pt])C([Pt])([Pt])C=O')
     print(descriptors)
     thermochem = lib.Estimate(descriptors,'thermochem')
-    print(thermochem.get_HoRT(750))
+    print(thermochem.get_HoRT(750), '[Dimensionless]')
+    print(thermochem.get_H(750, 'kcal/mol'), '[kcal/mol]')
 
     Out:
     defaultdict(<class 'int'>, {'C(C)(H)(Pt)2': 1, 'C(C)(CO)(Pt)2': 1, 'CO(C)(H)': 1,
                                 'CPt2CPt2': 1, 'CCPt2': 1, 'surface-ring strain': 0.392})
-    -13.42320778481884
+    -13.423119203382337 [Dimensionless]
+    -20.005853103142883 [kcal/mol]
 
 **Wittreich Solvated Surface Example**::
 
@@ -171,11 +173,13 @@ Examples
     descriptors = lib.GetDescriptors('C(=O)([Pt])O')
     print(descriptors)
     thermochem = lib.Estimate(descriptors,'thermochem')
-    print(thermochem.get_HoRT(500))
+    print(thermochem.get_HoRT(500), '[Dimensionless]')
+    print(thermochem.get_H(500, 'kJ/mol'), '[kJ/mol]')
 
     Out:
     defaultdict(<class 'int'>, {'CO(O)(Pt)+O(CO)(H)': 1.0})
-    -107.57909464133714
+    -107.57909464133714 [Dimensionless]
+    -447.23102885789655 [kJ/mol]
 
 .. _`scipy`: https://www.scipy.org/
 .. _`rdkit`: https://www.rdkit.org/
