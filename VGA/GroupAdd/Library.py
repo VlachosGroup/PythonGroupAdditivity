@@ -108,6 +108,7 @@ class GroupLibrary(Mapping):
             Map from :class:`Group` to int or float identifying groups and
             their number of occurence in the structure.
         """
+        self.name = mol
         return self.scheme.GetDescriptors(mol)
 
     def Estimate(self, groups, property_set_name):

@@ -31,6 +31,7 @@ class ThermochemGroupAdditive(ThermochemBase):
     created and returned by :meth:`GroupLibrary.estimate()`.
     """
     def __init__(self, lib, groups):
+        self.name = lib.name
         """
         Initialize thermochemical property correlation using group-additivity.
 
