@@ -1,4 +1,4 @@
-Vlachos Group Additivity (VGA)
+python Group Additivity (VGA)
 ===============================
   
 Python package implements the **F**\ irst-**P**\ rinciples **S**\ emi-**E**\ mperical (FPSE) **G**\ roup **A**\ dditivity
