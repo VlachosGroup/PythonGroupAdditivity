@@ -1,7 +1,7 @@
 python Group Additivity (VGA)
 ===============================
   
-Python package implements the **F**\ irst-**P**\ rinciples **S**\ emi-**E**\ mperical (FPSE) **G**\ roup **A**\ dditivity
+Python package implements the **F**\ irst-**P**\ rinciples **S**\ emi-**E**\ mpirical (FPSE) **G**\ roup **A**\ dditivity
 (GA) method for estimating thermodynamic properties of molecules. First introduced by Benson et al. for gas molecules and
 was later extended by Kua et al. to species adsorbed on catalytic surfaces. GA relies on graph theory defining each molecule
 as a collection of groups and their frequency of occurrence. The values of GA groups are determined from DFT-calculated
