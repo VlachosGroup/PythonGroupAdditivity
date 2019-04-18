@@ -21,15 +21,10 @@ scheme from your *ab initio*\  data and regression to groups.
 Developers
 ----------
 
+-  Gerhard R Wittreich, P.E.
 -  Geun Ho Gu
 -  Michael Salciccioli
 -  Stephen M. Edie
--  Gerhard R Wittreich, P.E.
-
-Maintainers
------------
-
--  Gerhard R Wittreich, P.E. (wittregr@udel.edu)
 
 Required Packages
 -----------------
