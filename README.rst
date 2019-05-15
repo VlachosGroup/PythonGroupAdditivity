@@ -1,5 +1,5 @@
-python Group Additivity (VGA)
-===============================
+python Group Additivity (pGrAdd)
+================================
   
 A Python package and database, developed by the Vlachos Research Group at the University of Delaware implements the **F**\ irst-**P**\ rinciples **S**\ emi-**E**\ mpirical (FPSE) **G**\ roup **A**\ dditivity
 (GA) method for estimating thermodynamic properties of molecules. First introduced by Benson et al. for gas molecules and
@@ -42,7 +42,7 @@ Getting Started
 
 1. Install using pip::
 
-    pip install --user VGA
+    pip install --user pGrAdd
 
 2. Run the unit tests. Navigate to the **tests**\  directory, input the command shown below, and look for an **OK**\  response. (**Note:**\  The number of tests/time may change with subsequent versions)::
 
@@ -114,8 +114,8 @@ Examples
 **Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873-1886 Example**::
 
     In:
-    from VGA.GroupAdd.Library import GroupLibrary
-    import VGA.ThermoChem
+    from pGrAdd.GroupAdd.Library import GroupLibrary
+    import pGrAdd.ThermoChem
     lib = GroupLibrary.Load('SalciccioliGA2012')
     descriptors = lib.GetDescriptors('C([Pt])C[Pt]')
     print(descriptors)
@@ -129,8 +129,8 @@ Examples
 **Gu et al. J. Phys. Chem. C, 2017, 121 pp 21510–21519 Example**::
 
     In:
-    from VGA.GroupAdd.Library import GroupLibrary
-    import VGA.ThermoChem
+    from pGrAdd.GroupAdd.Library import GroupLibrary
+    import pGrAdd.ThermoChem
     lib = GroupLibrary.Load('GuSolventGA2017Aq')
     descriptors = lib.GetDescriptors('C(=O)([Pt])O')
     print(descriptors)
@@ -145,8 +145,8 @@ Examples
 **Wittreich Surface Example**::
 
     In:
-    from VGA.GroupAdd.Library import GroupLibrary
-    import VGA.ThermoChem
+    from pGrAdd.GroupAdd.Library import GroupLibrary
+    import pGrAdd.ThermoChem
     lib = GroupLibrary.Load('GRWSurface2018')
     descriptors = lib.GetDescriptors('[Pt]C([Pt])C([Pt])([Pt])C=O')
     print(descriptors)
@@ -163,8 +163,8 @@ Examples
 **Wittreich Solvated Surface Example**::
 
     In:
-    from VGA.GroupAdd.Library import GroupLibrary
-    import VGA.ThermoChem
+    from pGrAdd.GroupAdd.Library import GroupLibrary
+    import pGrAdd.ThermoChem
     lib = GroupLibrary.Load('GRWAqueous2018')
     descriptors = lib.GetDescriptors('C(=O)([Pt])O')
     print(descriptors)
