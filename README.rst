@@ -9,7 +9,7 @@ thermodynamic properties of a (training) set of molecules by linear regression t
 properties of molecules predicted by the GA from those estimated via DFT. This package implements four group additivity
 schemes in six databases (See below) and will convert a molecule entered as a **S**\ implified **M**\ olecular-**I**\ nput
 **L**\ ine-**E**\ ntry **S**\ ystem (`SMILES`_) providing the constituent groups, their frequency of occurrence, and estimated
-thermodynamic properties for that molecule. VGA also provides a general GA framework for implementing a custom group additivity
+thermodynamic properties for that molecule. pGrAdd also provides a general GA framework for implementing a custom group additivity
 scheme from your *ab initio*\  data and regression to groups.
 
 -  Benson's gas molecule group additivity (BensonGA)
@@ -98,8 +98,8 @@ Examples
 **Benson's Gas Group Additivity Example**::
 
     In:
-    from VGA.GroupAdd.Library import GroupLibrary
-    import VGA.ThermoChem
+    from pGrAdd.GroupAdd.Library import GroupLibrary
+    import pGrAdd.ThermoChem
     lib = GroupLibrary.Load('BensonGA')
     descriptors = lib.GetDescriptors('C1CO1')
     print(descriptors)

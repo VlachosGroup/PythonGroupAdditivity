@@ -10,7 +10,7 @@ class ReactionQueryReader(object):
     """
     creates enhanced reaction query that is based on RING language
 
-    from VGA.RINGParser.Reader import Read
+    from pGrAdd.RINGParser.Reader import Read
     from rdkit import Chem
     s = "\
     rule increaseBO{     \
