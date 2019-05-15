@@ -1,4 +1,4 @@
-Vlachos Group Additivity (VGA)
+Vlachos Group Additivity (pGrAdd)
 ===============================
   
 Python package implements the **F**\ irst-**P**\ rinciples **S**\ emi-**E**\ mperical (FPSE) **G**\ roup **A**\ dditivity
@@ -9,7 +9,7 @@ thermodynamic properties of a (training) set of molecules by linear regression t
 properties of molecules predicted by the GA from those estimated via DFT. This package implements four group additivity
 schemes in six databases (See below) and will convert a molecule entered as a **S**\ implified **M**\ olecular-**I**\ nput
 **L**\ ine-**E**\ ntry **S**\ ystem (`SMILES`_) providing the constituent groups, their frequency of occurrence, and estimated
-thermodynamic properties for that molecule. VGA also provides a general GA framework for implementing a custom group additivity
+thermodynamic properties for that molecule. pGrAdd also provides a general GA framework for implementing a custom group additivity
 scheme from your *ab initio*\  data and regression to groups.
 
 -  Benson's gas molecule group additivity (BensonGA)
@@ -47,7 +47,7 @@ Getting Started
 
 1. Install using pip::
 
-    pip install --user VGA
+    pip install --user pGrAdd
 
 2. Run the unit tests. Navigate to the **tests**\  directory, input the command shown below, and look for an **OK**\  response. (**Note:**\  The number of tests/time may change with subsequent versions)::
 
@@ -103,8 +103,8 @@ Examples
 **Benson's Gas Group Additivity Example**::
 
     In:
-    from VGA.GroupAdd.Library import GroupLibrary
-    import VGA.ThermoChem
+    from pGrAdd.GroupAdd.Library import GroupLibrary
+    import pGrAdd.ThermoChem
     lib = GroupLibrary.Load('BensonGA')
     descriptors = lib.GetDescriptors('C1CO1')
     print(descriptors)
@@ -119,8 +119,8 @@ Examples
 **Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873-1886 Example**::
 
     In:
-    from VGA.GroupAdd.Library import GroupLibrary
-    import VGA.ThermoChem
+    from pGrAdd.GroupAdd.Library import GroupLibrary
+    import pGrAdd.ThermoChem
     lib = GroupLibrary.Load('SalciccioliGA2012')
     descriptors = lib.GetDescriptors('C([Pt])C[Pt]')
     print(descriptors)
@@ -134,8 +134,8 @@ Examples
 **Gu et al. J. Phys. Chem. C, 2017, 121 pp 21510–21519 Example**::
 
     In:
-    from VGA.GroupAdd.Library import GroupLibrary
-    import VGA.ThermoChem
+    from pGrAdd.GroupAdd.Library import GroupLibrary
+    import pGrAdd.ThermoChem
     lib = GroupLibrary.Load('GuSolventGA2017Aq')
     descriptors = lib.GetDescriptors('C(=O)([Pt])O')
     print(descriptors)
@@ -150,8 +150,8 @@ Examples
 **Wittreich Surface Example**::
 
     In:
-    from VGA.GroupAdd.Library import GroupLibrary
-    import VGA.ThermoChem
+    from pGrAdd.GroupAdd.Library import GroupLibrary
+    import pGrAdd.ThermoChem
     lib = GroupLibrary.Load('GRWSurface2018')
     descriptors = lib.GetDescriptors('[Pt]C([Pt])C([Pt])([Pt])C=O')
     print(descriptors)
@@ -168,8 +168,8 @@ Examples
 **Wittreich Solvated Surface Example**::
 
     In:
-    from VGA.GroupAdd.Library import GroupLibrary
-    import VGA.ThermoChem
+    from pGrAdd.GroupAdd.Library import GroupLibrary
+    import pGrAdd.ThermoChem
     lib = GroupLibrary.Load('GRWAqueous2018')
     descriptors = lib.GetDescriptors('C(=O)([Pt])O')
     print(descriptors)

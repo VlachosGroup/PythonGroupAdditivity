@@ -4,7 +4,7 @@ Created on Tue Oct 23 11:22:49 2018
 
 @author: gerha
 """
-from VGA.RINGParser.Reader import Read
+from pGrAdd.RINGParser.Reader import Read
 from rdkit import Chem
 
 

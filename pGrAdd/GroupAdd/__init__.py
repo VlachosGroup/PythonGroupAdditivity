@@ -10,8 +10,8 @@ This module is used for using Group additivity method to compute energies
 Examples
 --------
 
->>> from VGA.GroupAdd.Library import GroupLibrary
->>> import VGA.ThermoChem
+>>> from pGrAdd.GroupAdd.Library import GroupLibrary
+>>> import pGrAdd.ThermoChem
 >>> lib = GroupLibrary.Load('benson')
 >>> groups = lib.GetDescriptors('CC')
 >>> print groups

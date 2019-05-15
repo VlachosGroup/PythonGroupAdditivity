@@ -35,7 +35,7 @@ class GroupAdditivityScheme(Scheme):
 
         Raises
         ------
-        VGA.error.GroupSchemeError
+        pGrAdd.error.GroupSchemeError
             If `signature` is specified and does not match the signature of
             the loaded data.
         """

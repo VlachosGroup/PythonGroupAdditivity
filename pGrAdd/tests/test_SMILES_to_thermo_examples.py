@@ -5,8 +5,8 @@ Tests for SMILES_to_thermo_examples file
 Created on Tues Oct 23 2018
 """
 import unittest
-from VGA.GroupAdd.Library import GroupLibrary
-import VGA.ThermoChem
+from pGrAdd.GroupAdd.Library import GroupLibrary
+import pGrAdd.ThermoChem
 
 
 class TestExamples(unittest.TestCase):
