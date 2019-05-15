@@ -7,7 +7,7 @@
 # and it's best-practices to have the __version__
 # present, too:
 #
-name = 'pGrAdd'
+name = 'VGA'
 __version__ = '1.0.0'
 #
 ####

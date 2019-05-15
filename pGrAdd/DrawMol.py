@@ -1,6 +1,6 @@
 """
 =========================================
-Defenition to draw RDKIT mol object (:mod:`pGrAdd.DrawMol`)
+Defenition to draw RDKIT mol object (:mod:`VGA.DrawMol`)
 =========================================
 
 Coverts a rdkit mol object to a svg image and display.

@@ -4,7 +4,7 @@ from .. Error import RINGError
 class Reader(object):
     """
     Reader reads the parsed RING input, and returns the RDkit wrapper objects
-    in pGrAdd.RDkitWrapper.
+    in VGA.RDkitWrapper.
 
     Attributes
     ----------

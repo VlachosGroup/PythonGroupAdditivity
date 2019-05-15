@@ -3,22 +3,22 @@ import sys
 
 # What environment variable is used to override use of the bundled
 # data directory?
-_data_dir_envvar = 'pGrAdd_DATA_DIR'
+_data_dir_envvar = 'VGA_DATA_DIR'
 
 # We'll cache the located data directory root in this variable:
 _data_dir_cached = False
 
 
 def get_data_dir():
-    """Returns the directory containing the pGrAdd data library.
+    """Returns the directory containing the VGA data library.
 
     Return the cached directory path if it has been set.  Otherwise:
 
     1. If the _data_dir_envvar is set in the runtime environment,
        cache and use it as the data dir
 
-    2. This Python file exists somewhere under the 'pGrAdd' module
-       directory; step back until we get a path that ends with '/pGrAdd'
+    2. This Python file exists somewhere under the 'VGA' module
+       directory; step back until we get a path that ends with '/VGA'
        and tack '/data' onto the end of it.  Voila, our bundled data
        directory.
 
@@ -33,7 +33,7 @@ def get_data_dir():
         if not base_path:
             base_path = os.path.abspath(os.path.dirname(__file__))
             while base_path != os.sep and not base_path.endswith(os.sep +
-                                                                 'pGrAdd'):
+                                                                 'VGA'):
                 base_path = os.path.dirname(base_path)
             if base_path == os.sep:
                 raise RuntimeError('DataDir.get_data_dir: unable to locate',
@@ -53,4 +53,4 @@ def get_data_dir():
 
 
 if __name__ == '__main__':
-    sys.stdout.write('pGrAdd data directory = {0:s}'.format(get_data_dir()))
+    sys.stdout.write('VGA data directory = {0:s}'.format(get_data_dir()))
