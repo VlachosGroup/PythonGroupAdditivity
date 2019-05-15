@@ -16,13 +16,13 @@ with open('README.rst', 'r') as fh:
 
 setuptools_info = {
 	'name': 'pGrAdd',
-	'version': '1.3.6',
+	'version': '1.3.7',
 	'author': 'Vlachos Research Group',
 	'author_email': 'vlachos@udel.edu',
 	'description': 'Python package implements the Group Additivity (GA) method for estimating thermodynamic properties',
 	'long_description': long_description,
 	'zip_safe': True,
-	'url': 'https://github.com/VlachosGroup/VlachosGroupAdditivity',
+	'url': 'https://github.com/VlachosGroup/PythonGroupAdditivity',
 	'packages': setuptools.find_packages(),
 	'include_package_data': True,
 	'exclude_package_data': {
