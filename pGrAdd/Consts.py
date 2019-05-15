@@ -4,7 +4,7 @@ Physical constants
 ==================
 
 Values of common physical constants are defined here as instances of
-:class:`VGA.Units.Quantity`.
+:class:`pGrAdd.Units.Quantity`.
 
 """
 
