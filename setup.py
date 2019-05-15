@@ -2,7 +2,7 @@
 #
 # setup.py
 #
-# Installation script to get setuptools to install pGrAdd into
+# Installation script to get setuptools to install VGA into
 # a Python environment.
 #
 
