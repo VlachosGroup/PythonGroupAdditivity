@@ -2,10 +2,13 @@ import numpy as np
 from scipy.interpolate import InterpolatedUnivariateSpline
 from scipy.integrate import quad as integrate
 from .. import yaml_io
-from ..Consts import GAS_CONSTANT as R
 from .base import ThermochemBase
 from ..Units import eval_qty
 
+#from ..Consts import GAS_CONSTANT as R
+import pMuTT as pmutt
+R = pmutt.constants.R(units='J/mol/K')
+#R is now sourced from pmutt.constants instead of Consts
 
 class ThermochemRawData(ThermochemBase):
     """
@@ -167,7 +170,9 @@ class ThermochemRawData(ThermochemBase):
         if 'T_ref' in params:
             T_ref = params['T_ref']
         else:
-            T_ref = eval_qty(298.15, 'K')
+            #T_ref = eval_qty('298.15 K')  #fixed from eval_qty(298.15, 'K')
+            T_ref = pmutt.constants.T0(units='K')
+            #replaced getting room temp (298K) from eval_qty to pmutt.constants
         if 'ND_H_ref' in params:
             ND_H_ref = params['ND_H_ref']
         else:
