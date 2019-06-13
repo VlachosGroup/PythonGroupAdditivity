@@ -2,10 +2,13 @@ import numpy as np
 from scipy.interpolate import InterpolatedUnivariateSpline
 from scipy.integrate import quad as integrate
 from .. import yaml_io
-from ..Consts import GAS_CONSTANT as R
 from .base import ThermochemBase
 from ..Units import eval_qty
 
+#from ..Consts import GAS_CONSTANT as R
+import pMuTT as pmutt
+R = pmutt.constants.R(units='J/mol/K')
+#R is now sourced from pmutt.constants instead of Consts
 
 class ThermochemRawData(ThermochemBase):
     """
@@ -14,7 +17,7 @@ class ThermochemRawData(ThermochemBase):
     Evaluated quantities are interpolated using a B-spline as discussed in
     :ref:`correlations documentation <correlations>`.
     """
-    def __init__(self, ND_H_ref, ND_S_ref, Ts, ND_Cps, T_ref=298.15,
+    def __init__(self, ND_H_ref, ND_S_ref, Ts, ND_Cps, T_ref=pmutt.constants.T0(units='K'),
                  range=None):
         """
         Initialize a thermochemical property correlation from raw data.
@@ -32,7 +35,7 @@ class ThermochemRawData(ThermochemBase):
             evaluated at each temperature in `Ts`.
         T_ref : float, optional
             Reference temperature |eq_Tref| for `ND_H_ref` and `ND_S_ref`
-            (default: 298.15K).
+            (default: room temperature according to pMuTT, likely 298.15K).
         range : tuple(float, float), optional
             ``(lb, ub) = range`` where lb and ub are respectively the lower and
              uppers bounds of temperatures [K] for which the correlation is
@@ -167,7 +170,9 @@ class ThermochemRawData(ThermochemBase):
         if 'T_ref' in params:
             T_ref = params['T_ref']
         else:
-            T_ref = eval_qty(298.15, 'K')
+            #T_ref = eval_qty('298.15 K')  #fixed from eval_qty(298.15, 'K')
+            T_ref = pmutt.constants.T0(units='K')
+            #replaced getting room temp (298K) from eval_qty to pmutt.constants
         if 'ND_H_ref' in params:
             ND_H_ref = params['ND_H_ref']
         else:
