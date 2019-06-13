@@ -182,7 +182,7 @@ Examples
 .. _`numpy`: http://www.numpy.org/
 .. _`pyyaml`: https://pyyaml.org/
 .. _`SMILES`: https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system
-.. _`pmutt`: https://github.com/VlachosGroup/pmutt
+.. _`pmutt`: https://github.com/VlachosGroup/pMuTT
 .. _`LICENSE`: https://github.com/VlachosGroup/VlachosGroupAdditivity/blob/master/LICENSE.md
 .. _`Issues page`: https://github.com/VlachosGroup/VlachosGroupAdditivity/issues
 .. _`pull request`: https://github.com/VlachosGroup/VlachosGroupAdditivity/pulls
