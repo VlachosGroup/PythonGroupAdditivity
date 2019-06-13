@@ -9,6 +9,20 @@ import pmutt.constants as c
 R = eval_qty(str(c.R(units='J/mol/K')) + ' J/(mol K)')
 
 
+class ConstantSpline(object):
+    # This class emulates the interface to UnivariateSpline in the case of a
+    # single data point (no interpolation).
+    # Used in the ThermochemRawData class.
+    def __init__(self, ND_Cp):
+        self.ND_Cp = ND_Cp
+
+    def __call__(self, Ts):
+        return self.ND_Cp*np.ones_like(Ts)
+
+    def integral(self, T_a, T_b):
+        return self.ND_Cp*(T_b - T_a)
+
+
 class ThermochemRawData(ThermochemBase):
     """
     Implement a thermochemical property correlation from raw data.
@@ -266,18 +280,6 @@ yaml_io.register_class('ThermochemRawData',
                        yaml_io.parse(ThermochemRawData._yaml_schema),
                        ThermochemRawData)
 
-
-class ConstantSpline(object):
-    # This class emulates the interface to UnivariateSpline in the case of a
-    # single data point (no interpolation).
-    def __init__(self, ND_Cp):
-        self.ND_Cp = ND_Cp
-
-    def __call__(self, Ts):
-        return self.ND_Cp*np.ones_like(Ts)
-
-    def integral(self, T_a, T_b):
-        return self.ND_Cp*(T_b - T_a)
 
 
 __all__ = ['ThermochemRawData']
