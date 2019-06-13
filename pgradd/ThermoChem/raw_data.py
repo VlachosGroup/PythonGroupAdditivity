@@ -4,11 +4,9 @@ from scipy.integrate import quad as integrate
 from .. import yaml_io
 from .base import ThermochemBase
 from ..Units import eval_qty
-
-# from ..Consts import GAS_CONSTANT as R
-import pmutt as pmutt
-R = pmutt.constants.R(units='J/mol/K')
-# R is now sourced from pmutt.constants instead of Consts
+import pmutt.constants as c
+#R is frequently referenced, might as well declare it here
+R = c.R(units='J/mol/K')
 
 
 class ThermochemRawData(ThermochemBase):
@@ -171,9 +169,9 @@ class ThermochemRawData(ThermochemBase):
         if 'T_ref' in params:
             T_ref = params['T_ref']
         else:
-            #T_ref = eval_qty('298.15 K')  #fixed from eval_qty(298.15, 'K')
-            T_ref = pmutt.constants.T0(units='K')
-            #replaced getting room temp (298K) from eval_qty to pmutt.constants
+            #pull room temp from pmutt's constants, append 'K' because eval_qty needs units
+            #T_ref is now of type Quantity, a tuple
+            T_ref = eval_qty(str(c.T0(units=K)) + ' K')
         if 'ND_H_ref' in params:
             ND_H_ref = params['ND_H_ref']
         else:
