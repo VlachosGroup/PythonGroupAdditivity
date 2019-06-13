@@ -5,11 +5,13 @@ import numpy as np
 from .. Error import (
     IncompleteDataError, IncompleteDataWarning, ReadOnlyDataError,
     OutsideCorrelationError)
-from .. Consts import GAS_CONSTANT as R
+#from .. Consts import GAS_CONSTANT as R
+import pmutt.constants as c
 from .. Units import with_units
+from .. Units import eval_qty
 from .. ThermoChem import ThermochemBase, ThermochemRawData
 from .. import yaml_io
-
+R = eval_qty(str(c.R(units='J/mol/K')) + ' J/(mol K)')
 
 __all__ = ['ThermochemIncomplete']
 
