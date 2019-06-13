@@ -6,7 +6,7 @@ from .base import ThermochemBase
 from ..Units import eval_qty
 import pmutt.constants as c
 #R is frequently referenced, might as well declare it here
-R = c.R(units='J/mol/K')
+R = eval_qty(str(c.R(units='J/mol/K')) + ' J/(mol K)')
 
 
 class ThermochemRawData(ThermochemBase):
@@ -40,10 +40,11 @@ class ThermochemRawData(ThermochemBase):
              valid.    If specified, this range must contain T_ref and all data
              points in ND_Cp.
         """
+        #Ts.sort()
         (self.Ts, self.ND_Cps) = list(zip(*sorted(
-            zip(Ts, ND_Cps), key=lambda T_ND_Cps: T_ND_Cps[0])))
-        self.min_T = Ts[0]
-        self.max_T = Ts[-1]
+            zip(Ts, [ND_Cps]), key=lambda T_ND_Cps: T_ND_Cps[0])))
+        self.min_T = min(Ts)
+        self.max_T = max(Ts)
 
         if range is None:
             range = (self.min_T, self.max_T)
@@ -57,10 +58,11 @@ class ThermochemRawData(ThermochemBase):
                 'T_ref=%g is outside the valid correlation range [%g,%g].'
                 % (T_ref, range[0], range[1]))
 
+        #runs assertion checks on range
         ThermochemBase.__init__(self, range)
 
-        self.min_ND_Cp = self.ND_Cps[0]
-        self.max_ND_Cp = self.ND_Cps[-1]
+        self.min_ND_Cp = min(self.ND_Cps)
+        self.max_ND_Cp = max(self.ND_Cps)
 
         self.ND_H_ref = ND_H_ref
         self.ND_S_ref = ND_S_ref
@@ -71,7 +73,7 @@ class ThermochemRawData(ThermochemBase):
             self.spline = ConstantSpline(self.ND_Cps[0])
         else:
             self.spline = InterpolatedUnivariateSpline(
-                self.Ts, self.ND_Cps, k=(3 if N > 3 else N - 1))
+                self.Ts, self.ND_Cps, k=min(3, N-1))
 
     def get_CpoR(self, T):
         """Return non-dimensional standard state heat capacity |eq_ND_Cp_T|."""
@@ -79,15 +81,16 @@ class ThermochemRawData(ThermochemBase):
         if not np.isscalar(T):
             return self._get_CpoR_ar(T)
 
-        if T < self.min_T:
-            return self.min_ND_Cp
-        if T > self.max_T:
-            return self.max_ND_Cp
+        return min(max(T, self.min_ND_Cp), self.max_ND_Cp)
 
+        # is this even necessary anymore? code never accesses that return statement
+        # |
+        # v
         # Work-around for SciPy bug (?):
         # return self.spline(T)
-        return float(self.spline(T))
+        #return float(self.spline(T))
 
+    #TODO: make this function the least bit legible
     def _get_CpoR_ar(self, T):
         ND_Cp = np.empty(T.shape)
         T_below = T < self.min_T
