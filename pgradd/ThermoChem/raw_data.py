@@ -16,8 +16,7 @@ class ThermochemRawData(ThermochemBase):
     Evaluated quantities are interpolated using a B-spline as discussed in
     :ref:`correlations documentation <correlations>`.
     """
-    def __init__(self, ND_H_ref, ND_S_ref, Ts, ND_Cps,
-                 T_ref=pmutt.constants.T0(units='K'), range=None):
+    def __init__(self, ND_H_ref, ND_S_ref, Ts, ND_Cps, T_ref=c.T0(units='K'), range=None):
         """
         Initialize a thermochemical property correlation from raw data.
 
