@@ -5,10 +5,11 @@ from .. import yaml_io
 from .base import ThermochemBase
 from ..Units import eval_qty
 
-#from ..Consts import GAS_CONSTANT as R
+# from ..Consts import GAS_CONSTANT as R
 import pMuTT as pmutt
 R = pmutt.constants.R(units='J/mol/K')
-#R is now sourced from pmutt.constants instead of Consts
+# R is now sourced from pmutt.constants instead of Consts
+
 
 class ThermochemRawData(ThermochemBase):
     """
@@ -17,8 +18,8 @@ class ThermochemRawData(ThermochemBase):
     Evaluated quantities are interpolated using a B-spline as discussed in
     :ref:`correlations documentation <correlations>`.
     """
-    def __init__(self, ND_H_ref, ND_S_ref, Ts, ND_Cps, T_ref=pmutt.constants.T0(units='K'),
-                 range=None):
+    def __init__(self, ND_H_ref, ND_S_ref, Ts, ND_Cps,
+                 T_ref=pmutt.constants.T0(units='K'), range=None):
         """
         Initialize a thermochemical property correlation from raw data.
 
