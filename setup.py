@@ -2,7 +2,7 @@
 #
 # setup.py
 #
-# Installation script to get setuptools to install pGrAdd into
+# Installation script to get setuptools to install pgradd into
 # a Python environment.
 #
 
@@ -15,7 +15,7 @@ with open('README.rst', 'r') as fh:
 	long_description = fh.read()
 
 setuptools_info = {
-	'name': 'pGrAdd',
+	'name': 'pgradd',
 	'version': '1.4',
 	'author': 'Vlachos Research Group',
 	'author_email': 'vlachos@udel.edu',
@@ -29,7 +29,7 @@ setuptools_info = {
 		'': [ 'README.rst', 'docs', 'example', 'tests', 'PKG-INFO', 'LICENSE.md' ]
 	    },
 	'install_requires': [
-		'pMuTT>=1.2.5',
+		'pmutt>=1.2.5',
 		'scipy>=1.1.0',
 		'numpy>=1.15.1',
 		'IPython>=7.0.0',

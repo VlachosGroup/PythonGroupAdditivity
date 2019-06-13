@@ -1,4 +1,4 @@
-python Group Additivity (pGrAdd)
+python Group Additivity (pgradd)
 ================================
   
 A Python package and database, developed by the Vlachos Research Group at the University of Delaware implements the **F**\ irst-**P**\ rinciples **S**\ emi-**E**\ mpirical (FPSE) **G**\ roup **A**\ dditivity
@@ -9,14 +9,14 @@ thermodynamic properties of a (training) set of molecules by linear regression t
 properties of molecules predicted by the GA from those estimated via DFT. This package implements four group additivity
 schemes in six databases (See below) and will convert a molecule entered as a **S**\ implified **M**\ olecular-**I**\ nput
 **L**\ ine-**E**\ ntry **S**\ ystem (`SMILES`_) providing the constituent groups, their frequency of occurrence, and estimated
-thermodynamic properties for that molecule. pGrAdd also provides a general GA framework for implementing a custom group additivity
+thermodynamic properties for that molecule. pgradd also provides a general GA framework for implementing a custom group additivity
 scheme from your *ab initio*\  data and regression to groups.
 
 -  Benson's gas molecule group additivity (BensonGA)
 -  Salciccioli et al. (2012) adsorbate on Pt(111) group additivity scheme (SalciccioliGA2012)
 -  Gu et al. (2017) solvated adsorbate on Pt(111) group additivity scheme (GuSolventGA2017Aq, GuSolventGA2017Vac)
--  Wittreich (2018) adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values regressed with OLS/GLS (Maximum Likelihood) and DFT data processed with `pMuTT`_ (GRWSurface2018)
--  Wittreich (2018) solvated adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values regressed with OLS/GLS (Maximum Likelihood) and DFT data processed with `pMuTT`_ (GRWAqueous2018)
+-  Wittreich (2018) adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values regressed with OLS/GLS (Maximum Likelihood) and DFT data processed with `pmutt`_ (GRWSurface2018)
+-  Wittreich (2018) solvated adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values regressed with OLS/GLS (Maximum Likelihood) and DFT data processed with `pmutt`_ (GRWAqueous2018)
 
 Developers
 ----------
@@ -30,7 +30,7 @@ Required Packages
 -----------------
 
 -  Python2/Python3
--  `pMuTT`_ >= 1.2.5
+-  `pmutt`_ >= 1.2.5
 -  `rdkit`_ >= 2018.03.4.0
 -  ipython >= 7.0.0
 -  `numpy`_ >= 1.15.1
@@ -42,7 +42,7 @@ Getting Started
 
 1. Install using pip::
 
-    pip install --user pGrAdd
+    pip install --user pgradd
 
 2. Run the unit tests. Navigate to the **tests**\  directory, input the command shown below, and look for an **OK**\  response. (**Note:**\  The number of tests/time may change with subsequent versions)::
 
@@ -98,8 +98,8 @@ Examples
 **Benson's Gas Group Additivity Example**::
 
     In:
-    from pGrAdd.GroupAdd.Library import GroupLibrary
-    import pGrAdd.ThermoChem
+    from pgradd.GroupAdd.Library import GroupLibrary
+    import pgradd.ThermoChem
     lib = GroupLibrary.Load('BensonGA')
     descriptors = lib.GetDescriptors('C1CO1')
     print(descriptors)
@@ -114,8 +114,8 @@ Examples
 **Salciccioli et al. J. Phys. Chem. C, 2012, 116 (2), pp 1873-1886 Example**::
 
     In:
-    from pGrAdd.GroupAdd.Library import GroupLibrary
-    import pGrAdd.ThermoChem
+    from pgradd.GroupAdd.Library import GroupLibrary
+    import pgradd.ThermoChem
     lib = GroupLibrary.Load('SalciccioliGA2012')
     descriptors = lib.GetDescriptors('C([Pt])C[Pt]')
     print(descriptors)
@@ -129,8 +129,8 @@ Examples
 **Gu et al. J. Phys. Chem. C, 2017, 121 pp 21510–21519 Example**::
 
     In:
-    from pGrAdd.GroupAdd.Library import GroupLibrary
-    import pGrAdd.ThermoChem
+    from pgradd.GroupAdd.Library import GroupLibrary
+    import pgradd.ThermoChem
     lib = GroupLibrary.Load('GuSolventGA2017Aq')
     descriptors = lib.GetDescriptors('C(=O)([Pt])O')
     print(descriptors)
@@ -145,8 +145,8 @@ Examples
 **Wittreich Surface Example**::
 
     In:
-    from pGrAdd.GroupAdd.Library import GroupLibrary
-    import pGrAdd.ThermoChem
+    from pgradd.GroupAdd.Library import GroupLibrary
+    import pgradd.ThermoChem
     lib = GroupLibrary.Load('GRWSurface2018')
     descriptors = lib.GetDescriptors('[Pt]C([Pt])C([Pt])([Pt])C=O')
     print(descriptors)
@@ -163,8 +163,8 @@ Examples
 **Wittreich Solvated Surface Example**::
 
     In:
-    from pGrAdd.GroupAdd.Library import GroupLibrary
-    import pGrAdd.ThermoChem
+    from pgradd.GroupAdd.Library import GroupLibrary
+    import pgradd.ThermoChem
     lib = GroupLibrary.Load('GRWAqueous2018')
     descriptors = lib.GetDescriptors('C(=O)([Pt])O')
     print(descriptors)
@@ -182,7 +182,7 @@ Examples
 .. _`numpy`: http://www.numpy.org/
 .. _`pyyaml`: https://pyyaml.org/
 .. _`SMILES`: https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system
-.. _`pMuTT`: https://github.com/VlachosGroup/pMuTT
+.. _`pmutt`: https://github.com/VlachosGroup/pmutt
 .. _`LICENSE`: https://github.com/VlachosGroup/VlachosGroupAdditivity/blob/master/LICENSE.md
 .. _`Issues page`: https://github.com/VlachosGroup/VlachosGroupAdditivity/issues
 .. _`pull request`: https://github.com/VlachosGroup/VlachosGroupAdditivity/pulls

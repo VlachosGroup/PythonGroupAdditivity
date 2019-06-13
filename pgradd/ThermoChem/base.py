@@ -1,7 +1,7 @@
 import abc
 
 import numpy as np
-from pMuTT import constants as c
+from pmutt import constants as c
 
 from ..Units import eval_qty
 from ..Error import OutsideCorrelationError

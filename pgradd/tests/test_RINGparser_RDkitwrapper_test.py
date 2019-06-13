@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from pGrAdd.RINGParser.Reader import Read
+from pgradd.RINGParser.Reader import Read
 from rdkit import Chem
 import unittest
 

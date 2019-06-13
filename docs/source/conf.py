@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'pGrAdd'
+project = 'pgradd'
 copyright = '2019, Gerhard Wittreich'
 author = 'Gerhard Wittreich'
 

@@ -1,5 +1,5 @@
-from pGrAdd.GroupAdd.Library import GroupLibrary
-import pGrAdd.ThermoChem
+from pgradd.GroupAdd.Library import GroupLibrary
+import pgradd.ThermoChem
 lib = GroupLibrary.Load('GuSolventGA2017Aq')
 descriptors = lib.GetDescriptors('C(=O)([Pt])O')
 #descriptors = lib.GetDescriptors('C=C')

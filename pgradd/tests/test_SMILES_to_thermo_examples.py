@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-pMuTT.test_constants
+pmutt.test_constants
 Tests for SMILES_to_thermo_examples file
 Created on Tues Oct 23 2018
 """
 import unittest
-from pGrAdd.GroupAdd.Library import GroupLibrary
-import pGrAdd.ThermoChem
+from pgradd.GroupAdd.Library import GroupLibrary
+import pgradd.ThermoChem
 
 
 class TestExamples(unittest.TestCase):

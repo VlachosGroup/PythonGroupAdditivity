@@ -6,7 +6,7 @@ from .base import ThermochemBase
 from ..Units import eval_qty
 
 # from ..Consts import GAS_CONSTANT as R
-import pMuTT as pmutt
+import pmutt as pmutt
 R = pmutt.constants.R(units='J/mol/K')
 # R is now sourced from pmutt.constants instead of Consts
 
@@ -36,7 +36,7 @@ class ThermochemRawData(ThermochemBase):
             evaluated at each temperature in `Ts`.
         T_ref : float, optional
             Reference temperature |eq_Tref| for `ND_H_ref` and `ND_S_ref`
-            (default: room temperature according to pMuTT, likely 298.15K).
+            (default: room temperature according to pmutt, likely 298.15K).
         range : tuple(float, float), optional
             ``(lb, ub) = range`` where lb and ub are respectively the lower and
              uppers bounds of temperatures [K] for which the correlation is
