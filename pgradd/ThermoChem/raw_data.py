@@ -5,7 +5,7 @@ from .. import yaml_io
 from .base import ThermochemBase
 from ..Units import eval_qty
 import pmutt.constants as c
-#R is frequently referenced, might as well declare it here
+
 R = eval_qty(str(c.R(units='J/mol/K')) + ' J/(mol K)')
 
 
@@ -104,16 +104,17 @@ class ThermochemRawData(ThermochemBase):
         # return self.spline(T)
         #return float(self.spline(T))
 
-    #TODO: make this function the least bit legible
     def _get_CpoR_ar(self, T):
         ND_Cp = np.empty(T.shape)
-        T_below = T < self.min_T
-        T_above = T > self.max_T
-        T_middle = np.logical_not(np.logical_or(T_below, T_above))
 
-        ND_Cp[T_below] = self.min_ND_Cp
-        ND_Cp[T_above] = self.max_ND_Cp
-        ND_Cp[T_middle] = self.spline(T[T_middle])
+        # performing array[True] on a numpy array is used to set all values in that array
+        # e.g. array[True] = 3 makes all elements equal to 3
+        if(T < self.min_T):
+          ND_Cp[True] = self.min_ND_Cp
+        elif(T > self.max_T):
+          ND_Cp[True] = self.max_ND_Cp
+        else:
+          ND_Cp[True] = self.spline(T[True])
 
         return ND_Cp
 
