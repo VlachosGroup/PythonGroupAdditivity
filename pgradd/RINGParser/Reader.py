@@ -8,7 +8,7 @@ class Reader(object):
 
     Attributes
     ----------
-    ast : abstract syntax tree obtrained from parser
+        ast : abstract syntax tree obtrained from parser
     """
     def __init__(self, ast):
         # ast = Abstract Syntax Tree

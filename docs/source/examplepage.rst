@@ -17,6 +17,9 @@ Objects
 
    It's a dog
 
+.. autoclass:: pgradd.RINGParser.Reader
+   :members:
+
 .. autoclass:: pmutt.chemkin.CatSite
    :members:
 
