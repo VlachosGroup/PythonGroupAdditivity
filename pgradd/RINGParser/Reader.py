@@ -2,19 +2,24 @@ from .. Error import RINGError
 
 
 class Reader(object):
-    """
-    Reader reads the parsed RING input, and returns the RDkit wrapper objects
-    in pgradd.RDkitWrapper.
+    """Reader reads the parsed RING input, and returns the RDkit wrapper objects in pgradd.RDkitWrapper.
 
     Attributes
     ----------
         ast : abstract syntax tree obtrained from parser
     """
+    
     def __init__(self, ast):
         # ast = Abstract Syntax Tree
         self.ast = ast
 
     def ReadRINGInput(self, tree):
+        """Example function documentation
+
+        Returns
+        -------
+            object: type
+        """
         # Check the type of input
         assert tree[0][0].name in ('Fragment',
                                    'ReactionRule',
