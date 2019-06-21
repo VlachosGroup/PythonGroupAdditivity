@@ -14,9 +14,12 @@ PDF           = ../manual.pdf
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
+# Builds in a separate directory to make it easier to manage git branches,
+# namely the gh-pages branch for deployment
 build: FORCE
 	sphinx-build -b html source ../../build_pgradd
-
+# FORCE is necessary because Make only runs when a dependency changes;
+# it doesn't always run build even if something has changed
 FORCE: ;
 
 .PHONY: help Makefile
