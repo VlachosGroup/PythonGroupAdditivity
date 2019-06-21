@@ -4,6 +4,7 @@ Example set of Python Scripts
 *****************************
 
 Documentation for classes, methods, etc for examplypythonscript.py
+TODO: Delete me (examplepage.rst) and my reference in index.rst before deploying!
 
 Objects
 -------
