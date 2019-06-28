@@ -77,5 +77,5 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 # Logo
-html_logo = './logos/Screen/pmutt_inverse_icon.png'
+html_logo = './logos/Screen/pgradd_logo.png'
 html_favicon = './logos/Screen/p_icon.ico'
