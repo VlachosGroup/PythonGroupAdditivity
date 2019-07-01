@@ -105,18 +105,14 @@ class ThermochemRawData(ThermochemBase):
         #return float(self.spline(T))
 
     def _get_CpoR_ar(self, T):
-        ND_Cp = np.empty(T.shape)
-
-        # performing array[True] on a numpy array is used to set all values in that array
-        # e.g. array[True] = 3 makes all elements equal to 3
+        # returns an array of dimension T.shape with all values set to,
+        # for example, self.min_ND_Cp
         if(T < self.min_T):
-          ND_Cp[True] = self.min_ND_Cp
+          return np.full(T.shape, self.min_ND_Cp)
         elif(T > self.max_T):
-          ND_Cp[True] = self.max_ND_Cp
+          return np.full(T.shape, self.max_ND_Cp)
         else:
-          ND_Cp[True] = self.spline(T[True])
-
-        return ND_Cp
+          return np.full(T.shape, self.spline(T[True]))
 
     def get_SoR(self, T):
         """Return non-dimensional standard state entropy |eq_ND_S_T|."""
