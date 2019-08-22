@@ -55,5 +55,5 @@ html_theme = 'alabaster'
 html_static_path = ['_static']
 
 # Logo
-html_logo = './logos/Screen/pgradd_logo.png'
+html_logo = './logos/Screen/pgradd_inverse_web.png'
 html_favicon = './logos/Screen/pgradd_icon.ico'
