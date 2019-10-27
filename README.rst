@@ -9,9 +9,12 @@ thermodynamic properties of a (training) set of molecules by linear regression t
 properties of molecules predicted by the GA from those estimated via DFT. This package implements four group additivity
 schemes in six databases (See below) and will convert a molecule entered as a **S**\ implified **M**\ olecular-**I**\ nput
 **L**\ ine-**E**\ ntry **S**\ ystem (`SMILES`_) providing the constituent groups, their frequency of occurrence, and estimated
-thermodynamic properties for that molecule. pgradd also provides a general GA framework for implementing a custom group additivity
-scheme from your *ab initio*\  data and regression to groups.
+thermodynamic properties for that molecule. pgradd also provides a general GA framework for implementing a custom group additivity scheme from your *ab initio*\  data and regression to groups.
 
+.. image:: https://github.com/VlachosGroup/PythonGroupAdditivity/blob/master/docs/pGrAdd_RGB_github.png
+   :target: https://vlachosgroup.github.io/PythonGroupAdditivity/
+   :align: center
+ 
 -  Benson's gas molecule group additivity (BensonGA)
 -  Salciccioli et al. (2012) adsorbate on Pt(111) group additivity scheme (SalciccioliGA2012)
 -  Gu et al. (2017) solvated adsorbate on Pt(111) group additivity scheme (GuSolventGA2017Aq, GuSolventGA2017Vac)
