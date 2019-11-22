@@ -29,7 +29,7 @@ setuptools_info = {
 		'': [ 'README.rst', 'docs', 'example', 'tests', 'PKG-INFO', 'LICENSE.md' ]
 	    },
 	'install_requires': [
-		'pmutt>=1.2.5',
+		'pmutt>=1.2.14',
 		'scipy>=1.1.0',
 		'numpy>=1.15.1',
 		'IPython>=7.0.0',
