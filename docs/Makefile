@@ -6,11 +6,21 @@
 SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = source
-BUILDDIR      = build
+BUILDDIR      = ../../pGrAdd_docs
+PDFBUILDDIR   = /tmp
+PDF           = ../manual.pdf
 
 # Put it first so that "make" without argument is like "make help".
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+# Builds in a separate directory to make it easier to manage git branches,
+# namely the gh-pages branch for deployment
+build: FORCE
+	sphinx-build -b html source ../../pGrAdd_docs
+# FORCE is necessary because Make only runs when a dependency changes;
+# it doesn't always run build even if something has changed
+FORCE: ;
 
 .PHONY: help Makefile
 
