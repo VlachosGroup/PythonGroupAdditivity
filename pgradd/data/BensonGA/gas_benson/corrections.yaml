@@ -8,14 +8,14 @@ units:
 # S.W. Benson; New York: John Wiley & Sons, 1976 pp. 272-273.
 
 groups:
-  AlkaneGauech:
+  AlkaneGauche:
     thermochem:
       T_ref: 298.0
       H_ref: 0.80
       S_ref: null
       Cp_data: []
       range: [298, 1500]
-  AlkeneGauech:
+  AlkeneGauche:
     thermochem:
       T_ref: 298.0
       H_ref: 0.50
