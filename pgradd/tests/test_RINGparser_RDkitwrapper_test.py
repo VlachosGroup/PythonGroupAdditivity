@@ -44,7 +44,7 @@ class TestRINGParser(unittest.TestCase):
         match_index = molquery.GetQueryMatches(testmol)
         self.assertEqual(match_index, ((0, 1), (0, 5), (1, 0), (1, 2), (2, 1),
                                        (2, 3), (3, 2), (3, 4), (4, 3), (4, 5),
-                                       (5, 0), (5, 4)))
+                                       (5, 4), (5, 0)))
 
     def test_ring_bond1(self):
         testmol = Chem.MolFromSmiles('CCC1CCC1')
@@ -62,7 +62,7 @@ class TestRINGParser(unittest.TestCase):
         self.assertEqual(match_index, ((2, 3, 4, 5), (2, 5, 4, 3),
                                        (3, 2, 5, 4), (3, 4, 5, 2),
                                        (4, 3, 2, 5), (4, 5, 2, 3),
-                                       (5, 2, 3, 4), (5, 4, 3, 2)))
+                                       (5, 4, 3, 2), (5, 2, 3, 4)))
 
     def test_ring_bond2(self):
         testmol = Chem.MolFromSmiles('CCC1CCC1')
@@ -75,7 +75,7 @@ class TestRINGParser(unittest.TestCase):
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
         self.assertEqual(match_index, ((2, 3), (2, 5), (3, 2), (3, 4), (4, 3),
-                                       (4, 5), (5, 2), (5, 4)))
+                                       (4, 5), (5, 4), (5, 2)))
 
     def test_non_ring_bond(self):
         testmol = Chem.MolFromSmiles('CCC1CCC1')
@@ -222,8 +222,8 @@ class TestRINGParser(unittest.TestCase):
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
         self.assertEqual(match_index, ((0, 1), (0, 3), (1, 0), (1, 2),
-                                       (2, 1), (2, 3), (3, 0), (3, 2),
-                                       (3, 4), (4, 3)))
+                                       (2, 1), (2, 3), (3, 2),
+                                       (3, 4), (3, 0), (4, 3)))
 
     def test_symbol_atomsuffix(self):
         testmol = Chem.MolFromSmiles('CCC')
