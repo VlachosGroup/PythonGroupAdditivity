@@ -16,7 +16,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1), (1, 0), (1, 2), (2, 1)))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((1, 0), (0, 1), (1, 2), (2, 1))))
 
     def test_double_triple_bond(self):
         testmol = Chem.MolFromSmiles('C=C-C#C')
@@ -30,7 +31,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1, 2, 3),))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, 1, 2, 3),)))
 
     def test_aromatic_bond(self):
         testmol = Chem.MolFromSmiles('c1ccccc1')
@@ -42,9 +44,10 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1), (0, 5), (1, 0), (1, 2), (2, 1),
-                                       (2, 3), (3, 2), (3, 4), (4, 3), (4, 5),
-                                       (5, 4), (5, 0)))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, 1), (0, 5), (1, 0), (1, 2), (2, 1),
+                                     (2, 3), (3, 2), (3, 4), (4, 3), (4, 5),
+                                     (5, 4), (5, 0))))
 
     def test_ring_bond1(self):
         testmol = Chem.MolFromSmiles('CCC1CCC1')
@@ -59,10 +62,11 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((2, 3, 4, 5), (2, 5, 4, 3),
-                                       (3, 2, 5, 4), (3, 4, 5, 2),
-                                       (4, 3, 2, 5), (4, 5, 2, 3),
-                                       (5, 4, 3, 2), (5, 2, 3, 4)))
+        self.assertListEqual(sorted(match_index),
+		                     sorted(((2, 3, 4, 5), (2, 5, 4, 3),
+                                     (3, 2, 5, 4), (3, 4, 5, 2),
+                                     (4, 3, 2, 5), (4, 5, 2, 3),
+                                     (5, 2, 3, 4), (5, 4, 3, 2))))
 
     def test_ring_bond2(self):
         testmol = Chem.MolFromSmiles('CCC1CCC1')
@@ -74,8 +78,9 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((2, 3), (2, 5), (3, 2), (3, 4), (4, 3),
-                                       (4, 5), (5, 4), (5, 2)))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((2, 3), (2, 5), (3, 2), (3, 4), (4, 3),
+                                     (4, 5), (5, 4), (5, 2))))
 
     def test_non_ring_bond(self):
         testmol = Chem.MolFromSmiles('CCC1CCC1')
@@ -87,7 +92,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1), (1, 0), (1, 2), (2, 1)))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, 1), (1, 0), (1, 2), (2, 1))))
 
     def test_any_bond1(self):
         testmol = Chem.MolFromSmiles('CC=CC#C')
@@ -99,8 +105,9 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1), (1, 0), (1, 2), (2, 1),
-                                       (2, 3), (3, 2), (3, 4), (4, 3)))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, 1), (1, 0), (1, 2), (2, 1),
+                                     (2, 3), (3, 2), (3, 4), (4, 3))))
 
     def test_any_bond2(self):
         testmol = Chem.MolFromSmiles('CC=CC#C')
@@ -112,8 +119,9 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1), (1, 0), (1, 2), (2, 1),
-                                       (2, 3), (3, 2), (3, 4), (4, 3)))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, 1), (1, 0), (1, 2), (2, 1),
+                                     (2, 3), (3, 2), (3, 4), (4, 3))))
 
     def test_strong_bond(self):
         testmol = Chem.MolFromSmiles('CC=CC#C')
@@ -125,7 +133,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((1, 2), (2, 1), (3, 4), (4, 3)))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((1, 2), (2, 1), (3, 4), (4, 3))))
 
     def test_other_bond1(self):
         testmol = Chem.MolFromSmiles('C[CH2-]')
@@ -161,7 +170,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((1, 2), (2, 1)))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((1, 2), (2, 1))))
 
     def test_other_bond4(self):
         testmol = Chem.MolFromSmiles('C=CC')
@@ -185,7 +195,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1), (1, 0), (1, 2), (2, 1)))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, 1), (1, 0), (1, 2), (2, 1))))
 
     def test_other_bond6(self):
         testmol = Chem.MolFromSmiles('CCC')
@@ -197,7 +208,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1), (1, 0), (1, 2), (2, 1)))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, 1), (1, 0), (1, 2), (2, 1))))
 
     def test_other_bond7(self):
         testmol = Chem.MolFromSmiles('CCC')
@@ -221,9 +233,10 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1), (0, 3), (1, 0), (1, 2),
-                                       (2, 1), (2, 3), (3, 2),
-                                       (3, 4), (3, 0), (4, 3)))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, 1), (0, 3), (1, 0), (1, 2),
+                                     (2, 1), (2, 3), (3, 2),
+                                     (3, 4), (3, 0), (4, 3))))
 
     def test_symbol_atomsuffix(self):
         testmol = Chem.MolFromSmiles('CCC')
@@ -235,11 +248,12 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1), (0, 3), (0, 4), (0, 5), (1, 0),
-                                       (1, 2), (1, 6), (1, 7), (2, 1), (2, 8),
-                                       (2, 9), (2, 10), (3, 0), (4, 0),
-                                       (5, 0), (6, 1), (7, 1), (8, 2), (9, 2),
-                                       (10, 2)))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, 1), (0, 3), (0, 4), (0, 5), (1, 0),
+                                     (1, 2), (1, 6), (1, 7), (2, 1), (2, 8),
+                                     (2, 9), (2, 10), (3, 0), (4, 0),
+                                     (5, 0), (6, 1), (7, 1), (8, 2), (9, 2),
+                                     (10, 2))))
 
     def test_other_bond9(self):
         testmol = Chem.MolFromSmiles('CCO')
@@ -251,7 +265,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1), (1, 0), (1, 2), (2, 1)))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, 1), (1, 0), (1, 2), (2, 1))))
 
     def test_other_bond10(self):
         testmol = Chem.MolFromSmiles('CCS')
@@ -263,7 +278,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((1, 2),))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((1, 2),)))
 
     def test_atom_constraint1(self):
         testmol = Chem.MolFromSmiles('CCC')
@@ -275,7 +291,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1), (2, 1)))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, 1), (2, 1))))
 
     def test_atom_constraint2(self):
         testmol = Chem.MolFromSmiles('CCC')
@@ -287,7 +304,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((1, 0), (1, 2)))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((1, 0), (1, 2))))
 
     def test_atom_constraint3(self):
         testmol = Chem.MolFromSmiles('CC=C')
@@ -299,7 +317,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1),))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, 1),)))
 
     def test_atom_constraint4(self):
         testmol = Chem.MolFromSmiles('CC=C')
@@ -310,7 +329,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((1,),))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((1,),)))
 
     def test_atom_constraint5(self):
         testmol = Chem.MolFromSmiles('CC=C')
@@ -321,7 +341,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, ), (2, )))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, ), (2, ))))
 
     def test_atom_constraint6(self):
         testmol = Chem.MolFromSmiles('CC1CCC1')
@@ -333,7 +354,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1),))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, 1),)))
 
     def test_atom_prefix1(self):
         testmol = Chem.MolFromSmiles('CC1CCC1')
@@ -345,7 +367,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1),))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, 1),)))
 
     def test_atom_prefix2(self):
         testmol = Chem.MolFromSmiles('Cc1ccccc1')
@@ -357,7 +380,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1),))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, 1),)))
 
     def test_atom_prefix3(self):
         testmol = Chem.MolFromSmiles('CC=C')
@@ -369,7 +393,8 @@ class TestRINGParser(unittest.TestCase):
         """
         molquery = Read(s)
         match_index = molquery.GetQueryMatches(testmol)
-        self.assertEqual(match_index, ((0, 1),))
+        self.assertListEqual(sorted(match_index),
+                             sorted(((0, 1),)))
 
 
 if __name__ == '__main__':
