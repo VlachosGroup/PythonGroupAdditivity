@@ -1,0 +1,9 @@
+#Dimensionless Gibbs Energies of reactions (G/RT)
+
+-1.200782e+00H2 + 2 RU(S1) <=> 2 H(S1) + 2 RU(B)
+6.366543e+00N2 + RU(S1) <=> N2(S1) + RU(B)
+8.525182e+00NH3 + RU(S1) <=> NH3(S1) + RU(B)
+-2.254966e+00NH3(S1) + RU(S1) <=> H(S1) + NH2(S1) + RU(B)
+-1.056638e+01NH2(S1) + RU(S1) <=> H(S1) + NH(S1) + RU(B)
+-6.363024e+00NH(S1) + RU(S1) <=> H(S1) + N(S1) + RU(B)
+-1.161833e+01N2(S1) + RU(S1) <=> 2 N(S1) + RU(B)

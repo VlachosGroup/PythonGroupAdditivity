@@ -1,0 +1,9 @@
+#Reverse rate constants of reactions
+
+2.297397e+15H2 + 2 RU(S1) <=> 2 H(S1) + 2 RU(B)
+3.111938e+10N2 + RU(S1) <=> N2(S1) + RU(B)
+3.456087e+11NH3 + RU(S1) <=> NH3(S1) + RU(B)
+4.928865e+12NH3(S1) + RU(S1) <=> H(S1) + NH2(S1) + RU(B)
+2.168615e+11NH2(S1) + RU(S1) <=> H(S1) + NH(S1) + RU(B)
+2.330154e+12NH(S1) + RU(S1) <=> H(S1) + N(S1) + RU(B)
+3.289042e+00N2(S1) + RU(S1) <=> 2 N(S1) + RU(B)

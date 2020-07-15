@@ -1,0 +1,9 @@
+#Dimensionless entropies of reactions (S/R)
+
+-1.211359e+01H2 + 2 RU(S1) <=> 2 H(S1) + 2 RU(B)
+-1.576072e+01N2 + RU(S1) <=> N2(S1) + RU(B)
+-1.840179e+01NH3 + RU(S1) <=> NH3(S1) + RU(B)
+3.668212e+00NH3(S1) + RU(S1) <=> H(S1) + NH2(S1) + RU(B)
+1.561667e+00NH2(S1) + RU(S1) <=> H(S1) + NH(S1) + RU(B)
+2.133142e+00NH(S1) + RU(S1) <=> H(S1) + N(S1) + RU(B)
+5.174668e+00N2(S1) + RU(S1) <=> 2 N(S1) + RU(B)

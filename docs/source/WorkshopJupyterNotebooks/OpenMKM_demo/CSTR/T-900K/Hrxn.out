@@ -1,0 +1,9 @@
+#Dimensionless enthalpies of reactions (H/RT)
+
+-13.3144    H2 + 2 RU(S1) <=> 2 H(S1) + 2 RU(B)
+-9.39417    N2 + RU(S1) <=> N2(S1) + RU(B)
+-9.87661    NH3 + RU(S1) <=> NH3(S1) + RU(B)
+1.41325     NH3(S1) + RU(S1) <=> H(S1) + NH2(S1) + RU(B)
+-9.00472    NH2(S1) + RU(S1) <=> H(S1) + NH(S1) + RU(B)
+-4.22988    NH(S1) + RU(S1) <=> H(S1) + N(S1) + RU(B)
+-6.44366    N2(S1) + RU(S1) <=> 2 N(S1) + RU(B)

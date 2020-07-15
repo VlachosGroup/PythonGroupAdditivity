@@ -1,0 +1,9 @@
+#Forward rate constants of reactions
+
+5.792013e+17H2 + 2 RU(S1) <=> 2 H(S1) + 2 RU(B)
+4.056737e+09N2 + RU(S1) <=> N2(S1) + RU(B)
+5.202905e+09NH3 + RU(S1) <=> NH3(S1) + RU(B)
+1.256904e+14NH3(S1) + RU(S1) <=> H(S1) + NH2(S1) + RU(B)
+1.584829e+16NH2(S1) + RU(S1) <=> H(S1) + NH(S1) + RU(B)
+2.791521e+15NH(S1) + RU(S1) <=> H(S1) + N(S1) + RU(B)
+2.960692e+06N2(S1) + RU(S1) <=> 2 N(S1) + RU(B)

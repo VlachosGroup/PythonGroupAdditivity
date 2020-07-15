@@ -1,0 +1,20 @@
+#Dimensionless formation entropies of species (S/R)
+
+H2                18.559
+N2               27.1891
+NH3              29.0085
+RU(B)                  0
+RU(S1)                 0
+N2(S1)           11.4284
+N(S1)            8.30155
+H(S1)            3.22272
+NH3(S1)          10.6067
+NH2(S1)          11.0522
+NH(S1)           9.39112
+N2(S2)           11.4284
+N(S2)            8.30155
+H(S2)            3.22272
+NH3(S2)          10.6067
+NH2(S2)          11.0522
+NH(S2)           9.39112
+RU(S2)                 0

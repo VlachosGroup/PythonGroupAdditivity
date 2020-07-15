@@ -1,0 +1,9 @@
+#Equilibrium constants of reactions
+
+1.325374e+02H2 + 2 RU(S1) <=> 2 H(S1) + 2 RU(B)
+8.149841e-02N2 + RU(S1) <=> N2(S1) + RU(B)
+9.109937e-03NH3 + RU(S1) <=> NH3(S1) + RU(B)
+1.089550e+01NH3(S1) + RU(S1) <=> H(S1) + NH2(S1) + RU(B)
+2.459199e+04NH2(S1) + RU(S1) <=> H(S1) + NH(S1) + RU(B)
+4.707610e+02NH(S1) + RU(S1) <=> H(S1) + N(S1) + RU(B)
+8.825735e+04N2(S1) + RU(S1) <=> 2 N(S1) + RU(B)
