@@ -25,8 +25,8 @@ class TestExamples(unittest.TestCase):
         descriptors = lib.GetDescriptors('C([Pt])C[Pt]')
         thermochem = lib.Estimate(descriptors, 'thermochem')
         GroupDict = {'C(C)(H)2(Pt)': 2, 'surface-ring strain': 0.217}
-        HoRT = thermochem.get_HoRT(298.15)
-        self.assertAlmostEqual(HoRT, 37.62494617247582)
+        H = thermochem.get_H(298.15, units='kcal/mol')
+        self.assertAlmostEqual(H, -11.307743997749277)
         self.assertEqual(descriptors, GroupDict)
 
     def test_GU_Aq(self):
