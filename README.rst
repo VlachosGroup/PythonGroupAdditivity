@@ -123,11 +123,11 @@ Examples
     descriptors = lib.GetDescriptors('C([Pt])C[Pt]')
     print(descriptors)
     thermochem = lib.Estimate(descriptors,'thermochem')
-    print(thermochem.get_HoRT(298.15))
+    print(thermochem.get_H(298.15, units='kcal/mol'))
 
     Out:
     defaultdict(<class 'int'>, {'C(C)(H)2(Pt)': 2, 'surface-ring strain': 0.217})
-    37.62494617247582
+    -11.307743997749277
 
 **Gu et al. J. Phys. Chem. C, 2017, 121 pp 21510–21519 Example**::
 
