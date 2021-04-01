@@ -1,4 +1,4 @@
-python Group Additivity (pgradd)
+Python Group Additivity (pgradd)
 ================================
   
 A Python package and database, developed by the Vlachos Research Group at the University of Delaware implements the **F**\ irst-**P**\ rinciples **S**\ emi-**E**\ mpirical (FPSE) **G**\ roup **A**\ dditivity
