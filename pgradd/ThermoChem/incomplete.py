@@ -1,6 +1,7 @@
 from warnings import warn
 
 import numpy as np
+from math import isclose
 
 from .. Error import (
     IncompleteDataError, IncompleteDataWarning, ReadOnlyDataError,
@@ -270,7 +271,7 @@ class ThermochemIncomplete(ThermochemBase):
                 new_ND_H_ref = test_correlation.get_HoRT(T_ref)
                 if(not overwrite
                    and ND_H_ref is not None
-                   and new_ND_H_ref != ND_H_ref):
+                   and not isclose(new_ND_H_ref, ND_H_ref, rel_tol=1e-15)):
                     raise ReadOnlyDataError(
                         "In ThermochemIncomplete.update():"
                         " property ND_H_ref already exists and differs from"
@@ -282,7 +283,7 @@ class ThermochemIncomplete(ThermochemBase):
                 new_ND_S_ref = test_correlation.get_SoR(T_ref)
                 if(not overwrite
                    and ND_S_ref is not None
-                   and new_ND_S_ref != ND_S_ref):
+                   and not isclose(new_ND_S_ref, ND_S_ref, rel_tol=1e-15)):
                     raise ReadOnlyDataError(
                         "In ThermochemIncomplete.update():"
                         " property ND_S_ref already exists and differs from"

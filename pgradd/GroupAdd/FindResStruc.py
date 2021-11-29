@@ -56,6 +56,7 @@ def enumerate_res_struc(mol):
 
     # Chem.AssignRadicals(mol) # This is broken. I don't know how it works.
     # Frustrating
+    print('Resonance Structure')
     # Get all possible resonance structures
     # set up reactions
     reaction_rules = list()
