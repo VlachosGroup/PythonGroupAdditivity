@@ -215,7 +215,7 @@ Examples
     print(thermochem.get_H(500, 'kJ/mol'), '[kJ/mol]')
 
     Out:
-    defaultdict(<class 'int'>, {'CO(O)(Ru)+O(CO)(H)': 1.0})
+    defaultdict(<class 'int'>, {'CO(O)(Ru)': 1, 'O(CO)(H)': 1})
      -92.62100671375563 [Dimensionless]
     -385.04681847852567 [kJ/mol]
 
