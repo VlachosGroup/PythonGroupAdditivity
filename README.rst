@@ -184,6 +184,40 @@ Examples
     defaultdict(<class 'int'>, {'CO(O)(Pt)+O(CO)(H)': 1.0})
     -107.57909464133714 [Dimensionless]
     -447.23102885789655 [kJ/mol]
+    
+**Xie Ru(0001) Surface Example 1**::
+
+    In:
+    from pgradd.GroupAdd.Library import GroupLibrary
+    import pgradd.ThermoChem
+    lib = GroupLibrary.Load('XieGA2022')
+    descriptors = lib.GetDescriptors('[Ru]C([Ru])C([Ru])([Ru])C=O')
+    print(descriptors)
+    thermochem = lib.Estimate(descriptors,'thermochem')
+    print(thermochem.get_HoRT(500), '[Dimensionless]')
+    print(thermochem.get_H(500, 'kJ/mol'), '[kJ/mol]')
+
+    Out:
+    defaultdict(<class 'int'>, {'C(C)(H)(Ru)2': 1, 'C(C)(CO)(Ru)2': 1, 'CO(C)(H)': 1, 'CRu2CRu2': 1})
+    -16.63461754058872 [Dimensionless]
+    -69.1539294147999  [kJ/mol]
+    
+**Xie Ru(0001) Surface Example 2**::
+
+    In:
+    from pgradd.GroupAdd.Library import GroupLibrary
+    import pgradd.ThermoChem
+    lib = GroupLibrary.Load('XieGA2022')
+    descriptors = lib.GetDescriptors('C(=O)([Ru])O')
+    print(descriptors)
+    thermochem = lib.Estimate(descriptors,'thermochem')
+    print(thermochem.get_HoRT(500), '[Dimensionless]')
+    print(thermochem.get_H(500, 'kJ/mol'), '[kJ/mol]')
+
+    Out:
+    defaultdict(<class 'int'>, {'CO(O)(Ru)+O(CO)(H)': 1.0})
+     -92.62100671375563 [Dimensionless]
+    -385.04681847852567 [kJ/mol]
 
 .. _`scipy`: https://www.scipy.org/
 .. _`rdkit`: https://www.rdkit.org/
