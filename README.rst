@@ -24,7 +24,7 @@ thermodynamic properties for that molecule. pgradd also provides a general GA fr
 
 Citing this work
 ----------------
-G.R. Wittreich, D.G. Vlachos, Python Group Additivity (pGrAdd) software for estimating species thermochemical properties Comput. Phys. Commun. 273 (2022) 108277 https://doi.org/10.17632/6rjpn5v7rs.1.
+G.R. Wittreich, D.G. Vlachos, Python Group Additivity (pGrAdd) software for estimating species thermochemical properties Comput. Phys. Commun. 273 (2022) 108277 https://doi.org/10.1016/j.cpc.2021.108277
 
 Developers
 ----------
