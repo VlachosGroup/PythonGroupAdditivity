@@ -76,6 +76,42 @@ class TestExamples(unittest.TestCase):
         self.assertAlmostEqual(H, -447.23102885789655)
         self.assertEqual(descriptors, GroupDict)
 
+    def test_Xie_Ru0001_Example1_ND(self):
+        lib = GroupLibrary.Load('XieGA2022')
+        descriptors = lib.GetDescriptors('[Ru]C([Ru])C([Ru])([Ru])C=O')
+        thermochem = lib.Estimate(descriptors, 'thermochem')
+        GroupDict = {'C(C)(H)(Ru)2': 1, 'C(C)(CO)(Ru)2': 1, 'CO(C)(H)': 1, 'CRu2CRu2': 1}
+        HoRT = thermochem.get_HoRT(500)
+        self.assertAlmostEqual(HoRT, -16.63461754058872)
+        self.assertEqual(descriptors, GroupDict)
+
+    def test_Xie_Ru0001_Example1_Dim(self):
+        lib = GroupLibrary.Load('XieGA2022')
+        descriptors = lib.GetDescriptors('[Ru]C([Ru])C([Ru])([Ru])C=O')
+        thermochem = lib.Estimate(descriptors, 'thermochem')
+        GroupDict = {'C(C)(H)(Ru)2': 1, 'C(C)(CO)(Ru)2': 1, 'CO(C)(H)': 1, 'CRu2CRu2': 1}
+        H = thermochem.get_H(500, 'kJ/mol')
+        self.assertAlmostEqual(H, -69.1539294147999)
+        self.assertEqual(descriptors, GroupDict)
+
+    def test_Xie_Ru0001_Example2_ND(self):
+        lib = GroupLibrary.Load('XieGA2022')
+        descriptors = lib.GetDescriptors('C(=O)([Ru])O')
+        thermochem = lib.Estimate(descriptors, 'thermochem')
+        GroupDict = {'CO(O)(Ru)': 1, 'O(CO)(H)': 1}
+        HoRT = thermochem.get_HoRT(500)
+        self.assertAlmostEqual(HoRT, -92.62100671375563)
+        self.assertEqual(descriptors, GroupDict)
+
+    def test_Xie_Ru0001_Example2_Dim(self):
+        lib = GroupLibrary.Load('XieGA2022')
+        descriptors = lib.GetDescriptors('C(=O)([Ru])O')
+        thermochem = lib.Estimate(descriptors, 'thermochem')
+        GroupDict = {'CO(O)(Ru)': 1, 'O(CO)(H)': 1}
+        H = thermochem.get_H(500, 'kJ/mol')
+        self.assertAlmostEqual(H, -385.04681847852567)
+        self.assertEqual(descriptors, GroupDict)
+
 
 if __name__ == '__main__':
     unittest.main()
