@@ -612,7 +612,14 @@ class MolQuery(object):
             except Exception:
                 return tuple()
         # Match mol substructure matches
-        rdkit_matches = mol.GetSubstructMatches(self.mol, uniquify=False)
+        maxMatches = 10000
+        rdkit_matches = mol.GetSubstructMatches(self.mol, uniquify=False,
+                                                maxMatches=maxMatches)
+        lenMatches = len(rdkit_matches)
+        if lenMatches == maxMatches:
+            print('\nMax RDKit substructure matches exceeded. All groups in',
+                  'molecule may not have been determined.')
+            print(Chem.MolToSmiles(Chem.RemoveHs(mol)))
         if debug:
             print('structure matches:' + str(rdkit_matches))
         # if no rdkit match
