@@ -99,6 +99,7 @@ Citations
 -  Vorotnikov et al. "Group Additivity and Modified Linear Scaling Relations for Estimating Surface Thermochemistry on Transition Metal Surfaces: Application to Furanics." J. Phys. Chem. C, 2015, 119 (19), 10417-10426
 -  Gu et al. "Group Additivity for Thermochemical Property Estimation of Lignin Monomers on Pt(111)." J. Phys. Chem. C, 2016, 120 (34), 19234-19241
 -  Gu GH, Schweitzer B, Michel C, et al (2017) Group additivity for aqueous phase thermochemical properties of alcohols on Pt(111). J Phys Chem C 121:21510–21519
+-  Xie, T.; Wittreich, G. R.; Vlachos, D. G. Multiscale Modeling of Hydrogenolysis of Ethane and Propane on Ru(0001): Implications for Plastics Recycling. Appl. Catal. B Environ. 2022, 316 (June), 121597. https://doi.org/10.1016/j.apcatb.2022.121597.
 
 Examples
 --------
