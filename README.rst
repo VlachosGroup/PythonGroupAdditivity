@@ -88,12 +88,12 @@ Special Thanks
 Citations
 ---------
 
--  Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Algorithms of RING", Comput. Chem. Eng. 2014, 64, 124
--  Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Descrpition of RING", Comput. Chem. Eng. 2012, 45, 114
+-  Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Algorithms of RING", Comput. Chem. Eng. 2014, 64, 124. https://doi.org/10.1016/j.compchemeng.2014.02.007
+-  Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Descrpition of RING", Comput. Chem. Eng. 2012, 45, 114. https://doi.org/10.1016/j.compchemeng.2012.06.008
 -  Benson et al. "Additivity rules for the estimation of thermochemical properties." Chem. Rev., 1969, 69 (3), 279-324
--  Salciccioli et al. "Density Functional Theory-Derived Group Additivity and Linear Scaling Methods for Prediction of Oxygenate Stability on Metal Catalysts: Adsorption of Open-Ring Alcohol and Polyol Dehydrogenation Intermediates on Pt-Based Metals." J. Phys. Chem. C, 2010, 114 (47) 20155-20166
--  Kua J, Goddard WA (1998) Chemisorption of Organics on Platinum. 2. Chemisorption of C 2 H x and CH x on Pt(111). J Phys Chem B 102:9492–9500
--  Kua J, Faglioni F, Goddard WA (2000) Thermochemistry for hydrocarbon intermediates chemisorbed on metal surfaces: CH(n-m)(CH3)(m) with n = 1, 2, 3 and m ≤ n on Pt, Ir, Os, Pd, Rh, and Ru. J Am Chem Soc 122:2309–2321
+-  Salciccioli et al. "Density Functional Theory-Derived Group Additivity and Linear Scaling Methods for Prediction of Oxygenate Stability on Metal Catalysts: Adsorption of Open-Ring Alcohol and Polyol Dehydrogenation Intermediates on Pt-Based Metals." J. Phys. Chem. C, 2010, 114 (47) 20155-20166. https://doi.org/10.1021/jp107836a
+-  Kua J, Goddard WA (1998) Chemisorption of Organics on Platinum. 2. Chemisorption of C 2 H x and CH x on Pt(111). J Phys Chem B 102:9492–9500. https://doi.org/10.1021/jp982527s
+-  Kua J, Faglioni F, Goddard WA (2000) Thermochemistry for hydrocarbon intermediates chemisorbed on metal surfaces: CH(n-m)(CH3)(m) with n = 1, 2, 3 and m ≤ n on Pt, Ir, Os, Pd, Rh, and Ru. J Am Chem Soc 122:2309–2321. https://doi.org/10.1021/ja993336l
 -  Salciccioli et al. "Adsorption of Acid, Ester, and Ether Functional Groups on Pt: Fast Prediction of Thermochemical Properties of Adsorbed Oxygenates via DFT-Based Group Additivity Methods." J. Phys. Chem. C, 2012, 116(2), 1873-1886. https://doi.org/10.1021/jp2091413
 -  Vorotnikov et al. "Group Additivity for Estimating Thermochemical Properties of Furanic Compounds on Pd(111)." Ind. Eng. Chem. Res., 2014, 53 (30), 11929-11938. https://doi.org/10.1021/ie502049a
 -  Vorotnikov et al. "Group Additivity and Modified Linear Scaling Relations for Estimating Surface Thermochemistry on Transition Metal Surfaces: Application to Furanics." J. Phys. Chem. C, 2015, 119 (19), 10417-10426. https://doi.org/10.1021/acs.jpcc.5b01696
