@@ -228,6 +228,14 @@ Examples
     -41.49969417868688 [Dimensionless]
    -172.52376948049303 [kJ/mol]
 
+.. |bug_label| image:: https://raw.githubusercontent.com/VlachosGroup/pMuTT/master/docs/source/images/labels/bug_small.png
+   :height: 20
+   :target: https://github.com/VlachosGroup/PythonGroupAdditivity/issues?utf8=%E2%9C%93&q=label%3Abug
+
+.. |enhancement_label| image:: https://raw.githubusercontent.com/VlachosGroup/pMuTT/master/docs/source/images/labels/enhancement_small.png
+   :height: 20
+   :target: https://github.com/VlachosGroup/PythonGroupAdditivity/issues?utf8=%E2%9C%93&q=label%3Aenhancement
+
 .. _`scipy`: https://www.scipy.org/
 .. _`rdkit`: https://www.rdkit.org/
 .. _`numpy`: http://www.numpy.org/
