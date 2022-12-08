@@ -1,6 +1,11 @@
 import os
 from warnings import warn
-from collections.abc import Mapping
+from sys import version_info
+if version_info > (3, 5):
+    from collections.abc import Mapping
+else:
+    from collections import Mapping
+
 from .. import yaml_io
 import numpy as np
 
