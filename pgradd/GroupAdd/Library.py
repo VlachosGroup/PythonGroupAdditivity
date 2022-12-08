@@ -1,6 +1,6 @@
 import os
 from warnings import warn
-from collections import Mapping
+from collections.abc import Mapping
 from .. import yaml_io
 import numpy as np
 

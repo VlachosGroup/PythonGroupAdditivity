@@ -1,4 +1,4 @@
-from collections import Mapping, Sequence
+from collections.abc import Mapping, Sequence
 from warnings import warn
 
 from .common import string, SchemaDefinitionError, InputDataError,\
