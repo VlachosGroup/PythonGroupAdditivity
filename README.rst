@@ -24,6 +24,7 @@ thermodynamic properties for that molecule. pgradd also provides a general GA fr
 
 Citing this work
 ----------------
+If you use our software, please, cite our paper.
 G.R. Wittreich, D.G. Vlachos, Python Group Additivity (pGrAdd) software for estimating species thermochemical properties Comput. Phys. Commun. 273 (2022) 108277 https://doi.org/10.1016/j.cpc.2021.108277
 
 Developers
@@ -72,7 +73,15 @@ This project is licensed under the MIT License - see the `LICENSE`_ file for det
 Contributing
 ------------
 
-If you have a suggestion, please post to our `Issues page`_ with the ``enhancement`` tag. Similarly, if you encounter a bug, please post to our `Issues page`_ with the ``bug`` tag. Finally, if you would like to add to the body of code, please check our documentation to make sure the new code is consistent with the relevant page and submit a `pull request`_.
+If you have a suggestion or find a bug, please post to our `Issues page`_ with 
+the |enhancement_label| or |bug_label| tag respectively.
+
+Finally, if you would like to add to the body of code, please:
+
+- fork the development branch
+- make the desired changes
+- write the appropriate unit tests
+- submit a `pull request`_.
 
 Questions
 ---------
@@ -88,17 +97,18 @@ Special Thanks
 Citations
 ---------
 
--  Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Algorithms of RING", Comput. Chem. Eng. 2014, 64, 124
--  Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Descrpition of RING", Comput. Chem. Eng. 2012, 45, 114
+-  Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Algorithms of RING", Comput. Chem. Eng. 2014, 64, 124. https://doi.org/10.1016/j.compchemeng.2014.02.007
+-  Rangarajan et al. "Language-oriented rule-based reaction network generation and analysis: Descrpition of RING", Comput. Chem. Eng. 2012, 45, 114. https://doi.org/10.1016/j.compchemeng.2012.06.008
 -  Benson et al. "Additivity rules for the estimation of thermochemical properties." Chem. Rev., 1969, 69 (3), 279-324
--  Salciccioli et al. "Density Functional Theory-Derived Group Additivity and Linear Scaling Methods for Prediction of Oxygenate Stability on Metal Catalysts: Adsorption of Open-Ring Alcohol and Polyol Dehydrogenation Intermediates on Pt-Based Metals." J. Phys. Chem. C, 2010, 114 (47) 20155-20166
--  Kua J, Goddard WA (1998) Chemisorption of Organics on Platinum. 2. Chemisorption of C 2 H x and CH x on Pt(111). J Phys Chem B 102:9492–9500
--  Kua J, Faglioni F, Goddard WA (2000) Thermochemistry for hydrocarbon intermediates chemisorbed on metal surfaces: CH(n-m)(CH3)(m) with n = 1, 2, 3 and m ≤ n on Pt, Ir, Os, Pd, Rh, and Ru. J Am Chem Soc 122:2309–2321
--  Salciccioli et al. "Adsorption of Acid, Ester, and Ether Functional Groups on Pt: Fast Prediction of Thermochemical Properties of Adsorbed Oxygenates via DFT-Based Group Additivity Methods." J. Phys. Chem. C, 2012, 116(2), 1873-1886
--  Vorotnikov et al. "Group Additivity for Estimating Thermochemical Properties of Furanic Compounds on Pd(111)." Ind. Eng. Chem. Res., 2014, 53 (30), 11929-11938
--  Vorotnikov et al. "Group Additivity and Modified Linear Scaling Relations for Estimating Surface Thermochemistry on Transition Metal Surfaces: Application to Furanics." J. Phys. Chem. C, 2015, 119 (19), 10417-10426
--  Gu et al. "Group Additivity for Thermochemical Property Estimation of Lignin Monomers on Pt(111)." J. Phys. Chem. C, 2016, 120 (34), 19234-19241
--  Gu GH, Schweitzer B, Michel C, et al (2017) Group additivity for aqueous phase thermochemical properties of alcohols on Pt(111). J Phys Chem C 121:21510–21519
+-  Salciccioli et al. "Density Functional Theory-Derived Group Additivity and Linear Scaling Methods for Prediction of Oxygenate Stability on Metal Catalysts: Adsorption of Open-Ring Alcohol and Polyol Dehydrogenation Intermediates on Pt-Based Metals." J. Phys. Chem. C, 2010, 114 (47) 20155-20166. https://doi.org/10.1021/jp107836a
+-  Kua J, Goddard WA (1998) Chemisorption of Organics on Platinum. 2. Chemisorption of C 2 H x and CH x on Pt(111). J Phys Chem B 102:9492–9500. https://doi.org/10.1021/jp982527s
+-  Kua J, Faglioni F, Goddard WA (2000) Thermochemistry for hydrocarbon intermediates chemisorbed on metal surfaces: CH(n-m)(CH3)(m) with n = 1, 2, 3 and m ≤ n on Pt, Ir, Os, Pd, Rh, and Ru. J Am Chem Soc 122:2309–2321. https://doi.org/10.1021/ja993336l
+-  Salciccioli et al. "Adsorption of Acid, Ester, and Ether Functional Groups on Pt: Fast Prediction of Thermochemical Properties of Adsorbed Oxygenates via DFT-Based Group Additivity Methods." J. Phys. Chem. C, 2012, 116(2), 1873-1886. https://doi.org/10.1021/jp2091413
+-  Vorotnikov et al. "Group Additivity for Estimating Thermochemical Properties of Furanic Compounds on Pd(111)." Ind. Eng. Chem. Res., 2014, 53 (30), 11929-11938. https://doi.org/10.1021/ie502049a
+-  Vorotnikov et al. "Group Additivity and Modified Linear Scaling Relations for Estimating Surface Thermochemistry on Transition Metal Surfaces: Application to Furanics." J. Phys. Chem. C, 2015, 119 (19), 10417-10426. https://doi.org/10.1021/acs.jpcc.5b01696
+-  Gu et al. "Group Additivity for Thermochemical Property Estimation of Lignin Monomers on Pt(111)." J. Phys. Chem. C, 2016, 120 (34), 19234-19241. https://doi.org/10.1021/acs.jpcc.6b06430
+-  Gu GH, Schweitzer B, Michel C, et al (2017) Group additivity for aqueous phase thermochemical properties of alcohols on Pt(111). J Phys Chem C 121:21510–21519. https://doi.org/10.1021/acs.jpcc.7b07340
+-  Xie, T.; Wittreich, G. R.; Vlachos, D. G. Multiscale Modeling of Hydrogenolysis of Ethane and Propane on Ru(0001): Implications for Plastics Recycling. Appl. Catal. B Environ. 2022, 316 (June), 121597. https://doi.org/10.1016/j.apcatb.2022.121597
 
 Examples
 --------
@@ -218,6 +228,30 @@ Examples
     defaultdict(<class 'int'>, {'C(C)(H)3': 2, 'C(C)2(H)2': 1})
     -41.49969417868688 [Dimensionless]
    -172.52376948049303 [kJ/mol]
+
+**Free Energy of Formation by including Entropy of the Elements**::
+
+    In:
+    from pgradd.GroupAdd.Library import GroupLibrary
+    import pgradd.ThermoChem
+    lib = GroupLibrary.Load('BensonGA')
+    descriptors = lib.GetDescriptors('CCCCCC')
+    print(descriptors)
+    thermochem = lib.Estimate(descriptors,'thermochem')
+    print(thermochem.get_GoRT(T=298.15, S_elements=True), '[Dimensionless]')
+    print(thermochem.get_G(T=298.15, units='kJ/mol', S_elements=True), '[kJ/mol]')
+
+    Out:
+    defaultdict(<class 'int'>, {'C(C)(H)3': 2, 'C(C)2(H)2': 4})
+    -3.1192349163716244 [Dimensionless]
+    -7.732446702038452 [kJ/mol]
+.. |bug_label| image:: https://raw.githubusercontent.com/VlachosGroup/pMuTT/master/docs/source/images/labels/bug_small.png
+   :height: 20
+   :target: https://github.com/VlachosGroup/PythonGroupAdditivity/issues?utf8=%E2%9C%93&q=label%3Abug
+
+.. |enhancement_label| image:: https://raw.githubusercontent.com/VlachosGroup/pMuTT/master/docs/source/images/labels/enhancement_small.png
+   :height: 20
+   :target: https://github.com/VlachosGroup/PythonGroupAdditivity/issues?utf8=%E2%9C%93&q=label%3Aenhancement
 
 .. _`scipy`: https://www.scipy.org/
 .. _`rdkit`: https://www.rdkit.org/
