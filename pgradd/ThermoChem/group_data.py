@@ -2,6 +2,8 @@ from .. ThermoChem import ThermochemBase, ThermochemIncomplete
 from .. import yaml_io
 import numpy as np
 from ..GroupAdd.Library import GroupLibrary
+from rdkit import Chem
+from pmutt import constants as c
 
 __all__ = ['ThermochemGroup', 'ThermochemGroupAdditive']
 
@@ -30,6 +32,7 @@ class ThermochemGroupAdditive(ThermochemBase):
     Normally this class is not instantiated directly; rather, instances are
     created and returned by :meth:`GroupLibrary.estimate()`.
     """
+
     def __init__(self, lib, groups):
         """
         Initialize thermochemical property correlation using group-additivity.
@@ -83,9 +86,21 @@ class ThermochemGroupAdditive(ThermochemBase):
                     for (correlation, count) in self.correlations))
     get_HoRT.__doc__ = ThermochemBase.get_HoRT.__doc__
 
-    def get_SoR(self, T):
+    def get_Selements(self):
+        mol = Chem.rdmolops.AddHs(Chem.MolFromSmiles(self.name))
+        atoms = mol.GetAtoms()
+        S_ele = 0
+        for atom in atoms:
+            S_ele += c.S_elements[atom.GetAtomicNum()]
+        return S_ele
+
+    def get_SoR(self, T, S_elements=None):
+        if not S_elements:
+            S_ele = 0
+        else:
+            S_ele = self.get_Selements()
         return sum((count*correlation.get_SoR(T)
-                    for (correlation, count) in self.correlations))
+                    for (correlation, count) in self.correlations)) - S_ele
     get_SoR.__doc__ = ThermochemBase.get_SoR.__doc__
 
     def get_CpoR_SE(self, T):
