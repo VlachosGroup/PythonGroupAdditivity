@@ -24,7 +24,6 @@ thermodynamic properties for that molecule. pgradd also provides a general GA fr
 
 Citing this work
 ----------------
-If you use our software, please, cite our paper.
 G.R. Wittreich, D.G. Vlachos, Python Group Additivity (pGrAdd) software for estimating species thermochemical properties Comput. Phys. Commun. 273 (2022) 108277 https://doi.org/10.1016/j.cpc.2021.108277
 
 Developers
@@ -39,12 +38,12 @@ Required Packages
 -----------------
 
 -  Python2/Python3
--  `pmutt`_ >= 1.2.5
+-  `pmutt`_ >= 1.3.2
 -  `rdkit`_ >= 2018.03.4.0
--  ipython >= 7.0.0
--  `numpy`_ >= 1.15.1
--  `pyyaml`_ >= 3.0
--  `scipy`_ >= 1.1.0
+-  ipython >= 7.3.1
+-  `numpy`_ >= 1.21.5
+-  `pyyaml`_ >= 6.0
+-  `scipy`_ >= 1.9.3
 
 Getting Started
 ---------------
@@ -244,7 +243,8 @@ Examples
     Out:
     defaultdict(<class 'int'>, {'C(C)(H)3': 2, 'C(C)2(H)2': 4})
     -3.1192349163716244 [Dimensionless]
-    -7.732446702038452 [kJ/mol]
+    -7.732446702038452  [kJ/mol]
+
 .. |bug_label| image:: https://raw.githubusercontent.com/VlachosGroup/pMuTT/master/docs/source/images/labels/bug_small.png
    :height: 20
    :target: https://github.com/VlachosGroup/PythonGroupAdditivity/issues?utf8=%E2%9C%93&q=label%3Abug
