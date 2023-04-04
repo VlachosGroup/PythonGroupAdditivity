@@ -1,10 +1,10 @@
-from collections import Mapping, Sequence
+from collections.abc import Mapping, Sequence
 
 from .. import Units
 
 from .common import string, InputDataError
-#from .schema import *
-#from .lib_interface import *
+# from .schema import *
+# from .lib_interface import *
 
 
 # All classes named _*_schema define builtin schemas for SchemaRepository
