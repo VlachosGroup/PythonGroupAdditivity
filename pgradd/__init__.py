@@ -8,6 +8,6 @@
 # present, too:
 #
 name = 'pgradd'
-__version__ = '2.9.7'
+__version__ = '2.9.8'
 #
 ####
