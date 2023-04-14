@@ -38,12 +38,12 @@ Required Packages
 -----------------
 
 -  Python2/Python3
--  `pmutt`_ >= 1.2.5
+-  `pmutt`_ >= 1.3.2
 -  `rdkit`_ >= 2018.03.4.0
--  ipython >= 7.0.0
--  `numpy`_ >= 1.15.1
--  `pyyaml`_ >= 3.0
--  `scipy`_ >= 1.1.0
+-  ipython >= 7.3.1
+-  `numpy`_ >= 1.21.5
+-  `pyyaml`_ >= 6.0
+-  `scipy`_ >= 1.9.3
 
 Getting Started
 ---------------
@@ -72,7 +72,15 @@ This project is licensed under the MIT License - see the `LICENSE`_ file for det
 Contributing
 ------------
 
-If you have a suggestion, please post to our `Issues page`_ with the ``enhancement`` tag. Similarly, if you encounter a bug, please post to our `Issues page`_ with the ``bug`` tag. Finally, if you would like to add to the body of code, please check our documentation to make sure the new code is consistent with the relevant page and submit a `pull request`_.
+If you have a suggestion or find a bug, please post to our `Issues page`_ with 
+the |enhancement_label| or |bug_label| tag respectively.
+
+Finally, if you would like to add to the body of code, please:
+
+- fork the development branch
+- make the desired changes
+- write the appropriate unit tests
+- submit a `pull request`_.
 
 Questions
 ---------
@@ -219,6 +227,31 @@ Examples
     defaultdict(<class 'int'>, {'C(C)(H)3': 2, 'C(C)2(H)2': 1})
     -41.49969417868688 [Dimensionless]
    -172.52376948049303 [kJ/mol]
+
+**Free Energy of Formation by including Entropy of the Elements**::
+
+    In:
+    from pgradd.GroupAdd.Library import GroupLibrary
+    import pgradd.ThermoChem
+    lib = GroupLibrary.Load('BensonGA')
+    descriptors = lib.GetDescriptors('CCCCCC')
+    print(descriptors)
+    thermochem = lib.Estimate(descriptors,'thermochem')
+    print(thermochem.get_GoRT(T=298.15, S_elements=True), '[Dimensionless]')
+    print(thermochem.get_G(T=298.15, units='kJ/mol', S_elements=True), '[kJ/mol]')
+
+    Out:
+    defaultdict(<class 'int'>, {'C(C)(H)3': 2, 'C(C)2(H)2': 4})
+    -3.1192349163716244 [Dimensionless]
+    -7.732446702038452  [kJ/mol]
+
+.. |bug_label| image:: https://raw.githubusercontent.com/VlachosGroup/pMuTT/master/docs/source/images/labels/bug_small.png
+   :height: 20
+   :target: https://github.com/VlachosGroup/PythonGroupAdditivity/issues?utf8=%E2%9C%93&q=label%3Abug
+
+.. |enhancement_label| image:: https://raw.githubusercontent.com/VlachosGroup/pMuTT/master/docs/source/images/labels/enhancement_small.png
+   :height: 20
+   :target: https://github.com/VlachosGroup/PythonGroupAdditivity/issues?utf8=%E2%9C%93&q=label%3Aenhancement
 
 .. _`scipy`: https://www.scipy.org/
 .. _`rdkit`: https://www.rdkit.org/

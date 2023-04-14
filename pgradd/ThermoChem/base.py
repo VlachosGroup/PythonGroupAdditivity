@@ -102,18 +102,18 @@ class ThermochemBase(object):
         """Return non-dimensional standard state heat capacity |eq_ND_Cp_T|."""
 
     @abc.abstractmethod
-    def get_SoR(self, T):
+    def get_SoR(self, T, S_elements=None):
         """Return non-dimensional standard state entropy |eq_ND_S_T|."""
 
     @abc.abstractmethod
     def get_HoRT(self, T):
         """Return non-dimensional standard heat of formation |eq_ND_H_T|."""
 
-    def get_GoRT(self, T):
+    def get_GoRT(self, T, S_elements=None):
         """
         Return non-dimensional standard Gibbs energy of formation |eq_ND_G_T|.
         """
-        return self.get_HoRT(T) - self.get_SoR(T)
+        return self.get_HoRT(T) - self.get_SoR(T, S_elements=S_elements)
 
     def get_H(self, T, units):
         """
@@ -121,18 +121,18 @@ class ThermochemBase(object):
         """
         return self.get_HoRT(T)*T*c.R('{}/K'.format(units))
 
-    def get_G(self, T, units):
+    def get_G(self, T, units, S_elements=None):
         """
         Return dimensional Gibbs free energy at T with units
         specified by 'units'
         """
-        return self.get_GoRT(T)*T*c.R('{}/K'.format(units))
+        return self.get_GoRT(T, S_elements=S_elements)*T*c.R('{}/K'.format(units))
 
-    def get_S(self, T, units):
+    def get_S(self, T, units, S_elements=None):
         """
         Return dimensional entropy with units specified by 'units'
         """
-        return self.get_SoR(T)*c.R(units)
+        return self.get_SoR(T, S_elements=S_elements)*c.R(units)
 
     def get_Cp(self, T, units):
         """

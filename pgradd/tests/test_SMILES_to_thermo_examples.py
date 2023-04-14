@@ -80,7 +80,8 @@ class TestExamples(unittest.TestCase):
         lib = GroupLibrary.Load('XieGA2022')
         descriptors = lib.GetDescriptors('[Ru]C([Ru])C([Ru])([Ru])C')
         thermochem = lib.Estimate(descriptors, 'thermochem')
-        GroupDict = {'C(C)(H)(Ru)2': 1, 'C(C)2(Ru)2': 1, 'C(C)(H)3': 1, 'CRu2CRu2': 1}
+        GroupDict = {'C(C)(H)(Ru)2': 1, 'C(C)2(Ru)2': 1, 'C(C)(H)3': 1,
+                     'CRu2CRu2': 1}
         HoRT = thermochem.get_HoRT(500)
         self.assertAlmostEqual(HoRT, -35.040312149773726)
         self.assertEqual(descriptors, GroupDict)
@@ -89,7 +90,8 @@ class TestExamples(unittest.TestCase):
         lib = GroupLibrary.Load('XieGA2022')
         descriptors = lib.GetDescriptors('[Ru]C([Ru])C([Ru])([Ru])C')
         thermochem = lib.Estimate(descriptors, 'thermochem')
-        GroupDict = {'C(C)(H)(Ru)2': 1, 'C(C)2(Ru)2': 1, 'C(C)(H)3': 1, 'CRu2CRu2': 1}
+        GroupDict = {'C(C)(H)(Ru)2': 1, 'C(C)2(Ru)2': 1, 'C(C)(H)3': 1,
+                     'CRu2CRu2': 1}
         H = thermochem.get_H(500, 'kJ/mol')
         self.assertAlmostEqual(H, -145.6706333743726)
         self.assertEqual(descriptors, GroupDict)
@@ -110,6 +112,15 @@ class TestExamples(unittest.TestCase):
         GroupDict = {'C(C)(H)3': 2, 'C(C)2(H)2': 1}
         H = thermochem.get_H(500, 'kJ/mol')
         self.assertAlmostEqual(H, -172.52376948049303)
+        self.assertEqual(descriptors, GroupDict)
+
+    def test_Selements_Example_Dim(self):
+        lib = GroupLibrary.Load('BensonGA')
+        descriptors = lib.GetDescriptors('CCCCCC')
+        thermochem = lib.Estimate(descriptors, 'thermochem')
+        GroupDict = {'C(C)(H)3': 2, 'C(C)2(H)2': 4}
+        G = thermochem.get_G(T=298.15, units='kJ/mol', S_elements=True)
+        self.assertAlmostEqual(G, -7.732446702038452)
         self.assertEqual(descriptors, GroupDict)
 
 
