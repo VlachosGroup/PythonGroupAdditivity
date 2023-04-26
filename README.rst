@@ -29,9 +29,9 @@ G.R. Wittreich, D.G. Vlachos, Python Group Additivity (pGrAdd) software for esti
 Developers
 ----------
 
--  Gerhard R Wittreich, P.E.
--  Geun Ho Gu
--  Michael Salciccioli
+-  Gerhard R Wittreich, Ph.D., P.E.
+-  Geun Ho Gu, Ph.D.
+-  Michael Salciccioli, Ph.D.
 -  Stephen M. Edie
 
 Required Packages

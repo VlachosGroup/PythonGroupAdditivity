@@ -162,7 +162,7 @@ class ThermochemIncomplete(ThermochemBase):
                     % T)
     get_HoRT.__doc__ = ThermochemBase.get_HoRT.__doc__
 
-    def get_SoR(self, T):
+    def get_SoR(self, T, S_elements=None):
         if self.ND_S_ref is None:
             raise IncompleteDataError(
                 "Cannot evaluate ND_S: no entropy data is available")
