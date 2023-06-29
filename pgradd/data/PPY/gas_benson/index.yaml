@@ -1,0 +1,21 @@
+# ===============
+# gas_benson.yaml
+# ===============
+#
+# This file contains Benson group data for gas phase compounds.
+# Unlike ``surface_benson.yaml``, this file is *not* automatically generated
+# and is maintained by hand.
+
+
+units:
+    molar enthalpy: kcal/mol
+    molar entropy: cal/(mol*K)
+    molar heat capacity: cal/(mol*K)
+    temperature: K
+
+include:
+    - hydrocarbons.yaml
+    - oxygenates.yaml
+    - nitrogenates.yaml
+    - radicals.yaml
+

@@ -1,0 +1,996 @@
+patterns:
+    # Patterns centering on a close shell carbon
+    # First atom assumed to be the center
+-   center_name: 'B'
+    periph_name: 'B'
+    connectivity: 'fragment a{
+    B labeled b1
+    $? labeled a1 single bond to b1
+    $? labeled a2 single bond to b1
+    $? labeled a3 single bond to b1}'
+-   center_name: 'S'
+    periph_name: 'S'
+    connectivity: 'fragment a{
+    S labeled s1
+    $? labeled a1 single bond to s1
+    $? labeled a2 single bond to s1}'
+-   center_name: 'N[t]'
+    periph_name: 'N[t]'
+    connectivity: 'fragment a{
+    N labeled n1
+    $? labeled a1 triple bond to n1}'
+-   center_name: 'N[d]'
+    periph_name: 'N[d]'
+    connectivity: 'fragment a{
+    N labeled n1
+    $? labeled a1 double bond to n1
+    $? labeled a2 single bond to n1}'
+-   center_name: 'N'
+    periph_name: 'N'
+    connectivity: 'fragment a{
+    N labeled n1
+    $? labeled a1 single bond to n1
+    $? labeled a2 single bond to n1
+    $? labeled a3 single bond to n1}'
+-   center_name: 'C'
+    periph_name: 'C'
+    connectivity: 'fragment a{
+    C labeled c1
+    $? labeled a1 single bond to c1
+    $? labeled a2 single bond to c1
+    $? labeled a3 single bond to c1
+    $? labeled a4 single bond to c1}'
+-   center_name: 'C[d]'
+    periph_name: 'C[d]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 double bond to c1
+    $? labeled a2 single bond to c1
+    $? labeled a3 single bond to c1}'
+-   center_name: 'C[d]'
+    periph_name: 'C[d]'
+    connectivity: 'fragment a{
+    C labeled c1
+    N? labeled a1 double bond to c1}'
+-   center_name: 'C[a]'
+    periph_name: 'C[a]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 double bond to c1
+    C? labeled c3 double bond to c1}'
+-   center_name: 'CO'
+    periph_name: 'CO'
+    connectivity: 'fragment a{
+    C labeled c1
+    O? labeled o1 double bond to c1
+    $? labeled a2 single bond to c1
+    $? labeled a3 single bond to c1}'
+-   center_name: 'CCO'
+    periph_name: 'CCO'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 double bond to c1
+    O? labeled o1 double bond to c1}'
+-   center_name: 'C[t]'
+    periph_name: 'C[t]'
+    connectivity: 'fragment a{
+    C labeled c1
+    $? labeled a1 triple bond to c1
+    $? labeled a2 single bond to c1}'
+-   center_name: 'C[B]'
+    periph_name: 'C[B]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 aromatic bond to c1
+    C? labeled c3 aromatic bond to c1
+    C? labeled c4 aromatic bond to c3
+    C? labeled c5 aromatic bond to c4
+    C? labeled c6 aromatic bond to c5
+    ringbond c6 aromatic bond to c2
+    $? labeled a1 single bond to c1}'
+    #fused to furan ring
+-   center_name: 'C[B]'
+    periph_name: 'C[B]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 aromatic bond to c1
+    C? labeled c3 aromatic bond to c1
+    C? labeled c4 aromatic bond to c3
+    C? labeled c5 aromatic bond to c4
+    C? labeled c6 aromatic bond to c5
+    ringbond c6 aromatic bond to c2
+    O? labeled o1 aromatic bond to c1
+    C? labeled c7 aromatic bond to o1
+    C? labeled c8 aromatic bond to c7
+    ringbond c8 aromatic bond to c3}'
+-   center_name: 'C[BF]'
+    periph_name: 'C[BF]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 aromatic bond to c1
+    C? labeled c3 aromatic bond to c1
+    C? labeled c4 aromatic bond to c1
+    C? labeled c5 aromatic bond to c2
+    C? labeled c6 aromatic bond to c5
+    C? labeled c7 aromatic bond to c6
+    ringbond c7 aromatic bond to c3
+    C? labeled c8 aromatic bond to c3
+    C? labeled c9 aromatic bond to c8
+    C? labeled c10 aromatic bond to c9
+    ringbond c10 aromatic bond to c4}'
+    # furan ring 1
+-   center_name: 'C[d]'
+    periph_name: 'C[d]'
+    connectivity: 'fragment a{
+    C labeled c1
+    O? labeled o1 aromatic bond to c1
+    C? labeled c2 aromatic bond to c1
+    C? labeled c3 aromatic bond to c2
+    C? labeled c4 aromatic bond to c3
+    ringbond c4 aromatic bond to o1
+    $? labeled a1 single bond to c1}'
+    # furan ring 2
+-   center_name: 'C[d]'
+    periph_name: 'C[d]'
+    connectivity: 'fragment a{
+    C labeled c2
+    C? labeled c1 aromatic bond to c2
+    C? labeled c3 aromatic bond to c2
+    C? labeled c4 aromatic bond to c3
+    O? labeled o1 aromatic bond to c4
+    ringbond o1 aromatic bond to c1
+    $? labeled a1 single bond to c2}'
+    
+    # Patterns centering on a open shell carbon
+-   center_name: 'C[.]'
+    periph_name: 'C[.]'
+    connectivity: 'fragment a{
+    C. labeled c1
+    $? labeled a1 single bond to c1
+    $? labeled a2 single bond to c1
+    $? labeled a3 single bond to c1}'
+-   center_name: 'C[d.]'
+    periph_name: 'C[d.]'
+    connectivity: 'fragment a{
+    C. labeled c1
+    C? labeled c2 double bond to c1
+    $? labeled a1 single bond to c1}'
+-   center_name: 'CO[.]'
+    periph_name: 'CO[.]'
+    connectivity: 'fragment a{
+    C. labeled c1
+    O? labeled o1 double bond to c1
+    $? labeled a1 single bond to c1}'
+-   center_name: 'C[t.]'
+    periph_name: 'C[t.]'
+    connectivity: 'fragment a{
+    C. labeled c1
+    C? labeled c1 triple bond to c1}'
+-   center_name: 'C[B.]'
+    periph_name: 'C[B.]'
+    connectivity: 'fragment a{
+    C. labeled c1
+    C? labeled c2 aromatic bond to c1
+    C? labeled c3 aromatic bond to c1
+    C? labeled c4 aromatic bond to c3
+    C? labeled c5 aromatic bond to c4
+    C? labeled c6 aromatic bond to c5
+    ringbond c6 aromatic bond to c2}'
+-   center_name: 'C[:]'
+    periph_name: 'C[:]'
+    connectivity: 'fragment a{
+    C: labeled c1
+    $? labeled a1 single bond to c1
+    $? labeled a2 single bond to c1}'
+-   center_name: 'C[d:]'
+    periph_name: 'C[d:]'
+    connectivity: 'fragment a{
+    C: labeled c1
+    C? labeled c2 double bond to c1}'
+-   center_name: 'C[:.]'
+    periph_name: 'C[:.]'
+    connectivity: 'fragment a{
+    C:. labeled c1
+    $? labeled a1 single bond to c1}'
+    
+    # Patterns centering on a oxygen atom
+-   center_name: 'O'
+    periph_name: 'O'
+    connectivity: 'fragment a{
+    O labeled o1
+    $? labeled a1 single bond to o1
+    $? labeled a2 single bond to o1}'
+    # Furan O
+-   center_name: 'O'
+    periph_name: 'O'
+    connectivity: 'fragment a{
+    O labeled o1
+    C? labeled c1 aromatic bond to o1
+    C? labeled c2 aromatic bond to o1}'
+-   center_name: 'O[.]'
+    periph_name: 'O[.]'
+    connectivity: 'fragment a{
+    O. labeled o1
+    $? labeled a1 single bond to o1}'
+-   center_name: 'none'
+    periph_name: 'none'
+    connectivity: 'fragment a{
+    O labeled o1
+    $? labeled a1 double bond to o1}'
+    
+    # Other patterns
+-   center_name: 'none'
+    periph_name: 'H'
+    connectivity: 'fragment a{
+    H labeled h1 {connected to =0 H}
+    $? labeled a1 single bond to h1}'
+    
+    # Unique carbon group patterns
+-   center_name: 'CO2'
+    periph_name: 'CO2'
+    connectivity: 'fragment a{
+    C labeled c1
+    O? labeled o1 double bond to c1
+    O? labeled o2 double bond to c1}'
+-   center_name: 'CC'
+    periph_name: 'none'
+    connectivity: 'fragment a{
+    C? labeled c1
+    C? labeled c2 quadruple bond to c1}'
+-   center_name: 'CO:'
+    periph_name: 'CO:'
+    connectivity: 'fragment a{
+    C: labeled c1
+    O? labeled o1 double bond to c1}'
+-   center_name: 'H2noremap'
+    periph_name: 'none'
+    connectivity: 'fragment a{
+    H labeled h1
+    H labeled h2 single bond to h1}'
+-   center_name: 'O'
+    periph_name: 'O'
+    connectivity: 'fragment a{
+    O: labeled o1}'
+-   center_name: 'C'
+    periph_name: 'C'
+    connectivity: 'fragment a{
+    C? labeled c1 {has 4 radical electrons}}'
+-   center_name: 'H'
+    periph_name: 'H'
+    connectivity: 'fragment a{
+    H. labeled h1}'
+
+pretreatment_rules: [['rule a{
+    reactant r1{
+        C? labeled c1
+        C? labeled c2 double bond to c1
+        C? labeled c3 single bond to c2
+        C? labeled c4 double bond to c3
+        C? labeled c5 single bond to c4
+        C? labeled c6 double bond to c5
+        ringbond c6 single bond to c1}
+    modify bond(c1,c2,aromatic)
+    modify bond(c2,c3,aromatic)
+    modify bond(c3,c4,aromatic)
+    modify bond(c4,c5,aromatic)
+    modify bond(c5,c6,aromatic)
+    modify bond(c6,c1,aromatic)}']]
+
+remaps:
+    # CH3-type remaps;  all 'C(H)3(*)', where (*) is polyvalent map to 'C(H)3(C)'
+    'C(C[d])(H)3': [[1,'C(C)(H)3']]
+    'C(C[t])(H)3': [[1,'C(C)(H)3']]
+    'C(C[B])(H)3': [[1,'C(C)(H)3']]
+    'C(C[BF])(H)3': [[1,'C(C)(H)3']]
+    'C(CO)(H)3': [[1,'C(C)(H)3']]
+    'C(H)3(N)': [[1,'C(C)(H)3']]
+    'C(H)3(N[I])': [[1,'C(C)(H)3']]
+    'C(H)3(N[A])': [[1,'C(C)(H)3']]
+    'C(H)3(O)': [[1,'C(C)(H)3']]
+    'C(C[.])(H)3': [[1,'C(C)(H)3']]
+
+    # OH-type remaps in Benson (1976).
+    'O(C[d])(H)': [[1,'O(C)(H)']]
+    'O(C[B])(H)': [[1,'O(C)(H)']]
+    'O(C[t])(H)': [[1,'O(C)(H)']]
+
+    # More Oxygenate remaps in Benson (1976).
+    'CO(H)(O)': [[1,'CO(C)(H)']]
+    'CO(C)(C[d])': [[1,'CO(C[B])(O)']]
+    'C[d](O)(H)': [[1,'C[d](C)(H)']]
+    'C[d](C)(O)': [[1,'C[d](C)(C[d])']]
+    'C[d](C[d])(O)': [[1,'C[d](C)(C[d])']]
+
+    # This is not given by Benson (1976) but the entry for the group is left
+    # blank.  The remap _is_ provided in Benson et.al. (1969):
+    'C(CO)(H)2(O)': [[1,'C(C)(H)2(O)']]
+    
+    # Alkane gauche remaps
+    'AlkaneGauchex1': [[1,'AlkaneGauche']]
+    'AlkaneGauchex2': [[2,'AlkaneGauche']]
+    'AlkaneGauchex4': [[4,'AlkaneGauche']]
+    'AlkaneGauchex6': [[6,'AlkaneGauche']]
+    
+    # cis corrections
+    'Cisx2+DCis': [[2,'Cis'],[1,'Double Cis']]
+    'HalfCis': [[0.5,'Cis']]
+    'HalftbCis': [[0.5,'tbCis']]
+    'Half Double tbCis': [[0.5,'Double tbCis']]
+    
+    # Other Remaps
+    'H2noremap': [[0.5,'H2']]
+
+other_descriptors:
+    # Alkane Gauche
+    # Note. two stereo center carbons be ring atom, but only a single atom from each branch can be.
+-   name: 'AlkaneGauchex1'
+    connectivity: 'fragment a{
+    C labeled c1 {connected to =2C, connected to =4$}
+    C labeled c2 single bond to c1 {connected to =3C, connected to =4$}
+    C labeled c3 single bond to c1
+    C labeled c6 single bond to c2
+    nonringatom C labeled c7 single bond to c2}'
+-   name: 'AlkaneGauchex2'
+    connectivity: 'fragment a{
+    C labeled c1 {connected to =2C, connected to =4$}
+    C labeled c2 single bond to c1 {connected to =4C, connected to =4$}
+    C labeled c3 single bond to c1
+    C labeled c6 single bond to c2
+    nonringatom C labeled c7 single bond to c2
+    nonringatom C labeled c8 single bond to c2}'
+-   name: 'AlkaneGauchex2'
+    connectivity: 'fragment a{
+    C labeled c1 {connected to =3C, connected to =4$}
+    C labeled c2 single bond to c1 {connected to =3C, connected to =4$}
+    C labeled c3 single bond to c1
+    nonringatom C labeled c4 single bond to c1
+    C labeled c6 single bond to c2
+    nonringatom C labeled c7 single bond to c2}'
+-   name: 'AlkaneGauchex4'
+    connectivity: 'fragment a{
+    C labeled c1 {connected to =3C, connected to =4$}
+    C labeled c2 single bond to c1 {connected to =4C, connected to =4$}
+    C labeled c3 single bond to c1
+    nonringatom C labeled c4 single bond to c1
+    C labeled c6 single bond to c2
+    nonringatom C labeled c7 single bond to c2
+    nonringatom C labeled c8 single bond to c2}'
+-   name: 'AlkaneGauchex6'
+    connectivity: 'fragment a{
+    C labeled c1 {connected to =4C, connected to =4$}
+    C labeled c2 single bond to c1 {connected to =4C, connected to =4$}
+    C labeled c3 single bond to c1
+    nonringatom C labeled c4 single bond to c1
+    nonringatom C labeled c5 single bond to c1
+    C labeled c6 single bond to c2
+    nonringatom C labeled c7 single bond to c2
+    nonringatom C labeled c8 single bond to c2}'
+    # Alkene Gauche Corrections. NIST doesn't use it.. need to check 1976 publication
+-   name: 'AlkeneGauche'
+    connectivity: 'fragment a{
+    C labeled c1 {connected to =3C, connected to =4$}
+    C labeled c2 single bond to c1 {connected to =2C, connected to =1C with double bond}
+    C labeled c3 single bond to c1
+    nonringatom C labeled c4 single bond to c1
+    nonringatom C labeled c7 single bond to c2
+    C labeled c8 double bond to c2}'
+-   name: 'AlkeneGauche'
+    connectivity: 'fragment a{
+    C labeled c1 {connected to =4C, connected to =4$}
+    C labeled c2 single bond to c1 {connected to =2C, connected to =1C with double bond}
+    C labeled c3 single bond to c1
+    nonringatom C labeled c4 single bond to c1
+    nonringatom C labeled c5 single bond to c1
+    nonringatom C labeled c7 single bond to c2}'
+    # Ortho Corrections
+-   name: 'Ortho'
+    connectivity: 'fragment a{
+    C labeled c1 {connected to =1C}
+    C labeled c2 aromatic bond to c1 {connected to =1C}
+    C labeled c3 aromatic bond to c2
+    C labeled c4 aromatic bond to c3
+    C labeled c5 aromatic bond to c4
+    C labeled c6 aromatic bond to c5
+    ringbond c6 aromatic bond to c1}'
+    # Cis corrections. Note: if the molecule is symmetric (e.g. CC(C)=C(C)C) rdkit erase stereo tag. 
+    # Cis correction for double bond with stereo specified. 
+-   name: 'Cis'
+    connectivity: 'fragment a{
+    nonringatom C labeled c1
+    nonringatom C labeled c2 single bond to c1
+    nonringatom C labeled c3 double bond to c2
+    nonringatom C labeled c4 single bond to c3
+    stereo double bond c1 cis to c4 for double bond between c2 and c3}'
+-   name: 'Double Cis'
+    connectivity: 'fragment a{
+    nonringatom C labeled c1
+    nonringatom C labeled c2 single bond to c1 {connected to =2C}
+    nonringatom C labeled c3 double bond to c2 {connected to =2C}
+    nonringatom C labeled c4 single bond to c3 
+    nonringatom C labeled c5 single bond to c2
+    nonringatom C labeled c6 single bond to c3
+    stereo double bond c1 !notspecified to c4 for double bond between c2 and c3}'
+    # Cis correction for double bond with stereo not specified. 
+-   name: 'HalfCis'
+    connectivity: 'fragment a{
+    nonringatom C labeled c1
+    nonringatom C labeled c2 single bond to c1 {connected to =1C}
+    nonringatom C labeled c3 double bond to c2 {connected to =1C}
+    nonringatom C labeled c4 single bond to c3
+    stereo double bond c1 notspecified to c4 for double bond between c2 and c3}'
+-   name: 'Cis'
+    connectivity: 'fragment a{
+    nonringatom C labeled c1
+    nonringatom C labeled c2 single bond to c1 {connected to =1C}
+    nonringatom C labeled c3 double bond to c2 {connected to =2C}
+    nonringatom C labeled c4 single bond to c3
+    nonringatom C labeled c5 single bond to c3
+    stereo double bond c1 notspecified to c4 for double bond between c2 and c3}'
+-   name: 'Cisx2+DCis'
+    connectivity: 'fragment a{
+    nonringatom C labeled c1
+    nonringatom C labeled c2 single bond to c1 {connected to =2C}
+    nonringatom C labeled c3 double bond to c2 {connected to =2C}
+    nonringatom C labeled c4 single bond to c3 
+    nonringatom C labeled c5 single bond to c2
+    nonringatom C labeled c6 single bond to c3
+    stereo double bond c1 notspecified to c4 for double bond between c2 and c3}'
+    # tert-Cis correction for double bond with stereo specified. 
+-   name: 'tbCis'
+    connectivity: 'fragment a{
+    nonringatom C labeled c1
+    nonringatom C labeled c2 single bond to c1
+    nonringatom C labeled c3 double bond to c2
+    nonringatom C labeled c4 single bond to c3
+    nonringatom C labeled c5 single bond to c4
+    nonringatom C labeled c6 single bond to c4
+    nonringatom C labeled c7 single bond to c4
+    stereo double bond c1 cis to c4 for double bond between c2 and c3}'
+    # tert-Cis correction for double bond with stereo not specified. 
+-   name: 'HalftbCis'
+    connectivity: 'fragment a{
+    nonringatom C labeled c1
+    nonringatom C labeled c2 single bond to c1 {connected to =1C}
+    nonringatom C labeled c3 double bond to c2 {connected to =1C}
+    nonringatom C labeled c4 single bond to c3
+    nonringatom C labeled c5 single bond to c4
+    nonringatom C labeled c6 single bond to c4
+    nonringatom C labeled c7 single bond to c4
+    stereo double bond c1 notspecified to c4 for double bond between c2 and c3}'
+-   name: 'HalftbCis'
+    connectivity: 'fragment a{
+    nonringatom C labeled c1
+    nonringatom C labeled c2 single bond to c1 {connected to =1C}
+    nonringatom C labeled c3 double bond to c2 {connected to =2C}
+    nonringatom C labeled c4 single bond to c3
+    nonringatom C labeled c5 single bond to c4
+    nonringatom C labeled c6 single bond to c4
+    nonringatom C labeled c7 single bond to c4
+    nonringatom C labeled c8 single bond to c3
+    stereo double bond c1 notspecified to c4 for double bond between c2 and c3}'
+-   name: 'tbCis'
+    connectivity: 'fragment a{
+    nonringatom C labeled c1
+    nonringatom C labeled c2 single bond to c1 {connected to =2C}
+    nonringatom C labeled c3 double bond to c2 {connected to =2C}
+    nonringatom C labeled c4 single bond to c3
+    nonringatom C labeled c5 single bond to c4
+    nonringatom C labeled c6 single bond to c4
+    nonringatom C labeled c7 single bond to c4
+    nonringatom C labeled c8 single bond to c3
+    nonringatom C labeled c9 single bond to c2
+    stereo double bond c1 notspecified to c4 for double bond between c2 and c3}'
+    # Double tert-Cis correction for double bond with stereo specified. 
+-   name: 'Double tbCis'
+    connectivity: 'fragment a{
+    nonringatom C labeled c1
+    nonringatom C labeled c2 single bond to c1
+    nonringatom C labeled c3 double bond to c2
+    nonringatom C labeled c4 single bond to c3
+    nonringatom C labeled c5 single bond to c1
+    nonringatom C labeled c6 single bond to c1
+    nonringatom C labeled c7 single bond to c1
+    nonringatom C labeled c8 single bond to c4
+    nonringatom C labeled c9 single bond to c4
+    nonringatom C labeled c10 single bond to c4
+    stereo double bond c1 cis to c4 for double bond between c2 and c3}'
+    # Double tert-Cis correction for double bond with stereo not specified. 
+-   name: 'Half Double tbCis'
+    connectivity: 'fragment a{
+    nonringatom C labeled c1
+    nonringatom C labeled c2 single bond to c1
+    nonringatom C labeled c3 double bond to c2
+    nonringatom C labeled c4 single bond to c3
+    nonringatom C labeled c5 single bond to c1
+    nonringatom C labeled c6 single bond to c1
+    nonringatom C labeled c7 single bond to c1
+    nonringatom C labeled c8 single bond to c4
+    nonringatom C labeled c9 single bond to c4
+    nonringatom C labeled c10 single bond to c4
+    stereo double bond c1 notspecified to c4 for double bond between c2 and c3}'
+    
+    # Ether gauche
+-   name: 'Ether oxygen gauche'
+    connectivity: 'fragment a{
+    nonringatom C labeled c1 {connected to <3C}
+    nonringatom O labeled o1 single bond to c1
+    nonringatom C labeled c2 single bond to o1}'
+-   name: 'Ditertiary ether'
+    connectivity: 'fragment a{
+    nonringatom C labeled c1
+    nonringatom O labeled o1 single bond to c1
+    nonringatom C labeled c2 single bond to o1
+    nonringatom C labeled c3 single bond to c1
+    nonringatom C labeled c4 single bond to c1
+    nonringatom C labeled c5 single bond to c1
+    nonringatom C labeled c6 single bond to c2
+    nonringatom C labeled c7 single bond to c2
+    nonringatom C labeled c8 single bond to c2}'
+    
+    # Ring straing
+    # Carbon only ring
+-   name: 'Cyclopropane'
+    connectivity: 'fragment a{
+    C labeled c1 {in 1 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 1 ring}
+    ringbond c3 single bond to c1}'
+-   name: 'Methylenecyclopropene'
+    connectivity: 'fragment a{
+    C labeled c1 {in 1 ring}
+    C labeled c2 double bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 1 ring}
+    ringbond c3 single bond to c1
+    C labeled c4 double bond to c3}'
+-   name: 'Cyclopropene'
+    connectivity: 'fragment a{
+    C labeled c1 {in 1 ring}
+    C labeled c2 double bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {connected to =0C with double bond, in 1 ring}
+    ringbond c3 single bond to c1}'    
+    # is in ring of size ensures it's the smallest ring
+-   name: 'Cyclobutane'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 4, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 4, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 4, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 4, in 1 ring}
+    ringbond c4 single bond to c1}'
+-   name: 'Cyclobutene'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 4, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 4, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 4, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 4, in 1 ring}
+    ringbond c4 double bond to c1}'
+-   name: 'Cyclopentane'
+    connectivity: 'fragment a{
+    C labeled c1 {connected to =0O with double bond, in ring of size 5, in 1 ring}
+    C labeled c2 single bond to c1 {connected to =0O with double bond, in ring of size 5, in 1 ring}
+    C labeled c3 single bond to c2 {connected to =0O with double bond, in ring of size 5, in 1 ring}
+    C labeled c4 single bond to c3 {connected to =0O with double bond, in ring of size 5, in 1 ring}
+    C labeled c5 single bond to c4 {connected to =0O with double bond, in ring of size 5, in 1 ring}
+    ringbond c5 single bond to c1}'
+-   name: 'Cyclopentene'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 5, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 5, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 5, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 5, in 1 ring}
+    C labeled c5 single bond to c4 {in ring of size 5, in 1 ring}
+    ringbond c5 double bond to c1}'
+-   name: 'Cyclopentadiene'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 5, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 5, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 5, in 1 ring}
+    C labeled c4 double bond to c3 {in ring of size 5, in 1 ring}
+    C labeled c5 single bond to c4 {in ring of size 5, in 1 ring}
+    ringbond c5 double bond to c1}'
+-   name: 'Cyclohexane'
+    connectivity: 'fragment a{
+    C labeled c1 {connected to =0O with double bond, in ring of size 6, in 1 ring}
+    C labeled c2 single bond to c1 {connected to =0O with double bond, in ring of size 6, in 1 ring}
+    C labeled c3 single bond to c2 {connected to =0O with double bond, in ring of size 6, in 1 ring}
+    C labeled c4 single bond to c3 {connected to =0O with double bond, in ring of size 6, in 1 ring}
+    C labeled c5 single bond to c4 {connected to =0O with double bond, in ring of size 6, in 1 ring}
+    C labeled c6 single bond to c5 {connected to =0O with double bond, in ring of size 6, in 1 ring}
+    ringbond c6 single bond to c1}'
+-   name: 'Cyclohexene'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 6, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 6, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 6, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 6, in 1 ring}
+    C labeled c5 single bond to c4 {in ring of size 6, in 1 ring}
+    C labeled c6 single bond to c5 {in ring of size 6, in 1 ring}
+    ringbond c6 double bond to c1}'
+-   name: 'Cyclohexadiene-1,3'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 6, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 6, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 6, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 6, in 1 ring}
+    C labeled c5 double bond to c4 {in ring of size 6, in 1 ring}
+    C labeled c6 single bond to c5 {in ring of size 6, in 1 ring}
+    ringbond c6 double bond to c1}'
+-   name: 'Cyclohexadiene-1,4'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 6, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 6, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 6, in 1 ring}
+    C labeled c4 double bond to c3 {in ring of size 6, in 1 ring}
+    C labeled c5 single bond to c4 {in ring of size 6, in 1 ring}
+    C labeled c6 single bond to c5 {in ring of size 6, in 1 ring}
+    ringbond c6 double bond to c1}'
+-   name: 'Cycloheptane'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 7, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 7, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 7, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 7, in 1 ring}
+    C labeled c5 single bond to c4 {in ring of size 7, in 1 ring}
+    C labeled c6 single bond to c5 {in ring of size 7, in 1 ring}
+    C labeled c7 single bond to c6 {in ring of size 7, in 1 ring}
+    ringbond c7 single bond to c1}'
+-   name: 'Cycloheptene'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 7, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 7, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 7, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 7, in 1 ring}
+    C labeled c5 single bond to c4 {in ring of size 7, in 1 ring}
+    C labeled c6 single bond to c5 {in ring of size 7, in 1 ring}
+    C labeled c7 single bond to c6 {in ring of size 7, in 1 ring}
+    ringbond c7 double bond to c1}'
+-   name: 'Cycloheptadiene-1,3'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 7, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 7, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 7, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 7, in 1 ring}
+    C labeled c5 single bond to c4 {in ring of size 7, in 1 ring}
+    C labeled c6 double bond to c5 {in ring of size 7, in 1 ring}
+    C labeled c7 single bond to c6 {in ring of size 7, in 1 ring}
+    ringbond c7 double bond to c1}'
+-   name: 'Cycloheptatriene-1,3,5'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 7, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 7, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 7, in 1 ring}
+    C labeled c4 double bond to c3 {in ring of size 7, in 1 ring}
+    C labeled c5 single bond to c4 {in ring of size 7, in 1 ring}
+    C labeled c6 double bond to c5 {in ring of size 7, in 1 ring}
+    C labeled c7 single bond to c6 {in ring of size 7, in 1 ring}
+    ringbond c7 double bond to c1}'
+-   name: 'Cyclooctane'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 8, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 8, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 8, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 8, in 1 ring}
+    C labeled c5 single bond to c4 {in ring of size 8, in 1 ring}
+    C labeled c6 single bond to c5 {in ring of size 8, in 1 ring}
+    C labeled c7 single bond to c6 {in ring of size 8, in 1 ring}
+    C labeled c8 single bond to c7 {in ring of size 8, in 1 ring}
+    ringbond c8 single bond to c1}'
+-   name: 'cis-Cyclooctene'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 8, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 8, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 8, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 8, in 1 ring}
+    C labeled c5 single bond to c4 {in ring of size 8, in 1 ring}
+    C labeled c6 single bond to c5 {in ring of size 8, in 1 ring}
+    C labeled c7 single bond to c6 {in ring of size 8, in 1 ring}
+    C labeled c8 single bond to c7 {in ring of size 8, in 1 ring}
+    ringbond c8 double bond to c1
+    stereo double bond c2 cis to c7 for double bond between c1 and c8}'    
+    # if stereo is not specified I'm going to assume it's cis, since it's a lot more stable.
+-   name: 'cis-Cyclooctene'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 8, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 8, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 8, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 8, in 1 ring}
+    C labeled c5 single bond to c4 {in ring of size 8, in 1 ring}
+    C labeled c6 single bond to c5 {in ring of size 8, in 1 ring}
+    C labeled c7 single bond to c6 {in ring of size 8, in 1 ring}
+    C labeled c8 single bond to c7 {in ring of size 8, in 1 ring}
+    ringbond c8 double bond to c1
+    stereo double bond c2 notspecified to c7 for double bond between c1 and c8}'    
+-   name: 'trans-Cyclooctene'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 8, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 8, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 8, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 8, in 1 ring}
+    C labeled c5 single bond to c4 {in ring of size 8, in 1 ring}
+    C labeled c6 single bond to c5 {in ring of size 8, in 1 ring}
+    C labeled c7 single bond to c6 {in ring of size 8, in 1 ring}
+    C labeled c8 single bond to c7 {in ring of size 8, in 1 ring}
+    ringbond c8 double bond to c1
+    stereo double bond c2 trans to c7 for double bond between c1 and c8}'  
+-   name: 'Cyclooctatriene-1,3,5'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 8, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 8, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 8, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 8, in 1 ring}
+    C labeled c5 double bond to c4 {in ring of size 8, in 1 ring}
+    C labeled c6 single bond to c5 {in ring of size 8, in 1 ring}
+    C labeled c7 double bond to c6 {in ring of size 8, in 1 ring}
+    C labeled c8 single bond to c7 {in ring of size 8, in 1 ring}
+    ringbond c8 double bond to c1}'
+-   name: 'Cyclooctatetraene'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 8, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 8, in 1 ring}
+    C labeled c3 double bond to c2 {in ring of size 8, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 8, in 1 ring}
+    C labeled c5 double bond to c4 {in ring of size 8, in 1 ring}
+    C labeled c6 single bond to c5 {in ring of size 8, in 1 ring}
+    C labeled c7 double bond to c6 {in ring of size 8, in 1 ring}
+    C labeled c8 single bond to c7 {in ring of size 8, in 1 ring}
+    ringbond c8 double bond to c1}'
+-   name: 'Cyclononane'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 9, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 9, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 9, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 9, in 1 ring}
+    C labeled c5 single bond to c4 {in ring of size 9, in 1 ring}
+    C labeled c6 single bond to c5 {in ring of size 9, in 1 ring}
+    C labeled c7 single bond to c6 {in ring of size 9, in 1 ring}
+    C labeled c8 single bond to c7 {in ring of size 9, in 1 ring}
+    C labeled c9 single bond to c8 {in ring of size 9, in 1 ring}
+    ringbond c9 single bond to c1}'
+-   name: 'cis-Cyclononene'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 9, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 9, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 9, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 9, in 1 ring}
+    C labeled c5 single bond to c4 {in ring of size 9, in 1 ring}
+    C labeled c6 single bond to c5 {in ring of size 9, in 1 ring}
+    C labeled c7 single bond to c6 {in ring of size 9, in 1 ring}
+    C labeled c8 single bond to c7 {in ring of size 9, in 1 ring}
+    C labeled c9 single bond to c8 {in ring of size 9, in 1 ring}
+    ringbond c9 double bond to c1
+    stereo double bond c2 cis to c8 for double bond between c1 and c9}'
+    # if stereo is not specified I'm going to assume it's cis, since it's a lot more stable.
+-   name: 'cis-Cyclononene'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 9, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 9, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 9, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 9, in 1 ring}
+    C labeled c5 single bond to c4 {in ring of size 9, in 1 ring}
+    C labeled c6 single bond to c5 {in ring of size 9, in 1 ring}
+    C labeled c7 single bond to c6 {in ring of size 9, in 1 ring}
+    C labeled c8 single bond to c7 {in ring of size 9, in 1 ring}
+    C labeled c9 single bond to c8 {in ring of size 9, in 1 ring}
+    ringbond c9 double bond to c1
+    stereo double bond c2 notspecified to c8 for double bond between c1 and c9}'
+-   name: 'trans-Cyclononene'
+    connectivity: 'fragment a{
+    C labeled c1 {in ring of size 9, in 1 ring}
+    C labeled c2 single bond to c1 {in ring of size 9, in 1 ring}
+    C labeled c3 single bond to c2 {in ring of size 9, in 1 ring}
+    C labeled c4 single bond to c3 {in ring of size 9, in 1 ring}
+    C labeled c5 single bond to c4 {in ring of size 9, in 1 ring}
+    C labeled c6 single bond to c5 {in ring of size 9, in 1 ring}
+    C labeled c7 single bond to c6 {in ring of size 9, in 1 ring}
+    C labeled c8 single bond to c7 {in ring of size 9, in 1 ring}
+    C labeled c9 single bond to c8 {in ring of size 9, in 1 ring}
+    ringbond c9 double bond to c1
+    stereo double bond c2 trans to c8 for double bond between c1 and c9}'
+-   name: 'Spiropentane'
+    connectivity: 'fragment a{
+    C labeled c1 {in 1 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 2 ring}
+    C labeled c4 single bond to c3 {in 1 ring}
+    C labeled c5 single bond to c4 {in 1 ring}
+    ringbond c3 single bond to c1
+    ringbond c3 single bond to c5}'
+-   name: 'Bicyclo[1.1.0]butane'
+    connectivity: 'fragment a{
+    C labeled c1 {in 2 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 2 ring}
+    C labeled c4 single bond to c3 {in 1 ring}
+    ringbond c4 single bond to c1
+    ringbond c1 single bond to c3}'
+-   name: 'Bicyclo[2.1.0]pentane'
+    connectivity: 'fragment a{
+    C labeled c1 {in 2 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 2 ring}
+    C labeled c4 single bond to c3 {in 1 ring}
+    C labeled c5 single bond to c4 {in 1 ring}
+    ringbond c5 single bond to c1
+    ringbond c1 single bond to c3}'
+-   name: 'Bicyclo[3.1.0]hextane'
+    connectivity: 'fragment a{
+    C labeled c1 {in 2 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 2 ring}
+    C labeled c4 single bond to c3 {in 1 ring}
+    C labeled c5 single bond to c4 {in 1 ring}
+    C labeled c6 single bond to c5 {in 1 ring}
+    ringbond c6 single bond to c1
+    ringbond c1 single bond to c3}'
+-   name: 'Bicyclo[4.1.0]heptane'
+    connectivity: 'fragment a{
+    C labeled c1 {in 2 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 2 ring}
+    C labeled c4 single bond to c3 {in 1 ring}
+    C labeled c5 single bond to c4 {in 1 ring}
+    C labeled c6 single bond to c5 {in 1 ring}
+    C labeled c7 single bond to c6 {in 1 ring}
+    ringbond c7 single bond to c1
+    ringbond c1 single bond to c3}'
+-   name: 'Bicyclo[5.1.0]octane'
+    connectivity: 'fragment a{
+    C labeled c1 {in 2 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 2 ring}
+    C labeled c4 single bond to c3 {in 1 ring}
+    C labeled c5 single bond to c4 {in 1 ring}
+    C labeled c6 single bond to c5 {in 1 ring}
+    C labeled c7 single bond to c6 {in 1 ring}
+    C labeled c8 single bond to c7 {in 1 ring}
+    ringbond c8 single bond to c1
+    ringbond c1 single bond to c3}'
+-   name: 'Bicyclo[6.1.0]nonane'
+    connectivity: 'fragment a{
+    C labeled c1 {in 2 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 2 ring}
+    C labeled c4 single bond to c3 {in 1 ring}
+    C labeled c5 single bond to c4 {in 1 ring}
+    C labeled c6 single bond to c5 {in 1 ring}
+    C labeled c7 single bond to c6 {in 1 ring}
+    C labeled c8 single bond to c7 {in 1 ring}
+    C labeled c9 single bond to c8 {in 1 ring}
+    ringbond c9 single bond to c1
+    ringbond c1 single bond to c3}'
+    
+    
+    # Ring for carbon + oxygen
+-   name: 'Oxirane'
+    connectivity: 'fragment a{
+    C labeled c1 {in 1 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    O labeled o1 single bond to c2 {in 1 ring}
+    ringbond o1 single bond to c1}'
+-   name: 'Oxetane'
+    connectivity: 'fragment a{
+    C labeled c1 {in 1 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 1 ring}
+    O labeled o1 single bond to c3 {in 1 ring}
+    ringbond o1 single bond to c1}'
+-   name: 'Tetrahydrofuran'
+    connectivity: 'fragment a{
+    C labeled c1 {connected to =0O with double bond, in 1 ring}
+    C labeled c2 single bond to c1 {connected to =0O with double bond, in 1 ring}
+    C labeled c3 single bond to c2 {connected to =0O with double bond, in 1 ring}
+    C labeled c4 single bond to c3 {connected to =0O with double bond, in 1 ring}
+    O labeled o1 single bond to c4 {in 1 ring}
+    ringbond o1 single bond to c1}'    
+-   name: 'Tetrahydro-2H-pyran'
+    connectivity: 'fragment a{
+    C labeled c1 {in 1 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 1 ring}
+    C labeled c4 single bond to c3 {in 1 ring}
+    C labeled c5 single bond to c4 {in 1 ring}
+    O labeled o1 single bond to c5 {in 1 ring}
+    ringbond o1 single bond to c1}'    
+-   name: 'Dioxane-1,3'
+    connectivity: 'fragment a{
+    C labeled c1 {in 1 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 1 ring}
+    O labeled o4 single bond to c3 {in 1 ring}
+    C labeled c5 single bond to o4 {in 1 ring}
+    O labeled o6 single bond to c5 {in 1 ring}
+    ringbond o6 single bond to c1}'    
+-   name: 'Dioxane-1,4'
+    connectivity: 'fragment a{
+    C labeled c1 {in 1 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    O labeled o3 single bond to c2 {in 1 ring}
+    C labeled c4 single bond to o3 {in 1 ring}
+    C labeled c5 single bond to c4 {in 1 ring}
+    O labeled o6 single bond to c5 {in 1 ring}
+    ringbond o6 single bond to c1}'    
+-   name: 'Trioxane-1,3,5'
+    connectivity: 'fragment a{
+    O labeled o1 {in 1 ring}
+    C labeled c2 single bond to o1 {in 1 ring}
+    O labeled o3 single bond to c2 {in 1 ring}
+    C labeled c4 single bond to o3 {in 1 ring}
+    O labeled o5 single bond to c4 {in 1 ring}
+    C labeled c6 single bond to o5 {in 1 ring}
+    ringbond c6 single bond to o1}'   
+-   name: 'Furan'
+    connectivity: 'fragment a{
+    C labeled c1 {in 1 ring}
+    C labeled c2 double bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 1 ring}
+    C labeled c4 double bond to c3 {in 1 ring}
+    O labeled o1 single bond to c4 {in 1 ring}
+    ringbond o1 single bond to c1}'
+-   name: '3,4-dihydro-2H-pyran'
+    connectivity: 'fragment a{
+    C labeled c1 {in 1 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 1 ring}
+    C labeled c4 single bond to c3 {in 1 ring}
+    C labeled c5 double bond to c4 {in 1 ring}
+    O labeled o1 single bond to c5 {in 1 ring}
+    ringbond o1 single bond to c1}'
+-   name: 'cyclopentanone'
+    connectivity: 'fragment a{
+    C labeled c1 {in 1 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 1 ring}
+    C labeled c4 single bond to c3 {in 1 ring}
+    C labeled c5 single bond to c4 {in 1 ring}
+    ringbond c5 single bond to c1
+    O labeled o1 double bond to c5}'    
+-   name: 'cyclohexanone'
+    connectivity: 'fragment a{
+    C labeled c1 {in 1 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 1 ring}
+    C labeled c4 single bond to c3 {in 1 ring}
+    C labeled c5 single bond to c4 {in 1 ring}
+    C labeled c6 single bond to c5 {in 1 ring}
+    ringbond c6 single bond to c1
+    O labeled o1 double bond to c6}'
+-   name: 'dihydrofuran-2,5-dione'
+    connectivity: 'fragment a{
+    O labeled o1
+    C labeled c1 double bond to o1 {in 1 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 1 ring}
+    C labeled c4 single bond to c3 {in 1 ring}
+    O labeled o2 double bond to c4
+    O labeled o3 single bond to c4 {in 1 ring}
+    ringbond o3 single bond to c1}'
+-   name: 'dihydro-2H-pyran-2,6(3H)-dione'
+    connectivity: 'fragment a{
+    O labeled o1
+    C labeled c1 double bond to o1 {in 1 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 single bond to c2 {in 1 ring}
+    C labeled c4 single bond to c3 {in 1 ring}
+    C labeled c5 single bond to c4 {in 1 ring}
+    O labeled o2 double bond to c5
+    O labeled o3 single bond to c5 {in 1 ring}
+    ringbond o3 single bond to c1}'
+-   name: 'furan-2,5-dione'
+    connectivity: 'fragment a{
+    O labeled o1
+    C labeled c1 double bond to o1 {in 1 ring}
+    C labeled c2 single bond to c1 {in 1 ring}
+    C labeled c3 double bond to c2 {in 1 ring}
+    C labeled c4 single bond to c3 {in 1 ring}
+    O labeled o2 double bond to c4
+    O labeled o3 single bond to c4 {in 1 ring}
+    ringbond o3 single bond to c1}'
+    
+# References:
+#
+# _Thermochemical Kinetics_ 2nd ed.; S.W. Benson; New York: John Wiley & Sons,
+# 1976.
+#
+# "Additivity Rules for the Estimation of Thermochemical Properties"; S.W.
+# Benson, F.R. Cruickshank, D.M. Golden; G.R. Haugen; H.E. O'Neal, A.S.
+# Rodgers, R. Shaw, and R.Walsh; Chem Rev 69 pp. 279-324, 1969.
+# Cis correction is implemented as in the NIST website.

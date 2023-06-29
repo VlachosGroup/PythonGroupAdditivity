@@ -1,0 +1,94 @@
+units:
+  molar enthalpy: kcal/mol
+  molar entropy: cal/(mol*K)
+  molar heat capacity: cal/(mol*K)
+  temperature: K
+
+# The groups below are entered directly from _Thermochemical Kinetics_ 2nd ed.;
+# S.W. Benson; New York: John Wiley & Sons, 1976 pp. 272-273.
+
+groups:
+  AlkaneGauche:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 0.80
+      S_ref: null
+      Cp_data: []
+      range: [298, 1500]
+  AlkeneGauche:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 0.50
+      S_ref: null
+      Cp_data: []
+      range: [298, 1500]
+  Cis:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 1.00
+      S_ref: 1.2
+      Cp_data:
+        - [300, -1.34]
+        - [400, -1.09]
+        - [500, -0.81]
+        - [600, -0.61]
+        - [800, -0.39]
+        - [1000, -0.26]
+        - [1500, 0.0]
+      range: [298, 1500]
+  Double Cis:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 2.00
+      S_ref: null
+      Cp_data:
+        - [300, 1.34]
+        - [400, 1.09]
+        - [500, 0.81]
+        - [600, 0.61]
+        - [800, 0.39]
+        - [1000, 0.26]
+        - [1500, 0.0]
+      range: [298, 1500]
+  tbCis:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 3.00
+      S_ref: null
+      Cp_data: []
+      range: [298, 1500]
+  Double tbCis:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 2.00
+      S_ref: null
+      Cp_data: []
+      range: [298, 1500]
+  Ortho:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 0.57
+      S_ref: -1.61
+      Cp_data:
+        - [300, 1.12]
+        - [400, 1.35]
+        - [500, 1.30]
+        - [600, 1.17]
+        - [800, 0.88]
+        - [1000, 0.66]
+        - [1500, -0.05]
+      range: [298, 1500]
+  Ether oxygen gauche:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 0.30
+      S_ref: null
+      Cp_data: []
+      range: [298, 1500]
+  Ditertiary ether:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 8.4
+      S_ref: null
+      Cp_data: []
+      range: [298, 1500]

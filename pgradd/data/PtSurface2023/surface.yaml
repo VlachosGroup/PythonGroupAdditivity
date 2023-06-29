@@ -1,0 +1,1476 @@
+groups:
+    'C(Pt)4':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  14.669 kcal/mol
+            S_ref:   1.619 cal/(mol*K)
+            Cp_data:
+                - [100 K,  0.192 cal/(mol*K)]
+                - [200 K,  1.791 cal/(mol*K)]
+                - [300 K,  3.302 cal/(mol*K)]
+                - [400 K,  4.218 cal/(mol*K)]
+                - [500 K,  4.757 cal/(mol*K)]
+                - [600 K,  5.088 cal/(mol*K)]
+                - [700 K,  5.302 cal/(mol*K)]
+                - [800 K,  5.448 cal/(mol*K)]
+                - [900 K,  5.550 cal/(mol*K)]
+                - [1000 K,  5.626 cal/(mol*K)]
+                - [1100 K,  5.682 cal/(mol*K)]
+                - [1200 K,  5.726 cal/(mol*K)]
+                - [1300 K,  5.760 cal/(mol*K)]
+                - [1400 K,  5.787 cal/(mol*K)]
+                - [1500 K,  5.809 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)(Pt)3':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:   5.403 kcal/mol
+            S_ref:   1.278 cal/(mol*K)
+            Cp_data:
+                - [100 K,  0.308 cal/(mol*K)]
+                - [200 K,  2.824 cal/(mol*K)]
+                - [300 K,  4.005 cal/(mol*K)]
+                - [400 K,  4.652 cal/(mol*K)]
+                - [500 K,  5.056 cal/(mol*K)]
+                - [600 K,  5.318 cal/(mol*K)]
+                - [700 K,  5.493 cal/(mol*K)]
+                - [800 K,  5.615 cal/(mol*K)]
+                - [900 K,  5.705 cal/(mol*K)]
+                - [1000 K,  5.774 cal/(mol*K)]
+                - [1100 K,  5.829 cal/(mol*K)]
+                - [1200 K,  5.873 cal/(mol*K)]
+                - [1300 K,  5.909 cal/(mol*K)]
+                - [1400 K,  5.939 cal/(mol*K)]
+                - [1500 K,  5.965 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)(H)2(O)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:   5.508 kcal/mol
+            S_ref:  62.794 cal/(mol*K)
+            Cp_data:
+                - [100 K, 25.205 cal/(mol*K)]
+                - [200 K, 22.878 cal/(mol*K)]
+                - [300 K, 20.158 cal/(mol*K)]
+                - [400 K, 18.240 cal/(mol*K)]
+                - [500 K, 16.737 cal/(mol*K)]
+                - [600 K, 15.553 cal/(mol*K)]
+                - [700 K, 14.680 cal/(mol*K)]
+                - [800 K, 14.096 cal/(mol*K)]
+                - [900 K, 13.757 cal/(mol*K)]
+                - [1000 K, 13.611 cal/(mol*K)]
+                - [1100 K, 13.609 cal/(mol*K)]
+                - [1200 K, 13.707 cal/(mol*K)]
+                - [1300 K, 13.873 cal/(mol*K)]
+                - [1400 K, 14.079 cal/(mol*K)]
+                - [1500 K, 14.308 cal/(mol*K)]
+            range: [100K, 1500K]
+    'O(C)(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -30.842 kcal/mol
+            S_ref: -24.427 cal/(mol*K)
+            Cp_data:
+                - [100 K, -9.551 cal/(mol*K)]
+                - [200 K, -6.356 cal/(mol*K)]
+                - [300 K, -3.423 cal/(mol*K)]
+                - [400 K, -1.076 cal/(mol*K)]
+                - [500 K,  0.816 cal/(mol*K)]
+                - [600 K,  2.316 cal/(mol*K)]
+                - [700 K,  3.476 cal/(mol*K)]
+                - [800 K,  4.354 cal/(mol*K)]
+                - [900 K,  5.003 cal/(mol*K)]
+                - [1000 K,  5.472 cal/(mol*K)]
+                - [1100 K,  5.804 cal/(mol*K)]
+                - [1200 K,  6.032 cal/(mol*K)]
+                - [1300 K,  6.184 cal/(mol*K)]
+                - [1400 K,  6.280 cal/(mol*K)]
+                - [1500 K,  6.336 cal/(mol*K)]
+            range: [100K, 1500K]
+    'O(C)(H)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -49.588 kcal/mol
+            S_ref: -18.383 cal/(mol*K)
+            Cp_data:
+                - [100 K, -7.066 cal/(mol*K)]
+                - [200 K, -3.898 cal/(mol*K)]
+                - [300 K, -1.036 cal/(mol*K)]
+                - [400 K,  1.447 cal/(mol*K)]
+                - [500 K,  3.559 cal/(mol*K)]
+                - [600 K,  5.288 cal/(mol*K)]
+                - [700 K,  6.668 cal/(mol*K)]
+                - [800 K,  7.754 cal/(mol*K)]
+                - [900 K,  8.602 cal/(mol*K)]
+                - [1000 K,  9.261 cal/(mol*K)]
+                - [1100 K,  9.772 cal/(mol*K)]
+                - [1200 K, 10.168 cal/(mol*K)]
+                - [1300 K, 10.475 cal/(mol*K)]
+                - [1400 K, 10.714 cal/(mol*K)]
+                - [1500 K, 10.901 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CO(C)(H)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -30.344 kcal/mol
+            S_ref:  42.853 cal/(mol*K)
+            Cp_data:
+                - [100 K, 17.250 cal/(mol*K)]
+                - [200 K, 16.996 cal/(mol*K)]
+                - [300 K, 16.246 cal/(mol*K)]
+                - [400 K, 15.749 cal/(mol*K)]
+                - [500 K, 15.386 cal/(mol*K)]
+                - [600 K, 15.124 cal/(mol*K)]
+                - [700 K, 14.961 cal/(mol*K)]
+                - [800 K, 14.887 cal/(mol*K)]
+                - [900 K, 14.887 cal/(mol*K)]
+                - [1000 K, 14.947 cal/(mol*K)]
+                - [1100 K, 15.048 cal/(mol*K)]
+                - [1200 K, 15.177 cal/(mol*K)]
+                - [1300 K, 15.322 cal/(mol*K)]
+                - [1400 K, 15.474 cal/(mol*K)]
+                - [1500 K, 15.628 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(CO)(Pt)3':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:   7.872 kcal/mol
+            S_ref:   1.810 cal/(mol*K)
+            Cp_data:
+                - [100 K,  0.590 cal/(mol*K)]
+                - [200 K,  2.962 cal/(mol*K)]
+                - [300 K,  4.013 cal/(mol*K)]
+                - [400 K,  4.596 cal/(mol*K)]
+                - [500 K,  4.973 cal/(mol*K)]
+                - [600 K,  5.231 cal/(mol*K)]
+                - [700 K,  5.413 cal/(mol*K)]
+                - [800 K,  5.547 cal/(mol*K)]
+                - [900 K,  5.649 cal/(mol*K)]
+                - [1000 K,  5.729 cal/(mol*K)]
+                - [1100 K,  5.793 cal/(mol*K)]
+                - [1200 K,  5.846 cal/(mol*K)]
+                - [1300 K,  5.891 cal/(mol*K)]
+                - [1400 K,  5.928 cal/(mol*K)]
+                - [1500 K,  5.960 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)(H)(O)(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  19.743 kcal/mol
+            S_ref:  39.227 cal/(mol*K)
+            Cp_data:
+                - [100 K, 12.740 cal/(mol*K)]
+                - [200 K,  7.620 cal/(mol*K)]
+                - [300 K,  6.169 cal/(mol*K)]
+                - [400 K,  5.890 cal/(mol*K)]
+                - [500 K,  6.271 cal/(mol*K)]
+                - [600 K,  6.966 cal/(mol*K)]
+                - [700 K,  7.709 cal/(mol*K)]
+                - [800 K,  8.359 cal/(mol*K)]
+                - [900 K,  8.873 cal/(mol*K)]
+                - [1000 K,  9.254 cal/(mol*K)]
+                - [1100 K,  9.524 cal/(mol*K)]
+                - [1200 K,  9.709 cal/(mol*K)]
+                - [1300 K,  9.832 cal/(mol*K)]
+                - [1400 K,  9.909 cal/(mol*K)]
+                - [1500 K,  9.954 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CO(C)(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -23.070 kcal/mol
+            S_ref:  19.596 cal/(mol*K)
+            Cp_data:
+                - [100 K,  5.277 cal/(mol*K)]
+                - [200 K,  2.201 cal/(mol*K)]
+                - [300 K,  2.436 cal/(mol*K)]
+                - [400 K,  3.415 cal/(mol*K)]
+                - [500 K,  4.860 cal/(mol*K)]
+                - [600 K,  6.447 cal/(mol*K)]
+                - [700 K,  7.891 cal/(mol*K)]
+                - [800 K,  9.058 cal/(mol*K)]
+                - [900 K,  9.927 cal/(mol*K)]
+                - [1000 K, 10.534 cal/(mol*K)]
+                - [1100 K, 10.933 cal/(mol*K)]
+                - [1200 K, 11.174 cal/(mol*K)]
+                - [1300 K, 11.302 cal/(mol*K)]
+                - [1400 K, 11.350 cal/(mol*K)]
+                - [1500 K, 11.344 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)(O)(Pt)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  -8.689 kcal/mol
+            S_ref:  26.828 cal/(mol*K)
+            Cp_data:
+                - [100 K, 10.048 cal/(mol*K)]
+                - [200 K, 10.341 cal/(mol*K)]
+                - [300 K,  9.955 cal/(mol*K)]
+                - [400 K,  9.278 cal/(mol*K)]
+                - [500 K,  8.475 cal/(mol*K)]
+                - [600 K,  7.697 cal/(mol*K)]
+                - [700 K,  7.031 cal/(mol*K)]
+                - [800 K,  6.504 cal/(mol*K)]
+                - [900 K,  6.110 cal/(mol*K)]
+                - [1000 K,  5.830 cal/(mol*K)]
+                - [1100 K,  5.641 cal/(mol*K)]
+                - [1200 K,  5.521 cal/(mol*K)]
+                - [1300 K,  5.452 cal/(mol*K)]
+                - [1400 K,  5.421 cal/(mol*K)]
+                - [1500 K,  5.415 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(H)(Pt)3':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  -7.614 kcal/mol
+            S_ref:   2.315 cal/(mol*K)
+            Cp_data:
+                - [100 K,  0.224 cal/(mol*K)]
+                - [200 K,  2.563 cal/(mol*K)]
+                - [300 K,  5.020 cal/(mol*K)]
+                - [400 K,  6.627 cal/(mol*K)]
+                - [500 K,  7.633 cal/(mol*K)]
+                - [600 K,  8.303 cal/(mol*K)]
+                - [700 K,  8.792 cal/(mol*K)]
+                - [800 K,  9.176 cal/(mol*K)]
+                - [900 K,  9.494 cal/(mol*K)]
+                - [1000 K,  9.763 cal/(mol*K)]
+                - [1100 K,  9.995 cal/(mol*K)]
+                - [1200 K, 10.196 cal/(mol*K)]
+                - [1300 K, 10.371 cal/(mol*K)]
+                - [1400 K, 10.524 cal/(mol*K)]
+                - [1500 K, 10.657 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(H)2(Pt)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  -2.604 kcal/mol
+            S_ref:   4.703 cal/(mol*K)
+            Cp_data:
+                - [100 K,  1.491 cal/(mol*K)]
+                - [200 K,  4.225 cal/(mol*K)]
+                - [300 K,  6.857 cal/(mol*K)]
+                - [400 K,  8.774 cal/(mol*K)]
+                - [500 K, 10.128 cal/(mol*K)]
+                - [600 K, 11.133 cal/(mol*K)]
+                - [700 K, 11.932 cal/(mol*K)]
+                - [800 K, 12.601 cal/(mol*K)]
+                - [900 K, 13.177 cal/(mol*K)]
+                - [1000 K, 13.679 cal/(mol*K)]
+                - [1100 K, 14.118 cal/(mol*K)]
+                - [1200 K, 14.504 cal/(mol*K)]
+                - [1300 K, 14.841 cal/(mol*K)]
+                - [1400 K, 15.138 cal/(mol*K)]
+                - [1500 K, 15.398 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)(H)2(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  17.145 kcal/mol
+            S_ref:  17.297 cal/(mol*K)
+            Cp_data:
+                - [100 K,  4.167 cal/(mol*K)]
+                - [200 K,  0.632 cal/(mol*K)]
+                - [300 K,  1.250 cal/(mol*K)]
+                - [400 K,  2.950 cal/(mol*K)]
+                - [500 K,  5.084 cal/(mol*K)]
+                - [600 K,  7.261 cal/(mol*K)]
+                - [700 K,  9.215 cal/(mol*K)]
+                - [800 K, 10.836 cal/(mol*K)]
+                - [900 K, 12.115 cal/(mol*K)]
+                - [1000 K, 13.093 cal/(mol*K)]
+                - [1100 K, 13.826 cal/(mol*K)]
+                - [1200 K, 14.367 cal/(mol*K)]
+                - [1300 K, 14.762 cal/(mol*K)]
+                - [1400 K, 15.048 cal/(mol*K)]
+                - [1500 K, 15.254 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)(H)(Pt)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  -4.758 kcal/mol
+            S_ref:   3.202 cal/(mol*K)
+            Cp_data:
+                - [100 K,  0.857 cal/(mol*K)]
+                - [200 K,  2.914 cal/(mol*K)]
+                - [300 K,  4.771 cal/(mol*K)]
+                - [400 K,  6.180 cal/(mol*K)]
+                - [500 K,  7.184 cal/(mol*K)]
+                - [600 K,  7.912 cal/(mol*K)]
+                - [700 K,  8.467 cal/(mol*K)]
+                - [800 K,  8.912 cal/(mol*K)]
+                - [900 K,  9.282 cal/(mol*K)]
+                - [1000 K,  9.594 cal/(mol*K)]
+                - [1100 K,  9.861 cal/(mol*K)]
+                - [1200 K, 10.091 cal/(mol*K)]
+                - [1300 K, 10.289 cal/(mol*K)]
+                - [1400 K, 10.461 cal/(mol*K)]
+                - [1500 K, 10.610 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(CO)(H)2(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  16.469 kcal/mol
+            S_ref:  16.014 cal/(mol*K)
+            Cp_data:
+                - [100 K,  3.665 cal/(mol*K)]
+                - [200 K,  0.327 cal/(mol*K)]
+                - [300 K,  1.102 cal/(mol*K)]
+                - [400 K,  2.922 cal/(mol*K)]
+                - [500 K,  5.141 cal/(mol*K)]
+                - [600 K,  7.377 cal/(mol*K)]
+                - [700 K,  9.375 cal/(mol*K)]
+                - [800 K, 11.028 cal/(mol*K)]
+                - [900 K, 12.328 cal/(mol*K)]
+                - [1000 K, 13.320 cal/(mol*K)]
+                - [1100 K, 14.061 cal/(mol*K)]
+                - [1200 K, 14.605 cal/(mol*K)]
+                - [1300 K, 15.001 cal/(mol*K)]
+                - [1400 K, 15.287 cal/(mol*K)]
+                - [1500 K, 15.490 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(H)2(O)(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  -8.854 kcal/mol
+            S_ref:  32.494 cal/(mol*K)
+            Cp_data:
+                - [100 K, 12.837 cal/(mol*K)]
+                - [200 K, 13.114 cal/(mol*K)]
+                - [300 K, 13.111 cal/(mol*K)]
+                - [400 K, 13.143 cal/(mol*K)]
+                - [500 K, 13.095 cal/(mol*K)]
+                - [600 K, 13.020 cal/(mol*K)]
+                - [700 K, 12.990 cal/(mol*K)]
+                - [800 K, 13.036 cal/(mol*K)]
+                - [900 K, 13.158 cal/(mol*K)]
+                - [1000 K, 13.341 cal/(mol*K)]
+                - [1100 K, 13.565 cal/(mol*K)]
+                - [1200 K, 13.812 cal/(mol*K)]
+                - [1300 K, 14.069 cal/(mol*K)]
+                - [1400 K, 14.326 cal/(mol*K)]
+                - [1500 K, 14.575 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(H)3(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -13.431 kcal/mol
+            S_ref:  11.264 cal/(mol*K)
+            Cp_data:
+                - [100 K,  4.989 cal/(mol*K)]
+                - [200 K,  6.907 cal/(mol*K)]
+                - [300 K,  8.918 cal/(mol*K)]
+                - [400 K, 10.782 cal/(mol*K)]
+                - [500 K, 12.353 cal/(mol*K)]
+                - [600 K, 13.661 cal/(mol*K)]
+                - [700 K, 14.775 cal/(mol*K)]
+                - [800 K, 15.745 cal/(mol*K)]
+                - [900 K, 16.600 cal/(mol*K)]
+                - [1000 K, 17.356 cal/(mol*K)]
+                - [1100 K, 18.023 cal/(mol*K)]
+                - [1200 K, 18.611 cal/(mol*K)]
+                - [1300 K, 19.129 cal/(mol*K)]
+                - [1400 K, 19.585 cal/(mol*K)]
+                - [1500 K, 19.985 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)(H)3':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  -8.841 kcal/mol
+            S_ref:  39.360 cal/(mol*K)
+            Cp_data:
+                - [100 K, 16.132 cal/(mol*K)]
+                - [200 K, 15.954 cal/(mol*K)]
+                - [300 K, 15.296 cal/(mol*K)]
+                - [400 K, 15.209 cal/(mol*K)]
+                - [500 K, 15.347 cal/(mol*K)]
+                - [600 K, 15.574 cal/(mol*K)]
+                - [700 K, 15.872 cal/(mol*K)]
+                - [800 K, 16.239 cal/(mol*K)]
+                - [900 K, 16.659 cal/(mol*K)]
+                - [1000 K, 17.110 cal/(mol*K)]
+                - [1100 K, 17.574 cal/(mol*K)]
+                - [1200 K, 18.033 cal/(mol*K)]
+                - [1300 K, 18.477 cal/(mol*K)]
+                - [1400 K, 18.898 cal/(mol*K)]
+                - [1500 K, 19.291 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(CO)(H)(Pt)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  -3.183 kcal/mol
+            S_ref:   4.543 cal/(mol*K)
+            Cp_data:
+                - [100 K,  1.091 cal/(mol*K)]
+                - [200 K,  2.911 cal/(mol*K)]
+                - [300 K,  4.641 cal/(mol*K)]
+                - [400 K,  6.002 cal/(mol*K)]
+                - [500 K,  7.005 cal/(mol*K)]
+                - [600 K,  7.751 cal/(mol*K)]
+                - [700 K,  8.329 cal/(mol*K)]
+                - [800 K,  8.795 cal/(mol*K)]
+                - [900 K,  9.182 cal/(mol*K)]
+                - [1000 K,  9.509 cal/(mol*K)]
+                - [1100 K,  9.788 cal/(mol*K)]
+                - [1200 K, 10.028 cal/(mol*K)]
+                - [1300 K, 10.235 cal/(mol*K)]
+                - [1400 K, 10.415 cal/(mol*K)]
+                - [1500 K, 10.570 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CO(H)(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -48.329 kcal/mol
+            S_ref:  16.055 cal/(mol*K)
+            Cp_data:
+                - [100 K,  6.062 cal/(mol*K)]
+                - [200 K,  8.085 cal/(mol*K)]
+                - [300 K,  9.669 cal/(mol*K)]
+                - [400 K, 10.940 cal/(mol*K)]
+                - [500 K, 11.962 cal/(mol*K)]
+                - [600 K, 12.795 cal/(mol*K)]
+                - [700 K, 13.484 cal/(mol*K)]
+                - [800 K, 14.060 cal/(mol*K)]
+                - [900 K, 14.545 cal/(mol*K)]
+                - [1000 K, 14.955 cal/(mol*K)]
+                - [1100 K, 15.303 cal/(mol*K)]
+                - [1200 K, 15.599 cal/(mol*K)]
+                - [1300 K, 15.851 cal/(mol*K)]
+                - [1400 K, 16.068 cal/(mol*K)]
+                - [1500 K, 16.254 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(H)(O)(Pt)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  -5.941 kcal/mol
+            S_ref:  27.916 cal/(mol*K)
+            Cp_data:
+                - [100 K, 10.795 cal/(mol*K)]
+                - [200 K, 11.673 cal/(mol*K)]
+                - [300 K, 11.664 cal/(mol*K)]
+                - [400 K, 11.374 cal/(mol*K)]
+                - [500 K, 10.937 cal/(mol*K)]
+                - [600 K, 10.497 cal/(mol*K)]
+                - [700 K, 10.141 cal/(mol*K)]
+                - [800 K,  9.898 cal/(mol*K)]
+                - [900 K,  9.760 cal/(mol*K)]
+                - [1000 K,  9.709 cal/(mol*K)]
+                - [1100 K,  9.723 cal/(mol*K)]
+                - [1200 K,  9.782 cal/(mol*K)]
+                - [1300 K,  9.870 cal/(mol*K)]
+                - [1400 K,  9.976 cal/(mol*K)]
+                - [1500 K, 10.091 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CO(Pt)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -59.264 kcal/mol
+            S_ref:  12.220 cal/(mol*K)
+            Cp_data:
+                - [100 K,  4.333 cal/(mol*K)]
+                - [200 K,  6.838 cal/(mol*K)]
+                - [300 K,  8.235 cal/(mol*K)]
+                - [400 K,  8.955 cal/(mol*K)]
+                - [500 K,  9.425 cal/(mol*K)]
+                - [600 K,  9.793 cal/(mol*K)]
+                - [700 K, 10.099 cal/(mol*K)]
+                - [800 K, 10.357 cal/(mol*K)]
+                - [900 K, 10.573 cal/(mol*K)]
+                - [1000 K, 10.754 cal/(mol*K)]
+                - [1100 K, 10.905 cal/(mol*K)]
+                - [1200 K, 11.032 cal/(mol*K)]
+                - [1300 K, 11.138 cal/(mol*K)]
+                - [1400 K, 11.227 cal/(mol*K)]
+                - [1500 K, 11.303 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(O)(Pt)3':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -10.245 kcal/mol
+            S_ref:  29.643 cal/(mol*K)
+            Cp_data:
+                - [100 K, 11.605 cal/(mol*K)]
+                - [200 K, 11.940 cal/(mol*K)]
+                - [300 K, 11.230 cal/(mol*K)]
+                - [400 K, 10.209 cal/(mol*K)]
+                - [500 K,  9.135 cal/(mol*K)]
+                - [600 K,  8.159 cal/(mol*K)]
+                - [700 K,  7.346 cal/(mol*K)]
+                - [800 K,  6.706 cal/(mol*K)]
+                - [900 K,  6.225 cal/(mol*K)]
+                - [1000 K,  5.876 cal/(mol*K)]
+                - [1100 K,  5.633 cal/(mol*K)]
+                - [1200 K,  5.472 cal/(mol*K)]
+                - [1300 K,  5.372 cal/(mol*K)]
+                - [1400 K,  5.316 cal/(mol*K)]
+                - [1500 K,  5.292 cal/(mol*K)]
+            range: [100K, 1500K]
+    'O(H)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -63.544 kcal/mol
+            S_ref:  14.764 cal/(mol*K)
+            Cp_data:
+                - [100 K,  6.535 cal/(mol*K)]
+                - [200 K,  8.939 cal/(mol*K)]
+                - [300 K, 10.276 cal/(mol*K)]
+                - [400 K, 11.092 cal/(mol*K)]
+                - [500 K, 11.683 cal/(mol*K)]
+                - [600 K, 12.158 cal/(mol*K)]
+                - [700 K, 12.570 cal/(mol*K)]
+                - [800 K, 12.948 cal/(mol*K)]
+                - [900 K, 13.306 cal/(mol*K)]
+                - [1000 K, 13.647 cal/(mol*K)]
+                - [1100 K, 13.971 cal/(mol*K)]
+                - [1200 K, 14.275 cal/(mol*K)]
+                - [1300 K, 14.559 cal/(mol*K)]
+                - [1400 K, 14.821 cal/(mol*K)]
+                - [1500 K, 15.061 cal/(mol*K)]
+            range: [100K, 1500K]
+    'O(Pt)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -31.798 kcal/mol
+            S_ref:   3.043 cal/(mol*K)
+            Cp_data:
+                - [100 K,  0.725 cal/(mol*K)]
+                - [200 K,  3.240 cal/(mol*K)]
+                - [300 K,  4.502 cal/(mol*K)]
+                - [400 K,  5.080 cal/(mol*K)]
+                - [500 K,  5.378 cal/(mol*K)]
+                - [600 K,  5.548 cal/(mol*K)]
+                - [700 K,  5.655 cal/(mol*K)]
+                - [800 K,  5.725 cal/(mol*K)]
+                - [900 K,  5.774 cal/(mol*K)]
+                - [1000 K,  5.809 cal/(mol*K)]
+                - [1100 K,  5.835 cal/(mol*K)]
+                - [1200 K,  5.855 cal/(mol*K)]
+                - [1300 K,  5.871 cal/(mol*K)]
+                - [1400 K,  5.883 cal/(mol*K)]
+                - [1500 K,  5.893 cal/(mol*K)]
+            range: [100K, 1500K]
+    'O(H)(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -39.303 kcal/mol
+            S_ref:  11.307 cal/(mol*K)
+            Cp_data:
+                - [100 K,  5.119 cal/(mol*K)]
+                - [200 K,  6.535 cal/(mol*K)]
+                - [300 K,  7.554 cal/(mol*K)]
+                - [400 K,  8.261 cal/(mol*K)]
+                - [500 K,  8.731 cal/(mol*K)]
+                - [600 K,  9.057 cal/(mol*K)]
+                - [700 K,  9.304 cal/(mol*K)]
+                - [800 K,  9.510 cal/(mol*K)]
+                - [900 K,  9.694 cal/(mol*K)]
+                - [1000 K,  9.865 cal/(mol*K)]
+                - [1100 K, 10.024 cal/(mol*K)]
+                - [1200 K, 10.172 cal/(mol*K)]
+                - [1300 K, 10.310 cal/(mol*K)]
+                - [1400 K, 10.437 cal/(mol*K)]
+                - [1500 K, 10.554 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(H)(O)2(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -38.797 kcal/mol
+            S_ref:  54.148 cal/(mol*K)
+            Cp_data:
+                - [100 K, 21.418 cal/(mol*K)]
+                - [200 K, 19.870 cal/(mol*K)]
+                - [300 K, 17.309 cal/(mol*K)]
+                - [400 K, 15.150 cal/(mol*K)]
+                - [500 K, 13.312 cal/(mol*K)]
+                - [600 K, 11.794 cal/(mol*K)]
+                - [700 K, 10.613 cal/(mol*K)]
+                - [800 K,  9.751 cal/(mol*K)]
+                - [900 K,  9.165 cal/(mol*K)]
+                - [1000 K,  8.804 cal/(mol*K)]
+                - [1100 K,  8.613 cal/(mol*K)]
+                - [1200 K,  8.548 cal/(mol*K)]
+                - [1300 K,  8.570 cal/(mol*K)]
+                - [1400 K,  8.652 cal/(mol*K)]
+                - [1500 K,  8.772 cal/(mol*K)]
+            range: [100K, 1500K]
+    'O(CO)(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -65.531 kcal/mol
+            S_ref: -28.802 cal/(mol*K)
+            Cp_data:
+                - [100 K, -11.193 cal/(mol*K)]
+                - [200 K, -7.086 cal/(mol*K)]
+                - [300 K, -3.953 cal/(mol*K)]
+                - [400 K, -1.497 cal/(mol*K)]
+                - [500 K,  0.472 cal/(mol*K)]
+                - [600 K,  2.014 cal/(mol*K)]
+                - [700 K,  3.197 cal/(mol*K)]
+                - [800 K,  4.090 cal/(mol*K)]
+                - [900 K,  4.754 cal/(mol*K)]
+                - [1000 K,  5.242 cal/(mol*K)]
+                - [1100 K,  5.595 cal/(mol*K)]
+                - [1200 K,  5.847 cal/(mol*K)]
+                - [1300 K,  6.023 cal/(mol*K)]
+                - [1400 K,  6.143 cal/(mol*K)]
+                - [1500 K,  6.222 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)2(H)(O)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  20.252 kcal/mol
+            S_ref:  85.494 cal/(mol*K)
+            Cp_data:
+                - [100 K, 34.058 cal/(mol*K)]
+                - [200 K, 29.831 cal/(mol*K)]
+                - [300 K, 25.082 cal/(mol*K)]
+                - [400 K, 21.205 cal/(mol*K)]
+                - [500 K, 17.919 cal/(mol*K)]
+                - [600 K, 15.204 cal/(mol*K)]
+                - [700 K, 13.068 cal/(mol*K)]
+                - [800 K, 11.469 cal/(mol*K)]
+                - [900 K, 10.332 cal/(mol*K)]
+                - [1000 K,  9.567 cal/(mol*K)]
+                - [1100 K,  9.090 cal/(mol*K)]
+                - [1200 K,  8.827 cal/(mol*K)]
+                - [1300 K,  8.719 cal/(mol*K)]
+                - [1400 K,  8.720 cal/(mol*K)]
+                - [1500 K,  8.794 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)2(O)(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  54.463 kcal/mol
+            S_ref:  47.033 cal/(mol*K)
+            Cp_data:
+                - [100 K, 13.187 cal/(mol*K)]
+                - [200 K,  2.716 cal/(mol*K)]
+                - [300 K, -0.278 cal/(mol*K)]
+                - [400 K, -1.017 cal/(mol*K)]
+                - [500 K, -0.336 cal/(mol*K)]
+                - [600 K,  1.035 cal/(mol*K)]
+                - [700 K,  2.486 cal/(mol*K)]
+                - [800 K,  3.697 cal/(mol*K)]
+                - [900 K,  4.573 cal/(mol*K)]
+                - [1000 K,  5.133 cal/(mol*K)]
+                - [1100 K,  5.439 cal/(mol*K)]
+                - [1200 K,  5.557 cal/(mol*K)]
+                - [1300 K,  5.542 cal/(mol*K)]
+                - [1400 K,  5.440 cal/(mol*K)]
+                - [1500 K,  5.284 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)(CO)(H)(O)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  22.435 kcal/mol
+            S_ref:  83.578 cal/(mol*K)
+            Cp_data:
+                - [100 K, 33.202 cal/(mol*K)]
+                - [200 K, 29.130 cal/(mol*K)]
+                - [300 K, 24.329 cal/(mol*K)]
+                - [400 K, 20.446 cal/(mol*K)]
+                - [500 K, 17.193 cal/(mol*K)]
+                - [600 K, 14.530 cal/(mol*K)]
+                - [700 K, 12.449 cal/(mol*K)]
+                - [800 K, 10.897 cal/(mol*K)]
+                - [900 K,  9.791 cal/(mol*K)]
+                - [1000 K,  9.045 cal/(mol*K)]
+                - [1100 K,  8.576 cal/(mol*K)]
+                - [1200 K,  8.313 cal/(mol*K)]
+                - [1300 K,  8.199 cal/(mol*K)]
+                - [1400 K,  8.190 cal/(mol*K)]
+                - [1500 K,  8.252 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CO(C)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -19.157 kcal/mol
+            S_ref:  65.238 cal/(mol*K)
+            Cp_data:
+                - [100 K, 26.366 cal/(mol*K)]
+                - [200 K, 24.571 cal/(mol*K)]
+                - [300 K, 21.813 cal/(mol*K)]
+                - [400 K, 19.319 cal/(mol*K)]
+                - [500 K, 17.133 cal/(mol*K)]
+                - [600 K, 15.301 cal/(mol*K)]
+                - [700 K, 13.841 cal/(mol*K)]
+                - [800 K, 12.726 cal/(mol*K)]
+                - [900 K, 11.910 cal/(mol*K)]
+                - [1000 K, 11.337 cal/(mol*K)]
+                - [1100 K, 10.956 cal/(mol*K)]
+                - [1200 K, 10.718 cal/(mol*K)]
+                - [1300 K, 10.587 cal/(mol*K)]
+                - [1400 K, 10.533 cal/(mol*K)]
+                - [1500 K, 10.532 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(CO)(H)(O)(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  20.534 kcal/mol
+            S_ref:  38.014 cal/(mol*K)
+            Cp_data:
+                - [100 K, 12.316 cal/(mol*K)]
+                - [200 K,  7.347 cal/(mol*K)]
+                - [300 K,  5.918 cal/(mol*K)]
+                - [400 K,  5.675 cal/(mol*K)]
+                - [500 K,  6.083 cal/(mol*K)]
+                - [600 K,  6.790 cal/(mol*K)]
+                - [700 K,  7.535 cal/(mol*K)]
+                - [800 K,  8.183 cal/(mol*K)]
+                - [900 K,  8.693 cal/(mol*K)]
+                - [1000 K,  9.071 cal/(mol*K)]
+                - [1100 K,  9.340 cal/(mol*K)]
+                - [1200 K,  9.525 cal/(mol*K)]
+                - [1300 K,  9.649 cal/(mol*K)]
+                - [1400 K,  9.728 cal/(mol*K)]
+                - [1500 K,  9.776 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)(CO)(O)(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  53.569 kcal/mol
+            S_ref:  45.507 cal/(mol*K)
+            Cp_data:
+                - [100 K, 12.760 cal/(mol*K)]
+                - [200 K,  2.705 cal/(mol*K)]
+                - [300 K, -0.166 cal/(mol*K)]
+                - [400 K, -0.845 cal/(mol*K)]
+                - [500 K, -0.129 cal/(mol*K)]
+                - [600 K,  1.265 cal/(mol*K)]
+                - [700 K,  2.729 cal/(mol*K)]
+                - [800 K,  3.948 cal/(mol*K)]
+                - [900 K,  4.827 cal/(mol*K)]
+                - [1000 K,  5.388 cal/(mol*K)]
+                - [1100 K,  5.691 cal/(mol*K)]
+                - [1200 K,  5.805 cal/(mol*K)]
+                - [1300 K,  5.786 cal/(mol*K)]
+                - [1400 K,  5.680 cal/(mol*K)]
+                - [1500 K,  5.519 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(CO)2(O)(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  53.845 kcal/mol
+            S_ref:  45.119 cal/(mol*K)
+            Cp_data:
+                - [100 K, 12.880 cal/(mol*K)]
+                - [200 K,  2.626 cal/(mol*K)]
+                - [300 K, -0.350 cal/(mol*K)]
+                - [400 K, -1.089 cal/(mol*K)]
+                - [500 K, -0.388 cal/(mol*K)]
+                - [600 K,  1.020 cal/(mol*K)]
+                - [700 K,  2.510 cal/(mol*K)]
+                - [800 K,  3.754 cal/(mol*K)]
+                - [900 K,  4.656 cal/(mol*K)]
+                - [1000 K,  5.234 cal/(mol*K)]
+                - [1100 K,  5.550 cal/(mol*K)]
+                - [1200 K,  5.674 cal/(mol*K)]
+                - [1300 K,  5.662 cal/(mol*K)]
+                - [1400 K,  5.560 cal/(mol*K)]
+                - [1500 K,  5.403 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(CO)2(H)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  16.395 kcal/mol
+            S_ref:  62.736 cal/(mol*K)
+            Cp_data:
+                - [100 K, 25.239 cal/(mol*K)]
+                - [200 K, 22.460 cal/(mol*K)]
+                - [300 K, 19.523 cal/(mol*K)]
+                - [400 K, 17.531 cal/(mol*K)]
+                - [500 K, 16.018 cal/(mol*K)]
+                - [600 K, 14.856 cal/(mol*K)]
+                - [700 K, 14.021 cal/(mol*K)]
+                - [800 K, 13.479 cal/(mol*K)]
+                - [900 K, 13.181 cal/(mol*K)]
+                - [1000 K, 13.072 cal/(mol*K)]
+                - [1100 K, 13.101 cal/(mol*K)]
+                - [1200 K, 13.226 cal/(mol*K)]
+                - [1300 K, 13.412 cal/(mol*K)]
+                - [1400 K, 13.635 cal/(mol*K)]
+                - [1500 K, 13.878 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CO(CO)(H)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -34.410 kcal/mol
+            S_ref:  44.811 cal/(mol*K)
+            Cp_data:
+                - [100 K, 17.644 cal/(mol*K)]
+                - [200 K, 18.166 cal/(mol*K)]
+                - [300 K, 17.817 cal/(mol*K)]
+                - [400 K, 17.550 cal/(mol*K)]
+                - [500 K, 17.333 cal/(mol*K)]
+                - [600 K, 17.160 cal/(mol*K)]
+                - [700 K, 17.048 cal/(mol*K)]
+                - [800 K, 17.001 cal/(mol*K)]
+                - [900 K, 17.016 cal/(mol*K)]
+                - [1000 K, 17.081 cal/(mol*K)]
+                - [1100 K, 17.184 cal/(mol*K)]
+                - [1200 K, 17.313 cal/(mol*K)]
+                - [1300 K, 17.456 cal/(mol*K)]
+                - [1400 K, 17.607 cal/(mol*K)]
+                - [1500 K, 17.758 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CO(C)(CO)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -11.601 kcal/mol
+            S_ref:  62.521 cal/(mol*K)
+            Cp_data:
+                - [100 K, 25.297 cal/(mol*K)]
+                - [200 K, 23.075 cal/(mol*K)]
+                - [300 K, 20.056 cal/(mol*K)]
+                - [400 K, 17.429 cal/(mol*K)]
+                - [500 K, 15.173 cal/(mol*K)]
+                - [600 K, 13.309 cal/(mol*K)]
+                - [700 K, 11.835 cal/(mol*K)]
+                - [800 K, 10.715 cal/(mol*K)]
+                - [900 K,  9.896 cal/(mol*K)]
+                - [1000 K,  9.322 cal/(mol*K)]
+                - [1100 K,  8.939 cal/(mol*K)]
+                - [1200 K,  8.699 cal/(mol*K)]
+                - [1300 K,  8.567 cal/(mol*K)]
+                - [1400 K,  8.510 cal/(mol*K)]
+                - [1500 K,  8.508 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(CO)(O)(Pt)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  -4.926 kcal/mol
+            S_ref:  28.023 cal/(mol*K)
+            Cp_data:
+                - [100 K, 10.531 cal/(mol*K)]
+                - [200 K, 10.693 cal/(mol*K)]
+                - [300 K, 10.040 cal/(mol*K)]
+                - [400 K,  9.211 cal/(mol*K)]
+                - [500 K,  8.349 cal/(mol*K)]
+                - [600 K,  7.564 cal/(mol*K)]
+                - [700 K,  6.913 cal/(mol*K)]
+                - [800 K,  6.408 cal/(mol*K)]
+                - [900 K,  6.035 cal/(mol*K)]
+                - [1000 K,  5.773 cal/(mol*K)]
+                - [1100 K,  5.598 cal/(mol*K)]
+                - [1200 K,  5.490 cal/(mol*K)]
+                - [1300 K,  5.431 cal/(mol*K)]
+                - [1400 K,  5.406 cal/(mol*K)]
+                - [1500 K,  5.406 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)(CO)(H)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  12.977 kcal/mol
+            S_ref:  61.521 cal/(mol*K)
+            Cp_data:
+                - [100 K, 25.120 cal/(mol*K)]
+                - [200 K, 22.528 cal/(mol*K)]
+                - [300 K, 19.726 cal/(mol*K)]
+                - [400 K, 17.817 cal/(mol*K)]
+                - [500 K, 16.355 cal/(mol*K)]
+                - [600 K, 15.219 cal/(mol*K)]
+                - [700 K, 14.395 cal/(mol*K)]
+                - [800 K, 13.856 cal/(mol*K)]
+                - [900 K, 13.556 cal/(mol*K)]
+                - [1000 K, 13.444 cal/(mol*K)]
+                - [1100 K, 13.469 cal/(mol*K)]
+                - [1200 K, 13.589 cal/(mol*K)]
+                - [1300 K, 13.772 cal/(mol*K)]
+                - [1400 K, 13.992 cal/(mol*K)]
+                - [1500 K, 14.232 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)(CO)(Pt)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  -1.001 kcal/mol
+            S_ref:   1.724 cal/(mol*K)
+            Cp_data:
+                - [100 K,  0.373 cal/(mol*K)]
+                - [200 K,  1.977 cal/(mol*K)]
+                - [300 K,  2.959 cal/(mol*K)]
+                - [400 K,  3.660 cal/(mol*K)]
+                - [500 K,  4.154 cal/(mol*K)]
+                - [600 K,  4.499 cal/(mol*K)]
+                - [700 K,  4.745 cal/(mol*K)]
+                - [800 K,  4.930 cal/(mol*K)]
+                - [900 K,  5.074 cal/(mol*K)]
+                - [1000 K,  5.190 cal/(mol*K)]
+                - [1100 K,  5.286 cal/(mol*K)]
+                - [1200 K,  5.365 cal/(mol*K)]
+                - [1300 K,  5.432 cal/(mol*K)]
+                - [1400 K,  5.489 cal/(mol*K)]
+                - [1500 K,  5.538 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(CO)2(H)(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  51.703 kcal/mol
+            S_ref:  24.282 cal/(mol*K)
+            Cp_data:
+                - [100 K,  4.543 cal/(mol*K)]
+                - [200 K, -4.366 cal/(mol*K)]
+                - [300 K, -5.313 cal/(mol*K)]
+                - [400 K, -3.979 cal/(mol*K)]
+                - [500 K, -1.415 cal/(mol*K)]
+                - [600 K,  1.560 cal/(mol*K)]
+                - [700 K,  4.324 cal/(mol*K)]
+                - [800 K,  6.584 cal/(mol*K)]
+                - [900 K,  8.282 cal/(mol*K)]
+                - [1000 K,  9.477 cal/(mol*K)]
+                - [1100 K, 10.269 cal/(mol*K)]
+                - [1200 K, 10.754 cal/(mol*K)]
+                - [1300 K, 11.018 cal/(mol*K)]
+                - [1400 K, 11.126 cal/(mol*K)]
+                - [1500 K, 11.126 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)(CO)(H)(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  51.253 kcal/mol
+            S_ref:  24.032 cal/(mol*K)
+            Cp_data:
+                - [100 K,  4.338 cal/(mol*K)]
+                - [200 K, -4.647 cal/(mol*K)]
+                - [300 K, -5.654 cal/(mol*K)]
+                - [400 K, -4.344 cal/(mol*K)]
+                - [500 K, -1.794 cal/(mol*K)]
+                - [600 K,  1.167 cal/(mol*K)]
+                - [700 K,  3.917 cal/(mol*K)]
+                - [800 K,  6.167 cal/(mol*K)]
+                - [900 K,  7.861 cal/(mol*K)]
+                - [1000 K,  9.056 cal/(mol*K)]
+                - [1100 K,  9.852 cal/(mol*K)]
+                - [1200 K, 10.346 cal/(mol*K)]
+                - [1300 K, 10.619 cal/(mol*K)]
+                - [1400 K, 10.736 cal/(mol*K)]
+                - [1500 K, 10.747 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)2(H)(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  48.240 kcal/mol
+            S_ref:  24.521 cal/(mol*K)
+            Cp_data:
+                - [100 K,  4.476 cal/(mol*K)]
+                - [200 K, -4.858 cal/(mol*K)]
+                - [300 K, -5.903 cal/(mol*K)]
+                - [400 K, -4.580 cal/(mol*K)]
+                - [500 K, -2.008 cal/(mol*K)]
+                - [600 K,  0.973 cal/(mol*K)]
+                - [700 K,  3.739 cal/(mol*K)]
+                - [800 K,  5.999 cal/(mol*K)]
+                - [900 K,  7.700 cal/(mol*K)]
+                - [1000 K,  8.902 cal/(mol*K)]
+                - [1100 K,  9.701 cal/(mol*K)]
+                - [1200 K, 10.197 cal/(mol*K)]
+                - [1300 K, 10.472 cal/(mol*K)]
+                - [1400 K, 10.591 cal/(mol*K)]
+                - [1500 K, 10.602 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(CO)2(Pt)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -15.663 kcal/mol
+            S_ref:   2.979 cal/(mol*K)
+            Cp_data:
+                - [100 K,  0.331 cal/(mol*K)]
+                - [200 K,  2.141 cal/(mol*K)]
+                - [300 K,  3.266 cal/(mol*K)]
+                - [400 K,  4.042 cal/(mol*K)]
+                - [500 K,  4.600 cal/(mol*K)]
+                - [600 K,  5.016 cal/(mol*K)]
+                - [700 K,  5.334 cal/(mol*K)]
+                - [800 K,  5.581 cal/(mol*K)]
+                - [900 K,  5.773 cal/(mol*K)]
+                - [1000 K,  5.925 cal/(mol*K)]
+                - [1100 K,  6.045 cal/(mol*K)]
+                - [1200 K,  6.141 cal/(mol*K)]
+                - [1300 K,  6.218 cal/(mol*K)]
+                - [1400 K,  6.280 cal/(mol*K)]
+                - [1500 K,  6.331 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CO(CO)(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -20.719 kcal/mol
+            S_ref:  25.161 cal/(mol*K)
+            Cp_data:
+                - [100 K,  7.435 cal/(mol*K)]
+                - [200 K,  4.370 cal/(mol*K)]
+                - [300 K,  4.380 cal/(mol*K)]
+                - [400 K,  5.177 cal/(mol*K)]
+                - [500 K,  6.520 cal/(mol*K)]
+                - [600 K,  8.051 cal/(mol*K)]
+                - [700 K,  9.462 cal/(mol*K)]
+                - [800 K, 10.608 cal/(mol*K)]
+                - [900 K, 11.465 cal/(mol*K)]
+                - [1000 K, 12.065 cal/(mol*K)]
+                - [1100 K, 12.461 cal/(mol*K)]
+                - [1200 K, 12.703 cal/(mol*K)]
+                - [1300 K, 12.833 cal/(mol*K)]
+                - [1400 K, 12.886 cal/(mol*K)]
+                - [1500 K, 12.885 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)2(Pt)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  -4.361 kcal/mol
+            S_ref:   3.174 cal/(mol*K)
+            Cp_data:
+                - [100 K,  0.973 cal/(mol*K)]
+                - [200 K,  2.350 cal/(mol*K)]
+                - [300 K,  3.273 cal/(mol*K)]
+                - [400 K,  3.949 cal/(mol*K)]
+                - [500 K,  4.429 cal/(mol*K)]
+                - [600 K,  4.762 cal/(mol*K)]
+                - [700 K,  4.998 cal/(mol*K)]
+                - [800 K,  5.172 cal/(mol*K)]
+                - [900 K,  5.307 cal/(mol*K)]
+                - [1000 K,  5.415 cal/(mol*K)]
+                - [1100 K,  5.503 cal/(mol*K)]
+                - [1200 K,  5.576 cal/(mol*K)]
+                - [1300 K,  5.638 cal/(mol*K)]
+                - [1400 K,  5.691 cal/(mol*K)]
+                - [1500 K,  5.736 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(C)2(H)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:   9.777 kcal/mol
+            S_ref:  62.423 cal/(mol*K)
+            Cp_data:
+                - [100 K, 25.282 cal/(mol*K)]
+                - [200 K, 22.642 cal/(mol*K)]
+                - [300 K, 19.692 cal/(mol*K)]
+                - [400 K, 17.673 cal/(mol*K)]
+                - [500 K, 16.157 cal/(mol*K)]
+                - [600 K, 14.998 cal/(mol*K)]
+                - [700 K, 14.160 cal/(mol*K)]
+                - [800 K, 13.610 cal/(mol*K)]
+                - [900 K, 13.300 cal/(mol*K)]
+                - [1000 K, 13.178 cal/(mol*K)]
+                - [1100 K, 13.193 cal/(mol*K)]
+                - [1200 K, 13.306 cal/(mol*K)]
+                - [1300 K, 13.482 cal/(mol*K)]
+                - [1400 K, 13.697 cal/(mol*K)]
+                - [1500 K, 13.932 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CO(CO)2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  -6.074 kcal/mol
+            S_ref:  65.467 cal/(mol*K)
+            Cp_data:
+                - [100 K, 26.165 cal/(mol*K)]
+                - [200 K, 24.536 cal/(mol*K)]
+                - [300 K, 21.926 cal/(mol*K)]
+                - [400 K, 19.570 cal/(mol*K)]
+                - [500 K, 17.498 cal/(mol*K)]
+                - [600 K, 15.761 cal/(mol*K)]
+                - [700 K, 14.374 cal/(mol*K)]
+                - [800 K, 13.313 cal/(mol*K)]
+                - [900 K, 12.534 cal/(mol*K)]
+                - [1000 K, 11.984 cal/(mol*K)]
+                - [1100 K, 11.615 cal/(mol*K)]
+                - [1200 K, 11.384 cal/(mol*K)]
+                - [1300 K, 11.254 cal/(mol*K)]
+                - [1400 K, 11.198 cal/(mol*K)]
+                - [1500 K, 11.194 cal/(mol*K)]
+            range: [100K, 1500K]
+    'C(CO)2(H)(O)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  28.171 kcal/mol
+            S_ref:  84.834 cal/(mol*K)
+            Cp_data:
+                - [100 K, 33.823 cal/(mol*K)]
+                - [200 K, 29.533 cal/(mol*K)]
+                - [300 K, 24.719 cal/(mol*K)]
+                - [400 K, 20.828 cal/(mol*K)]
+                - [500 K, 17.581 cal/(mol*K)]
+                - [600 K, 14.936 cal/(mol*K)]
+                - [700 K, 12.876 cal/(mol*K)]
+                - [800 K, 11.343 cal/(mol*K)]
+                - [900 K, 10.256 cal/(mol*K)]
+                - [1000 K,  9.526 cal/(mol*K)]
+                - [1100 K,  9.070 cal/(mol*K)]
+                - [1200 K,  8.819 cal/(mol*K)]
+                - [1300 K,  8.715 cal/(mol*K)]
+                - [1400 K,  8.714 cal/(mol*K)]
+                - [1500 K,  8.784 cal/(mol*K)]
+            range: [100K, 1500K]
+other_descriptors:
+    'C(H)4s':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -21.324 kcal/mol
+            S_ref:  28.775 cal/(mol*K)
+            Cp_data:
+                - [100 K, 10.867 cal/(mol*K)]
+                - [200 K, 11.703 cal/(mol*K)]
+                - [300 K, 12.451 cal/(mol*K)]
+                - [400 K, 13.715 cal/(mol*K)]
+                - [500 K, 15.164 cal/(mol*K)]
+                - [600 K, 16.581 cal/(mol*K)]
+                - [700 K, 17.899 cal/(mol*K)]
+                - [800 K, 19.108 cal/(mol*K)]
+                - [900 K, 20.203 cal/(mol*K)]
+                - [1000 K, 21.187 cal/(mol*K)]
+                - [1100 K, 22.064 cal/(mol*K)]
+                - [1200 K, 22.842 cal/(mol*K)]
+                - [1300 K, 23.528 cal/(mol*K)]
+                - [1400 K, 24.133 cal/(mol*K)]
+                - [1500 K, 24.666 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CC':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -17.817 kcal/mol
+            S_ref: -56.557 cal/(mol*K)
+            Cp_data:
+                - [100 K, -23.148 cal/(mol*K)]
+                - [200 K, -19.296 cal/(mol*K)]
+                - [300 K, -14.883 cal/(mol*K)]
+                - [400 K, -11.221 cal/(mol*K)]
+                - [500 K, -8.194 cal/(mol*K)]
+                - [600 K, -5.750 cal/(mol*K)]
+                - [700 K, -3.836 cal/(mol*K)]
+                - [800 K, -2.380 cal/(mol*K)]
+                - [900 K, -1.301 cal/(mol*K)]
+                - [1000 K, -0.524 cal/(mol*K)]
+                - [1100 K,  0.021 cal/(mol*K)]
+                - [1200 K,  0.389 cal/(mol*K)]
+                - [1300 K,  0.627 cal/(mol*K)]
+                - [1400 K,  0.770 cal/(mol*K)]
+                - [1500 K,  0.844 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CCOH':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:   0.138 kcal/mol
+            S_ref:   1.080 cal/(mol*K)
+            Cp_data:
+                - [100 K, -0.019 cal/(mol*K)]
+                - [200 K, -0.825 cal/(mol*K)]
+                - [300 K, -0.773 cal/(mol*K)]
+                - [400 K, -0.646 cal/(mol*K)]
+                - [500 K, -0.547 cal/(mol*K)]
+                - [600 K, -0.476 cal/(mol*K)]
+                - [700 K, -0.427 cal/(mol*K)]
+                - [800 K, -0.393 cal/(mol*K)]
+                - [900 K, -0.369 cal/(mol*K)]
+                - [1000 K, -0.351 cal/(mol*K)]
+                - [1100 K, -0.336 cal/(mol*K)]
+                - [1200 K, -0.324 cal/(mol*K)]
+                - [1300 K, -0.312 cal/(mol*K)]
+                - [1400 K, -0.302 cal/(mol*K)]
+                - [1500 K, -0.292 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CCPt1':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -34.852 kcal/mol
+            S_ref: -40.254 cal/(mol*K)
+            Cp_data:
+                - [100 K, -13.862 cal/(mol*K)]
+                - [200 K, -6.413 cal/(mol*K)]
+                - [300 K, -2.803 cal/(mol*K)]
+                - [400 K, -0.862 cal/(mol*K)]
+                - [500 K, -0.030 cal/(mol*K)]
+                - [600 K,  0.163 cal/(mol*K)]
+                - [700 K,  0.094 cal/(mol*K)]
+                - [800 K, -0.023 cal/(mol*K)]
+                - [900 K, -0.103 cal/(mol*K)]
+                - [1000 K, -0.122 cal/(mol*K)]
+                - [1100 K, -0.089 cal/(mol*K)]
+                - [1200 K, -0.016 cal/(mol*K)]
+                - [1300 K,  0.081 cal/(mol*K)]
+                - [1400 K,  0.193 cal/(mol*K)]
+                - [1500 K,  0.309 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CCPt2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  -2.110 kcal/mol
+            S_ref: -30.398 cal/(mol*K)
+            Cp_data:
+                - [100 K, -12.110 cal/(mol*K)]
+                - [200 K, -9.907 cal/(mol*K)]
+                - [300 K, -7.546 cal/(mol*K)]
+                - [400 K, -5.626 cal/(mol*K)]
+                - [500 K, -4.067 cal/(mol*K)]
+                - [600 K, -2.818 cal/(mol*K)]
+                - [700 K, -1.844 cal/(mol*K)]
+                - [800 K, -1.107 cal/(mol*K)]
+                - [900 K, -0.565 cal/(mol*K)]
+                - [1000 K, -0.178 cal/(mol*K)]
+                - [1100 K,  0.089 cal/(mol*K)]
+                - [1200 K,  0.267 cal/(mol*K)]
+                - [1300 K,  0.378 cal/(mol*K)]
+                - [1400 K,  0.441 cal/(mol*K)]
+                - [1500 K,  0.470 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CCPt3':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -16.733 kcal/mol
+            S_ref: -28.341 cal/(mol*K)
+            Cp_data:
+                - [100 K, -11.710 cal/(mol*K)]
+                - [200 K, -10.342 cal/(mol*K)]
+                - [300 K, -7.917 cal/(mol*K)]
+                - [400 K, -5.876 cal/(mol*K)]
+                - [500 K, -4.253 cal/(mol*K)]
+                - [600 K, -2.977 cal/(mol*K)]
+                - [700 K, -1.994 cal/(mol*K)]
+                - [800 K, -1.254 cal/(mol*K)]
+                - [900 K, -0.710 cal/(mol*K)]
+                - [1000 K, -0.321 cal/(mol*K)]
+                - [1100 K, -0.050 cal/(mol*K)]
+                - [1200 K,  0.131 cal/(mol*K)]
+                - [1300 K,  0.247 cal/(mol*K)]
+                - [1400 K,  0.315 cal/(mol*K)]
+                - [1500 K,  0.348 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CO(O)(Pt)+O(CO)(H)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -106.331 kcal/mol
+            S_ref:  14.893 cal/(mol*K)
+            Cp_data:
+                - [100 K,  5.928 cal/(mol*K)]
+                - [200 K,  9.942 cal/(mol*K)]
+                - [300 K, 12.769 cal/(mol*K)]
+                - [400 K, 14.856 cal/(mol*K)]
+                - [500 K, 16.424 cal/(mol*K)]
+                - [600 K, 17.604 cal/(mol*K)]
+                - [700 K, 18.506 cal/(mol*K)]
+                - [800 K, 19.215 cal/(mol*K)]
+                - [900 K, 19.786 cal/(mol*K)]
+                - [1000 K, 20.257 cal/(mol*K)]
+                - [1100 K, 20.654 cal/(mol*K)]
+                - [1200 K, 20.991 cal/(mol*K)]
+                - [1300 K, 21.281 cal/(mol*K)]
+                - [1400 K, 21.532 cal/(mol*K)]
+                - [1500 K, 21.751 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CO2s(Pt)':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -98.276 kcal/mol
+            S_ref:  34.054 cal/(mol*K)
+            Cp_data:
+                - [100 K,  9.835 cal/(mol*K)]
+                - [200 K, 10.866 cal/(mol*K)]
+                - [300 K, 12.081 cal/(mol*K)]
+                - [400 K, 13.039 cal/(mol*K)]
+                - [500 K, 13.792 cal/(mol*K)]
+                - [600 K, 14.404 cal/(mol*K)]
+                - [700 K, 14.910 cal/(mol*K)]
+                - [800 K, 15.331 cal/(mol*K)]
+                - [900 K, 15.682 cal/(mol*K)]
+                - [1000 K, 15.974 cal/(mol*K)]
+                - [1100 K, 16.217 cal/(mol*K)]
+                - [1200 K, 16.422 cal/(mol*K)]
+                - [1300 K, 16.594 cal/(mol*K)]
+                - [1400 K, 16.739 cal/(mol*K)]
+                - [1500 K, 16.862 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CPt1CPt1':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -59.861 kcal/mol
+            S_ref: -22.127 cal/(mol*K)
+            Cp_data:
+                - [100 K, -3.678 cal/(mol*K)]
+                - [200 K,  7.204 cal/(mol*K)]
+                - [300 K,  9.752 cal/(mol*K)]
+                - [400 K,  9.793 cal/(mol*K)]
+                - [500 K,  8.318 cal/(mol*K)]
+                - [600 K,  6.189 cal/(mol*K)]
+                - [700 K,  4.094 cal/(mol*K)]
+                - [800 K,  2.374 cal/(mol*K)]
+                - [900 K,  1.121 cal/(mol*K)]
+                - [1000 K,  0.296 cal/(mol*K)]
+                - [1100 K, -0.184 cal/(mol*K)]
+                - [1200 K, -0.407 cal/(mol*K)]
+                - [1300 K, -0.447 cal/(mol*K)]
+                - [1400 K, -0.363 cal/(mol*K)]
+                - [1500 K, -0.199 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CPt1OPt1':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  -7.985 kcal/mol
+            S_ref:   3.587 cal/(mol*K)
+            Cp_data:
+                - [100 K,  1.590 cal/(mol*K)]
+                - [200 K,  1.320 cal/(mol*K)]
+                - [300 K,  0.932 cal/(mol*K)]
+                - [400 K,  0.680 cal/(mol*K)]
+                - [500 K,  0.528 cal/(mol*K)]
+                - [600 K,  0.433 cal/(mol*K)]
+                - [700 K,  0.372 cal/(mol*K)]
+                - [800 K,  0.332 cal/(mol*K)]
+                - [900 K,  0.306 cal/(mol*K)]
+                - [1000 K,  0.289 cal/(mol*K)]
+                - [1100 K,  0.279 cal/(mol*K)]
+                - [1200 K,  0.274 cal/(mol*K)]
+                - [1300 K,  0.272 cal/(mol*K)]
+                - [1400 K,  0.272 cal/(mol*K)]
+                - [1500 K,  0.274 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CPt2CPt1':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -30.605 kcal/mol
+            S_ref: -12.939 cal/(mol*K)
+            Cp_data:
+                - [100 K, -2.343 cal/(mol*K)]
+                - [200 K,  3.473 cal/(mol*K)]
+                - [300 K,  4.936 cal/(mol*K)]
+                - [400 K,  5.047 cal/(mol*K)]
+                - [500 K,  4.347 cal/(mol*K)]
+                - [600 K,  3.295 cal/(mol*K)]
+                - [700 K,  2.249 cal/(mol*K)]
+                - [800 K,  1.384 cal/(mol*K)]
+                - [900 K,  0.750 cal/(mol*K)]
+                - [1000 K,  0.329 cal/(mol*K)]
+                - [1100 K,  0.080 cal/(mol*K)]
+                - [1200 K, -0.040 cal/(mol*K)]
+                - [1300 K, -0.067 cal/(mol*K)]
+                - [1400 K, -0.032 cal/(mol*K)]
+                - [1500 K,  0.044 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CPt2CPt2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  -5.452 kcal/mol
+            S_ref:   0.314 cal/(mol*K)
+            Cp_data:
+                - [100 K,  0.213 cal/(mol*K)]
+                - [200 K,  0.067 cal/(mol*K)]
+                - [300 K, -0.107 cal/(mol*K)]
+                - [400 K, -0.202 cal/(mol*K)]
+                - [500 K, -0.228 cal/(mol*K)]
+                - [600 K, -0.226 cal/(mol*K)]
+                - [700 K, -0.217 cal/(mol*K)]
+                - [800 K, -0.207 cal/(mol*K)]
+                - [900 K, -0.198 cal/(mol*K)]
+                - [1000 K, -0.188 cal/(mol*K)]
+                - [1100 K, -0.177 cal/(mol*K)]
+                - [1200 K, -0.166 cal/(mol*K)]
+                - [1300 K, -0.154 cal/(mol*K)]
+                - [1400 K, -0.142 cal/(mol*K)]
+                - [1500 K, -0.131 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CPt2OPt1':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -20.947 kcal/mol
+            S_ref:   2.973 cal/(mol*K)
+            Cp_data:
+                - [100 K,  1.691 cal/(mol*K)]
+                - [200 K,  1.668 cal/(mol*K)]
+                - [300 K,  0.958 cal/(mol*K)]
+                - [400 K,  0.486 cal/(mol*K)]
+                - [500 K,  0.224 cal/(mol*K)]
+                - [600 K,  0.073 cal/(mol*K)]
+                - [700 K, -0.020 cal/(mol*K)]
+                - [800 K, -0.079 cal/(mol*K)]
+                - [900 K, -0.113 cal/(mol*K)]
+                - [1000 K, -0.129 cal/(mol*K)]
+                - [1100 K, -0.134 cal/(mol*K)]
+                - [1200 K, -0.129 cal/(mol*K)]
+                - [1300 K, -0.119 cal/(mol*K)]
+                - [1400 K, -0.106 cal/(mol*K)]
+                - [1500 K, -0.090 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CPt3CPt1':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -48.685 kcal/mol
+            S_ref: -12.196 cal/(mol*K)
+            Cp_data:
+                - [100 K, -2.223 cal/(mol*K)]
+                - [200 K,  3.097 cal/(mol*K)]
+                - [300 K,  4.628 cal/(mol*K)]
+                - [400 K,  4.830 cal/(mol*K)]
+                - [500 K,  4.187 cal/(mol*K)]
+                - [600 K,  3.171 cal/(mol*K)]
+                - [700 K,  2.149 cal/(mol*K)]
+                - [800 K,  1.306 cal/(mol*K)]
+                - [900 K,  0.690 cal/(mol*K)]
+                - [1000 K,  0.285 cal/(mol*K)]
+                - [1100 K,  0.051 cal/(mol*K)]
+                - [1200 K, -0.056 cal/(mol*K)]
+                - [1300 K, -0.073 cal/(mol*K)]
+                - [1400 K, -0.028 cal/(mol*K)]
+                - [1500 K,  0.056 cal/(mol*K)]
+            range: [100K, 1500K]
+    'CPt3CPt2':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  -4.930 kcal/mol
+            S_ref:   0.306 cal/(mol*K)
+            Cp_data:
+                - [100 K,  0.440 cal/(mol*K)]
+                - [200 K,  0.546 cal/(mol*K)]
+                - [300 K,  0.353 cal/(mol*K)]
+                - [400 K,  0.177 cal/(mol*K)]
+                - [500 K,  0.069 cal/(mol*K)]
+                - [600 K,  0.013 cal/(mol*K)]
+                - [700 K, -0.014 cal/(mol*K)]
+                - [800 K, -0.026 cal/(mol*K)]
+                - [900 K, -0.030 cal/(mol*K)]
+                - [1000 K, -0.030 cal/(mol*K)]
+                - [1100 K, -0.027 cal/(mol*K)]
+                - [1200 K, -0.023 cal/(mol*K)]
+                - [1300 K, -0.018 cal/(mol*K)]
+                - [1400 K, -0.013 cal/(mol*K)]
+                - [1500 K, -0.008 cal/(mol*K)]
+            range: [100K, 1500K]
+    'H':
+        'thermochem':
+            T_ref: 298 K
+            H_ref: -12.206 kcal/mol
+            S_ref:   0.804 cal/(mol*K)
+            Cp_data:
+                - [100 K,  0.029 cal/(mol*K)]
+                - [200 K,  0.865 cal/(mol*K)]
+                - [300 K,  2.181 cal/(mol*K)]
+                - [400 K,  3.230 cal/(mol*K)]
+                - [500 K,  3.956 cal/(mol*K)]
+                - [600 K,  4.450 cal/(mol*K)]
+                - [700 K,  4.791 cal/(mol*K)]
+                - [800 K,  5.033 cal/(mol*K)]
+                - [900 K,  5.210 cal/(mol*K)]
+                - [1000 K,  5.341 cal/(mol*K)]
+                - [1100 K,  5.442 cal/(mol*K)]
+                - [1200 K,  5.521 cal/(mol*K)]
+                - [1300 K,  5.583 cal/(mol*K)]
+                - [1400 K,  5.633 cal/(mol*K)]
+                - [1500 K,  5.674 cal/(mol*K)]
+            range: [100K, 1500K]
+    'surface-ring strain':
+        'thermochem':
+            T_ref: 298 K
+            H_ref:  42.831 kcal/mol
+            S_ref:   3.104 cal/(mol*K)
+            Cp_data:
+                - [100 K,  1.032 cal/(mol*K)]
+                - [200 K,  0.060 cal/(mol*K)]
+                - [300 K, -0.198 cal/(mol*K)]
+                - [400 K, -0.326 cal/(mol*K)]
+                - [500 K, -0.387 cal/(mol*K)]
+                - [600 K, -0.399 cal/(mol*K)]
+                - [700 K, -0.388 cal/(mol*K)]
+                - [800 K, -0.371 cal/(mol*K)]
+                - [900 K, -0.357 cal/(mol*K)]
+                - [1000 K, -0.348 cal/(mol*K)]
+                - [1100 K, -0.343 cal/(mol*K)]
+                - [1200 K, -0.341 cal/(mol*K)]
+                - [1300 K, -0.342 cal/(mol*K)]
+                - [1400 K, -0.345 cal/(mol*K)]
+                - [1500 K, -0.349 cal/(mol*K)]
+            range: [100K, 1500K]
