@@ -22,7 +22,8 @@ UQ:
                 - [1500 K, 0.3579 cal/(mol*K)]
     DOF:
         100
-            
+
+    InvCovMat:            
         'groups':
             - 'C(Pt)4'
             - 'C(C)(Pt)3'
