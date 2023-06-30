@@ -1,0 +1,94 @@
+UQ:
+    RMSE:
+        'thermochem':
+            T_ref: 298.15 K
+            H_ref: 3.4958 kcal/mol
+            S_ref: 1.6683 cal/(mol*K)
+            Cp_data: 
+                - [100 K, 0.6589 cal/(mol*K)]
+                - [200 K, 0.5180 cal/(mol*K)]
+                - [300 K, 0.4344 cal/(mol*K)]
+                - [400 K, 0.4030 cal/(mol*K)]
+                - [500 K, 0.3902 cal/(mol*K)]
+                - [600 K, 0.3840 cal/(mol*K)]
+                - [700 K, 0.3806 cal/(mol*K)]
+                - [800 K, 0.3781 cal/(mol*K)]
+                - [900 K, 0.3756 cal/(mol*K)]
+                - [1000 K, 0.3728 cal/(mol*K)]
+                - [1100 K, 0.3697 cal/(mol*K)]
+                - [1200 K, 0.3666 cal/(mol*K)]
+                - [1300 K, 0.3635 cal/(mol*K)]
+                - [1400 K, 0.3605 cal/(mol*K)]
+                - [1500 K, 0.3579 cal/(mol*K)]
+    DOF:
+        100
+
+    InvCovMat:            
+        'groups':
+            - 'C(Pt)4'
+            - 'C(C)(Pt)3'
+            - 'surface-ring strain'
+            - 'C(C)(H)2(O)'
+            - 'O(C)(Pt)'
+            - 'CCPt3'
+            - 'O(C)(H)'
+            - 'CO(C)(H)'
+            - 'C(CO)(Pt)3'
+            - 'C(C)(H)(O)(Pt)'
+            - 'CPt3CPt1'
+            - 'CO(C)(Pt)'
+            - 'C(C)(O)(Pt)2'
+            - 'CCOH'
+            - 'CPt3CPt2'
+            - 'C(H)(Pt)3'
+            - 'C(H)2(Pt)2'
+            - 'C(C)(H)2(Pt)'
+            - 'C(C)(H)(Pt)2'
+            - 'CPt2CPt1'
+            - 'CPt1CPt1'
+            - 'CCPt1'
+            - 'C(CO)(H)2(Pt)'
+            - 'C(H)2(O)(Pt)'
+            - 'CPt1OPt1'
+            - 'C(H)3(Pt)'
+            - 'C(C)(H)3'
+            - 'CCPt2'
+            - 'CC'
+            - 'CPt2OPt1'
+            - 'CPt2CPt2'
+            - 'C(CO)(H)(Pt)2'
+            - 'CO(H)(Pt)'
+            - 'C(H)(O)(Pt)2'
+            - 'CO(Pt)2'
+            - 'C(O)(Pt)3'
+            - 'H'
+            - 'O(H)2'
+            - 'O(Pt)2'
+            - 'O(H)(Pt)'
+            - 'C(H)(O)2(Pt)'
+            - 'O(CO)(Pt)'
+            - 'CO2s(Pt)'
+            - 'CO(O)(Pt)+O(CO)(H)'
+            - 'C(H)4s'
+            - 'C(C)2(H)(O)'
+            - 'C(C)2(O)(Pt)'
+            - 'C(C)(CO)(H)(O)'
+            - 'CO(C)2'
+            - 'C(CO)(H)(O)(Pt)'
+            - 'C(C)(CO)(O)(Pt)'
+            - 'C(CO)2(O)(Pt)'
+            - 'C(CO)2(H)2'
+            - 'CO(CO)(H)'
+            - 'CO(C)(CO)'
+            - 'C(CO)(O)(Pt)2'
+            - 'C(C)(CO)(H)2'
+            - 'C(C)(CO)(Pt)2'
+            - 'C(CO)2(H)(Pt)'
+            - 'C(C)(CO)(H)(Pt)'
+            - 'C(C)2(H)(Pt)'
+            - 'C(CO)2(Pt)2'
+            - 'CO(CO)(Pt)'
+            - 'C(C)2(Pt)2'
+            - 'C(C)2(H)2'
+            - 'CO(CO)2'
+            - 'C(CO)2(H)(O)'

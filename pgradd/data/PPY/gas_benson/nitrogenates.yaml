@@ -1,0 +1,634 @@
+units:
+  molar enthalpy: kcal/mol
+  molar entropy: cal/(mol*K)
+  molar heat capacity: cal/(mol*K)
+  temperature: K
+
+
+# The groups below are entered directly (excepting changes as noted) from
+# _Thermochemical Kinetics_ 2nd ed.; S.W. Benson; New York: John Wiley & Sons,
+# 1976 pp. 278-279.
+
+groups:
+  # This group is remapped to C(C)(H)3 according to Benson (1976):
+  #
+  #C(N)(H)3:
+  #  thermochem:
+  #    T_ref: 298.0
+  #    H_ref: -10.08
+  #    S_ref: 30.41
+  #    Cp_data:
+  #      - [300, 6.19]
+  #      - [400, 7.84]
+  #      - [500, 9.4]
+  #      - [600, 10.79]
+  #      - [800, 13.02]
+  #      - [1000, 14.77]
+  #      - [1500, 17.58]
+  #    range: [298, 1500]
+
+  C(C)(N)(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -6.6
+      S_ref: 9.8
+      Cp_data:
+        - [300, 5.25]
+        - [400, 6.9]
+        - [500, 8.28]
+        - [600, 9.39]
+        - [800, 11.09]
+        - [1000, 12.34]
+      range: [298, 1000]
+
+  C(C)2(N)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -5.2
+      S_ref: -11.7
+      Cp_data:
+        - [300, 4.67]
+        - [400, 6.32]
+        - [500, 7.64]
+        - [600, 8.39]
+        - [800, 9.56]
+        - [1000, 10.23]
+      range: [298, 1000]
+
+  C(C)3(N):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -3.2
+      S_ref: -34.1
+      Cp_data:
+        - [300, 4.35]
+        - [400, 6.16]
+        - [500, 7.31]
+        - [600, 7.91]
+        - [800, 8.49]
+        - [1000, 8.5]
+      range: [298, 1000]
+
+  N(C)(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 4.8
+      S_ref: 29.71
+      Cp_data:
+        - [300, 5.72]
+        - [400, 6.51]
+        - [500, 7.32]
+        - [600, 8.07]
+        - [800, 9.41]
+        - [1000, 10.47]
+        - [1500, 12.28]
+      range: [298, 1500]
+
+  N(C)2(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 15.4
+      S_ref: 8.94
+      Cp_data:
+        - [300, 4.2]
+        - [400, 5.21]
+        - [500, 6.13]
+        - [600, 6.83]
+        - [800, 7.9]
+        - [1000, 8.65]
+        - [1500, 9.55]
+      range: [298, 1500]
+
+  N(C)3:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 24.4
+      S_ref: -13.46
+      Cp_data:
+        - [300, 3.48]
+        - [400, 4.56]
+        - [500, 5.43]
+        - [600, 5.97]
+        - [800, 6.56]
+        - [1000, 6.67]
+        - [1500, 6.5]
+      range: [298, 1500]
+
+  N(N)(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 11.4
+      S_ref: 29.13
+      Cp_data:
+        - [300, 6.1]
+        - [400, 7.38]
+        - [500, 8.43]
+        - [600, 9.27]
+        - [800, 10.54]
+        - [1000, 11.52]
+        - [1500, 13.19]
+      range: [298, 1500]
+
+  N(C)(N)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 20.9
+      S_ref: 9.61
+      Cp_data:
+        - [300, 4.82]
+        - [400, 5.8]
+        - [500, 6.5]
+        - [600, 7.0]
+        - [800, 7.8]
+        - [1000, 8.3]
+        - [1500, 9.0]
+      range: [298, 1500]
+
+  N(C)2(N):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 29.2
+      S_ref: -13.8
+      Cp_data: []
+      range: [298, 300]
+
+  N(C[B])(N)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 22.1
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N[I](H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 16.3
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N[I](C):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 21.3
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N[I](C[B]):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 16.7
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N[A](H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 25.1
+      S_ref: 26.8
+      Cp_data:
+        - [300, 4.38]
+        - [400, 4.89]
+        - [500, 5.44]
+        - [600, 5.94]
+        - [800, 6.77]
+        - [1000, 7.42]
+        - [1500, 8.44]
+      range: [298, 1500]
+
+  N[A](C):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 27.0
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N(C)(C[d])(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 15.4
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N(C)(C[d])(N):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 30.0
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N(C)(N[I])(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 21.0
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N(C[d])(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 4.8
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N(C)2(C[d]):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 24.4
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N(C[d])(N)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 21.5
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N(C[B])(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 4.8
+      S_ref: 29.71
+      Cp_data:
+        - [300, 5.72]
+        - [400, 6.51]
+        - [500, 7.32]
+        - [600, 8.07]
+        - [800, 9.41]
+        - [1000, 10.47]
+        - [1500, 12.28]
+      range: [298, 1500]
+
+  N(C)(C[B])(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 14.9
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N(C)2(C[B]):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 26.2
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N(C[B])2(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 16.3
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N[A](N):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 23.0
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  C[B](N):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -0.5
+      S_ref: -9.69
+      Cp_data:
+        - [300, 3.95]
+        - [400, 5.21]
+        - [500, 5.94]
+        - [600, 6.32]
+        - [800, 6.53]
+        - [1000, 6.56]
+      range: [298, 1000]
+
+  CO(N)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -29.6
+      S_ref: 34.93
+      Cp_data:
+        - [300, 7.03]
+        - [400, 7.87]
+        - [500, 8.82]
+        - [600, 9.68]
+        - [800, 11.16]
+        - [1000, 12.2]
+      range: [298, 1000]
+
+  CO(C)(N):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -32.8
+      S_ref: 16.2
+      Cp_data:
+        - [300, 5.37]
+        - [400, 6.17]
+        - [500, 7.07]
+        - [600, 7.66]
+        - [800, 9.62]
+        - [1000, 11.19]
+      range: [298, 1000]
+
+  N(CO)(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -14.9
+      S_ref: 24.69
+      Cp_data:
+        - [300, 4.07]
+        - [400, 5.74]
+        - [500, 7.13]
+        - [600, 8.29]
+        - [800, 9.96]
+        - [1000, 11.22]
+      range: [298, 1000]
+
+  N(C)(CO)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -4.4
+      S_ref: 3.9
+      Cp_data: []
+      range: [298, 300]
+
+  # This entry is given by Benson (1976) with no data.
+  N(C)2(CO):
+    thermochem:
+      T_ref: 298.0
+      H_ref: null
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N(CO)(C[B])(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 0.4
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N(CO)2(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -18.5
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N(C)(CO)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -5.9
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  N(CO)2(C[B]):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -0.5
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  C(C)(N[A])(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -6.0
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  C(C)2(N[A])(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -3.4
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  C(C)3(N[A]):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -1.5
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  C(C)(CN)(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 22.5
+      S_ref: 40.2
+      Cp_data:
+        - [300, 11.1]
+        - [400, 13.4]
+        - [500, 15.5]
+        - [600, 17.2]
+        - [800, 19.7]
+        - [1000, 21.3]
+      range: [298, 1000]
+
+  C(C)2(CN)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 25.8
+      S_ref: 19.8
+      Cp_data:
+        - [300, 11.0]
+        - [400, 12.7]
+        - [500, 14.1]
+        - [600, 15.4]
+        - [800, 17.3]
+        - [1000, 18.6]
+      range: [298, 1000]
+
+  C(C)3(CN):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 29.0
+      S_ref: -2.8
+      Cp_data: []
+      range: [298, 300]
+
+  C(C)2(CN)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: null
+      S_ref: 28.4
+      Cp_data: []
+      range: [298, 300]
+
+  C[d](CN)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 37.4
+      S_ref: 36.58
+      Cp_data:
+        - [300, 9.8]
+        - [400, 11.7]
+        - [500, 13.3]
+        - [600, 14.5]
+        - [800, 16.3]
+        - [1000, 17.3]
+      range: [298, 1000]
+
+  C[d](CN)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 34.1
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  C[d](NO2)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: null
+      S_ref: 44.4
+      Cp_data:
+        - [300, 12.3]
+        - [400, 15.1]
+        - [500, 17.4]
+        - [600, 19.2]
+        - [800, 21.6]
+        - [1000, 23.2]
+        - [1500, 25.3]
+      range: [298, 1500]
+
+  C[B](CN):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 35.8
+      S_ref: 20.5
+      Cp_data:
+        - [300, 9.8]
+        - [400, 11.2]
+        - [500, 12.3]
+        - [600, 13.1]
+        - [800, 14.2]
+        - [1000, 14.9]
+      range: [298, 1000]
+
+  C[t](CN):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 63.8
+      S_ref: 35.4
+      Cp_data:
+        - [300, 10.3]
+        - [400, 11.3]
+        - [500, 12.1]
+        - [600, 12.7]
+        - [800, 13.6]
+        - [1000, 14.3]
+        - [1500, 15.3]
+      range: [298, 1500]
+
+  C(NCO):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -10.2
+      S_ref: 48.9
+      Cp_data:
+        - [300, 15.4]
+      range: [298, 300]
+
+  C(C)(NO2)(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -15.1
+      S_ref: 48.4
+      Cp_data: []
+      range: [298, 300]
+
+  C(C)2(NO2)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -15.8
+      S_ref: 26.9
+      Cp_data: []
+      range: [298, 300]
+
+  C(C)3(NO2):
+    thermochem:
+      T_ref: 298.0
+      H_ref: null
+      S_ref: 3.9
+      Cp_data: []
+      range: [298, 300]
+
+  C(C)(NO2)2(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -14.9
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  O(C)(NO):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -5.9
+      S_ref: 41.9
+      Cp_data:
+        - [300, 9.1]
+        - [400, 10.3]
+        - [500, 11.2]
+        - [600, 12.0]
+        - [800, 13.3]
+        - [1000, 13.9]
+        - [1500, 14.5]
+      range: [298, 1500]
+
+  O(C)(NO2):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -19.4
+      S_ref: 48.5
+      Cp_data: []
+      range: [298, 300]
+
+  O(C)(CN):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 2.0
+      S_ref: 39.5
+      Cp_data:
+        - [300, 10.0]
+      range: [298, 300]
+
+
+  O(C[d])(CN):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 7.5
+      S_ref: 43.1
+      Cp_data:
+        - [300, 13.0]
+      range: [298, 300]
+
+  O(C[B])(CN):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 7.0
+      S_ref: 29.2
+      Cp_data:
+        - [300, 8.3]
+      range: [298, 300]

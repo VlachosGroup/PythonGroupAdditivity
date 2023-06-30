@@ -1,0 +1,651 @@
+units:
+  molar enthalpy: kcal/mol
+  molar entropy: cal/(mol*K)
+  molar heat capacity: cal/(mol*K)
+  temperature: K
+
+
+# The groups below are entered directly (excepting changes as noted) from
+# _Thermochemical Kinetics_ 2nd ed.; S.W. Benson; New York: John Wiley & Sons,
+# 1976 pp. 274-275.
+
+groups:
+  O(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -57.8
+      S_ref: 45.1
+      Cp_data:
+        - [300, 8]
+        - [400, 8.4]
+        - [500, 9.2]
+        - [600, 9.9]
+        - [800, 11.2]
+      range: [298, 800]
+
+  O(C)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -37.9
+      S_ref: 29.07
+      Cp_data:
+        - [300, 4.3]
+        - [400, 4.4]
+        - [500, 4.8]
+        - [600, 5.2]
+        - [800, 6]
+        - [1000, 6.6]
+      range: [298, 1000]
+
+# This group gets remapped to O(C[B])(H):
+#
+#  O(C[B])(H):
+#    thermochem:
+#      T_ref: 298.0
+#      H_ref: -37.9
+#      S_ref: 29.1
+#      Cp_data:
+#        - [300, 4.3]
+#        - [400, 4.5]
+#        - [500, 4.8]
+#        - [600, 5.2]
+#        - [800, 6]
+#        - [1000, 6.6]
+#      range: [298, 1000]
+
+  O(O)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -16.3
+      S_ref: 27.85
+      Cp_data:
+        - [300, 5.2]
+        - [400, 5.8]
+        - [500, 6.3]
+        - [600, 6.7]
+        - [800, 7.2]
+        - [1000, 7.5]
+        - [1500, 8.2]
+      range: [298, 1500]
+
+  O(CO)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -58.1
+      S_ref: 24.5
+      Cp_data:
+        - [300, 3.8]
+        - [400, 5]
+        - [500, 5.8]
+        - [600, 6.3]
+        - [800, 7.2]
+        - [1000, 7.8]
+      range: [298, 1000]
+
+  O(C)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -23.2
+      S_ref: 8.68
+      Cp_data:
+        - [300, 3.4]
+        - [400, 3.7]
+        - [500, 3.7]
+        - [600, 3.8]
+        - [800, 4.4]
+        - [1000, 4.6]
+      range: [298, 1000]
+
+  O(C)(C[d]):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -30.5
+      S_ref: 9.7
+      Cp_data: []
+      range: [298, 300]
+
+  O(C)(C[B]):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -23
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  O(C)(O):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -4.5
+      S_ref: 9.4
+      Cp_data:
+        - [300, 3.7]
+        - [400, 3.7]
+        - [500, 3.7]
+        - [600, 3.7]
+        - [800, 4.2]
+        - [1000, 4.2]
+        - [1500, 4.8]
+      range: [298, 1500]
+
+  O(C)(CO):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -43.1
+      S_ref: 8.4
+      Cp_data: []
+      range: [298, 300]
+
+  O(C[d])2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -33
+      S_ref: 10.1
+      Cp_data: []
+      range: [298, 300]
+
+  O(C[B])2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -21.1
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  O(C[d])(CO):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -45.2
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  O(CO)(C[B]):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -36.7
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  O(CO)(O):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -19.0
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  O(CO)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -46.5
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  O(O)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 19.0
+      S_ref: 9.4
+      Cp_data:
+        - [300, 3.7]
+        - [400, 3.7]
+        - [500, 3.7]
+        - [600, 3.7]
+        - [800, 4.2]
+        - [1000, 4.2]
+        - [1500, 4.8]
+      range: [298, 1500]
+
+  CO(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -26.0
+      S_ref: 52.3
+      Cp_data:
+        - [300, 8.5]
+        - [400, 10.5]
+        - [500, 13.4]
+        - [600, 14.8]
+        - [800, 17.0]
+      range: [298, 800]
+
+  CO(C)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -29.1
+      S_ref: 34.9
+      Cp_data:
+        - [300, 7.0]
+        - [400, 7.8]
+        - [500, 8.8]
+        - [600, 9.7]
+        - [800, 11.2]
+        - [1000, 12.2]
+      range: [298, 1000]
+
+  CO(C[B])(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -29.1
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  CO(C[d])(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -29.1
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  CO(C[t])(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -29.1
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  CO(CO)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -25.3
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  # This group is remapped to CO(C)(H) according to Benson (1976), although
+  # Benson lists them separately with slightly differing H_ref values.
+  #
+  #CO(O)(H):
+  #  thermochem:
+  #    T_ref: 298.0
+  #    H_ref: -32.1
+  #    S_ref: 34.9
+  #    Cp_data:
+  #      - [300, 7.0]
+  #      - [400, 7.9]
+  #      - [500, 8.8]
+  #      - [600, 9.7]
+  #      - [800, 11.2]
+  #      - [1000, 12.2]
+  #    range: [298, 1000]
+
+  CO(C)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -31.4
+      S_ref: 15.0
+      Cp_data:
+        - [300, 5.6]
+        - [400, 6.3]
+        - [500, 7.1]
+        - [600, 7.8]
+        - [800, 8.9]
+        - [1000, 9.6]
+      range: [298, 1000]
+
+  CO(C)(C[B]):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -30.9
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  CO(C[B])2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -25.8
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  CO(C)(O):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -35.1
+      S_ref: 14.8
+      Cp_data:
+        - [300, 6.0]
+        - [400, 6.7]
+        - [500, 7.3]
+        - [600, 8.0]
+        - [800, 8.9]
+        - [1000, 9.4]
+      range: [298, 1000]
+
+  CO(C)(CO):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -29.2
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  CO(C[d])(O):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -32.0
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  CO(C[B])(O):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -36.6
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  CO(CO)(C[B]):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -26.8
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  CO(O)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -23.9
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  CO(CO)(O):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -29.3
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  # This group is remapped to C(C)(H)3 according to Benson (1976):
+  #
+  #C(O)(H)3:
+  #  thermochem:
+  #    T_ref: 298.0
+  #    H_ref: -10.08
+  #    S_ref: 30.41
+  #    Cp_data:
+  #      - [300, 6.19]
+  #      - [400, 7.84]
+  #      - [500, 9.40]
+  #      - [600, 10.79]
+  #      - [800, 13.03]
+  #      - [1000, 14.77]
+  #      - [1500, 17.58]
+  #    range: [298, 1500]
+
+  C(C)(O)(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -8.1
+      S_ref: 9.8
+      Cp_data:
+        - [300, 4.99]
+        - [400, 6.85]
+        - [500, 8.3]
+        - [600, 9.43]
+        - [800, 11.11]
+        - [1000, 12.33]
+      range: [298, 1000]
+
+  C(C[d])(O)(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -6.5
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  C(C[B])(O)(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -8.1
+      S_ref: 9.7
+      Cp_data: []
+      range: [298, 300]
+
+  C(C[t])(O)(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -6.5
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  # These values are left blank in Benson (1976), so we remap the group to
+  # 'C(H)2(C)(CO)' in our definition of the Benson scheme:
+  #
+  #C(H)2(O)(CO):
+  #  thermochem:
+  #    T_ref: 298.0
+  #    H_ref: null
+  #    S_ref: null
+  #    Cp_data: []
+  #    range: [298, 300]
+
+  C(O)2(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -16.1
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  C(C)2(O)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -7.2
+      S_ref: -11
+      Cp_data:
+        - [300, 4.8]
+        - [400, 6.64]
+        - [500, 8.1]
+        - [600, 8.73]
+        - [800, 9.81]
+        - [1000, 10.4]
+      range: [298, 1000]
+
+  C(C)(O)2(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -16.3
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  C(C)3(O):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -6.6
+      S_ref: -33.56
+      Cp_data:
+        - [300, 4.33]
+        - [400, 6.19]
+        - [500, 7.25]
+        - [600, 7.7]
+        - [800, 8.2]
+        - [1000, 8.24]
+      range: [298, 1000]
+
+  C(C)2(O)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -18.6
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  # This group is remapped to C(C)(H)3 according to Benson (1976):
+  #
+  #C(CO)(H)3:
+  #  thermochem:
+  #    T_ref: 298.0
+  #    H_ref: -10.08
+  #    S_ref: 30.41
+  #    Cp_data:
+  #      - [300, 6.19]
+  #      - [400, 7.84]
+  #      - [500, 9.40]
+  #      - [600, 10.79]
+  #      - [800, 13.03]
+  #      - [1000, 14.77]
+  #      - [1500, 17.58]
+  #    range: [298, 1500]
+
+  C(C)(CO)(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -5.2
+      S_ref: 9.6
+      Cp_data:
+        - [300, 6.2]
+        - [400, 7.7]
+        - [500, 8.7]
+        - [600, 9.5]
+        - [800, 11.1]
+        - [1000, 12.2]
+      range: [298, 1000]
+
+  C(C[d])(CO)(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -3.8
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  C(CO)(C[B])(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -5.4
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  C(CO)(C[t])(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -5.4
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  C(CO)2(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -7.6
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  C(C)2(CO)(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -1.7
+      S_ref: -12.0
+      Cp_data: []
+      range: [298, 300]
+
+  C(C)3(CO):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 1.4
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  # This group is remapped to C[d](C)(H) according to Benson (1976):
+  #
+  #C[d](O)(H):
+  #  thermochem:
+  #    T_ref: 298.0
+  #    H_ref: 8.6
+  #    S_ref: 8.0
+  #    Cp_data:
+  #      - [300, 4.2]
+  #      - [400, 5.0]
+  #      - [500, 5.8]
+  #      - [600, 6.5]
+  #      - [800, 7.6]
+  #      - [1000, 8.4]
+  #      - [1500, 9.6]
+  #    range: [298, 1500]
+
+  # This group is remapped to C[d](C)(C[d]) according to Benson (1976).
+  # Note that values given by Benson here differ from those actually listed
+  # for 'C[d](C)(C[d])':
+  #
+  #C[d](C)(O):
+  #  thermochem:
+  #    T_ref: 298.0
+  #    H_ref: 10.3
+  #    S_ref: null
+  #    Cp_data: []
+  #    range: [298, 300]
+
+  # This group is remapped to C[d](C)(C[d]) according to Benson (1976).
+  # Note that values actually listed for 'C[d](C)(C[d])' include S_ref, and
+  # Cp_data, which were not given by Benson here:
+  #
+  #C[d](C[d])(O):
+  #  thermochem:
+  #    T_ref: 298.0
+  #    H_ref: 8.9
+  #    S_ref: null
+  #    Cp_data: []
+  #    range: [298, 300]
+
+  C[d](CO)(C[d])(O):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 11.6
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  C[d](CO)(C[d])(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 5.0
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  C[d](C)(CO)(C[d]):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 7.5
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
+
+  C[B](C[B])2(O):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -0.9
+      S_ref: -10.2
+      Cp_data:
+        - [300, 3.9]
+        - [400, 5.3]
+        - [500, 6.2]
+        - [600, 6.6]
+        - [800, 6.9]
+        - [1000, 6.9]
+      range: [298, 1000]
+
+  C[B](CO)(C[B])2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 3.7
+      S_ref: null
+      Cp_data: []
+      range: [298, 300]
