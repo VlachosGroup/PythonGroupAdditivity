@@ -16,7 +16,7 @@ with open('README.rst', 'r') as fh:
 
 setuptools_info = {
 	'name': 'pgradd',
-	'version': '2.9.11',
+	'version': '2.9.12',
 	'author': 'Vlachos Research Group',
 	'author_email': 'vlachos@udel.edu',
 	'description': 'Python package implements the Group Additivity (GA) method for estimating thermodynamic properties',
@@ -33,10 +33,8 @@ setuptools_info = {
 		'scipy>=1.7.0',
 		'numpy>=1.21.0',
 		'IPython>=7.31.0',
-		'PyYAML>=6.0'
-	    ],
-	'dependency_links': [
-		'git+https://github.com/rdkit/rdkit/',
+		'PyYAML>=6.0',
+		'rdkit>=2023.3.2'
 	    ],
 	'classifiers': [
 		"Programming Language :: Python :: 3",
