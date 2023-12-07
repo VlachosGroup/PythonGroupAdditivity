@@ -18,7 +18,7 @@ thermodynamic properties for that molecule. pgradd also provides a general GA fr
 -  Benson's gas molecule group additivity (BensonGA)
 -  Salciccioli et al. (2012) adsorbate on Pt(111) group additivity scheme (SalciccioliGA2012)
 -  Gu et al. (2017) solvated adsorbate on Pt(111) group additivity scheme (GuSolventGA2017Aq, GuSolventGA2017Vac)
--  Wittreich (2018) adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values regressed with OLS/GLS (Maximum Likelihood) and DFT data processed with `pmutt`_ (GRWSurface2018) **Deprecated**
+-  Wittreich (2018) adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values regressed with OLS/GLS (Maximum Likelihood) and DFT data processed with `pmutt`_ (GRWSurface2018) **Deprecated: Use(PtSurface2023)**
 -  Wittreich (2018) solvated adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values regressed with OLS/GLS (Maximum Likelihood) and DFT data processed with `pmutt`_ (GRWAqueous2018)
 -  Xie (2022) Database for hydrocarbon species on Ru(0001) (XieGA2022)
 -  Wittreich/Xie (2023) adsorbate on Pt(111). Subset of Gu et al. including only surface species. Update to previous GRWSurface2018 (PtSurface2023)
