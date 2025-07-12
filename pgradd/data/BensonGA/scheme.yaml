@@ -1,6 +1,52 @@
 patterns:
     # Patterns centering on a close shell carbon
     # First atom assumed to be the center
+-   center_name: 'F'
+    periph_name: 'F'
+    connectivity: 'fragment a{
+    F labeled f1
+    $? labeled a1 single bond to f1}'
+-   center_name: 'Cl'
+    periph_name: 'Cl'
+    connectivity: 'fragment a{
+    Cl labeled cl1
+    $? labeled a1 single bond to cl1}'
+-   center_name: 'Br'
+    periph_name: 'Br'
+    connectivity: 'fragment a{
+    Br labeled br1
+    $? labeled a1 single bond to br1}'
+-   center_name: 'B'
+    periph_name: 'B'
+    connectivity: 'fragment a{
+    B labeled b1
+    $? labeled a1 single bond to b1
+    $? labeled a2 single bond to b1
+    $? labeled a3 single bond to b1}'
+-   center_name: 'S'
+    periph_name: 'S'
+    connectivity: 'fragment a{
+    S labeled s1
+    $? labeled a1 single bond to s1
+    $? labeled a2 single bond to s1}'
+-   center_name: 'N[t]'
+    periph_name: 'N[t]'
+    connectivity: 'fragment a{
+    N labeled n1
+    $? labeled a1 triple bond to n1}'
+-   center_name: 'N[d]'
+    periph_name: 'N[d]'
+    connectivity: 'fragment a{
+    N labeled n1
+    $? labeled a1 double bond to n1
+    $? labeled a2 single bond to n1}'
+-   center_name: 'N'
+    periph_name: 'N'
+    connectivity: 'fragment a{
+    N labeled n1
+    $? labeled a1 single bond to n1
+    $? labeled a2 single bond to n1
+    $? labeled a3 single bond to n1}'
 -   center_name: 'C'
     periph_name: 'C'
     connectivity: 'fragment a{
@@ -16,6 +62,11 @@ patterns:
     C? labeled c2 double bond to c1
     $? labeled a2 single bond to c1
     $? labeled a3 single bond to c1}'
+-   center_name: 'C[d]'
+    periph_name: 'C[d]'
+    connectivity: 'fragment a{
+    C labeled c1
+    N? labeled a1 double bond to c1}'
 -   center_name: 'C[a]'
     periph_name: 'C[a]'
     connectivity: 'fragment a{
@@ -39,7 +90,7 @@ patterns:
     periph_name: 'C[t]'
     connectivity: 'fragment a{
     C labeled c1
-    C? labeled o1 triple bond to c1
+    $? labeled a1 triple bond to c1
     $? labeled a2 single bond to c1}'
 -   center_name: 'C[B]'
     periph_name: 'C[B]'
@@ -253,17 +304,53 @@ remaps:
     'C(H)3(O)': [[1,'C(C)(H)3']]
     'C(C[.])(H)3': [[1,'C(C)(H)3']]
 
+    # NH2-type remaps;  all 'N(H)2(*)', where (*) is polyvalent map to 'N(C)(H)2'
+    'N(C[B])(H)2': [[1,'N(C)(H)2']]
+    'N(CO)(H)2': [[1,'N(C)(H)2']]
+    'N(C[d])(H)2': [[1,'N(C)(H)2']]
+
+    # NH-type remaps;  all 'N(H)(*)', where (*) is polyvalent map to 'N(C)2(H)' 
+    'N(C)(CO)(H)': [[1,'N(C)2(H)']]
+    'N(CO)2(H)': [[1,'N(C)2(H)']]
+    'N(C[B])2(H)': [[1,'N(C)2(H)']]
+    'N(C)(C[B])(H)': [[1,'N(C)2(H)']]
+    'N(C[B])(C[d])(H)': [[1,'N(C)2(H)']]
+    'N(C)(C[d])(H)': [[1,'N(C)2(H)']]
+    'N(C)2(CO)': [[1,'N(C)3']]
+    'N(C)2(C[B])': [[1,'N(C)3']]
+    'N(C)(CO)2': [[1,'N(C)3']]
+    #'S(C[B])2': [[1,'S(C)2']]
+    #'S(C)(C[B])': [[1,'S(C)2']]
+
     # OH-type remaps in Benson (1976).
     'O(C[d])(H)': [[1,'O(C)(H)']]
     'O(C[B])(H)': [[1,'O(C)(H)']]
     'O(C[t])(H)': [[1,'O(C)(H)']]
+    'S(C[B])(H)': [[1,'S(C)(H)']]
+    'Br(C[B])': [[1,'Br(C)']]
+    'C(Br)(C[B])(H)2': [[1,'C(Br)(C)(H)2']]
 
-    # More Oxygenate remaps in Benson (1976).
-    'CO(H)(O)': [[1,'CO(C)(H)']]
-    'CO(C)(C[d])': [[1,'CO(C[B])(O)']]
-    'C[d](O)(H)': [[1,'C[d](C)(H)']]
-    'C[d](C)(O)': [[1,'C[d](C)(C[d])']]
-    'C[d](C[d])(O)': [[1,'C[d](C)(C[d])']]
+    # More Oxygenate and N=N remaps in Benson (1976).
+    #'CO(H)(O)': [[1,'CO(C)(H)']]
+    #'CO(C)(C[d])': [[1,'CO(C[B])(O)']]
+    #'C[d](O)(H)': [[1,'C[d](C)(H)']]
+    #'C[d](C)(O)': [[1,'C[d](C)(C[d])']]
+    #'C[d](C[d])(O)': [[1,'C[d](C)(C[d])']]
+    #'O(C[B])2': [[1,'O(C[B])(C)']]
+    #'O(C[B])2': [[1,'O(C)2']]
+    #'CO(N)2': [[1,'CO(C)(H)']]
+    #'CO(C[B])(N)': [[1,'CO(C)(H)']]
+    #'CO(CO)(N)': [[1,'CO(C)(N)']]
+    'CO(C[B]2)': [[1,'CO(C)2']]
+    'CO(C)(C[B])': [[1,'CO(C)2']]
+    'C[d](C[d])2(N[d])': [[1,'C[d](C)2(N[d])']]
+    'N[d](CO)(N[d])': [[1,'N[d](C)(N[d])']]
+    'N[d](C[B])(N[d])': [[1,'N[d](C)(N[d])']]
+    'N[d](CO)(C[B])': [[1,'N[d](C)(N[d])']]
+    #'N(C[B])(N[d])2': [[1,'N(CO)(N[d])2']]
+    'CO(C[B])(O)': [[1,'CO(C)(O)']]
+    'CO(C[d])(O)': [[1,'CO(C)(O)']]
+
 
     # This is not given by Benson (1976) but the entry for the group is left
     # blank.  The remap _is_ provided in Benson et.al. (1969):
@@ -948,6 +1035,7 @@ other_descriptors:
     O labeled o2 double bond to c4
     O labeled o3 single bond to c4 {in 1 ring}
     ringbond o3 single bond to c1}'
+
     
 # References:
 #

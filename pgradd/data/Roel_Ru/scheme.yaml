@@ -1,0 +1,627 @@
+patterns:
+    # Patterns centering on a close shell carbon
+    # First atom assumed to be the center
+-   center_name: 'C'
+    periph_name: 'C'
+    connectivity: 'fragment a{
+    C labeled c1 {connected to 0 Ru with partial bond}
+    $? labeled a1 single bond to c1
+    $? labeled a2 single bond to c1
+    $? labeled a3 single bond to c1
+    $? labeled a4 single bond to c1}'
+-   center_name: 'C[d]'
+    periph_name: 'C[d]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 double bond to c1
+    $? labeled a2 single bond to c1
+    $? labeled a3 single bond to c1}'
+-   center_name: 'C[a]'
+    periph_name: 'C[a]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 double bond to c1
+    C? labeled c3 double bond to c1}'
+-   center_name: 'CO'
+    periph_name: 'CO'
+    connectivity: 'fragment a{
+    C labeled c1
+    O? labeled o1 double bond to c1
+    $? labeled a2 single bond to c1
+    $? labeled a3 single bond to c1}'
+-   center_name: 'CCO'
+    periph_name: 'CCO'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 double bond to c1
+    O? labeled o1 double bond to c1}'
+-   center_name: 'C[t]'
+    periph_name: 'C[t]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled o1 triple bond to c1
+    $? labeled a2 single bond to c1}'
+-   center_name: 'C[B]'
+    periph_name: 'C[B]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 aromatic bond to c1
+    C? labeled c3 aromatic bond to c1
+    C? labeled c4 aromatic bond to c3
+    C? labeled c5 aromatic bond to c4
+    C? labeled c6 aromatic bond to c5
+    ringbond c6 aromatic bond to c2
+    $? labeled a1 single bond to c1}'
+    #fused to furan ring
+-   center_name: 'C[B]'
+    periph_name: 'C[B]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 aromatic bond to c1
+    C? labeled c3 aromatic bond to c1
+    C? labeled c4 aromatic bond to c3
+    C? labeled c5 aromatic bond to c4
+    C? labeled c6 aromatic bond to c5
+    ringbond c6 aromatic bond to c2
+    O? labeled o1 aromatic bond to c1
+    C? labeled c7 aromatic bond to o1
+    C? labeled c8 aromatic bond to c7
+    ringbond c8 aromatic bond to c3}'
+-   center_name: 'C[BF]'
+    periph_name: 'C[BF]'
+    connectivity: 'fragment a{
+    C labeled c1
+    C? labeled c2 aromatic bond to c1
+    C? labeled c3 aromatic bond to c1
+    C? labeled c4 aromatic bond to c1
+    C? labeled c5 aromatic bond to c2
+    C? labeled c6 aromatic bond to c5
+    C? labeled c7 aromatic bond to c6
+    ringbond c7 aromatic bond to c3
+    C? labeled c8 aromatic bond to c3
+    C? labeled c9 aromatic bond to c8
+    C? labeled c10 aromatic bond to c9
+    ringbond c10 aromatic bond to c4}'
+    # furan ring 1
+-   center_name: 'C[d]'
+    periph_name: 'C[d]'
+    connectivity: 'fragment a{
+    C labeled c1
+    O? labeled o1 aromatic bond to c1
+    C? labeled c2 aromatic bond to c1
+    C? labeled c3 aromatic bond to c2
+    C? labeled c4 aromatic bond to c3
+    ringbond c4 aromatic bond to o1
+    $? labeled a1 single bond to c1}'
+    # furan ring 2
+-   center_name: 'C[d]'
+    periph_name: 'C[d]'
+    connectivity: 'fragment a{
+    C labeled c2
+    C? labeled c1 aromatic bond to c2
+    C? labeled c3 aromatic bond to c2
+    C? labeled c4 aromatic bond to c3
+    O? labeled o1 aromatic bond to c4
+    ringbond o1 aromatic bond to c1
+    $? labeled a1 single bond to c2}'
+    
+    # Patterns centering on a open shell carbon
+-   center_name: 'C[.]'
+    periph_name: 'C[.]'
+    connectivity: 'fragment a{
+    C. labeled c1
+    $? labeled a1 single bond to c1
+    $? labeled a2 single bond to c1
+    $? labeled a3 single bond to c1}'
+-   center_name: 'C[d.]'
+    periph_name: 'C[d.]'
+    connectivity: 'fragment a{
+    C. labeled c1
+    C? labeled c2 double bond to c1
+    $? labeled a1 single bond to c1}'
+-   center_name: 'CO[.]'
+    periph_name: 'CO[.]'
+    connectivity: 'fragment a{
+    C. labeled c1
+    O? labeled o1 double bond to c1
+    $? labeled a1 single bond to c1}'
+-   center_name: 'C[t.]'
+    periph_name: 'C[t.]'
+    connectivity: 'fragment a{
+    C. labeled c1
+    C? labeled c1 triple bond to c1}'
+-   center_name: 'C[B.]'
+    periph_name: 'C[B.]'
+    connectivity: 'fragment a{
+    C. labeled c1
+    C? labeled c2 aromatic bond to c1
+    C? labeled c3 aromatic bond to c1
+    C? labeled c4 aromatic bond to c3
+    C? labeled c5 aromatic bond to c4
+    C? labeled c6 aromatic bond to c5
+    ringbond c6 aromatic bond to c2}'
+-   center_name: 'C[:]'
+    periph_name: 'C[:]'
+    connectivity: 'fragment a{
+    C: labeled c1
+    $? labeled a1 single bond to c1
+    $? labeled a2 single bond to c1}'
+-   center_name: 'C[d:]'
+    periph_name: 'C[d:]'
+    connectivity: 'fragment a{
+    C: labeled c1
+    C? labeled c2 double bond to c1}'
+-   center_name: 'C[:.]'
+    periph_name: 'C[:.]'
+    connectivity: 'fragment a{
+    C:. labeled c1
+    $? labeled a1 single bond to c1}'
+    
+    # Patterns centering on a oxygen atom
+-   center_name: 'O'
+    periph_name: 'O'
+    connectivity: 'fragment a{
+    O labeled o1
+    $? labeled a1 single bond to o1
+    $? labeled a2 single bond to o1}'
+    # Furan O
+-   center_name: 'O'
+    periph_name: 'O'
+    connectivity: 'fragment a{
+    O labeled o1
+    C? labeled c1 aromatic bond to o1
+    C? labeled c2 aromatic bond to o1}'
+-   center_name: 'O[.]'
+    periph_name: 'O[.]'
+    connectivity: 'fragment a{
+    O. labeled o1
+    $? labeled a1 single bond to o1}'
+-   center_name: 'none'
+    periph_name: 'none'
+    connectivity: 'fragment a{
+    O labeled o1
+    $? labeled a1 double bond to o1}'
+    
+    # Other patterns
+-   center_name: 'none'
+    periph_name: 'H'
+    connectivity: 'fragment a{
+    H labeled h1 {connected to =0 H}
+    $? labeled a1 single bond to h1}'
+    
+    # Unique carbon group patterns
+-   center_name: 'CO2g'
+    periph_name: 'CO2g'
+    connectivity: 'fragment a{
+    C labeled c1 {connected to 0 Ru with partial bond}
+    O? labeled o1 double bond to c1
+    O? labeled o2 double bond to c1}'
+-   center_name: 'CO2s'
+    periph_name: 'CO2s'
+    connectivity: 'fragment a{
+    C labeled c1 {connected to 1 Ru with partial bond}
+    O? labeled o1 double bond to c1
+    O? labeled o2 double bond to c1}'
+-   center_name: 'CC'
+    periph_name: 'none'
+    connectivity: 'fragment a{
+    C? labeled c1
+    C? labeled c2 quadruple bond to c1}'
+-   center_name: 'CO:'
+    periph_name: 'CO:'
+    connectivity: 'fragment a{
+    C: labeled c1
+    O? labeled o1 double bond to c1}'
+-   center_name: 'H2noremap'
+    periph_name: 'none'
+    connectivity: 'fragment a{
+    H labeled h1
+    H labeled h2 single bond to h1}'
+-   center_name: 'O'
+    periph_name: 'O'
+    connectivity: 'fragment a{
+    O: labeled o1}'
+-   center_name: 'C'
+    periph_name: 'C'
+    connectivity: 'fragment a{
+    C? labeled c1 {has 4 radical electrons}}'
+-   center_name: 'H'
+    periph_name: 'H'
+    connectivity: 'fragment a{
+    H. labeled h1}'
+-   center_name: 'none'
+    periph_name: 'Ru'
+    connectivity: 'fragment a{
+    Ru labeled Ru1}'
+
+remaps:
+    # CH3-type remaps;  all 'C(H)3(*)', where (*) is polyvalent map to 'C(H)3(C)'
+    'C(C[d])(H)3': [[1,'C(C)(H)3']]
+    'C(C[t])(H)3': [[1,'C(C)(H)3']]
+    'C(C[B])(H)3': [[1,'C(C)(H)3']]
+    'C(C[BF])(H)3': [[1,'C(C)(H)3']]
+    'C(CO)(H)3': [[1,'C(C)(H)3']]
+    'C(H)3(N)': [[1,'C(C)(H)3']]
+    'C(H)3(N[I])': [[1,'C(C)(H)3']]
+    'C(H)3(N[A])': [[1,'C(C)(H)3']]
+    'C(H)3(O)': [[1,'C(C)(H)3']]
+    'C(C[.])(H)3': [[1,'C(C)(H)3']]
+
+    # OH-type remaps in Benson (1976).
+    'O(C[d])(H)': [[1,'O(C)(H)']]
+    'O(C[B])(H)': [[1,'O(C)(H)']]
+    'O(C[t])(H)': [[1,'O(C)(H)']]
+
+    # More Oxygenate remaps in Benson (1976).
+    'CO(H)(O)': [[1,'CO(C)(H)']]
+    'CO(C)(C[d])': [[1,'CO(C[B])(O)']]
+    'C[d](O)(H)': [[1,'C[d](C)(H)']]
+    'C[d](C)(O)': [[1,'C[d](C)(C[d])']]
+    'C[d](C[d])(O)': [[1,'C[d](C)(C[d])']]
+
+    # This is not given by Benson (1976) but the entry for the group is left
+    # blank.  The remap _is_ provided in Benson et.al. (1969):
+    'C(CO)(H)2(O)': [[1,'C(C)(H)2(O)']]
+    
+    # Other Remaps
+    'H2noremap': [[0.5,'H2']]
+    'C(H)4': [[1,'C(H)4s']]
+    
+    # linearly dependent group
+    'CO(O)(Ru)': [[0.5,'CO(O)(Ru)+O(CO)(H)']]
+    'O(CO)(H)': [[0.5,'CO(O)(Ru)+O(CO)(H)']]
+    
+    'C[d](CO)(C[d])(H)': [[0.5,'C[d](CO)(C[d])(H)+CO(C[d])(H)']]
+    'CO(C[d])(H)': [[0.5,'C[d](CO)(C[d])(H)+CO(C[d])(H)']]
+    
+    #ring strain remaps
+    'RS01': [[1.000 ,'surface-ring strain']]
+    'RS02': [[0.696 ,'surface-ring strain']]
+    'RS03': [[0.608 ,'surface-ring strain']]
+    'RS04': [[0.608 ,'surface-ring strain']]
+    'RS05': [[0.667 ,'surface-ring strain']]
+    'RS06': [[0.304 ,'surface-ring strain']]
+    'RS07': [[0.304 ,'surface-ring strain']]
+    'RS08': [[0.363 ,'surface-ring strain']]
+    'RS09': [[0.392 ,'surface-ring strain']]
+    'RS10': [[0.217 ,'surface-ring strain']]
+    'RS11': [[0.217 ,'surface-ring strain']]
+    'RS12': [[0.275 ,'surface-ring strain']]
+    'RS13': [[0.217 ,'surface-ring strain']]
+    'RS14': [[0.275 ,'surface-ring strain']]
+    'RS15': [[0.333 ,'surface-ring strain']]
+    'RS16': [[0.058 ,'surface-ring strain']]
+    'RS17': [[0.029 ,'surface-ring strain']]
+    'RS18': [[0.608 ,'surface-ring strain']]
+    'RS19': [[0.608 ,'surface-ring strain']]
+    'RS20': [[0.667 ,'surface-ring strain']]
+    'RS21': [[0.304 ,'surface-ring strain']]
+    'RS22': [[0.363 ,'surface-ring strain']]
+    'RS23': [[0.217 ,'surface-ring strain']]
+    'RS24': [[0.217 ,'surface-ring strain']]
+    'RS25': [[0.275 ,'surface-ring strain']]
+    'RS26': [[0.217 ,'surface-ring strain']]
+    'RS27': [[0.217 ,'surface-ring strain']]
+    'RS28': [[0.275 ,'surface-ring strain']]
+    'RS29': [[0.275 ,'surface-ring strain']]
+    'RS30': [[0.333 ,'surface-ring strain']]
+    'RS31': [[0.217 ,'surface-ring strain']]
+    'RS32': [[0.217 ,'surface-ring strain']]
+    'RS33': [[0.275 ,'surface-ring strain']]
+    'RS34': [[0.217 ,'surface-ring strain']]
+    'RS35': [[0.275 ,'surface-ring strain']]
+    'RS36': [[0.333 ,'surface-ring strain']]
+    'RS37': [[0.029 ,'surface-ring strain']]
+
+other_descriptors:
+-   name: 'CCOH'
+    connectivity: 'fragment CCOH{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {connected to 2 Ru with single bond}
+    O labeled o1 single bond to c2
+    H labeled h1 single bond to o1}'
+    # Ring Strain
+    #C(M)3C(M)3
+-   name: 'RS01'
+    connectivity: 'fragment RS01{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {connected to 3 Ru with single bond}}'
+    #C(M)3C(M)2
+-   name: 'RS02'
+    connectivity: 'fragment RS02{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {connected to 2 Ru with single bond}}'
+    #C(M)3C(M)
+-   name: 'RS03'
+    connectivity: 'fragment RS03{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {connected to 1 Ru with single bond, !connected to >=1 any atom with strong bond}}'
+    #C(M)3O(M)
+-   name: 'RS04'
+    connectivity: 'fragment RS04{
+    C labeled c1 {connected to 3 Ru with single bond}
+    O labeled o1 single bond to c1 {connected to 1 Ru with single bond}}'
+    #C(M)3C(=O)(M)
+-   name: 'RS05'
+    connectivity: 'fragment RS05{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {connected to 1 Ru with single bond, connected to 1 any atom with strong bond}}'
+    #C(M)2C(M)
+-   name: 'RS06'
+    connectivity: 'fragment RS06{
+    C labeled c1 {connected to 2 Ru with single bond}
+    C labeled c2 single bond to c1{connected to 1 Ru with single bond, !connected to >=1 any atom with strong bond}}'
+    #C(M)2O(M)
+-   name: 'RS07'
+    connectivity: 'fragment RS07{
+    C labeled c1 {connected to 2 Ru with single bond}
+    O labeled o1 single bond to c1{connected to 1 Ru with single bond}}'
+    #C(M)2C(=O)(M)
+-   name: 'RS08'
+    connectivity: 'fragment RS08{
+    C labeled c1 {connected to 2 Ru with single bond}
+    C labeled c2 single bond to c1 {connected to 1 Ru with single bond, connected to 1 any atom with strong bond}}'
+    #C(M)2C(M)2
+-   name: 'RS09'
+    connectivity: 'fragment RS09{
+    C labeled c1 {connected to 2 Ru with single bond}
+    C labeled c2 single bond to c1 {connected to 2 Ru with single bond}}'
+    #C(M)C(M)
+-   name: 'RS10'
+    connectivity: 'fragment RS10{
+    C labeled c1 {connected to 1 Ru with single bond, !connected to >=1 any atom with strong bond}
+    C labeled c2 single bond to c1 {connected to 1 Ru with single bond, !connected to >=1 any atom with strong bond}}'
+    #C(M)O(M)
+-   name: 'RS11'
+    connectivity: 'fragment RS11{
+    C labeled c1 {connected to 1 Ru with single bond, !connected to >=1 any atom with strong bond}
+    O labeled o1 single bond to c1 {connected to 1 Ru with single bond}}'
+    #C(M)C(=O)(M)
+-   name: 'RS12'
+    connectivity: 'fragment RS12{
+    C labeled c1 {connected to 1 Ru with single bond, !connected to >=1 any atom with strong bond}
+    C labeled c2 single bond to c1 {connected to 1 Ru with single bond, connected to 1 any atom with strong bond}}'
+    #O(M)O(M)
+-   name: 'RS13'
+    connectivity: 'fragment RS13{
+    O labeled o1 {connected to 1 Ru with single bond}
+    O labeled o2 single bond to o1 {connected to 1 Ru with single bond}}'
+    #O(M)C(=O)M
+-   name: 'RS14'
+    connectivity: 'fragment RS14{
+    O labeled o1 {connected to 1 Ru with single bond}
+    C labeled c1 single bond to o1 {connected to 1 Ru with single bond, connected to 1 any atom with strong bond}}'
+    #C(=O)(M)C(=O)(M)
+-   name: 'RS15'
+    connectivity: 'fragment RS15{
+    C labeled c1 {connected to 1 Ru with single bond, connected to 1 any atom with strong bond}
+    C labeled c2 single bond to c1 {connected to 1 Ru with single bond, connected to 1 any atom with strong bond}}'
+    #C(M)2C(=O)C(M)2
+-   name: 'RS16'
+    connectivity: 'fragment RS16{
+    C labeled c1 {connected to 2 Ru with single bond}
+    C labeled c2 single bond to c1 {connected to 1 any atom with strong bond}
+    C labeled c3 single bond to c2 {connected to 2 Ru with single bond}}'
+    #C(M)2C(=O)C(=O)(M)
+-   name: 'RS17'
+    connectivity: 'fragment RS17{
+    C labeled c1 {connected to 2 Ru with single bond}
+    C labeled c2 single bond to c1 {connected to 1 any atom with strong bond}
+    C labeled c3 single bond to c2 {connected to 1 Ru with single bond, connected to 1 any atom with strong bond}}'
+    #C(M)3CC(M)3
+-   name: 'RS18'
+    connectivity: 'fragment RS18{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {!connected to >=1 any atom with strong bond}
+    C labeled c3 single bond to c2 {connected to 3 Ru with single bond}}'
+    #C(M)3OC(M)3
+-   name: 'RS19'
+    connectivity: 'fragment RS19{
+    C labeled c1 {connected to 3 Ru with single bond}
+    O labeled c2 single bond to c1 {!connected to >=1 Ru with any bond}
+    C labeled c3 single bond to c2 {connected to 3 Ru with single bond}}'
+    #C(M)3C(=O)C(M)3
+-   name: 'RS20'
+    connectivity: 'fragment RS20{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {connected to 1 any atom with strong bond}
+    C labeled c3 single bond to c2 {connected to 3 Ru with single bond}}'
+    #C(M)3CC(M)2
+-   name: 'RS21'
+    connectivity: 'fragment RS21{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {!connected to >=1 any atom with strong bond}
+    C labeled c3 single bond to c2 {connected to 2 Ru with single bond}}'
+    #C(M)3C(=O)C(M)2
+-   name: 'RS22'
+    connectivity: 'fragment RS22{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {connected to 1 any atom with strong bond}
+    C labeled c3 single bond to c2 {connected to 2 Ru with single bond}}'
+    #C(M)3CC(M)
+-   name: 'RS23'
+    connectivity: 'fragment RS23{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {!connected to >=1 any atom with strong bond}
+    C labeled c3 single bond to c2 {connected to 1 Ru with single bond, !connected to >=1 any atom with strong bond}}'
+    #C(M)3OC(M)
+-   name: 'RS24'
+    connectivity: 'fragment RS24{
+    C labeled c1 {connected to 3 Ru with single bond}
+    O labeled o1 single bond to c1
+    C labeled c3 single bond to o1 {connected to 1 Ru with single bond, !connected to >=1 any atom with strong bond}}'
+    #C(M)3C(=O)C(M)
+-   name: 'RS25'
+    connectivity: 'fragment RS25{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {connected to 1 any atom with strong bond}
+    C labeled c3 single bond to c2 {connected to 1 Ru with single bond, !connected to >=1 any atom with strong bond}}'
+    #C(M)3CO(M)
+-   name: 'RS26'
+    connectivity: 'fragment RS26{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {!connected to >=1 any atom with strong bond}
+    O labeled o1 single bond to c2 {connected to 1 Ru with single bond}}'
+    #C(M)3OO(M)
+-   name: 'RS27'
+    connectivity: 'fragment RS27{
+    C labeled c1 {connected to 3 Ru with single bond}
+    O labeled o1 single bond to c1 {!connected to >=1 Ru with any bond}
+    O labeled o2 single bond to o1 {connected to 1 Ru with single bond}}'
+    #C(M)3C(=O)O(M)
+-   name: 'RS28'
+    connectivity: 'fragment RS28{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {connected to 1 any atom with strong bond}
+    O labeled o2 single bond to c2 {connected to 1 Ru with single bond}}'
+    #C(M)3OC(=O)(M)
+-   name: 'RS29'
+    connectivity: 'fragment RS29{
+    C labeled c1 {connected to 3 Ru with single bond}
+    O labeled o1 single bond to c1
+    C labeled c2 single bond to o1 {connected to 1 Ru with single bond, connected to 1 any atom with strong bond}}'
+    #C(M)3C(=O)C(=O)(M)
+-   name: 'RS30'
+    connectivity: 'fragment RS30{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {connected to 1 any atom with strong bond}
+    C labeled c3 single bond to c2 {connected to 1 Ru with single bond, connected to 1 any atom with strong bond}}'
+    #C(M)3CCC(M)3
+-   name: 'RS31'
+    connectivity: 'fragment RS31{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {!connected to >=1 any atom with strong bond}
+    C labeled c3 single bond to c2 {!connected to >=1 any atom with strong bond}
+    C labeled c4 single bond to c3 {connected to 3 Ru with single bond}}'
+    #C(M)3COC(M)3
+-   name: 'RS32'
+    connectivity: 'fragment RS32{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {!connected to >=1 any atom with strong bond}
+    O labeled o1 single bond to c2 {!connected to >=1 Ru with any bond}
+    C labeled c4 single bond to o1 {connected to 3 Ru with single bond}}'
+    #C(M)3CC(=O)C(M)3
+-   name: 'RS33'
+    connectivity: 'fragment RS33{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {!connected to >=1 any atom with strong bond}
+    C labeled c3 single bond to c2 {connected to 1 any atom with strong bond}
+    C labeled c4 single bond to c3 {connected to 3 Ru with single bond}}'
+    #C(M)3OOC(M)3
+-   name: 'RS34'
+    connectivity: 'fragment RS34{
+    C labeled c1 {connected to 3 Ru with single bond}
+    O labeled o1 single bond to c1 {!connected to >=1 Ru with any bond}
+    O labeled o2 single bond to o1 {!connected to >=1 Ru with any bond}
+    C labeled c2 single bond to o2 {connected to 3 Ru with single bond}}'
+    #C(M)3OC(=O)C(M)3
+-   name: 'RS35'
+    connectivity: 'fragment RS35{
+    C labeled c1 {connected to 3 Ru with single bond}
+    O labeled o1 single bond to c1 {!connected to >=1 Ru with any bond}
+    C labeled c2 single bond to o1 {connected to 1 any atom with strong bond}
+    C labeled c3 single bond to c2 {connected to 3 Ru with single bond}}'
+    #C(M)3C(=O)C(=O)C(M)3
+-   name: 'RS36'
+    connectivity: 'fragment RS36{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {connected to 1 any atom with strong bond}
+    C labeled c3 single bond to c2 {connected to 1 any atom with strong bond}
+    C labeled c4 single bond to c3 {connected to 3 Ru with single bond}}'
+    #C(M)3C(=O)C(=O)C(M)2
+-   name: 'RS37'
+    connectivity: 'fragment RS37{
+    C labeled c1 {connected to 3 Ru with single bond}
+    C labeled c2 single bond to c1 {connected to 1 any atom with strong bond}
+    C labeled c3 single bond to c2 {connected to 1 any atom with strong bond}
+    C labeled c4 single bond to c3 {connected to 2 Ru with single bond}}'
+# linearly dependent
+#-   name: 'CRu3CRu3'
+#    connectivity: 'fragment CRu3CRu3{ 
+#    C labeled c1 {connected to=3M with single bond}
+#    C labeled c2 single bond to c1 {connected to=3M with single bond}}'
+-   name: 'CRu3CRu2'
+    connectivity: 'fragment CRu3CRu2{ 
+    C labeled c1 {connected to=3M with single bond}
+    C labeled c2 single bond to c1 {connected to=2M with single bond}}'
+-   name: 'CRu3CRu1'
+    connectivity: 'fragment CRu3CRu1{ 
+    C labeled c1 {connected to=3M with single bond}
+    C labeled c2 single bond to c1 {connected to=1M with single bond}}'
+-   name: 'CRu2CRu2'
+    connectivity: 'fragment CRu2CRu2{ 
+    C labeled c1 {connected to=2M with single bond}
+    C labeled c2 single bond to c1 {connected to=2M with single bond}}'
+-   name: 'CRu2CRu1'
+    connectivity: 'fragment CRu2CRu1{ 
+    C labeled c1 {connected to=2M with single bond}
+    C labeled c2 single bond to c1 {connected to=1M with single bond}}'
+-   name: 'CRu1CRu1'
+    connectivity: 'fragment CRu1CRu1{ 
+    C labeled c1 {connected to=1M with single bond}
+    C labeled c2 single bond to c1 {connected to=1M with single bond}}'
+# Doesn't exist in our set
+#-   name: 'CRu3ORu1'
+#    connectivity: 'fragment CRu3ORu1{ 
+#    C labeled c1 {connected to=3M with single bond}
+#    O labeled o1 single bond to c1 {connected to=1M with single bond}}'
+-   name: 'CRu2ORu1'
+    connectivity: 'fragment CRu2ORu1{ 
+    C labeled c1 {connected to=2M with single bond}
+    O labeled o1 single bond to c1 {connected to=1M with single bond}}'
+-   name: 'CRu1ORu1'
+    connectivity: 'fragment CRu1ORu1{ 
+    C labeled c1 {connected to=1M with single bond}
+    O labeled o1 single bond to c1 {connected to=1M with single bond}}'
+-   name: 'CCRu3'
+    connectivity: 'fragment CCRu3{ 
+    C labeled c1 {connected to=0M with single bond}
+    C labeled c2 single bond to c1 {connected to=3M with single bond}}'
+-   name: 'CCRu2'
+    connectivity: 'fragment CCRu2{ 
+    C labeled c1 {connected to=0M with single bond}
+    C labeled c2 single bond to c1 {connected to=2M with single bond}}'
+-   name: 'CCRu1'
+    connectivity: 'fragment CCRu1{ 
+    C labeled c1 {connected to=0M with single bond}
+    C labeled c2 single bond to c1 {connected to=1M with single bond}}'
+-   name: 'CC'
+    connectivity: 'fragment CC{ 
+    C labeled c1 {connected to=0M with single bond}
+    C labeled c2 single bond to c1 {connected to=0M with single bond}}'
+-   name: 'C(H)4s'
+    connectivity: 'fragment a{
+    C labeled c1 {connected to 1 Ru with partial bond}
+    H labeled h1 single bond to c1
+    H labeled h2 single bond to c1
+    H labeled h3 single bond to c1
+    H labeled h4 single bond to c1}'
+# linearly dependent
+#-   name: 'OCRu3'
+#    connectivity: 'fragment OCRu3{ 
+#    O labeled o1 {connected to=0M with single bond}
+#    C labeled c1 single bond to o1 {connected to=3M with single bond}}'
+# linearly dependent
+#-   name: 'OCRu2'
+#    connectivity: 'fragment OCRu2{ 
+#    O labeled o1 {connected to=0M with single bond}
+#    C labeled c1 single bond to o1 {connected to=2M with single bond}}'
+# linearly dependent
+#-   name: 'OCRu1'
+#    connectivity: 'fragment OCRu1{ 
+#    O labeled o1 {connected to=0M with single bond}
+#    C labeled c1 single bond to o1 {connected to=1M with single bond}}'
+# linearly dependent
+#-   name: 'OC'
+#    connectivity: 'fragment OC{ 
+#    O labeled o1 {connected to=0M with single bond}
+#    C labeled c1 single bond to o1 {connected to=0M with single bond}}'
+
+# References:
+#
+# _Thermochemical Kinetics_ 2nd ed.; S.W. Benson; New York: John Wiley & Sons,
+# 1976.
+#
+# "Additivity Rules for the Estimation of Thermochemical Properties"; S.W.
+# Benson, F.R. Cruickshank, D.M. Golden; G.R. Haugen; H.E. O'Neal, A.S.
+# Rodgers, R. Shaw, and R.Walsh; Chem Rev 69 pp. 279-324, 1969.
