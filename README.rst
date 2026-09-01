@@ -22,6 +22,7 @@ thermodynamic properties for that molecule. pgradd also provides a general GA fr
 -  Wittreich (2018) solvated adsorbate on Pt(111). Subset of Gu et al. including only surface species, group values regressed with OLS/GLS (Maximum Likelihood) and DFT data processed with `pmutt`_ (GRWAqueous2018)
 -  Xie (2022) Database for hydrocarbon species on Ru(0001) (XieGA2022)
 -  Wittreich/Xie (2023) adsorbate on Pt(111). Subset of Gu et al. including only surface species. Update to previous GRWSurface2018 (PtSurface2023)
+-  Eccles/Pellizzeri (2026) Extension of Benson's gas molecule group additivity (BensonGA) for fluorinated species. (PellizzeriGAF2026)
 
 Citing this work
 ----------------
@@ -109,6 +110,7 @@ Citations
 -  Gu et al. "Group Additivity for Thermochemical Property Estimation of Lignin Monomers on Pt(111)." J. Phys. Chem. C, 2016, 120 (34), 19234-19241. https://doi.org/10.1021/acs.jpcc.6b06430
 -  Gu GH, Schweitzer B, Michel C, et al (2017) Group additivity for aqueous phase thermochemical properties of alcohols on Pt(111). J Phys Chem C 121:21510–21519. https://doi.org/10.1021/acs.jpcc.7b07340
 -  Xie, T.; Wittreich, G. R.; Vlachos, D. G. Multiscale Modeling of Hydrogenolysis of Ethane and Propane on Ru(0001): Implications for Plastics Recycling. Appl. Catal. B Environ. 2022, 316 (June), 121597. https://doi.org/10.1016/j.apcatb.2022.121597
+-  Eccles, S; Pellizzeri, S. Expanded Group Additivity Framework for Thermochemical Prediction of Fluorocarbons and PFAS from Large-Scale DFT Data. J. Phys. Chem. A (2026) 130 (34): 6825–6834. https://doi.org/10.1021/acs.jpca.6c03256 
 
 Examples
 --------
@@ -228,6 +230,23 @@ Examples
     defaultdict(<class 'int'>, {'C(C)(H)3': 2, 'C(C)2(H)2': 1})
     -41.49969417868688 [Dimensionless]
    -172.52376948049303 [kJ/mol]
+
+**Eccles and Pellizzeri J. Phys. Chem. A 27 August 2026; 130 (34): 6825–6834. Example**::
+
+    In:
+    from pgradd.GroupAdd.Library import GroupLibrary
+    import pgradd.ThermoChem
+    lib = GroupLibrary.Load('PellizzeriGAF2026')
+    descriptors = lib.GetDescriptors('C(F)(F)(F)C(F)(F)C(=O)O')
+    print(descriptors)
+    thermochem = lib.Estimate(descriptors,'thermochem')
+    print(thermochem.get_HoRT(298.15))
+    print(thermochem.get_H(500, 'kJ/mol'), '[kJ/mol]')
+
+    Out:
+    defaultdict(<class 'int'>, {'C(C[d])(F)2(O)': 1, 'F(C)': 2, 'O(C)(H)': 2, 'C[d](C)(O)(O[d])': 1, 'O[d](C[d])': 1})
+    -407.6827446197806 [Dimensionless]
+    -985.3759086950399 [kJ/mol]
 
 **Free Energy of Formation by including Entropy of the Elements**::
 
