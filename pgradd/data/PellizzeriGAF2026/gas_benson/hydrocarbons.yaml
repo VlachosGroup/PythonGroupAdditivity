@@ -1,0 +1,127 @@
+units:
+  molar enthalpy: kcal/mol
+  molar entropy: cal/(mol*K)
+  molar heat capacity: cal/(mol*K)
+  temperature: K
+
+# The groups below are entered directly from _Thermochemical Kinetics_ 2nd ed.;
+# S.W. Benson; New York: John Wiley & Sons, 1976 pp. 272-273.
+
+groups:
+  C(C[d])(C[B])(H)2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: -4.29
+      S_ref: 10.2
+      Cp_data:
+        - [300, 4.7]
+        - [400, 6.8]
+        - [500, 8.4]
+        - [600, 9.6]
+        - [800, 11.3]
+        - [1000, 12.6]
+        - [1500, 14.4]
+      range: [298, 1500]
+      
+  C(C)2(C[t])(H):
+    thermochem:
+      T_ref: 298.0
+      H_ref: -1.72
+      S_ref: -11.19
+      Cp_data:
+        - [300, 3.99]
+        - [400, 5.61]
+        - [500, 6.85]
+        - [600, 7.78]
+        - [800, 9.1]
+        - [1000, 9.9]
+        - [1500, 11.12]
+      range: [298, 1500]
+
+  C[B](C[B])2(C):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 5.51
+      S_ref: -7.69
+      Cp_data:
+        - [300, 2.67]
+        - [400, 3.14]
+        - [500, 3.68]
+        - [600, 4.15]
+        - [800, 4.96]
+        - [1000, 5.44]
+        - [1500, 5.98]
+      range: [298, 1500]
+
+  C[B](C[B])2(C[B]):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 4.96
+      S_ref: -8.64
+      Cp_data:
+        - [300, 3.33]
+        - [400, 4.22]
+        - [500, 4.89]
+        - [600, 5.27]
+        - [800, 5.76]
+        - [1000, 5.95]
+        - [1500, 6.05]
+      range: [298, 1500]
+
+  C[a]:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 34.2
+      S_ref: 6.0
+      Cp_data:
+        - [300, 3.9]
+        - [400, 4.4]
+        - [500, 4.7]
+        - [600, 5.0]
+        - [800, 5.3]
+        - [1000, 5.5]
+        - [1500, 5.7]
+      range: [298, 1500]
+
+  C[BF](C[BF])(C[B])2:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 4.8
+      S_ref: -5.0
+      Cp_data:
+        - [300, 3.0]
+        - [400, 3.7]
+        - [500, 4.2]
+        - [600, 4.6]
+        - [800, 5.2]
+        - [1000, 5.5]
+      range: [298, 1000]
+
+  C[BF](C[BF])2(C[B]):
+    thermochem:
+      T_ref: 298.0
+      H_ref: 3.7
+      S_ref: -5.0
+      Cp_data:
+        - [300, 3.0]
+        - [400, 3.7]
+        - [500, 4.2]
+        - [600, 4.6]
+        - [800, 5.2]
+        - [1000, 5.5]
+      range: [298, 1000]
+
+  C[BF](C[BF])3:
+    thermochem:
+      T_ref: 298.0
+      H_ref: 1.5
+      S_ref: 1.4
+      Cp_data:
+        - [300, 2.0]
+        - [400, 2.9]
+        - [500, 3.5]
+        - [600, 4.0]
+        - [800, 4.7]
+        - [1000, 5.1]
+      range: [298, 1000]
+
